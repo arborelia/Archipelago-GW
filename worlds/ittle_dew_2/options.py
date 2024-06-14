@@ -166,31 +166,4 @@ class ID2Options(PerGameCommonOptions):
     start_with_tracker: StartWithTracker
     start_with_all_warps: StartWithAllWarps
 
-tunic_option_groups = [
-    OptionGroup("Logic Options", [
-        LogicRules,
-        Lanternless,
-        Maskless,
-    ])
-]
-
-tunic_option_presets: Dict[str, Dict[str, Any]] = {
-    "Sync": {
-        "ability_shuffling": True,
-    },
-    "Async": {
-        "progression_balancing": 0,
-        "ability_shuffling": True,
-        "shuffle_ladders": True,
-        "laurels_location": "10_fairies",
-    },
-    "Glace Mode": {
-        "accessibility": "minimal",
-        "ability_shuffling": True,
-        "entrance_rando": "yes",
-        "fool_traps": "onslaught",
-        "logic_rules": "unrestricted",
-        "maskless": True,
-        "lanternless": True,
-    },
-}
+# TODO add prsets and option groups
