@@ -23,6 +23,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Fluffy Fields Caves - Potion Bar Chest": ID2LocationData("Fluffy Fields Caves P", 8),
     "Fluffy Fields Caves - Six Buns Combat Chest": ID2LocationData("Fluffy Fields Caves Q", 9),
     "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData("Fluffy Fields Caves X2", 10),
+    "Fluffy Fields Caves - Jenny Berry House Chest": ID2LocationData("Fluffy Fields Caves U", 11, "Super Secrets"),
     # 100: Sweetwater Coast
     "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData("Sweetwater Coast Caves G", 100),
     "Sweetwater Coast Caves - Three Teleporters Chest": ID2LocationData("Sweetwater Coast Caves H", 101),
@@ -85,6 +86,10 @@ location_table: Dict[str, ID2LocationData] = {
     # 2300: Bottomless Tower
 
     # 2400: Quietus
+
+    # 2500: Portal Worlds
+    
+    # 2600+: Misc Locations
 }
 
 location_name_to_id: Dict[str, int] = {name: location_base_id + data.location_id_offset for name, data in location_table.items}

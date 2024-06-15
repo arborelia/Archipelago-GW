@@ -78,7 +78,8 @@ item_table: Dict[str, ID2ItemData] = {
     "Jenny Berry Outfit": ID2ItemData(ItemClassification.filler, 1, 61, "Outfits"),
     "Apathetic Frog Outfit": ID2ItemData(ItemClassification.filler, 1, 62, "Outfits"),
     "That Guy Outfit": ID2ItemData(ItemClassification.filler, 1, 63, "Outfits"),
-    "Big Old Pile of Loot": ID2ItemData(ItemClassification.filler, 1 , 64)
+    "Big Old Pile of Loot": ID2ItemData(ItemClassification.filler, 1 , 64),
+    "Impossible Gates Pass": ID2ItemData(ItemClassification.progression, 1, 65)
 }
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}
