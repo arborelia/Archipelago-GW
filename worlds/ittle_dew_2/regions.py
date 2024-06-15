@@ -1,4 +1,6 @@
-from typing import Dict, Set
+from typing import Dict, List, NamedTuple, Optional, Union
+from enum import IntEnum
+from .names import ItemNames as iname, LocationNames as lname, RegionNames as rname
 
 tunic_regions: Dict[str, Set[str]] = {
     "Menu": {"Overworld"},

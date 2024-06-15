@@ -26,13 +26,6 @@ class ProgressiveItems(DefaultOnToggle):
     internal_name = "progressive_items"
     display_name = "Progressive Items"
 
-class IncludeCaves(DefaultOnToggle):
-    """
-    Randomizes any chests in caves and houses. Does not include Portal Worlds.
-    """
-    internal_name = "include_caves"
-    display_name = "Include Caves"
-
 class IncludePortalWorlds(Toggle):
     """
     Randomizes any chests in Portal Worlds.
@@ -56,7 +49,7 @@ class IncludeDreamDungeons(Toggle):
 
 class IncludeSuperSecrets(Toggle):
     """
-    Randomizes a secret item in the Dreamworld and a secret with NAAQ BLX.
+    Randomizes a secret item in the Dreamworld, LUDDC, and a secret with NAAQ BLX.
     If you know, you know. If you don't, leave this off.
     (This option removes the need to be as healthy or waste your time.)
     """
@@ -230,7 +223,6 @@ class ID2Options(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     goal: Goal
     progressive_items: ProgressiveItems
-    include_caves: IncludeCaves
     include_portal_worlds: IncludePortalWorlds
     include_secret_dungeons: IncludeSecretDungeons
     include_dream_dungeons: IncludeDreamDungeons

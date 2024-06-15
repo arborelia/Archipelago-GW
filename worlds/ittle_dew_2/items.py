@@ -23,12 +23,12 @@ item_table: Dict[str, ID2ItemData] = {
     "Dynamite Upgrade": ID2ItemData(ItemClassification.useful, 2, 6, "Upgrades"),
     "Ice Ring Upgrade": ID2ItemData(ItemClassification.useful, 2, 7, "Upgrades"),
     "Chain Upgrade": ID2ItemData(ItemClassification.useful, 2, 8, "Upgrades"),
-    "Roll": ID2ItemData(ItemClassification.progression, 1, 9, "Roll"),
+    "Roll": ID2ItemData(ItemClassification.progression, 1, 9),
     "Progressive Tracker": ID2ItemData(ItemClassification.useful, 3, 10, "Auxillery Items"),
     "Progressive Headband": ID2ItemData(ItemClassification.useful, 3, 11, "Auxillery Items"),
     "Progressive Amulet": ID2ItemData(ItemClassification.useful, 3, 12, "Auxillery Items"),
     "Progressive Tome": ID2ItemData(ItemClassification.useful, 3, 13, "Auxillery Items"),
-    "Secret Shard": ID2ItemData(ItemClassification.progression, 36, 14, "Shards"),
+    "Secret Shard": ID2ItemData(ItemClassification.progression, 36, 14),
     "Forbidden Key": ID2ItemData(ItemClassification.progression, 4, 15, "Auxillery Items"),
     "Lockpick": ID2ItemData(ItemClassification.useful, 12, 16, "Auxillery Items"),
     "Crayon": ID2ItemData(ItemClassification.useful, 20, 17, "Auxillery Items"),
@@ -68,45 +68,18 @@ item_table: Dict[str, ID2ItemData] = {
     "Antigram Key Ring": ID2ItemData(ItemClassification.progression, 1, 51, "Key Rings"),
     "Quietus Key": ID2ItemData(ItemClassification.progression, 4, 52, "Keys"),
     "Quietus Key Ring": ID2ItemData(ItemClassification.progression, 1, 53, "Key Rings"),
+    "Jenny Dew Outfit": ID2ItemData(ItemClassification.filler, 1, 54, "Outfits"),
+    "Swimsuit Outfit": ID2ItemData(ItemClassification.filler, 1, 55, "Outfits"),
+    "Tippsie Outfit": ID2ItemData(ItemClassification.filler, 1, 56, "Outfits"),
+    "Little Dude Outfit": ID2ItemData(ItemClassification.filler, 1, 57, "Outfits"),
+    "Tiger Jenny Outfit": ID2ItemData(ItemClassification.filler, 1, 58, "Outfits"),
+    "ID1 Outfit": ID2ItemData(ItemClassification.filler, 1, 59, "Outfits"),
+    "Delinquint Outfit": ID2ItemData(ItemClassification.filler, 1, 60, "Outfits"),
+    "Jenny Berry Outfit": ID2ItemData(ItemClassification.filler, 1, 61, "Outfits"),
+    "Apathetic Frog Outfit": ID2ItemData(ItemClassification.filler, 1, 62, "Outfits"),
+    "That Guy Outfit": ID2ItemData(ItemClassification.filler, 1, 63, "Outfits"),
+    "Big Old Pile of Loot": ID2ItemData(ItemClassification.filler, 1 , 64)
 }
-
-fool_tiers: List[List[str]] = [
-    [],
-    ["Money x1", "Money x10", "Money x15", "Money x16"],
-    ["Money x1", "Money x10", "Money x15", "Money x16", "Money x20"],
-    ["Money x1", "Money x10", "Money x15", "Money x16", "Money x20", "Money x25", "Money x30"],
-]
-
-slot_data_item_names = [
-    "Stick",
-    "Sword",
-    "Sword Upgrade",
-    "Magic Dagger",
-    "Magic Wand",
-    "Magic Orb",
-    "Hero's Laurels",
-    "Lantern",
-    "Gun",
-    "Scavenger Mask",
-    "Shield",
-    "Dath Stone",
-    "Hourglass",
-    "Old House Key",
-    "Fortress Vault Key",
-    "Hero Relic - ATT",
-    "Hero Relic - DEF",
-    "Hero Relic - POTION",
-    "Hero Relic - HP",
-    "Hero Relic - SP",
-    "Hero Relic - MP",
-    "Pages 24-25 (Prayer)",
-    "Pages 42-43 (Holy Cross)",
-    "Pages 52-53 (Icebolt)",
-    "Red Questagon",
-    "Green Questagon",
-    "Blue Questagon",
-    "Gold Questagon",
-]
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}
 
@@ -123,25 +96,26 @@ item_name_groups: Dict[str, Set[str]] = {
 
 # extra groups for the purpose of aliasing items
 extra_groups: Dict[str, Set[str]] = {
-    "Laurels": {"Hero's Laurels"},
-    "Orb": {"Magic Orb"},
-    "Dagger": {"Magic Dagger"},
-    "Wand": {"Magic Wand"},
-    "Magic Rod": {"Magic Wand"},
-    "Fire Rod": {"Magic Wand"},
-    "Holy Cross": {"Pages 42-43 (Holy Cross)"},
-    "Prayer": {"Pages 24-25 (Prayer)"},
-    "Icebolt": {"Pages 52-53 (Icebolt)"},
-    "Ice Rod": {"Pages 52-53 (Icebolt)"},
-    "Melee Weapons": {"Stick", "Sword", "Sword Upgrade"},
-    "Progressive Sword": {"Sword Upgrade"},
-    "Abilities": {"Pages 24-25 (Prayer)", "Pages 42-43 (Holy Cross)", "Pages 52-53 (Icebolt)"},
-    "Questagons": {"Red Questagon", "Green Questagon", "Blue Questagon", "Gold Questagon"},
-    "Ladder to Atoll": {"Ladder to Ruined Atoll"},  # fuzzy matching made it hint Ladders in Well, now it won't
-    "Ladders to Bell": {"Ladders to West Bell"},
-    "Ladders to Well": {"Ladders in Well"},  # fuzzy matching decided ladders in well was ladders to west bell
-    "Ladders in Atoll": {"Ladders in South Atoll"},
-    "Ladders in Ruined Atoll": {"Ladders in South Atoll"},
+    "Melee": {"Progressive Melee"},
+    "Stick": {"Progressive Melee"},
+    "Fire Sword": {"Progressive Melee"},
+    "Sword": {"Progressive Melee"},
+    "Fire Mace": {"Progressive Melee"},
+    "Mace": {"Progressive Melee"},
+    "Force": {"Progressive Force Wand", "Force Wand Upgrade"},
+    "Wand": {"Progressive Force Wand", "Force Wand Upgrade"},
+    "Force Wand": {"Progressive Force Wand", "Force Wand Upgrade"},
+    "Dynamite": {"Progressive Dynamite", "Dynamite Upgrade"},
+    "Ice": {"Progressive Ice Ring", "Ice Ring Upgrade"},
+    "Ring": {"Progressive Ice Ring", "Ice Ring Upgrade"},
+    "Ice Ring": {"Progressive Ice Ring", "Ice Ring Upgrade"},
+    "Chain": {"Progressive Chain", "Chain Upgrade"},
+    "Tracker": {"Progressive Tracker"},
+    "Headband": {"Progressive Headband"},
+    "Amulet": {"Progressive Amulet"},
+    "Tome": {"Progressive Tome"},
+    "Shard": {"Secret Shard"},
+    "Loot": {"Big Old Pile of Loot"}
 }
 
 item_name_groups.update(extra_groups)
