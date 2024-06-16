@@ -187,7 +187,8 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], ID2D
     rname.d2_g: {
         lname.d2_crayon:
             ID2Data(ID2Type.location, [[iname.force],
-                                       [iname.melee, iname.chain]
+                                       [iname.melee, iname.chain],
+                                       [iname.dynamite],
                                        [iname.fire_mace],
                                        [iname.can_phase_ice],
                                        [iname.can_open_chests, iname.can_phase_enemy]]),
@@ -207,7 +208,8 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], ID2D
             ID2Data(ID2Type.region),
         rname.d2_j:
             ID2Data(ID2Type.region, [[iname.dynamite],
-                                     [iname.can_phase_ice]]),
+                                     [iname.can_phase_ice],
+                                     [iname.can_phase_enemy]]),
         rname.d2_k:
             ID2Data(ID2Type.region, [[iname.d2_keys]])
     },
@@ -226,5 +228,11 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], ID2D
             ID2Data(ID2Type.region, [[iname.force],
                                      [iname.can_phase_ice, iname.roll],
                                      [iname.can_phase_dynamite]])
+    },
+    rname.d2_k: {
+        rname.d2_h:
+            ID2Data(ID2Type.region, [[iname.d2_keys]]),
+        rname.d2_j:
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies]])
     }
 }

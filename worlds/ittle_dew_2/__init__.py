@@ -4,8 +4,7 @@ from BaseClasses import Region, Location, Item, Tutorial, ItemClassification, Mu
 from .items import item_name_to_id, item_table, item_name_groups, fool_tiers, filler_items, slot_data_item_names
 from .locations import location_table, location_name_groups, location_name_to_id, hexagon_locations
 from .rules import set_location_rules, set_region_rules, randomize_ability_unlocks, gold_hexagon
-from .er_rules import set_er_location_rules
-from .regions import tunic_regions
+from .region_data import tunic_regions
 from .options import ID2Options
 from worlds.AutoWorld import WebWorld, World
 from decimal import Decimal, ROUND_HALF_UP
