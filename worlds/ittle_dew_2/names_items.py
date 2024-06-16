@@ -39,6 +39,7 @@ class ItemNames(str, Enum):
 
     # Tricks, abilities, and options
     can_open_chests = "Can Open Chests"
+    can_break_stong_objects = "Can Break Strong Objects" # melee, dynamite, or ice, since force can't break everything
     can_kill_basic_enemies = "Can Kill Basic Enemies"
     can_phase_itemless = "Can Phase Itemless"
     can_phase_itemless_difficult = "Can Phase Itemless (Difficult)"

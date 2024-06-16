@@ -81,7 +81,6 @@ class RegionNames(str, Enum):
     scc_h = "Sweetwater Coast Caves H"
     scc_i = "Sweetwater Coast Caves I"
     scc_j = "Sweetwater Coast Caves J"
-    scc_j2 = "Sweetwater Coast Caves J2"
     scc_k = "Sweetwater Coast Caves K"
     scc_l = "Sweetwater Coast Caves L"
     scc_m = "Sweetwater Coast Caves M"

@@ -20,6 +20,7 @@ class LocationNames(str, Enum):
     ffc_jenny_berry_house = "Fluffy Fields Caves - Jenny Berry House Chest"
 
     # Sweetwater Coast Caves
+    scc_white_gates_combat = "Sweetwater Coast Caves - White Gates Combat Chest"
     scc_feral_gates_combat = "Sweetwater Coast Caves - Feral Gates Combat Chest"
     scc_three_teleporters = "Sweetwater Coast Caves - Three Teleporters Chest"
     scc_four_candy_snakes_combat = "Sweetwater Coast Caves - Four Candy Snakes Combat Chest"

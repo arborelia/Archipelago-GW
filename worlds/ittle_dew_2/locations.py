@@ -25,14 +25,15 @@ location_table: Dict[str, ID2LocationData] = {
     "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData("Fluffy Fields Caves X2", 10),
     "Fluffy Fields Caves - Jenny Berry House Chest": ID2LocationData("Fluffy Fields Caves U", 11, "Super Secrets"),
     # 100: Sweetwater Coast
-    "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData("Sweetwater Coast Caves G", 100),
-    "Sweetwater Coast Caves - Three Teleporters Chest": ID2LocationData("Sweetwater Coast Caves H", 101),
-    "Sweetwater Coast Caves - Four Candy Snakes Combat Chest": ID2LocationData("Sweetwater Coast Caves I", 102),
-    "Sweetwater Coast Caves - Portal Spikes Chest": ID2LocationData("Sweetwater Coast Caves J", 103),
-    "Sweetwater Coast Caves - Hint Hermit Chest": ID2LocationData("Sweetwater Coast Caves K", 104),
-    "Sweetwater Coast Caves - Fake Chest Cave Chest": ID2LocationData("Sweetwater Coast Caves L", 105),
-    "Sweetwater Coast Caves - Wooden Balls Spike Floor Chest": ID2LocationData("Sweetwater Coast Caves M", 106),
-    "Sweetwater Coast Caves - Kung Fu Jenny Chest": ID2LocationData("Sweetwater Coast Caves N", 107),
+    "Sweetwater Coast Caves - White Gates Combat Chest": ID2LocationData("Sweetwater Coast Caves B", 100),
+    "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData("Sweetwater Coast Caves G", 101),
+    "Sweetwater Coast Caves - Three Teleporters Chest": ID2LocationData("Sweetwater Coast Caves H", 102),
+    "Sweetwater Coast Caves - Four Candy Snakes Combat Chest": ID2LocationData("Sweetwater Coast Caves I", 103),
+    "Sweetwater Coast Caves - Portal Spikes Chest": ID2LocationData("Sweetwater Coast Caves J", 104),
+    "Sweetwater Coast Caves - Hint Hermit Chest": ID2LocationData("Sweetwater Coast Caves K", 105),
+    "Sweetwater Coast Caves - Fake Chest Cave Chest": ID2LocationData("Sweetwater Coast Caves L", 106),
+    "Sweetwater Coast Caves - Wooden Balls Spike Floor Chest": ID2LocationData("Sweetwater Coast Caves M", 107),
+    "Sweetwater Coast Caves - Kung Fu Jenny Chest": ID2LocationData("Sweetwater Coast Caves N", 108),
     # 200: Fancy Ruins
 
     # 300: Star Woods
