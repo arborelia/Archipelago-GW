@@ -17,7 +17,7 @@ class ID2Data(NamedTuple):
 # First Union is the source region
 # Second Union is the destination region or location
 # The ID2Data is a list of requirements
-traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], ID2Data]] = {
+traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # Currently vanilla start will be the only available starting location
     # For now MVP is going to move starting logical location to be Sweetwater Coast
     rname.menu: {

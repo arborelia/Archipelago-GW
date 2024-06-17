@@ -248,3 +248,43 @@ class ID2Options(PerGameCommonOptions):
     crayons_in_pool: CrayonsInPool
 
 # TODO add presets and option groups
+id2_options_groups = [
+    OptionGroup("Pool Options", [
+        IncludePortalWorlds,
+        IncludeSecretDungeons,
+        IncludeDreamDungeons,
+        IncludeSuperSecrets
+    ]),
+    OptionGroup("Phasing Options", [
+        PhasingItemless,
+        PhasingIce,
+        PhasingDynamite,
+        PhasingEnemies,
+        PhasingDifficult
+    ])
+]
+
+id2_options_presets: Dict[str, Dict[str, Any]] = {
+    "Pro": {
+        "phasing_itemless": True,
+        "phasing_ice": True,
+        "phasing_dynamite": True,
+        "phasing_enemies": True
+    },
+    "Allsanity": {
+        "include_portal_worlds": True,
+        "include_secret_dungeons": True,
+        "include_dream_dungeons": True,
+        "include_super_secrets": True
+    },
+    "Allsanity Pro": {
+        "include_portal_worlds": True,
+        "include_secret_dungeons": True,
+        "include_dream_dungeons": True,
+        "include_super_secrets": True,
+        "phasing_itemless": True,
+        "phasing_ice": True,
+        "phasing_dynamite": True,
+        "phasing_enemies": True
+    }
+}

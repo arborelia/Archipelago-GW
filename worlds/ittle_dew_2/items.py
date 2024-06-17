@@ -1,7 +1,9 @@
 from itertools import groupby
 from typing import Dict, List, Set, NamedTuple
-from BaseClasses import ItemClassification
+from BaseClasses import ItemClassification, Item
 
+class ID2Item(Item):
+    game: str = "Ittle Dew 2"
 
 class ID2ItemData(NamedTuple):
     classification: ItemClassification
