@@ -1,6 +1,7 @@
-from typing import Dict, List, Any, Tuple, TypedDict
+from typing import Dict, List, Any, Tuple, TypedDict, Callable, Union
+from copy import deepcopy
 from logging import warning
-from BaseClasses import Region, Location, Item, Tutorial, ItemClassification, MultiWorld
+from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
 from .items import item_name_to_id, item_table, item_name_groups
 from .locations import location_table, location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
@@ -55,12 +56,31 @@ class ID2World(World):
     item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
 
+    traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]]
+
     def create_regions(self) -> None:
-        for region in reqs:
-            id2_regions[region] = Region(region, self.player, self.multiworld)
-            for location in reqs[region]:
-                if location == ID2Type.location:
-                    id2_regions[region].add_locations(location)
+        self.traversal_requirements = deepcopy(reqs)
+
+
+        locations_to_add: Dict[str, int]
+        for region, region_components in reqs.items():
+            id2_regions[region] = Region(region.value, self.player, self.multiworld)
+            locations_to_add = locations_to_add.clear
+            for content_name, content_data in region_components.items():
+                if content_data.type == ID2Type.location:
+                    locations_to_add[content_name.value] = location_name_to_id[content_name.value]
+                elif content_data.type == ID2Type.region:
+                    id2_regions[region].add_exits({content_name.value}, {content_name.value: })
+            id2_regions[region].add_locations(locations_to_add)
             self.multiworld.regions.append(id2_regions[region])
 
-id2_regions: Dict[str, Region]
+            id2_regions[region]
+
+def parse_exit_rules(data: ID2Data) -> Dict[str, Callable[[CollectionState], bool]]:
+    rules: Dict[str, Callable[[CollectionState], bool]]
+    for i, rulelist in enumerate(data.rules):
+        for rule in rulelist:
+
+
+
+id2_regions: Dict[rname, Region]

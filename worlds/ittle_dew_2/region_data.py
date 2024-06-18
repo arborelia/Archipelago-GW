@@ -174,7 +174,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d2_f:
             ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies]]),
         rname.d2_i:
-            ID2Data(ID2Type.region, [[iname.d2_keys]])
+            ID2Data(ID2Type.region, [[iname.d2_key]])
     },
     rname.d2_f: {
         rname.d2_b:
@@ -211,13 +211,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_ice],
                                      [iname.can_phase_enemy]]),
         rname.d2_k:
-            ID2Data(ID2Type.region, [[iname.d2_keys]])
+            ID2Data(ID2Type.region, [[iname.d2_key]])
     },
     rname.d2_i: {
         lname.d2_orbiting_balls:
             ID2Data(ID2Type.location, [[iname.melee, iname.roll]]),
         rname.d2_e:
-            ID2Data(ID2Type.region, [[iname.d2_keys, iname.melee, iname.roll]]),
+            ID2Data(ID2Type.region, [[iname.d2_key, iname.melee, iname.roll]]),
         rname.d2_g:
             ID2Data(ID2Type.region)
     },
@@ -231,7 +231,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d2_k: {
         rname.d2_h:
-            ID2Data(ID2Type.region, [[iname.d2_keys]]),
+            ID2Data(ID2Type.region, [[iname.d2_key]]),
         rname.d2_j:
             ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies]])
     }
