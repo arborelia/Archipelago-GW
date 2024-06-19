@@ -118,7 +118,7 @@ class ID2World(World):
             items_to_create[iname.force_upgrade.value] = 2
             items_to_create[iname.dynamite_upgrade.value] = 2
             items_to_create[iname.ice_upgrade.value] = 2
-            item_name_groups[iname.chain_upgrade] = 2
+            items_to_create[iname.chain_upgrade] = 2
 
         # if not randomizing roll, give to player and remove from pool
         if not self.options.randomize_roll:
@@ -132,7 +132,7 @@ class ID2World(World):
 
         elif self.options.key_settings == KeySettings.option_keyrings:
             # items_to_create[iname.d1_keyring.value] = 1,
-            items_to_create[iname.d2_keyring.value] = 1,
+            items_to_create[iname.d2_keyring.value] = 1
             # items_to_create[iname.d3_keyring.value] = 1,
             # items_to_create[iname.d4_keyring.value] = 1,
             # items_to_create[iname.d5_keyring.value] = 1,
@@ -178,7 +178,7 @@ class ID2World(World):
         # filler
         filler_count = len(self.multiworld.get_unfilled_locations(self.player)) - len(id2_items)
         for _ in range(filler_count):
-            id2_items.append(self.get_filler_item_name())
+            id2_items.append(self.create_item(self.get_filler_item_name()))
             
         self.multiworld.itempool += id2_items
 

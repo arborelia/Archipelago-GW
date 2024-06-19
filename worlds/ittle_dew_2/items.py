@@ -15,7 +15,7 @@ class ID2ItemData(NamedTuple):
 
 item_base_id = 238492834
 
-item_table: Dict[str, ID2ItemData] = {
+item_table: Dict[iname, ID2ItemData] = {
     # set these back to 3
     iname.melee: ID2ItemData(ItemClassification.progression, 1, 0, "Major Items"),
     iname.force: ID2ItemData(ItemClassification.progression, 1, 1, "Major Items"),
@@ -36,9 +36,9 @@ item_table: Dict[str, ID2ItemData] = {
     # iname.f_key: ID2ItemData(ItemClassification.progression, 4, 15, "Collectables"),
     iname.lockpick: ID2ItemData(ItemClassification.useful, 12, 16, "Minor Items"),
     iname.crayon: ID2ItemData(ItemClassification.useful, 20, 17, "Minor Items"),
-    iname.scroll_cave: ID2ItemData(ItemClassification.filler, 0, 18, "Bonus Items"),
-    iname.scroll_portal: ID2ItemData(ItemClassification.filler, 0, 19, "Bonus Items"),
-    iname.heart_yellow: ID2ItemData(ItemClassification.filler, 0, 20, "Bonus Items"),
+    iname.scroll_cave: ID2ItemData(ItemClassification.filler, 1, 18, "Bonus Items"),
+    iname.scroll_portal: ID2ItemData(ItemClassification.filler, 1, 19, "Bonus Items"),
+    iname.heart_yellow: ID2ItemData(ItemClassification.filler, 1, 20, "Bonus Items"),
     # iname.d1_key: ID2ItemData(ItemClassification.progression, 0, 22, "Keys"),
     # iname.d1_keyring: ID2ItemData(ItemClassification.progression, 0, 23, "Key Rings"),
     iname.d2_key: ID2ItemData(ItemClassification.progression, 0, 24, "Keys"),
