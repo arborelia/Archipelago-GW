@@ -103,7 +103,7 @@ class ItemNames(str, Enum):
     card_flower = "Card 27: Jenny Flower"
     card_hexrot = "Card 28: Hexrot"
     card_mole = "Card 29: Jenny Mole"
-    card_bun = "Card 30: Jenny Bun"
+    card_bun = "Card 30: Jenny Bun (Unemployed)"
     card_cat = "Card 31: Jenny Cat" # Mjau
     card_mermaid = "Card 32: Jenny Mermaid"
     card_berry = "Card 33: Jenny Berry (Vacation)"
@@ -156,6 +156,25 @@ class ItemNames(str, Enum):
     has_opened_dfc = "Has Opened Antigram"
     has_opened_di = "Has Opened Bottomless Tower"
     has_opened_da = "Has Opened Quietus"
+    victory = "Victory" 
+
+    # Can Use Keys
+    can_use_d1_keys = "Can Use Pillow Fort Keys"
+    can_use_d2_keys = "Can Use Sand Castle Keys"
+    can_use_d3_keys = "Can Use Art Gallery Keys"
+    can_use_d4_keys = "Can Use Trash Cave Keys"
+    can_use_d5_keys = "Can Use Flooded Basement Keys"
+    can_use_d6_keys = "Can Use Potassium Mines Keys"
+    can_use_d7_keys = "Can Use Boiling Graves Keys"
+    can_use_d8_keys = "Can Use Grand Library Keys"
+    can_use_s1_keys = "Can Use Sunken Labyrinth Keys"
+    can_use_s2_keys = "Can Use Machine Fortress Keys"
+    can_use_s3_keys = "Can Use Dark Hypostyle Keys"
+    can_use_s4_keys = "Can Use Tomb of Simulacrum Keys"
+    can_use_dd_keys = "Can Use Syncope Keys"
+    can_use_dfc_keys = "Can Use Antigram Keys"
+    can_use_di_keys = "Can Use Bottomless Tower Keys"
+    can_use_da_keys = "Can Use Quietus Keys"
 
     # Options
     option_phasing = "Option - Can Phase Itemless"
