@@ -10,6 +10,7 @@ from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
 from worlds.AutoWorld import WebWorld, World
+from Utils import visualize_regions
 
 
 class ID2Web(WebWorld):
@@ -126,7 +127,7 @@ class ID2World(World):
 
         # key settings
         if self.options.key_settings == KeySettings.option_default:
-            items_to_create[iname.d2_key.value] = 1
+            items_to_create[iname.d2_key.value] = 2
             # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
@@ -186,6 +187,9 @@ class ID2World(World):
         return self.random.choice(filler_items)
     
     def fill_slot_data(self) -> Dict[str, Any]:
+        state = self.multiworld.get_all_state(False)
+        state.update_reachable_regions(self.player)
+        visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         return self.options.as_dict(
             "goal",
             "open_d8",

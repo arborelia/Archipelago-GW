@@ -24,7 +24,30 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         # rname.fluffy_fields: 
             # ID2Data(ID2Type.region),
         rname.sweetwater_coast:
-            ID2Data(ID2Type.region)
+            ID2Data(ID2Type.region),
+        # dummy locations
+        # lname.ffc_artist_backroom:
+        #     ID2Data(ID2Type.location),
+        # lname.ffc_double_spikebun_combat:
+        #     ID2Data(ID2Type.location),
+        # lname.ffc_goldbun_combat:
+        #     ID2Data(ID2Type.location),
+        # lname.ffc_hermit_hint:
+        #     ID2Data(ID2Type.location),
+        # lname.ffc_ice_blockade:
+        #     ID2Data(ID2Type.location),
+        # lname.ffc_jenny_berry_house:
+        #     ID2Data(ID2Type.location),
+        # lname.ffc_potion_bar:
+        #     ID2Data(ID2Type.location),
+        # lname.d1_boss_reward:
+        #     ID2Data(ID2Type.location),
+        # lname.d1_crayon:
+        #     ID2Data(ID2Type.location),
+        # lname.d1_safety_jenny_gate:
+        #     ID2Data(ID2Type.location),
+        # lname.d1_shellbun_nest:
+        #     ID2Data(ID2Type.location),
     },
     # Overworld regions
     rname.sweetwater_coast: {

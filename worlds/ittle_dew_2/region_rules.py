@@ -166,4 +166,4 @@ def create_regions_with_rules(world: "ID2World") -> None:
 
     # TODO special entrances conditions
 
-    world.multiworld.completion_condition[world.player] = lambda state: state.has   (iname.victory, world.player)
+    world.multiworld.completion_condition[world.player] = lambda state: True # state.has(iname.victory, world.player)

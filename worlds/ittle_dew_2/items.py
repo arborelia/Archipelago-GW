@@ -16,11 +16,12 @@ class ID2ItemData(NamedTuple):
 item_base_id = 238492834
 
 item_table: Dict[str, ID2ItemData] = {
-    iname.melee: ID2ItemData(ItemClassification.progression, 3, 0, "Major Items"),
-    iname.force: ID2ItemData(ItemClassification.progression, 3, 1, "Major Items"),
-    iname.dynamite: ID2ItemData(ItemClassification.progression, 3, 2, "Major Items"),
-    iname.ice: ID2ItemData(ItemClassification.progression, 3, 3, "Major Items"),
-    iname.chain: ID2ItemData(ItemClassification.progression, 3, 4, "Major Items"),
+    # set these back to 3
+    iname.melee: ID2ItemData(ItemClassification.progression, 1, 0, "Major Items"),
+    iname.force: ID2ItemData(ItemClassification.progression, 1, 1, "Major Items"),
+    # iname.dynamite: ID2ItemData(ItemClassification.progression, 1, 2, "Major Items"),
+    # iname.ice: ID2ItemData(ItemClassification.progression, 1, 3, "Major Items"),
+    # iname.chain: ID2ItemData(ItemClassification.progression, 1, 4, "Major Items"),
     # Upgrades can substitute for two progressive weapons of the same type to prevent dupes
     iname.force_upgrade: ID2ItemData(ItemClassification.useful, 0, 5, "Upgrades"),
     iname.dynamite_upgrade: ID2ItemData(ItemClassification.useful, 0, 6, "Upgrades"),
@@ -35,9 +36,9 @@ item_table: Dict[str, ID2ItemData] = {
     # iname.f_key: ID2ItemData(ItemClassification.progression, 4, 15, "Collectables"),
     iname.lockpick: ID2ItemData(ItemClassification.useful, 12, 16, "Minor Items"),
     iname.crayon: ID2ItemData(ItemClassification.useful, 20, 17, "Minor Items"),
-    iname.scroll_cave: ID2ItemData(ItemClassification.filler, 10, 18, "Bonus Items"),
-    iname.scroll_portal: ID2ItemData(ItemClassification.filler, 10, 19, "Bonus Items"),
-    iname.heart_yellow: ID2ItemData(ItemClassification.filler, 10, 20, "Bonus Items"),
+    iname.scroll_cave: ID2ItemData(ItemClassification.filler, 0, 18, "Bonus Items"),
+    iname.scroll_portal: ID2ItemData(ItemClassification.filler, 0, 19, "Bonus Items"),
+    iname.heart_yellow: ID2ItemData(ItemClassification.filler, 0, 20, "Bonus Items"),
     # iname.d1_key: ID2ItemData(ItemClassification.progression, 0, 22, "Keys"),
     # iname.d1_keyring: ID2ItemData(ItemClassification.progression, 0, 23, "Key Rings"),
     iname.d2_key: ID2ItemData(ItemClassification.progression, 0, 24, "Keys"),
