@@ -93,7 +93,7 @@ location_table: Dict[str, ID2LocationData] = {
     # 2600+: Misc Locations
 }
 
-location_name_to_id: Dict[str, int] = {name: location_base_id + data.location_id_offset for name, data in location_table.items}
+location_name_to_id: Dict[str, int] = {name: location_base_id + data.location_id_offset for name, data in location_table.items()}
 
 location_name_groups: Dict[str, Set[str]] = {}
 for loc_name, loc_data in location_table.items():

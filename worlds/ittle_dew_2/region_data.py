@@ -47,7 +47,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_ice, iname.roll],
                                      [iname.can_phase_enemy_difficult, iname.roll]]),
         rname.scc_g:
-            ID2Data(ID2Type.region, [[iname.can_break_stong_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects]]),
         rname.scc_h:
             ID2Data(ID2Type.region),
         rname.scc_i:

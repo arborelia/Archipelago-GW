@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import Dict, Any
-from Options import (DefaultOnToggle, Toggle, StartInventoryPool, Choice, Range, TextChoice, PlandoConnections,
+from Options import (DefaultOnToggle, Toggle, StartInventoryPool, Choice, Range,
                      PerGameCommonOptions, OptionGroup)
       
 class Goal(Choice):
@@ -89,8 +89,7 @@ class KeySettings(Choice):
     """
     How should dungeon keys be treated by the randomizer? Forbidden Keys are not affected by this setting.
     Default: Keys are individual items. You are logically expected to have every key for a dungeon to open a locked door
-    Keyrings: All keys are removed and keyrings for each dungeon are placed in the pool instead, granting
-    all the keys you need at once
+    Keyrings: All keys are removed and keyrings for each dungeon are placed in the pool instead, granting all the keys you need at once
     Keysey: All keys and locks are removed
     """
     # Eventually add legacy key setting to make a unique key for each lock
@@ -121,9 +120,11 @@ class ExtraShards(Range):
     """
     Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle, Secret Shards will give you Portal or Cave Scrolls instead.
     """
-    range_start: 0
-    range_end: 36
-    default: 12
+    internal_name = "extra_shards"
+    display_name = "Extra Shards"
+    range_start = 0
+    range_end = 36
+    default = 12
 
 class RandomizeStick(Toggle):
     """

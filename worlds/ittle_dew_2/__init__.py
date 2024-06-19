@@ -130,30 +130,30 @@ class ID2World(World):
                 items_to_create[key_group.value] = key_count_requirements[key_group]
 
         elif self.options.key_settings.option_keyrings:
-            items_to_create[iname.d1_keyring.value] = 1,
+            # items_to_create[iname.d1_keyring.value] = 1,
             items_to_create[iname.d2_keyring.value] = 1,
-            items_to_create[iname.d3_keyring.value] = 1,
-            items_to_create[iname.d4_keyring.value] = 1,
-            items_to_create[iname.d5_keyring.value] = 1,
-            items_to_create[iname.d6_keyring.value] = 1,
-            items_to_create[iname.d7_keyring.value] = 1,
-            items_to_create[iname.d8_keyring.value] = 1,
-            items_to_create[iname.s1_keyring.value] = 1,
-            items_to_create[iname.s2_keyring.value] = 1,
-            items_to_create[iname.s3_keyring.value] = 1,
-            items_to_create[iname.s4_keyring.value] = 1,
-            items_to_create[iname.dd_keyring.value] = 1,
-            items_to_create[iname.dfc_keyring.value] = 1,
-            items_to_create[iname.di_keyring.value] = 1,
-            items_to_create[iname.da_keyring.value] = 1,
+            # items_to_create[iname.d3_keyring.value] = 1,
+            # items_to_create[iname.d4_keyring.value] = 1,
+            # items_to_create[iname.d5_keyring.value] = 1,
+            # items_to_create[iname.d6_keyring.value] = 1,
+            # items_to_create[iname.d7_keyring.value] = 1,
+            # items_to_create[iname.d8_keyring.value] = 1,
+            # items_to_create[iname.s1_keyring.value] = 1,
+            # items_to_create[iname.s2_keyring.value] = 1,
+            # items_to_create[iname.s3_keyring.value] = 1,
+            # items_to_create[iname.s4_keyring.value] = 1,
+            # items_to_create[iname.dd_keyring.value] = 1,
+            # items_to_create[iname.dfc_keyring.value] = 1,
+            # items_to_create[iname.di_keyring.value] = 1,
+            # items_to_create[iname.da_keyring.value] = 1,
 
         # remove Forbidden Keys from pool if S4 is open
         if self.options.open_s4:
             items_to_create[iname.f_key.value] = 0
 
         # configure shard count
-        items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
-            + self.options.extra_shards.value
+        # items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
+        #     + self.options.extra_shards.value
         
         # crayon count
         items_to_create[iname.crayon.value] = self.options.crayons_in_pool.value
@@ -191,7 +191,8 @@ class ID2World(World):
             "open_dreamworld",
             "dream_dungeons_do_not_change_items",
             "roll_opens_chests",
-            "start_with_all_warps"
+            "start_with_all_warps",
+            "key_settings"
         )
     
     # Universal Tracker stuff

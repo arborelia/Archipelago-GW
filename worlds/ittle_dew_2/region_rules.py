@@ -2,9 +2,9 @@ from typing import List, Dict, TYPE_CHECKING, cast
 from BaseClasses import Region, Location, ItemClassification
 from worlds.generic.Rules import CollectionRule
 from .region_data import ID2Type
-from names_regions import RegionNames as rname
-from names_locations import LocationNames as lname
-from names_items import ItemNames as iname
+from .names_regions import RegionNames as rname
+from .names_locations import LocationNames as lname
+from .names_items import ItemNames as iname
 from .items import ID2Item
 from .options import ID2Options
 
@@ -17,7 +17,7 @@ class ID2Location(Location):
 # group requirements and their individual requirements
 helper_reference: Dict[str, List[str]] = {
     iname.can_break_weak_objects: [iname.melee, iname.force, iname.dynamite, iname.ice],
-    iname.can_break_stong_objects: [iname.melee, iname.dynamite, iname.ice],
+    iname.can_break_strong_objects: [iname.melee, iname.dynamite, iname.ice],
     iname.can_phase_itemless: [iname.option_phasing],
     iname.can_phase_itemless_difficult: [iname.option_phasing, iname.option_phasing_difficult],
     iname.can_phase_ice: [iname.ice, iname.option_phasing_ice],
@@ -53,22 +53,22 @@ keyring_helper_reference: Dict[str, List[str]] = {
 
 # number of keys in each dungeon
 key_count_requirements: Dict[lname, int] = {
-    lname.got_all_d1_keys: 2,
+    # lname.got_all_d1_keys: 2,
     lname.got_all_d2_keys: 2,
-    lname.got_all_d3_keys: 4,
-    lname.got_all_d4_keys: 4,
-    lname.got_all_d5_keys: 5,
-    lname.got_all_d6_keys: 5,
-    lname.got_all_d7_keys: 5,
-    lname.got_all_d8_keys: 8,
-    lname.got_all_s1_keys: 3,
-    lname.got_all_s2_keys: 5,
-    lname.got_all_s3_keys: 5,
-    lname.got_all_s4_keys: 10,
-    lname.got_all_dd_keys: 3,
-    lname.got_all_di_keys: 4,
-    lname.got_all_dfc_keys: 4,
-    lname.got_all_da_keys: 4,
+    # lname.got_all_d3_keys: 4,
+    # lname.got_all_d4_keys: 4,
+    # lname.got_all_d5_keys: 5,
+    # lname.got_all_d6_keys: 5,
+    # lname.got_all_d7_keys: 5,
+    # lname.got_all_d8_keys: 8,
+    # lname.got_all_s1_keys: 3,
+    # lname.got_all_s2_keys: 5,
+    # lname.got_all_s3_keys: 5,
+    # lname.got_all_s4_keys: 10,
+    # lname.got_all_dd_keys: 3,
+    # lname.got_all_di_keys: 4,
+    # lname.got_all_dfc_keys: 4,
+    # lname.got_all_da_keys: 4,
 }
 
 # cut grouped requirements into their individual requirements
@@ -134,8 +134,8 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 id2_regions[origin_name].locations.append(location)
             elif data.type == ID2Type.region:
                 # TODO add shard requirements for shard dungeons (maybe make that an item?)
-                entrance = id2_regions[origin_name].connect(connecting_region=id2_regions[destination_name],
-                                                            rule=interpret_rule(data.rules, world))
+                id2_regions[origin_name].connect(connecting_region = id2_regions[destination_name],
+                                                            rule = interpret_rule(data.rules, world))
 
     # "give" the player permission to use their keys once they've obained them all
     if options.key_settings.option_default:
