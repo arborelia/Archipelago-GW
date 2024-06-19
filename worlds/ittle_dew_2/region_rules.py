@@ -1,7 +1,7 @@
-from typing import List, Dict, TYPE_CHECKING, cast, Callable
-from BaseClasses import Region, Location, ItemClassification, CollectionState
-from worlds.generic.Rules import CollectionRule, add_rule
-from .region_data import ID2Type, ID2Data
+from typing import List, Dict, TYPE_CHECKING, cast
+from BaseClasses import Region, Location, ItemClassification
+from worlds.generic.Rules import CollectionRule
+from .region_data import ID2Type
 from names_regions import RegionNames as rname
 from names_locations import LocationNames as lname
 from names_items import ItemNames as iname

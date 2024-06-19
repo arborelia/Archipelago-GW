@@ -1,9 +1,8 @@
-from typing import Dict, List, Any, Mapping, Tuple, TypedDict, Callable, Union
+from typing import Dict, List, Any, Union
 from copy import deepcopy
-from logging import warning
 from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
 from .items import item_name_to_id, item_table, item_name_groups, filler_items
-from .locations import location_table, location_name_groups, location_name_to_id
+from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
 from .region_rules import create_regions_with_rules, key_count_requirements
 from .options import ID2Options, id2_options_groups, id2_options_presets
@@ -11,7 +10,6 @@ from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
 from worlds.AutoWorld import WebWorld, World
-from decimal import Decimal, ROUND_HALF_UP
 
 
 class ID2Web(WebWorld):
@@ -198,6 +196,6 @@ class ID2World(World):
     
     # Universal Tracker stuff
     @ staticmethod
-    def interpret_slot_data(slot_data: Dict[str, Any]) -> [str, Any]:
+    def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
         # returning slot_data so it regens, giving it back in multiworld.re_gen_passthrough
         return slot_data
