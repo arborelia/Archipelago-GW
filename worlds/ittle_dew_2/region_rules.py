@@ -82,10 +82,10 @@ def convert_helper_reqs(helper_name: str, reqs: List[List[str]], options = ID2Op
                     new_list[j] = replacement
                     new_list_storage.append(new_list)
                 # if we're running with keyrings, convert keyrings to the ability to use locks
-                if options.key_settings.option_keyrings:
+                if options.key_settings.value == options.key_settings.option_keyrings:
                     for key_replacement in keyring_helper_reference[helper_name]:
                         key_new_list = sublist.copy()
-                        key_new_list[j] = replacement
+                        key_new_list[j] = key_replacement
                         new_list_storage.append(key_new_list)
                 # replace the starter list with one of the storage lists to keep it from skipping an entry
                 reqs[i] = new_list_storage.pop()
@@ -94,7 +94,8 @@ def convert_helper_reqs(helper_name: str, reqs: List[List[str]], options = ID2Op
     for sublist in new_list_storage:
         reqs.append(sublist)
 
-    # remove empty lists from the reqs
+    # TODO remove empty lists from the reqs
+        
     return reqs
 
 # create a bunch of empty regions
@@ -103,9 +104,10 @@ def create_id2_regions(world: "ID2World") -> Dict[str, Region]:
     # TODO exclude regions based on options
     for region_name in rname:
         id2_regions[region_name] = Region(region_name, world.player, world.multiworld)
+    return id2_regions
 
 # break down and convert requirements
-def interpret_rule(reqs: List[List[str]], world: "ID2World", options: ID2Options) -> CollectionRule:
+def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
     for helper_name in helper_reference.keys():
         reqs = convert_helper_reqs(helper_name, reqs)
     return lambda state: any(state.has_all(sublist, world.player) for sublist in reqs)
