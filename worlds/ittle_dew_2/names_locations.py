@@ -331,5 +331,5 @@ class LocationNames(str, Enum):
     # got_all_dfc_keys = "Received Antigram Keys"
     # got_all_di_keys = "Received Bottomless Tower Keys"
     # got_all_da_keys = "Received Quietus Keys"
-    # got_fire_sword = "Received Fire Sword"
-    # got_fire_mace = "Received Fire Mace"
+    got_fire_sword = "Received Fire Sword"
+    got_fire_mace = "Received Fire Mace"

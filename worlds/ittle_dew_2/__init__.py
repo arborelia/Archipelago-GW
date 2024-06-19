@@ -5,7 +5,7 @@ from .items import item_name_to_id, item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
 from .region_rules import create_regions_with_rules, key_count_requirements
-from .options import ID2Options, id2_options_groups, id2_options_presets
+from .options import ID2Options, id2_options_groups, id2_options_presets, KeySettings
 from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
@@ -99,7 +99,7 @@ class ID2World(World):
     
     # Actually generate our items so they can fill the world
     def create_items(self) -> None:
-        id2_items = List[ID2Item] = []
+        id2_items: List[ID2Item] = []
 
         items_to_create: Dict[str, int] = {item: data.quantity_in_item_pool for item, data in item_table.items()}
 
@@ -125,11 +125,11 @@ class ID2World(World):
             items_to_create[iname.roll.value] = 0
 
         # key settings
-        if self.options.key_settings.option_default:
-            for key_group in key_count_requirements:
-                items_to_create[key_group.value] = key_count_requirements[key_group]
+        if self.options.key_settings == KeySettings.option_default:
+            items_to_create[iname.d2_key.value] = 1
+            # TODO add the other keys
 
-        elif self.options.key_settings.option_keyrings:
+        elif self.options.key_settings == KeySettings.option_keyrings:
             # items_to_create[iname.d1_keyring.value] = 1,
             items_to_create[iname.d2_keyring.value] = 1,
             # items_to_create[iname.d3_keyring.value] = 1,
@@ -178,6 +178,8 @@ class ID2World(World):
         filler_count = len(self.multiworld.get_unfilled_locations(self.player)) - len(id2_items)
         for _ in range(filler_count):
             id2_items.append(self.get_filler_item_name())
+            
+        self.multiworld.itempool += id2_items
 
 
     def get_filler_item_name(self) -> str:
