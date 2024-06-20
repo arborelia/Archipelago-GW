@@ -72,7 +72,7 @@ key_count_requirements: Dict[lname, int] = {
 }
 
 # cut grouped requirements into their individual requirements
-def convert_helper_reqs(helper_name: str, reqs: List[List[str]], options: ID2Options) -> List[List[str]]:
+def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[str]]:
     new_list_storage: List[List[str]] = []
     for i, sublist in enumerate(reqs):
         for j, req in enumerate(sublist):
@@ -80,13 +80,7 @@ def convert_helper_reqs(helper_name: str, reqs: List[List[str]], options: ID2Opt
                 for replacement in helper_reference[helper_name]:
                     new_list = sublist.copy()
                     new_list[j] = replacement
-                    new_list_storage.append(new_list)
-                # if we're running with keyrings, convert keyrings to the ability to use locks
-                if options.key_settings == KeySettings.option_keyrings:
-                    for key_replacement in keyring_helper_reference[helper_name]:
-                        key_new_list = sublist.copy()
-                        key_new_list[j] = key_replacement
-                        new_list_storage.append(key_new_list)
+                    new_list_storage.append(new_list)                
                 # replace the starter list with one of the storage lists to keep it from skipping an entry
                 reqs[i] = new_list_storage.pop()
                 break
@@ -109,7 +103,7 @@ def create_id2_regions(world: "ID2World") -> Dict[str, Region]:
 # break down and convert requirements
 def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
     for helper_name in helper_reference.keys():
-        reqs = convert_helper_reqs(helper_name, reqs, world.options)
+        reqs = convert_helper_reqs(helper_name, reqs)
     return lambda state: any(state.has_all(sublist, world.player) for sublist in reqs)
 
 # create the regions, fill them with exits and locations, and assign logic
@@ -140,16 +134,23 @@ def create_regions_with_rules(world: "ID2World") -> None:
                                                             rule = interpret_rule(data.rules, world))
 
     # "give" the player permission to use their keys once they've obained them all
-    if options.key_settings == KeySettings.option_default:
-        keys_location_list = [name for name in lname if name.value.endswith(" Keys")]
-        for key_location in keys_location_list:
-            location = ID2Location(player, key_location, None, id2_regions[rname.menu])
-            key_name = key_location.value.replace("Received", "Can Use")
-            key_item = key_location.value.removeprefix("Received ")
-            key_item = key_item.removesuffix("s")
-            location.place_locked_item(ID2Item(key_name, ItemClassification.progression, None, player))
+    keys_location_list = [name for name in lname if name.value.endswith(" Keys")]
+    for key_location in keys_location_list:
+        location = ID2Location(player, key_location, None, id2_regions[rname.menu])
+        key_name = key_location.value.replace("Received", "Can Use")
+        key_item = key_location.value.removeprefix("Received ")
+        key_item = key_item.removesuffix("s")
+        if options.key_settings == KeySettings.option_keyrings:
+            key_item += " Ring"
+
+        location.place_locked_item(ID2Item(key_name, ItemClassification.progression, None, player))
+        if options.key_settings != KeySettings.option_keysey:
             location.access_rule = lambda state: state.has(key_item, player, key_count_requirements[key_location])
-            id2_regions[rname.menu].locations.append(location)
+        else: # keysey we can just assume we always have access to locked doors
+            location.access_rule = lambda _: True
+        id2_regions[rname.menu].locations.append(location)
+            
+
 
     # give the player access to fire sword and mace once they've obtained 2 and 3 progressive melees
     fire_sword_event = ID2Location(player, lname.got_fire_sword, None, id2_regions[rname.menu])
