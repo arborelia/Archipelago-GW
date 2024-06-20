@@ -169,7 +169,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # Sand Castle
     rname.d2_a: {
         lname.d2_boss_reward:
-            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies, iname.roll]], iname.victory),
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies, iname.roll]]),#, iname.victory),
         rname.d2_b:
             ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies, iname.roll]])
     },
@@ -220,7 +220,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d2_i:
             ID2Data(ID2Type.region),
         rname.d2_f:
-            ID2Data(ID2Type.region, [[iname.fire_sword]])
+            ID2Data(ID2Type.region, [[iname.fire_sword]]),
+        rname.sweetwater_coast:
+            ID2Data(ID2Type.region)
     },
     rname.d2_h: {
         rname.d2_c:

@@ -146,6 +146,7 @@ def create_regions_with_rules(world: "ID2World") -> None:
             location = ID2Location(player, key_location, None, id2_regions[rname.menu])
             key_name = key_location.value.replace("Received", "Can Use")
             key_item = key_location.value.removeprefix("Received ")
+            key_item = key_item.removesuffix("s")
             location.place_locked_item(ID2Item(key_name, ItemClassification.progression, None, player))
             location.access_rule = lambda state: state.has(key_item, player, key_count_requirements[key_location])
             id2_regions[rname.menu].locations.append(location)

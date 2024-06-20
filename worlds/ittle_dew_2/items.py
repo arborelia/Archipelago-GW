@@ -28,7 +28,7 @@ item_table: Dict[iname, ID2ItemData] = {
     iname.ice_upgrade: ID2ItemData(ItemClassification.useful, 0, 7, "Upgrades"),
     iname.chain_upgrade: ID2ItemData(ItemClassification.useful, 0, 8, "Upgrades"),
     iname.roll: ID2ItemData(ItemClassification.progression, 1, 9, "Major Items"),
-    # iname.tracker: ID2ItemData(ItemClassification.useful, 3, 10, "Minor Items"),
+    iname.tracker: ID2ItemData(ItemClassification.useful, 3, 10, "Minor Items"),
     # iname.headband: ID2ItemData(ItemClassification.useful, 3, 11, "Minor Items"),
     # iname.amulet: ID2ItemData(ItemClassification.useful, 3, 12, "Minor Items"),
     # iname.tome: ID2ItemData(ItemClassification.useful, 3, 13, "Minor Items"),
