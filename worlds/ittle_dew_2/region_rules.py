@@ -144,8 +144,10 @@ def create_regions_with_rules(world: "ID2World") -> None:
             key_item += " Ring"
 
         location.place_locked_item(ID2Item(key_name, ItemClassification.progression, None, player))
-        if options.key_settings != KeySettings.option_keysey:
+        if options.key_settings == KeySettings.option_default:
             location.access_rule = lambda state: state.has(key_item, player, key_count_requirements[key_location])
+        elif options.key_settings == KeySettings.option_keyrings:
+            location.access_rule = lambda state: state.has(key_item, player)
         else: # keysey we can just assume we always have access to locked doors
             location.access_rule = lambda _: True
         id2_regions[rname.menu].locations.append(location)
