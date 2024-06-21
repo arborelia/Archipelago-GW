@@ -4,15 +4,18 @@ from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
 
+
 class ID2Type(IntEnum):
     location = 1
     region = 2
 
+
 class ID2Data(NamedTuple):
-    type: ID2Type # Either Location or Region
-    rules: List[List[str]] = [[]] # List of rules for access requirements
+    type: ID2Type  # Either Location or Region
+    rules: List[List[iname]] = [[]]  # List of rules for access requirements
     # for rules to be satisfied, you need to have at least one set of the rules items
-    grant_event: Optional[str] = None # grants the specified event item when the location is collected
+    grant_event: Optional[str] = None  # grants the specified event item when the location is collected
+
 
 # First Union is the source region
 # Second Union is the destination region or location
@@ -22,7 +25,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # For now MVP is going to move starting logical location to be Sweetwater Coast
     rname.menu: {
         # rname.fluffy_fields: 
-            # ID2Data(ID2Type.region),
+        # ID2Data(ID2Type.region),
         rname.sweetwater_coast:
             ID2Data(ID2Type.region),
         # dummy locations
@@ -64,7 +67,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scc_c:
             ID2Data(ID2Type.region),
         rname.scc_f:
-            # transitional cave, gives access to d and e
+        # transitional cave, gives access to d and e
             ID2Data(ID2Type.region, [[iname.can_break_weak_objects],
                                      [iname.can_phase_dynamite],
                                      [iname.can_phase_ice, iname.roll],

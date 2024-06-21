@@ -21,7 +21,7 @@ class ID2Web(WebWorld):
             language="English",
             file_name="setup_en.md",
             link="setup/en",
-            authors=["SilentDestroyer"] # TODO write a guide and update author
+            authors=["SilentDestroyer"]  # TODO write a guide and update author
         )
     ]
     theme = "ocean"
@@ -37,6 +37,7 @@ class ID2Item(Item):
 
 class ID2Location(Location):
     game: str = "Ittle Dew 2"
+
 
 class ID2World(World):
     """
@@ -92,12 +93,13 @@ class ID2World(World):
     # create an item on request with the proper settings
     def create_item(self, name: str) -> ID2Item:
         item_data = item_table[name]
+        print("CREATING ITEM: " + name)
         return ID2Item(name, item_data.classification, self.item_name_to_id[name], self.player)
-    
+
     # edit an item's base classification
     def create_item_alt(self, name: str, iclass: ItemClassification) -> ID2Item:
         return ID2Item(name, iclass, self.item_name_to_id[name], self.player)
-    
+
     # Actually generate our items so they can fill the world
     def create_items(self) -> None:
         id2_items: List[ID2Item] = []
@@ -118,7 +120,7 @@ class ID2World(World):
             items_to_create[iname.force_upgrade.value] = 2
             items_to_create[iname.dynamite_upgrade.value] = 2
             items_to_create[iname.ice_upgrade.value] = 2
-            items_to_create[iname.chain_upgrade] = 2
+            items_to_create[iname.chain_upgrade.value] = 2
 
         # if not randomizing roll, give to player and remove from pool
         if not self.options.randomize_roll:
@@ -155,7 +157,7 @@ class ID2World(World):
         # configure shard count
         # items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
         #     + self.options.extra_shards.value
-        
+
         # crayon count
         items_to_create[iname.crayon.value] = self.options.crayons_in_pool.value
 
@@ -179,13 +181,12 @@ class ID2World(World):
         filler_count = len(self.multiworld.get_unfilled_locations(self.player)) - len(id2_items)
         for _ in range(filler_count):
             id2_items.append(self.create_item(self.get_filler_item_name()))
-            
-        self.multiworld.itempool += id2_items
 
+        self.multiworld.itempool += id2_items
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
-    
+
     def fill_slot_data(self) -> Dict[str, Any]:
         # state = self.multiworld.get_all_state(False)
         # state.update_reachable_regions(self.player)
@@ -200,9 +201,9 @@ class ID2World(World):
             "start_with_all_warps",
             "key_settings"
         )
-    
+
     # Universal Tracker stuff
-    @ staticmethod
+    @staticmethod
     def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
         # returning slot_data so it regens, giving it back in multiworld.re_gen_passthrough
         return slot_data
