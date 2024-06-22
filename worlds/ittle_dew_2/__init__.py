@@ -21,7 +21,7 @@ class ID2Web(WebWorld):
             language="English",
             file_name="setup_en.md",
             link="setup/en",
-            authors=["SilentDestroyer"]  # TODO write a guide and update author
+            authors=["GameWyrm, ChrisIsAwesome"]  # TODO write a guide
         )
     ]
     theme = "ocean"
