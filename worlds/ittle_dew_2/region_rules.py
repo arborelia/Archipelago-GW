@@ -1,5 +1,4 @@
 from typing import List, Dict, TYPE_CHECKING, cast
-from copy import  copy
 from BaseClasses import Region, Location, ItemClassification
 from worlds.generic.Rules import CollectionRule
 from .region_data import ID2Type
@@ -7,7 +6,7 @@ from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
 from .items import ID2Item
-from .options import ID2Options, KeySettings
+from .options import KeySettings
 
 if TYPE_CHECKING:
     from . import ID2World
@@ -21,28 +20,13 @@ class ID2Location(Location):
 helper_reference: Dict[str, List[str]] = {
     iname.can_break_weak_objects.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
     iname.can_break_strong_objects.value: [iname.melee.value, iname.dynamite.value, iname.ice.value],
-    iname.can_kill_basic_enemies.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
-    iname.can_phase_itemless.value: [iname.option_phasing.value],
-    iname.can_phase_itemless_difficult.value: [iname.option_phasing.value, iname.option_phasing_difficult.value],
-    iname.can_phase_ice.value: [iname.ice.value, iname.option_phasing_ice.value],
-    iname.can_phase_ice_difficult.value: [iname.ice.value, iname.option_phasing_ice.value,
-                                          iname.option_phasing_difficult.value],
-    iname.can_phase_ice_itemless.value: [iname.option_phasing_ice.value],
-    iname.can_phase_ice_itemless_difficult.value: [iname.option_phasing_ice.value,
-                                                   iname.option_phasing_difficult.value],
-    iname.can_phase_dynamite.value: [iname.ice.value, iname.dynamite.value, iname.option_phasing_dynamite.value],
-    iname.can_phase_dynamite_difficult.value: [iname.ice.value, iname.dynamite.value,
-                                               iname.option_phasing_dynamite.value,
-                                               iname.option_phasing_difficult.value],
-    iname.can_phase_enemy.value: [iname.roll.value, iname.option_phasing_enemy.value],
-    iname.can_phase_enemy_difficult.value: [iname.roll.value, iname.option_phasing_enemy.value,
-                                            iname.option_phasing_difficult.value]
+    iname.can_kill_basic_enemies.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value]
 }
 
 # number of keys in each dungeon
 key_count_requirements: Dict[lname, int] = {
     # lname.got_all_d1_keys: 2,
-    lname.got_all_d2_keys: 2,
+    lname.event_all_d2_keys: 2,
     # lname.got_all_d3_keys: 4,
     # lname.got_all_d4_keys: 4,
     # lname.got_all_d5_keys: 5,
@@ -170,18 +154,18 @@ def create_regions_with_rules(world: "ID2World") -> None:
         id2_regions[rname.menu].locations.append(location)
 
     # give the player access to fire sword and mace once they've obtained 2 and 3 progressive melees
-    fire_sword_event = ID2Location(player, lname.got_fire_sword, None, id2_regions[rname.menu])
+    fire_sword_event = ID2Location(player, lname.event_fire_sword, None, id2_regions[rname.menu])
     fire_sword_event.place_locked_item(ID2Item(iname.fire_sword.value, ItemClassification.progression, None, player))
     fire_sword_event.access_rule = lambda state: state.has(iname.melee.value, player, 2)
-    #id2_regions[rname.menu].locations.append(fire_sword_event)
+    id2_regions[rname.menu].locations.append(fire_sword_event)
 
-    fire_mace_event = ID2Location(player, lname.got_fire_mace, None, id2_regions[rname.menu])
+    fire_mace_event = ID2Location(player, lname.event_fire_mace, None, id2_regions[rname.menu])
     fire_mace_event.place_locked_item(ID2Item(iname.fire_mace.value, ItemClassification.progression, None, player))
     fire_mace_event.access_rule = lambda state: state.has(iname.melee.value, player, 3)
-    #id2_regions[rname.menu].locations.append(fire_mace_event)
+    id2_regions[rname.menu].locations.append(fire_mace_event)
 
     # conditional can_open_chests
-    chest_opener_event = ID2Location(player, lname.got_chest_opener, None, id2_regions[rname.menu])
+    chest_opener_event = ID2Location(player, lname.event_chest_opener, None, id2_regions[rname.menu])
     chest_opener_event.place_locked_item(ID2Item(iname.can_open_chests.value, ItemClassification.progression,
                                                  None, player))
     if options.roll_opens_chests:
@@ -192,6 +176,91 @@ def create_regions_with_rules(world: "ID2World") -> None:
         chest_opener_event.access_rule = lambda state: state.has_any({iname.melee.value, iname.force.value,
                                                                       iname.dynamite.value, iname.ice.value}, player)
     id2_regions[rname.menu].locations.append(chest_opener_event)
+
+    # phasing
+    if options.phasing_itemless:
+        phase_itemless_event = ID2Location(player, lname.event_phase_itemless, None, id2_regions[rname.menu])
+        phase_itemless_event.place_locked_item(ID2Item(iname.can_phase_itemless, ItemClassification.progression,
+                                                       None, player))
+        phase_itemless_event.access_rule = lambda state: state.has(iname.option_phasing, player)
+        id2_regions[rname.menu].locations.append(phase_itemless_event)
+
+        if options.phasing_difficult:
+            phase_itemless_difficult_event = ID2Location(player, lname.event_phase_itemless_difficult,
+                                                         None, id2_regions[rname.menu])
+            phase_itemless_difficult_event.place_locked_item(ID2Item(iname.can_phase_itemless_difficult,
+                                                                     ItemClassification.progression, None, player))
+            phase_itemless_difficult_event.access_rule = lambda state: state.has_all({iname.option_phasing,
+                                                                                      iname.option_phasing_difficult},
+                                                                                     player)
+            id2_regions[rname.menu].locations.append(phase_itemless_difficult_event)
+
+    if options.phasing_ice:
+        phase_ice_event = ID2Location(player, lname.event_phase_ice, None, id2_regions[rname.menu])
+        phase_ice_event.place_locked_item(ID2Item(iname.can_phase_ice, ItemClassification.progression, None, player))
+        phase_ice_event.access_rule = lambda state: state.has_all({iname.option_phasing_ice, iname.ice}, player)
+        id2_regions[rname.menu].locations.append(phase_ice_event)
+
+        phase_ice_itemless_event = ID2Location(player, lname.event_phase_ice_itemless, None, id2_regions[rname.menu])
+        phase_ice_itemless_event.place_locked_item(ID2Item(iname.can_phase_ice_itemless, ItemClassification.progression,
+                                                           None, player))
+        phase_ice_itemless_event.access_rule = lambda state: state.has(iname.option_phasing_ice, player)
+        id2_regions[rname.menu].locations.append(phase_ice_itemless_event)
+
+        if options.phasing_difficult:
+            phase_ice_difficult_event = ID2Location(player, lname.event_phase_ice_difficult,
+                                                    None, id2_regions[rname.menu])
+            phase_ice_difficult_event.place_locked_item(ID2Item(iname.can_phase_ice_difficult,
+                                                                ItemClassification.progression, None, player))
+            phase_ice_difficult_event.access_rule = lambda state: state.has_all({iname.option_phasing_ice,
+                                                                                 iname.option_phasing_difficult,
+                                                                                 iname.ice}, player)
+            id2_regions[rname.menu].locations.append(phase_ice_difficult_event)
+
+            phase_ice_itemless_difficult_event = ID2Location(player, lname.event_phase_ice_itemless_difficult,
+                                                             None, id2_regions[rname.menu])
+            phase_ice_itemless_difficult_event.place_locked_item(ID2Item(iname.can_phase_ice_itemless_difficult,
+                                                                         ItemClassification.progression, None, player))
+            phase_ice_itemless_difficult_event.access_rule = lambda state: state.has_all({iname.option_phasing_ice,
+                                                                                          iname.option_phasing_difficult
+                                                                                          }, player)
+            id2_regions[rname.menu].locations.append(phase_ice_itemless_difficult_event)
+
+    if options.phasing_dynamite:
+        phase_dynamite_event = ID2Location(player, lname.event_phase_dynamite, None, id2_regions[rname.menu])
+        phase_dynamite_event.place_locked_item(ID2Item(iname.can_phase_dynamite, ItemClassification.progression,
+                                                       None, player))
+        phase_dynamite_event.access_rule = lambda state: state.has_all({iname.option_phasing_dynamite, iname.dynamite,
+                                                                        iname.ice}, player)
+        id2_regions[rname.menu].locations.append(phase_dynamite_event)
+
+        if options.phasing_difficult:
+            phase_dynamite_difficult_event = ID2Location(player, lname.event_phase_dynamite_difficult,
+                                                         None, id2_regions[rname.menu])
+            phase_dynamite_difficult_event.place_locked_item(ID2Item(iname.can_phase_dynamite_difficult,
+                                                                     ItemClassification.progression, None, player))
+            phase_dynamite_difficult_event.access_rule = lambda state: state.has_all({iname.option_phasing_dynamite,
+                                                                                      iname.option_phasing_difficult,
+                                                                                      iname.dynamite, iname.ice},
+                                                                                     player)
+            id2_regions[rname.menu].locations.append(phase_dynamite_difficult_event)
+
+    if options.phasing_enemies:
+        phase_enemy_event = ID2Location(player, lname.event_phase_enemy, None, id2_regions[rname.menu])
+        phase_enemy_event.place_locked_item(ID2Item(iname.can_phase_enemy, ItemClassification.progression,
+                                                    None, player))
+        phase_enemy_event.access_rule = lambda state: state.has_all({iname.option_phasing_enemy, iname.roll}, player)
+        id2_regions[rname.menu].locations.append(phase_enemy_event)
+
+        if options.phasing_difficult:
+            phase_enemy_difficult_event = ID2Location(player, lname.event_phase_itemless_difficult,
+                                                      None, id2_regions[rname.menu])
+            phase_enemy_difficult_event.place_locked_item(ID2Item(iname.can_phase_itemless_difficult,
+                                                                  ItemClassification.progression, None, player))
+            phase_enemy_difficult_event.access_rule = lambda state: state.has_all({iname.option_phasing_enemy,
+                                                                                   iname.option_phasing_difficult,
+                                                                                   iname.roll}, player)
+            id2_regions[rname.menu].locations.append(phase_enemy_difficult_event)
 
     for region in id2_regions.values():
         world.multiworld.regions.append(region)

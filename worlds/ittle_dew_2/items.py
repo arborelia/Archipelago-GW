@@ -17,7 +17,7 @@ item_base_id = 238492834
 
 item_table: Dict[str, ID2ItemData] = {
     # set these back to 3
-    iname.melee.value: ID2ItemData(ItemClassification.progression, 1, 0, "Major Items"),
+    iname.melee.value: ID2ItemData(ItemClassification.progression, 3, 0, "Major Items"),
     iname.force.value: ID2ItemData(ItemClassification.progression, 1, 1, "Major Items"),
     # iname.dynamite.value: ID2ItemData(ItemClassification.progression, 1, 2, "Major Items"),
     # iname.ice.value: ID2ItemData(ItemClassification.progression, 1, 3, "Major Items"),

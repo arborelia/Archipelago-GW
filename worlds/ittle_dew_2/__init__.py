@@ -158,6 +158,22 @@ class ID2World(World):
         # items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
         #     + self.options.extra_shards.value
 
+        # phasing
+        if self.options.phasing_itemless:
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing))
+
+        if self.options.phasing_ice:
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_ice))
+
+        if self.options.phasing_dynamite:
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite))
+
+        if self.options.phasing_enemies:
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_enemy))
+
+        if self.options.phasing_difficult:
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult))
+
         # crayon count
         items_to_create[iname.crayon.value] = self.options.crayons_in_pool.value
 
@@ -188,9 +204,9 @@ class ID2World(World):
         return self.random.choice(filler_items)
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        state = self.multiworld.get_all_state(False)
-        state.update_reachable_regions(self.player)
-        visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
+        # state = self.multiworld.get_all_state(False)
+        # state.update_reachable_regions(self.player)
+        # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         return self.options.as_dict(
             "goal",
             "open_d8",
