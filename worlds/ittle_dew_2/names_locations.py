@@ -334,3 +334,4 @@ class LocationNames(str, Enum):
     # got_all_da_keys = "Received Quietus Keys"
     got_fire_sword = "Received Fire Sword"
     got_fire_mace = "Received Fire Mace"
+    got_chest_opener = "Received Chest Opening"

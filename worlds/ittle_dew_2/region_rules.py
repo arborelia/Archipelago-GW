@@ -21,6 +21,7 @@ class ID2Location(Location):
 helper_reference: Dict[str, List[str]] = {
     iname.can_break_weak_objects.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
     iname.can_break_strong_objects.value: [iname.melee.value, iname.dynamite.value, iname.ice.value],
+    iname.can_kill_basic_enemies.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
     iname.can_phase_itemless.value: [iname.option_phasing.value],
     iname.can_phase_itemless_difficult.value: [iname.option_phasing.value, iname.option_phasing_difficult.value],
     iname.can_phase_ice.value: [iname.ice.value, iname.option_phasing_ice.value],
@@ -172,12 +173,25 @@ def create_regions_with_rules(world: "ID2World") -> None:
     fire_sword_event = ID2Location(player, lname.got_fire_sword, None, id2_regions[rname.menu])
     fire_sword_event.place_locked_item(ID2Item(iname.fire_sword.value, ItemClassification.progression, None, player))
     fire_sword_event.access_rule = lambda state: state.has(iname.melee.value, player, 2)
-    id2_regions[rname.menu].locations.append(fire_sword_event)
+    #id2_regions[rname.menu].locations.append(fire_sword_event)
 
     fire_mace_event = ID2Location(player, lname.got_fire_mace, None, id2_regions[rname.menu])
     fire_mace_event.place_locked_item(ID2Item(iname.fire_mace.value, ItemClassification.progression, None, player))
     fire_mace_event.access_rule = lambda state: state.has(iname.melee.value, player, 3)
-    id2_regions[rname.menu].locations.append(fire_mace_event)
+    #id2_regions[rname.menu].locations.append(fire_mace_event)
+
+    # conditional can_open_chests
+    chest_opener_event = ID2Location(player, lname.got_chest_opener, None, id2_regions[rname.menu])
+    chest_opener_event.place_locked_item(ID2Item(iname.can_open_chests.value, ItemClassification.progression,
+                                                 None, player))
+    if options.roll_opens_chests:
+        chest_opener_event.access_rule = lambda state: state.has_any({iname.melee.value, iname.force.value,
+                                                                      iname.dynamite.value, iname.ice.value,
+                                                                      iname.roll.value}, player)
+    else:
+        chest_opener_event.access_rule = lambda state: state.has_any({iname.melee.value, iname.force.value,
+                                                                      iname.dynamite.value, iname.ice.value}, player)
+    id2_regions[rname.menu].locations.append(chest_opener_event)
 
     for region in id2_regions.values():
         world.multiworld.regions.append(region)
