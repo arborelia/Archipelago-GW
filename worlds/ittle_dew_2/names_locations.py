@@ -1,9 +1,10 @@
 from enum import Enum
 
+
 class LocationNames(str, Enum):
     def __str__(self) -> str:
         return self.value
-    
+
     # names should be the same as in locations.py
     # Fluffy Fields Caves
     ffc_goldbun_combat = "Fluffy Fields Caves - Goldbun Combat Chest"

@@ -1,4 +1,5 @@
 from typing import Dict, NamedTuple, Set, Optional
+from .names_regions import RegionNames as rname
 
 
 class ID2LocationData(NamedTuple):
@@ -12,28 +13,28 @@ location_base_id = 238492834
 location_table: Dict[str, ID2LocationData] = {
     # Each area gets 100 reserved location IDs
     # 0: Fluffy Fields
-    "Fluffy Fields Caves - Goldbun Combat Chest": ID2LocationData("Fluffy Fields Caves B", 0),
-    "Fluffy Fields Caves - Portal Room Chest": ID2LocationData("Fluffy Fields Caves C", 1),
-    "Fluffy Fields Caves - Timed Bridge Chest": ID2LocationData("Fluffy Fields Caves E", 2),
-    "Fluffy Fields Caves - Hermit Hint Chest": ID2LocationData("Fluffy Fields Caves F", 3),
-    "Fluffy Fields Caves - Laser Chest": ID2LocationData("Fluffy Fields Caves G", 4),
-    "Fluffy Fields Caves - Number Blocks Chest": ID2LocationData("Fluffy Fields Caves J", 5),
-    "Fluffy Fields Caves - Ice Blockade Chest": ID2LocationData("Fluffy Fields Caves K", 6),
-    "Fluffy Fields Caves - Double Spikebun Combat Chest": ID2LocationData("Fluffy Fields Caves M", 7),
-    "Fluffy Fields Caves - Potion Bar Chest": ID2LocationData("Fluffy Fields Caves P", 8),
-    "Fluffy Fields Caves - Six Buns Combat Chest": ID2LocationData("Fluffy Fields Caves Q", 9),
-    "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData("Fluffy Fields Caves X2", 10),
-    "Fluffy Fields Caves - Jenny Berry House Chest": ID2LocationData("Fluffy Fields Caves U", 11, "Super Secrets"),
+    # "Fluffy Fields Caves - Goldbun Combat Chest": ID2LocationData("Fluffy Fields Caves B", 0),
+    # "Fluffy Fields Caves - Portal Room Chest": ID2LocationData("Fluffy Fields Caves C", 1),
+    # "Fluffy Fields Caves - Timed Bridge Chest": ID2LocationData("Fluffy Fields Caves E", 2),
+    # "Fluffy Fields Caves - Hermit Hint Chest": ID2LocationData("Fluffy Fields Caves F", 3),
+    # "Fluffy Fields Caves - Laser Chest": ID2LocationData("Fluffy Fields Caves G", 4),
+    # "Fluffy Fields Caves - Number Blocks Chest": ID2LocationData("Fluffy Fields Caves J", 5),
+    # "Fluffy Fields Caves - Ice Blockade Chest": ID2LocationData("Fluffy Fields Caves K", 6),
+    # "Fluffy Fields Caves - Double Spikebun Combat Chest": ID2LocationData("Fluffy Fields Caves M", 7),
+    # "Fluffy Fields Caves - Potion Bar Chest": ID2LocationData("Fluffy Fields Caves P", 8),
+    # "Fluffy Fields Caves - Six Buns Combat Chest": ID2LocationData("Fluffy Fields Caves Q", 9),
+    # "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData("Fluffy Fields Caves X2", 10),
+    # "Fluffy Fields Caves - Jenny Berry House Chest": ID2LocationData("Fluffy Fields Caves U", 11, "Super Secrets"),
     # 100: Sweetwater Coast
-    "Sweetwater Coast Caves - White Gates Combat Chest": ID2LocationData("Sweetwater Coast Caves B", 100),
-    "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData("Sweetwater Coast Caves G", 101),
-    "Sweetwater Coast Caves - Three Teleporters Chest": ID2LocationData("Sweetwater Coast Caves H", 102),
-    "Sweetwater Coast Caves - Four Candy Snakes Combat Chest": ID2LocationData("Sweetwater Coast Caves I", 103),
-    "Sweetwater Coast Caves - Portal Spikes Chest": ID2LocationData("Sweetwater Coast Caves J", 104),
-    "Sweetwater Coast Caves - Hint Hermit Chest": ID2LocationData("Sweetwater Coast Caves K", 105),
-    "Sweetwater Coast Caves - Fake Chest Cave Chest": ID2LocationData("Sweetwater Coast Caves L", 106),
-    "Sweetwater Coast Caves - Wooden Balls Spike Floor Chest": ID2LocationData("Sweetwater Coast Caves M", 107),
-    "Sweetwater Coast Caves - Kung Fu Jenny Chest": ID2LocationData("Sweetwater Coast Caves N", 108),
+    "Sweetwater Coast Caves - White Gates Combat Chest": ID2LocationData(rname.scc_b.value, 100),
+    "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData(rname.scc_g.value, 101),
+    "Sweetwater Coast Caves - Three Teleporters Chest": ID2LocationData(rname.scc_h.value, 102),
+    "Sweetwater Coast Caves - Four Candy Snakes Combat Chest": ID2LocationData(rname.scc_i.value, 103),
+    "Sweetwater Coast Caves - Portal Spikes Chest": ID2LocationData(rname.scc_j.value, 104),
+    "Sweetwater Coast Caves - Hint Hermit Chest": ID2LocationData(rname.scc_k.value, 105),
+    "Sweetwater Coast Caves - Fake Chest Cave Chest": ID2LocationData(rname.scc_l.value, 106),
+    "Sweetwater Coast Caves - Wooden Balls Spike Floor Chest": ID2LocationData(rname.scc_m.value, 107),
+    "Sweetwater Coast Caves - Kung Fu Jenny Chest": ID2LocationData(rname.scc_n.value, 108),
     # 200: Fancy Ruins
 
     # 300: Star Woods
@@ -47,17 +48,17 @@ location_table: Dict[str, ID2LocationData] = {
     # 700: Lonely Road
 
     # 800: Pillow Fort
-    "Pillow Fort - Treasure Chest": ID2LocationData("Pillow Fort I", 800, "Dungeons"),
-    "Pillow Fort - Shellbun Nest Key": ID2LocationData("Pillow Fort J", 801, "Dungeons"),
-    "Pillow Fort - Crayon Chest": ID2LocationData("Pillow Fort G", 802, "Dungeons"),
-    "Pillow Fort - Safety Jenny Gate Key": ID2LocationData("Pillow Fort E", 803, "Dungeons"),
-    "Pillow Fort - Boss Reward Chest": ID2LocationData("Pillow Fort C", 804, "Dungeons"),
+    # "Pillow Fort - Treasure Chest": ID2LocationData("Pillow Fort I", 800, "Dungeons"),
+    # "Pillow Fort - Shellbun Nest Key": ID2LocationData("Pillow Fort J", 801, "Dungeons"),
+    # "Pillow Fort - Crayon Chest": ID2LocationData("Pillow Fort G", 802, "Dungeons"),
+    # "Pillow Fort - Safety Jenny Gate Key": ID2LocationData("Pillow Fort E", 803, "Dungeons"),
+    # "Pillow Fort - Boss Reward Chest": ID2LocationData("Pillow Fort C", 804, "Dungeons"),
     # 900: Sand Castle
-    "Sand Castle - Crayon Chest": ID2LocationData("Sand Castle G", 900, "Dungeons"),
-    "Sand Castle - Orbiting Balls Key": ID2LocationData("Sand Castle I", 901, "Dungeons"),
-    "Sand Castle - Spikebun Dunes Key": ID2LocationData("Sand Castle D", 902, "Dungeons"),
-    "Sand Castle - Treasure Chest": ID2LocationData("Sand Castle J", 904, "Dungeons"),
-    "Sand Castle - Boss Reward Chest": ID2LocationData("Sand Castle A", 905, "Dungeons")
+    "Sand Castle - Crayon Chest": ID2LocationData(rname.d2_g.value, 900, "Dungeons"),
+    "Sand Castle - Orbiting Balls Key": ID2LocationData(rname.d2_i.value, 901, "Dungeons"),
+    "Sand Castle - Spikebun Dunes Key": ID2LocationData(rname.d2_d.value, 902, "Dungeons"),
+    "Sand Castle - Treasure Chest": ID2LocationData(rname.d2_j.value, 904, "Dungeons"),
+    "Sand Castle - Boss Reward Chest": ID2LocationData(rname.d2_a.value, 905, "Dungeons")
     # 1000: Art Gallery
 
     # 1100: Trash Cave

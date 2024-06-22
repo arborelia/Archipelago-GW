@@ -1,9 +1,10 @@
 from enum import Enum
 
+
 class RegionNames(str, Enum):
     def __str__(self) -> str:
         return self.value
-    
+
     # Overworld regions are not split, except Pepperpain, Lonely Road, and Fancy Hilltop
     # Everything else is split into each room being its own region
     menu = "Menu"
@@ -11,10 +12,10 @@ class RegionNames(str, Enum):
     # Overworld regions
     fluffy_fields = "Fluffy Fields"
     sweetwater_coast = "Sweetwater Coast"
-    fancy_ruins = "Fancy Ruins"
-    fancy_hilltop = "Fancy Hilltop"
+    # fancy_ruins = "Fancy Ruins"
+    # fancy_hilltop = "Fancy Hilltop"
     star_woods = "Star Woods"
-    star_coast = "Star Coast"
+    # star_coast = "Star Coast"
     slippery_slope = "Slippery Slope"
     # pepperpain_prairie = "Pepperpain Prairie"
     # pepperpain_trail = "Pepperpain Trail"
@@ -535,9 +536,9 @@ class RegionNames(str, Enum):
 
     # # Portal Worlds
     # autumn_climb = "Autumn Climb"
-    the_vault_a = "The Vault A"
-    the_vault_b = "The Vault B"
-    the_vault_c = "The Vault C"
+    # the_vault_a = "The Vault A"
+    # the_vault_b = "The Vault B"
+    # the_vault_c = "The Vault C"
     the_vault_d = "The Vault D"
     painful_plain = "Painful Plain"
     # farthest_shore = "Farthest Shore"

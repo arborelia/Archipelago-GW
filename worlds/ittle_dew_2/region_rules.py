@@ -18,20 +18,24 @@ class ID2Location(Location):
 
 
 # group requirements and their individual requirements
-helper_reference: Dict[iname, List[iname]] = {
-    iname.can_break_weak_objects: [iname.melee, iname.force, iname.dynamite, iname.ice],
-    iname.can_break_strong_objects: [iname.melee, iname.dynamite, iname.ice],
-    iname.can_phase_itemless: [iname.option_phasing],
-    iname.can_phase_itemless_difficult: [iname.option_phasing, iname.option_phasing_difficult],
-    iname.can_phase_ice: [iname.ice, iname.option_phasing_ice],
-    iname.can_phase_ice_difficult: [iname.ice, iname.option_phasing_ice, iname.option_phasing_difficult],
-    iname.can_phase_ice_itemless: [iname.option_phasing_ice],
-    iname.can_phase_ice_itemless_difficult: [iname.option_phasing_ice, iname.option_phasing_difficult],
-    iname.can_phase_dynamite: [iname.ice, iname.dynamite, iname.option_phasing_dynamite],
-    iname.can_phase_dynamite_difficult: [iname.ice, iname.dynamite,
-                                         iname.option_phasing_dynamite, iname.option_phasing_difficult],
-    iname.can_phase_enemy: [iname.roll, iname.option_phasing_enemy],
-    iname.can_phase_enemy_difficult: [iname.roll, iname.option_phasing_enemy, iname.option_phasing_difficult]
+helper_reference: Dict[str, List[str]] = {
+    iname.can_break_weak_objects.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
+    iname.can_break_strong_objects.value: [iname.melee.value, iname.dynamite.value, iname.ice.value],
+    iname.can_phase_itemless.value: [iname.option_phasing.value],
+    iname.can_phase_itemless_difficult.value: [iname.option_phasing.value, iname.option_phasing_difficult.value],
+    iname.can_phase_ice.value: [iname.ice.value, iname.option_phasing_ice.value],
+    iname.can_phase_ice_difficult.value: [iname.ice.value, iname.option_phasing_ice.value,
+                                          iname.option_phasing_difficult.value],
+    iname.can_phase_ice_itemless.value: [iname.option_phasing_ice.value],
+    iname.can_phase_ice_itemless_difficult.value: [iname.option_phasing_ice.value,
+                                                   iname.option_phasing_difficult.value],
+    iname.can_phase_dynamite.value: [iname.ice.value, iname.dynamite.value, iname.option_phasing_dynamite.value],
+    iname.can_phase_dynamite_difficult.value: [iname.ice.value, iname.dynamite.value,
+                                               iname.option_phasing_dynamite.value,
+                                               iname.option_phasing_difficult.value],
+    iname.can_phase_enemy.value: [iname.roll.value, iname.option_phasing_enemy.value],
+    iname.can_phase_enemy_difficult.value: [iname.roll.value, iname.option_phasing_enemy.value,
+                                            iname.option_phasing_difficult.value]
 }
 
 # number of keys in each dungeon
@@ -56,35 +60,36 @@ key_count_requirements: Dict[lname, int] = {
 
 
 # cut grouped requirements into their individual requirements
-def convert_helper_reqs(helper_name: iname, reqs: List[List[str]]) -> List[List[str]]:
+def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[str]]:
     new_list_storage: List[List[str]] = []
     for i, sublist in enumerate(reqs):
         for j, req in enumerate(sublist):
             if req == helper_name:
                 for replacement in helper_reference[helper_name]:
-                    print("REPLACEMENT: " + replacement)
                     new_list = sublist.copy()
                     new_list[j] = replacement
+                    print("REPLACEMENT LIST: ")
+                    print(new_list)
                     new_list_storage.append(new_list)
-                    # replace the starter list with one of the storage lists to keep it from skipping an entry
+                # replace the starter list with one of the storage lists to keep it from skipping an entry
                 reqs[i] = new_list_storage.pop()
                 break
 
     for sublist in new_list_storage:
-        newlist: List[str] = []
-        for list_item in sublist:
-            print("LIST ITEM: " + list_item)
-            item: iname = cast(iname, list_item)
-            check_item_type = copy(item)
-            is_an_iname = isinstance(check_item_type, iname)
-            print(is_an_iname)
-            print("ACTUAL ITEM (the enum): " + item)
-            if is_an_iname:
-                newlist.append(item.value)
-            else:
-                newlist.append(item)
-        print("NEW LIST:")
-        print(newlist)
+        # newlist: List[str] = []
+        # for list_item in sublist:
+        #     print("LIST ITEM: " + list_item)
+        #     # item: iname = cast(iname, list_item)
+        #     check_item_type = copy(item)
+        #     is_an_iname = isinstance(check_item_type, iname)
+        #     print(is_an_iname)
+        #     print("ACTUAL ITEM (the enum): " + item)
+        #     if is_an_iname:
+        #         newlist.append(item.value)
+        #     else:
+        #         newlist.append(item)
+        # print("NEW LIST:")
+        # print(newlist)
         reqs.append(sublist)
 
     # TODO remove empty lists from the reqs
@@ -97,6 +102,7 @@ def create_id2_regions(world: "ID2World") -> Dict[str, Region]:
     id2_regions: Dict[str, Region] = {}
     # TODO exclude regions based on options
     for region_name in rname:
+        print(f"CREATING REGION: {region_name}")
         id2_regions[region_name] = Region(region_name, world.player, world.multiworld)
     return id2_regions
 
@@ -105,14 +111,8 @@ def create_id2_regions(world: "ID2World") -> Dict[str, Region]:
 def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
     for helper_name in helper_reference.keys():
         reqs = convert_helper_reqs(helper_name, reqs)
-    print("LOGIC SUBLISTS: ")
-    converted_list: List[List[str]] = [[]]
-    for mylist in reqs:
-        newlist: List[str]
-        for rule in mylist:
-            rule = cast(iname, rule)
-            if isinstance(rule, iname)
-        print(mylist)
+    print("REQUIREMENTS INTERPRETED: ")
+    print(reqs)
     return lambda state: any(state.has_all(sublist, world.player) for sublist in reqs)
 
 
@@ -126,14 +126,11 @@ def create_regions_with_rules(world: "ID2World") -> None:
         origin_name = cast(str, origin_name.value)
         # TODO exclude regions based on pool settings
 
+        print("ADDING REGION: " + origin_name)
         for destination_name, data in destinations.items():
-            print("DATA RULES:")
-            print(data.rules)
-            ruleset = [[item.value for item in sublist] for sublist in data.rules]
-            print(ruleset)
             destination_name = cast(str, destination_name.value)
-            print("REGION: " + origin_name)
             if data.type == ID2Type.location:
+                print(f"ADDING LOCATION: {destination_name}")
                 # TODO exclude locations based on sanities, I don't think we have any of those but just in case
                 if data.grant_event:
                     location = ID2Location(player, destination_name, None, id2_regions[origin_name])
@@ -141,12 +138,15 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 else:
                     location = ID2Location(player, destination_name, world.location_name_to_id[destination_name],
                                            id2_regions[origin_name])
-                location.access_rule = interpret_rule(ruleset, world)
+                location.access_rule = interpret_rule(data.rules, world)
                 id2_regions[origin_name].locations.append(location)
             elif data.type == ID2Type.region:
+                print(f"ADDING REGION CONNECTION: {destination_name}")
                 # TODO add shard requirements for shard dungeons (maybe make that an item?)
                 id2_regions[origin_name].connect(connecting_region=id2_regions[destination_name],
-                                                 rule=interpret_rule(ruleset, world))
+                                                 rule=interpret_rule(data.rules, world))
+            print("DATA RULES:")
+            print(data.rules)
 
     # "give" the player permission to use their keys once they've obained them all
     keys_location_list = [name for name in lname if name.endswith(" Keys")]
@@ -170,13 +170,13 @@ def create_regions_with_rules(world: "ID2World") -> None:
 
     # give the player access to fire sword and mace once they've obtained 2 and 3 progressive melees
     fire_sword_event = ID2Location(player, lname.got_fire_sword, None, id2_regions[rname.menu])
-    fire_sword_event.place_locked_item(ID2Item(iname.fire_sword, ItemClassification.progression, None, player))
-    fire_sword_event.access_rule = lambda state: state.has(iname.melee, player, 2)
+    fire_sword_event.place_locked_item(ID2Item(iname.fire_sword.value, ItemClassification.progression, None, player))
+    fire_sword_event.access_rule = lambda state: state.has(iname.melee.value, player, 2)
     id2_regions[rname.menu].locations.append(fire_sword_event)
 
     fire_mace_event = ID2Location(player, lname.got_fire_mace, None, id2_regions[rname.menu])
-    fire_mace_event.place_locked_item(ID2Item(iname.fire_mace, ItemClassification.progression, None, player))
-    fire_mace_event.access_rule = lambda state: state.has(iname.melee, player, 3)
+    fire_mace_event.place_locked_item(ID2Item(iname.fire_mace.value, ItemClassification.progression, None, player))
+    fire_mace_event.access_rule = lambda state: state.has(iname.melee.value, player, 3)
     id2_regions[rname.menu].locations.append(fire_mace_event)
 
     for region in id2_regions.values():
@@ -184,4 +184,4 @@ def create_regions_with_rules(world: "ID2World") -> None:
 
     # TODO special entrances conditions
 
-    world.multiworld.completion_condition[world.player] = lambda state: state.has(iname.victory, world.player)
+    world.multiworld.completion_condition[world.player] = lambda state: state.has(iname.victory.value, world.player)

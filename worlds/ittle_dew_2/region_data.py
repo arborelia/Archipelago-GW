@@ -12,7 +12,7 @@ class ID2Type(IntEnum):
 
 class ID2Data(NamedTuple):
     type: ID2Type  # Either Location or Region
-    rules: List[List[iname]] = [[]]  # List of rules for access requirements
+    rules: List[List[str]] = [[]]  # List of rules for access requirements
     # for rules to be satisfied, you need to have at least one set of the rules items
     grant_event: Optional[str] = None  # grants the specified event item when the location is collected
 
@@ -63,33 +63,33 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scc_a:
             ID2Data(ID2Type.region),
         rname.scc_b:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
         rname.scc_c:
             ID2Data(ID2Type.region),
         rname.scc_f:
         # transitional cave, gives access to d and e
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects],
-                                     [iname.can_phase_dynamite],
-                                     [iname.can_phase_ice, iname.roll],
-                                     [iname.can_phase_enemy_difficult, iname.roll]]),
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value],
+                                     [iname.can_phase_dynamite.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_enemy_difficult.value, iname.roll.value]]),
         rname.scc_g:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
         rname.scc_h:
             ID2Data(ID2Type.region),
         rname.scc_i:
             ID2Data(ID2Type.region),
         rname.scc_j:
-            ID2Data(ID2Type.region, [[iname.roll]]),
+            ID2Data(ID2Type.region, [[iname.roll.value]]),
         rname.scc_k:
             ID2Data(ID2Type.region),
         rname.scc_l:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
         rname.scc_m:
             ID2Data(ID2Type.region),
         rname.scc_n:
             ID2Data(ID2Type.region),
         rname.scc_o:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
         rname.scc_p:
             ID2Data(ID2Type.region),
         rname.scc_q:
@@ -105,7 +105,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scc_b: {
         lname.scc_white_gates_combat:
-            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies]])
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]])
     },
     rname.scc_c: {
         # pink friendly ogler
@@ -121,45 +121,45 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scc_d:
             ID2Data(ID2Type.region),
         rname.scc_e:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
     },
     rname.scc_g: {
         lname.scc_feral_gates_combat:
-            ID2Data(ID2Type.location, [[iname.can_open_chests]])
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
     },
     rname.scc_h: {
         lname.scc_three_teleporters:
-            ID2Data(ID2Type.location, [[iname.can_open_chests]])
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
     },
     rname.scc_i: {
         lname.scc_four_candy_snakes_combat:
-            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies]])
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]])
     },
     rname.scc_j: {
         lname.scc_portal_spikes_chest:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects]])
+            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]])
     },
     rname.scc_k: {
         lname.scc_hint_hermit:
-            ID2Data(ID2Type.location, [[iname.can_open_chests]])
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
     },
     rname.scc_l: {
         lname.scc_fake_chest_cave:
-            ID2Data(ID2Type.location, [[iname.melee],
-                                       [iname.force],
-                                       [iname.ice]])
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       [iname.force.value],
+                                       [iname.ice.value]])
     },
     rname.scc_m: {
         lname.scc_wooden_balls_spike_floor:
-            ID2Data(ID2Type.location, [[iname.can_open_chests]])
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
     },
     rname.scc_n: {
         lname.scc_kung_fu_jenny:
-            ID2Data(ID2Type.location, [[iname.can_open_chests]])
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
     },
     rname.scc_o: {
         rname.painful_plain:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]])
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
     },
     rname.scc_p: {
         # Transition cave to Fancy
@@ -172,9 +172,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # Sand Castle
     rname.d2_a: {
         lname.d2_boss_reward:
-            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies, iname.roll]]),
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value, iname.roll.value]]),
         rname.d2_b:
-            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies, iname.roll]])
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value, iname.roll.value]])
     },
     rname.d2_b: {
         rname.d2_a:
@@ -184,83 +184,83 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d2_c: {
         rname.d2_d:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
         rname.d2_h:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]])
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
     },
     rname.d2_d: {
         lname.d2_spikebun_dunes:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects]]),
+            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
         rname.d2_c:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
         rname.d2_h:
             ID2Data(ID2Type.region)
     },
     rname.d2_e: {
         rname.d2_f:
-            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies]]),
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]]),
         rname.d2_i:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys]])
+            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value]])
     },
     rname.d2_f: {
         rname.d2_b:
-            ID2Data(ID2Type.region, [[iname.force],
-                                     [iname.can_phase_ice, iname.roll],
-                                     [iname.can_phase_dynamite, iname.roll]]),
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]]),
         rname.d2_g:
             ID2Data(ID2Type.region)
     },
     rname.d2_g: {
         lname.d2_crayon:
-            ID2Data(ID2Type.location, [[iname.force],
-                                       [iname.melee, iname.chain],
-                                       [iname.dynamite],
-                                       [iname.fire_mace],
-                                       [iname.can_phase_ice],
-                                       [iname.can_open_chests, iname.can_phase_enemy]]),
+            ID2Data(ID2Type.location, [[iname.force.value],
+                                       [iname.melee.value, iname.chain.value],
+                                       [iname.dynamite.value],
+                                       [iname.fire_mace.value],
+                                       [iname.can_phase_ice.value],
+                                       [iname.can_open_chests.value, iname.can_phase_enemy.value]], iname.victory),
         rname.d2_h:
             ID2Data(ID2Type.region),
         rname.d2_i:
             ID2Data(ID2Type.region),
         rname.d2_f:
-            ID2Data(ID2Type.region, [[iname.fire_sword]]),
+            ID2Data(ID2Type.region, [[iname.fire_sword.value]]),
         rname.sweetwater_coast:
             ID2Data(ID2Type.region)
     },
     rname.d2_h: {
         rname.d2_c:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects]]),
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
         rname.d2_d:
             ID2Data(ID2Type.region),
         rname.d2_g:
             ID2Data(ID2Type.region),
         rname.d2_j:
-            ID2Data(ID2Type.region, [[iname.dynamite],
-                                     [iname.can_phase_ice],
-                                     [iname.can_phase_enemy]]),
+            ID2Data(ID2Type.region, [[iname.dynamite.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_enemy.value]]),
         rname.d2_k:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys]])
+            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value]])
     },
     rname.d2_i: {
         lname.d2_orbiting_balls:
-            ID2Data(ID2Type.location, [[iname.melee, iname.roll]]),
+            ID2Data(ID2Type.location, [[iname.melee.value, iname.roll.value]]),
         rname.d2_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys, iname.melee, iname.roll]]),
+            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value, iname.melee.value, iname.roll.value]]),
         rname.d2_g:
             ID2Data(ID2Type.region)
     },
     rname.d2_j: {
         lname.d2_treasure:
-            ID2Data(ID2Type.location, [[iname.can_open_chests]], iname.victory),
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.d2_h:
-            ID2Data(ID2Type.region, [[iname.force],
-                                     [iname.can_phase_ice, iname.roll],
-                                     [iname.can_phase_dynamite]])
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value]])
     },
     rname.d2_k: {
         rname.d2_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys]]),
+            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value]]),
         rname.d2_j:
-            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies]])
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]])
     }
 }

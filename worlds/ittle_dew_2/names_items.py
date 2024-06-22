@@ -1,9 +1,10 @@
 from enum import Enum
 
+
 class ItemNames(str, Enum):
     def __str__(self) -> str:
         return self.value
-    
+
     # Major Items
     melee = "Progressive Melee"
     fire_sword = "Fire Sword"
@@ -104,7 +105,7 @@ class ItemNames(str, Enum):
     card_hexrot = "Card 28: Hexrot"
     card_mole = "Card 29: Jenny Mole"
     card_bun = "Card 30: Jenny Bun (Unemployed)"
-    card_cat = "Card 31: Jenny Cat" # Mjau
+    card_cat = "Card 31: Jenny Cat"  # Mjau
     card_mermaid = "Card 32: Jenny Mermaid"
     card_berry = "Card 33: Jenny Berry (Vacation)"
     card_mapman = "Card 34: Mapman"
@@ -130,8 +131,8 @@ class ItemNames(str, Enum):
 
     # Tricks, abilities, and options
     can_open_chests = "Can Open Chests"
-    can_break_weak_objects = "Can Break Weak Objects" # every weapon except roll, can be used to open caves
-    can_break_strong_objects = "Can Break Strong Objects" # melee, dynamite, or ice, since force can't break everything
+    can_break_weak_objects = "Can Break Weak Objects"  # every weapon except roll, can be used to open caves
+    can_break_strong_objects = "Can Break Strong Objects"  # melee, dynamite, or ice, since force can't break everything
     can_kill_basic_enemies = "Can Kill Basic Enemies"
     can_phase_itemless = "Can Phase Itemless"
     can_phase_itemless_difficult = "Can Phase Itemless (Difficult)"
@@ -156,7 +157,7 @@ class ItemNames(str, Enum):
     has_opened_dfc = "Has Opened Antigram"
     has_opened_di = "Has Opened Bottomless Tower"
     has_opened_da = "Has Opened Quietus"
-    victory = "Victory" 
+    victory = "Victory"
 
     # Can Use Keys
     can_use_d1_keys = "Can Use Pillow Fort Keys"
