@@ -13,18 +13,18 @@ location_base_id = 238492834
 location_table: Dict[str, ID2LocationData] = {
     # Each area gets 100 reserved location IDs
     # 0: Fluffy Fields
-    # "Fluffy Fields Caves - Goldbun Combat Chest": ID2LocationData("Fluffy Fields Caves B", 0),
-    # "Fluffy Fields Caves - Portal Room Chest": ID2LocationData("Fluffy Fields Caves C", 1),
-    # "Fluffy Fields Caves - Timed Bridge Chest": ID2LocationData("Fluffy Fields Caves E", 2),
-    # "Fluffy Fields Caves - Hermit Hint Chest": ID2LocationData("Fluffy Fields Caves F", 3),
-    # "Fluffy Fields Caves - Laser Chest": ID2LocationData("Fluffy Fields Caves G", 4),
-    # "Fluffy Fields Caves - Number Blocks Chest": ID2LocationData("Fluffy Fields Caves J", 5),
-    # "Fluffy Fields Caves - Ice Blockade Chest": ID2LocationData("Fluffy Fields Caves K", 6),
-    # "Fluffy Fields Caves - Double Spikebun Combat Chest": ID2LocationData("Fluffy Fields Caves M", 7),
-    # "Fluffy Fields Caves - Potion Bar Chest": ID2LocationData("Fluffy Fields Caves P", 8),
-    # "Fluffy Fields Caves - Six Buns Combat Chest": ID2LocationData("Fluffy Fields Caves Q", 9),
-    # "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData("Fluffy Fields Caves X2", 10),
-    # "Fluffy Fields Caves - Jenny Berry House Chest": ID2LocationData("Fluffy Fields Caves U", 11, "Super Secrets"),
+    "Fluffy Fields Caves - Goldbun Combat Chest": ID2LocationData(rname.ffc_b.value, 0),
+    "Fluffy Fields Caves - Portal Room Chest": ID2LocationData(rname.ffc_c.value, 1),
+    "Fluffy Fields Caves - Timed Bridge Chest": ID2LocationData(rname.ffc_e.value, 2),
+    "Fluffy Fields Caves - Hermit Hint Chest": ID2LocationData(rname.ffc_f.value, 3),
+    "Fluffy Fields Caves - Laser Chest": ID2LocationData(rname.ffc_g.value, 4),
+    "Fluffy Fields Caves - Number Blocks Chest": ID2LocationData(rname.ffc_j.value, 5),
+    "Fluffy Fields Caves - Ice Blockade Chest": ID2LocationData(rname.ffc_k.value, 6),
+    "Fluffy Fields Caves - Double Spikebun Combat Chest": ID2LocationData(rname.ffc_m.value, 7),
+    "Fluffy Fields Caves - Potion Bar Chest": ID2LocationData(rname.ffc_p.value, 8),
+    "Fluffy Fields Caves - Six Buns Combat Chest": ID2LocationData(rname.ffc_q.value, 9),
+    "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData(rname.ffc_x2.value, 10),
+    "Fluffy Fields Caves - Jenny Berry House Chest": ID2LocationData(rname.ffc_u.value, 11, "Super Secrets"),
     # 100: Sweetwater Coast
     "Sweetwater Coast Caves - White Gates Combat Chest": ID2LocationData(rname.scc_b.value, 100),
     "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData(rname.scc_g.value, 101),
@@ -48,11 +48,11 @@ location_table: Dict[str, ID2LocationData] = {
     # 700: Lonely Road
 
     # 800: Pillow Fort
-    # "Pillow Fort - Treasure Chest": ID2LocationData("Pillow Fort I", 800, "Dungeons"),
-    # "Pillow Fort - Shellbun Nest Key": ID2LocationData("Pillow Fort J", 801, "Dungeons"),
-    # "Pillow Fort - Crayon Chest": ID2LocationData("Pillow Fort G", 802, "Dungeons"),
-    # "Pillow Fort - Safety Jenny Gate Key": ID2LocationData("Pillow Fort E", 803, "Dungeons"),
-    # "Pillow Fort - Boss Reward Chest": ID2LocationData("Pillow Fort C", 804, "Dungeons"),
+    "Pillow Fort - Treasure Chest": ID2LocationData(rname.d1_i.value, 800, "Dungeons"),
+    "Pillow Fort - Shellbun Nest Key": ID2LocationData(rname.d1_j.value, 801, "Dungeons"),
+    "Pillow Fort - Crayon Chest": ID2LocationData(rname.d1_g.value, 802, "Dungeons"),
+    "Pillow Fort - Safety Jenny Gate Key": ID2LocationData(rname.d1_e.value, 803, "Dungeons"),
+    "Pillow Fort - Boss Reward Chest": ID2LocationData(rname.d1_c.value, 804, "Dungeons"),
     # 900: Sand Castle
     "Sand Castle - Crayon Chest": ID2LocationData(rname.d2_g.value, 900, "Dungeons"),
     "Sand Castle - Orbiting Balls Key": ID2LocationData(rname.d2_i.value, 901, "Dungeons"),

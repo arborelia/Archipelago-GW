@@ -28,31 +28,47 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         # ID2Data(ID2Type.region),
         rname.sweetwater_coast:
             ID2Data(ID2Type.region),
-        # dummy locations
-        # lname.ffc_artist_backroom:
-        #     ID2Data(ID2Type.location),
-        # lname.ffc_double_spikebun_combat:
-        #     ID2Data(ID2Type.location),
-        # lname.ffc_goldbun_combat:
-        #     ID2Data(ID2Type.location),
-        # lname.ffc_hermit_hint:
-        #     ID2Data(ID2Type.location),
-        # lname.ffc_ice_blockade:
-        #     ID2Data(ID2Type.location),
-        # lname.ffc_jenny_berry_house:
-        #     ID2Data(ID2Type.location),
-        # lname.ffc_potion_bar:
-        #     ID2Data(ID2Type.location),
-        # lname.d1_boss_reward:
-        #     ID2Data(ID2Type.location),
-        # lname.d1_crayon:
-        #     ID2Data(ID2Type.location),
-        # lname.d1_safety_jenny_gate:
-        #     ID2Data(ID2Type.location),
-        # lname.d1_shellbun_nest:
-        #     ID2Data(ID2Type.location),
     },
     # Overworld regions
+    rname.fluffy_fields: {
+        rname.pepperpain_prairie:
+            ID2Data(ID2Type.region),
+        rname.sweetwater_coast:
+            ID2Data(ID2Type.region),
+        rname.fancy_ruins:
+            ID2Data(ID2Type.region),
+        rname.star_woods:
+            ID2Data(ID2Type.region),
+        rname.slippery_slope:
+            ID2Data(ID2Type.region),
+        rname.dreamworld:
+            ID2Data(ID2Type.region, [[]]),  # TODO add dream world event requirements
+        rname.ffc_a:
+            # Only melee can hit the musical pillars
+            ID2Data(ID2Type.region, [[iname.melee.value]]),
+        rname.ffc_b:
+            ID2Data(ID2Type.region),
+        rname.ffc_c:
+            ID2Data(ID2Type.region),
+        rname.ffc_d:
+            ID2Data(ID2Type.region),
+        rname.ffc_e:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.ffc_f:
+            ID2Data(ID2Type.region),
+        rname.ffc_g:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.ffc_h:
+            ID2Data(ID2Type.region),
+        rname.ffc_i:
+            ID2Data(ID2Type.region),
+        rname.ffc_j:
+            ID2Data(ID2Type.region),
+        rname.ffc_k:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.ffc_s:
+            ID2Data(ID2Type.region),
+    },
     rname.sweetwater_coast: {
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
@@ -99,6 +115,57 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
 
     # Caves
+    # Fluffy Fields Caves
+    rname.ffc_a: {
+        rname.autumn_climb:
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value],
+                                     [iname.can_phase_itemless.value]]),
+    },
+    rname.ffc_b: {
+        lname.ffc_goldbun_combat:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]]),
+    },
+    rname.ffc_c: {
+        lname.ffc_portal_room:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.ffc_d: {
+        # clockwise tree house turnip
+    },
+    rname.ffc_e: {
+        lname.ffc_timed_bridge:
+            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.ffc_f: {
+        lname.ffc_hermit_hint:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.ffc_g: {
+        lname.ffc_laser:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.ffc_h: {
+        # transitional cave from one side of Fluffy to the other
+        # ...SPRUCE THAT IS...
+    },
+    rname.ffc_i: {
+        # lazy turnip cave
+    },
+    rname.ffc_j: {
+        lname.ffc_number_blocks:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.ffc_k: {
+        lname.ffc_ice_blockade:
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       # itemless ice phasing isn't possible due to some weird properties of the
+                                       # natural ice blocks, still unknown why
+                                       [iname.can_phase_ice],
+                                       [iname.can_phase_dynamite]]),
+    },
+    rname.ffc_s: {
+        # Status Effect Tutorial house
+    },
     # Sweetwater Caves
     rname.scc_a: {
         # rock performance
@@ -245,7 +312,10 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d2_orbiting_balls:
             ID2Data(ID2Type.location, [[iname.melee.value, iname.roll.value]]),
         rname.d2_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value, iname.melee.value, iname.roll.value]]),
+            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value, iname.melee.value, iname.roll.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value],
+                                     [iname.can_phase_dynamite]]),
         rname.d2_g:
             ID2Data(ID2Type.region)
     },
@@ -262,5 +332,14 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value]]),
         rname.d2_j:
             ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]])
+    },
+
+    # Portal Worlds
+    rname.autumn_climb: {
+        lname.autumn_climb:
+            ID2Data(ID2Type.region, [[iname.can_open_chests.value]]),
+        rname.ffc_a:
+            ID2Data(ID2Type.region),
     }
+
 }

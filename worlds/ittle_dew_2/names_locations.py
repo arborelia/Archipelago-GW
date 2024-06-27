@@ -316,7 +316,7 @@ class LocationNames(str, Enum):
     bad_dream = "Bad Dream - Card"
 
     # Event Locations
-    # got_all_d1_keys = "Received Pillow Fort Keys"
+    event_all_d1_keys = "Received Pillow Fort Keys"
     event_all_d2_keys = "Received Sand Castle Keys"
     # got_all_d3_keys = "Received Art Gallery Keys"
     # got_all_d4_keys = "Received Trash Cave Keys"
