@@ -24,10 +24,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # Currently vanilla start will be the only available starting location
     # For now MVP is going to move starting logical location to be Sweetwater Coast
     rname.menu: {
-        # rname.fluffy_fields: 
-        # ID2Data(ID2Type.region),
-        rname.sweetwater_coast:
-            ID2Data(ID2Type.region),
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region)
     },
     # Overworld regions
     rname.fluffy_fields: {
@@ -42,7 +40,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.slippery_slope:
             ID2Data(ID2Type.region),
         rname.dreamworld:
-            ID2Data(ID2Type.region, [[]]),  # TODO add dream world event requirements
+            ID2Data(ID2Type.region, [[iname.has_opened_dw.value]]),  # TODO add dream world event requirements
         rname.ffc_a:
             # Only melee can hit the musical pillars
             ID2Data(ID2Type.region, [[iname.melee.value]]),
@@ -66,8 +64,40 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.ffc_k:
             ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.ffc_l:
+            ID2Data(ID2Type.region),
+        rname.ffc_m:
+            ID2Data(ID2Type.region),
+        rname.ffc_n:
+            ID2Data(ID2Type.region),
+        rname.ffc_o:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.ffc_p:
+            ID2Data(ID2Type.region),
+        rname.ffc_q:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.ffc_r:
+            ID2Data(ID2Type.region),
         rname.ffc_s:
             ID2Data(ID2Type.region),
+        rname.ffc_s2:
+            ID2Data(ID2Type.region),
+        rname.ffc_t:
+            ID2Data(ID2Type.region),
+        rname.ffc_u:
+            # only requires waiting in the corner of warp garden,
+            # but otherwise should be considered a Super Secret location
+            ID2Data(ID2Type.region),
+        rname.ffc_w:
+            ID2Data(ID2Type.region),
+        rname.ffc_x:
+            ID2Data(ID2Type.region),
+        rname.ffc_y:
+            ID2Data(ID2Type.region),
+        rname.d1_h:
+            ID2Data(ID2Type.region),
+        rname.s1_m:
+            ID2Data(ID2Type.region, [[iname.has_opened_s1.value]])
     },
     rname.sweetwater_coast: {
         rname.fluffy_fields:
@@ -160,11 +190,68 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.location, [[iname.melee.value],
                                        # itemless ice phasing isn't possible due to some weird properties of the
                                        # natural ice blocks, still unknown why
-                                       [iname.can_phase_ice],
-                                       [iname.can_phase_dynamite]]),
+                                       [iname.can_phase_ice.value],
+                                       [iname.can_phase_dynamite.value]]),
+    },
+    rname.ffc_l: {
+        # West Safety Jenny hint house
+    },
+    rname.ffc_m: {
+        lname.ffc_double_spikebun_combat:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]])
+    },
+    rname.ffc_n: {
+        # East Safety Jenny hint house
+    },
+    rname.ffc_o: {
+        rname.ffc_t:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.ffc_p: {
+        lname.ffc_potion_bar:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.ffc_q: {
+        lname.ffc_six_buns_combat:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]])
+    },
+    rname.ffc_r: {
+        # Lenny's house
     },
     rname.ffc_s: {
-        # Status Effect Tutorial house
+        # Tutorial house
+    },
+    rname.ffc_s2: {
+        rname.ffc_s:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.ffc_t: {
+        # Barrel room
+    },
+    rname.ffc_u: {
+        lname.ffc_jenny_berry_house:
+            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+        rname.ffc_u2:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.ffc_u2: {
+        # Jenny Berry PR hint sign
+    },
+    rname.ffc_w: {
+        # Laundry
+    },
+    rname.ffc_x: {
+        rname.ffc_x2:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.ffc_x2: {
+        lname.ffc_artist_backroom:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.ffc_x:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.ffc_y: {
+        # Raft storage
     },
     # Sweetwater Caves
     rname.scc_a: {
@@ -236,6 +323,83 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
 
     # Dungeons
+    # Pillow Fort
+    rname.d1_a: {
+        rname.d1_b:
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]])
+    },
+    rname.d1_b: {
+        rname.d1_c:
+            ID2Data(ID2Type.region)
+    },
+    rname.d1_c: {
+        lname.d1_boss_reward:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value, iname.roll.value]]),
+        rname.d1_b:
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value, iname.roll.value]])
+    },
+    rname.d1_d: {
+        rname.d1_g:
+            ID2Data(ID2Type.region),
+        rname.d1_a:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value],
+                                     [iname.can_phase_itemless.value]])
+    },
+    rname.d1_e: {
+        lname.d1_safety_jenny_gate:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value],
+                                       [iname.can_phase_enemy_difficult.value]]),
+        rname.d1_f:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.d1_h:
+            ID2Data(ID2Type.region)
+    },
+    rname.d1_f: {
+        rname.d1_e:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+    },
+    rname.d1_g: {
+        lname.d1_crayon:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]]),
+        rname.d1_d:
+            ID2Data(ID2Type.region, [[iname.can_use_d1_keys.value]]),
+        rname.d1_h:
+            ID2Data(ID2Type.region),
+        rname.d1_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.d1_h: {
+        rname.d1_e:
+            ID2Data(ID2Type.region),
+        rname.d1_g:
+            ID2Data(ID2Type.region),
+        rname.d1_j:
+            ID2Data(ID2Type.region),
+        rname.d1_k:
+            ID2Data(ID2Type.region, [[iname.can_use_d1_keys.value]]),
+    },
+    rname.d1_i: {
+        lname.d1_treasure:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.d1_h:
+            ID2Data(ID2Type.region),
+        rname.d1_k:
+            ID2Data(ID2Type.region),
+    },
+    rname.d1_j: {
+        lname.d1_shellbun_nest:
+            ID2Data(ID2Type.location),
+        rname.d1_g:
+            ID2Data(ID2Type.region),
+        rname.d1_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.d1_k: {
+        rname.d1_h:
+            ID2Data(ID2Type.region, [[iname.can_use_d1_keys.value]]),
+        rname.d1_i:
+            ID2Data(ID2Type.region),
+    },
     # Sand Castle
     rname.d2_a: {
         lname.d2_boss_reward:
@@ -315,7 +479,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value, iname.melee.value, iname.roll.value],
                                      [iname.can_phase_itemless.value, iname.roll.value],
                                      [iname.can_phase_itemless_difficult.value],
-                                     [iname.can_phase_dynamite]]),
+                                     [iname.can_phase_dynamite.value]]),
         rname.d2_g:
             ID2Data(ID2Type.region)
     },
@@ -337,7 +501,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # Portal Worlds
     rname.autumn_climb: {
         lname.autumn_climb:
-            ID2Data(ID2Type.region, [[iname.can_open_chests.value]]),
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.ffc_a:
             ID2Data(ID2Type.region),
     }

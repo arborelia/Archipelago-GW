@@ -25,7 +25,7 @@ helper_reference: Dict[str, List[str]] = {
 
 # number of keys in each dungeon
 key_count_requirements: Dict[lname, int] = {
-    # lname.got_all_d1_keys: 2,
+    lname.event_all_d1_keys: 2,
     lname.event_all_d2_keys: 2,
     # lname.got_all_d3_keys: 4,
     # lname.got_all_d4_keys: 4,

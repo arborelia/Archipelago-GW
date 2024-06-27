@@ -129,26 +129,27 @@ class ID2World(World):
 
         # key settings
         if self.options.key_settings == KeySettings.option_default:
+            items_to_create[iname.d1_key.value] = 2
             items_to_create[iname.d2_key.value] = 2
             # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
-            # items_to_create[iname.d1_keyring.value] = 1,
+            items_to_create[iname.d1_keyring.value] = 1
             items_to_create[iname.d2_keyring.value] = 1
-            # items_to_create[iname.d3_keyring.value] = 1,
-            # items_to_create[iname.d4_keyring.value] = 1,
-            # items_to_create[iname.d5_keyring.value] = 1,
-            # items_to_create[iname.d6_keyring.value] = 1,
-            # items_to_create[iname.d7_keyring.value] = 1,
-            # items_to_create[iname.d8_keyring.value] = 1,
-            # items_to_create[iname.s1_keyring.value] = 1,
-            # items_to_create[iname.s2_keyring.value] = 1,
-            # items_to_create[iname.s3_keyring.value] = 1,
-            # items_to_create[iname.s4_keyring.value] = 1,
-            # items_to_create[iname.dd_keyring.value] = 1,
-            # items_to_create[iname.dfc_keyring.value] = 1,
-            # items_to_create[iname.di_keyring.value] = 1,
-            # items_to_create[iname.da_keyring.value] = 1,
+            # items_to_create[iname.d3_keyring.value] = 1
+            # items_to_create[iname.d4_keyring.value] = 1
+            # items_to_create[iname.d5_keyring.value] = 1
+            # items_to_create[iname.d6_keyring.value] = 1
+            # items_to_create[iname.d7_keyring.value] = 1
+            # items_to_create[iname.d8_keyring.value] = 1
+            # items_to_create[iname.s1_keyring.value] = 1
+            # items_to_create[iname.s2_keyring.value] = 1
+            # items_to_create[iname.s3_keyring.value] = 1
+            # items_to_create[iname.s4_keyring.value] = 1
+            # items_to_create[iname.dd_keyring.value] = 1
+            # items_to_create[iname.dfc_keyring.value] = 1
+            # items_to_create[iname.di_keyring.value] = 1
+            # items_to_create[iname.da_keyring.value] = 1
 
         # remove Forbidden Keys from pool if S4 is open
         if self.options.open_s4:
@@ -204,9 +205,9 @@ class ID2World(World):
         return self.random.choice(filler_items)
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        # state = self.multiworld.get_all_state(False)
-        # state.update_reachable_regions(self.player)
-        # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
+        state = self.multiworld.get_all_state(False)
+        state.update_reachable_regions(self.player)
+        visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         return self.options.as_dict(
             "goal",
             "open_d8",

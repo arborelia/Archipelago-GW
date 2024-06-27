@@ -24,7 +24,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Fluffy Fields Caves - Potion Bar Chest": ID2LocationData(rname.ffc_p.value, 8),
     "Fluffy Fields Caves - Six Buns Combat Chest": ID2LocationData(rname.ffc_q.value, 9),
     "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData(rname.ffc_x2.value, 10),
-    "Fluffy Fields Caves - Jenny Berry House Chest": ID2LocationData(rname.ffc_u.value, 11, "Super Secrets"),
+    "Fluffy Fields Caves - Jenny Berry House Outfit": ID2LocationData(rname.ffc_u.value, 11, "Super Secrets"),
     # 100: Sweetwater Coast
     "Sweetwater Coast Caves - White Gates Combat Chest": ID2LocationData(rname.scc_b.value, 100),
     "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData(rname.scc_g.value, 101),
@@ -58,7 +58,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Sand Castle - Orbiting Balls Key": ID2LocationData(rname.d2_i.value, 901, "Dungeons"),
     "Sand Castle - Spikebun Dunes Key": ID2LocationData(rname.d2_d.value, 902, "Dungeons"),
     "Sand Castle - Treasure Chest": ID2LocationData(rname.d2_j.value, 904, "Dungeons"),
-    "Sand Castle - Boss Reward Chest": ID2LocationData(rname.d2_a.value, 905, "Dungeons")
+    "Sand Castle - Boss Reward Chest": ID2LocationData(rname.d2_a.value, 905, "Dungeons"),
     # 1000: Art Gallery
 
     # 1100: Trash Cave
@@ -90,6 +90,7 @@ location_table: Dict[str, ID2LocationData] = {
     # 2400: Quietus
 
     # 2500: Portal Worlds
+    "Autumn Climb - Chest": ID2LocationData(rname.autumn_climb.value, 2500, "Portal Worlds")
     
     # 2600+: Misc Locations
 }
