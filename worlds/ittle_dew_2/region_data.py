@@ -143,6 +143,58 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d2_g:
             ID2Data(ID2Type.region)
     },
+    rname.fancy_ruins: {
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+        rname.star_woods:
+            ID2Data(ID2Type.region),
+        rname.pepperpain_prairie:
+            ID2Data(ID2Type.region),
+        rname.frozen_court:
+            ID2Data(ID2Type.region),
+        rname.frc_a:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.frc_b:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.frc_c:
+            ID2Data(ID2Type.region),
+        rname.frc_d:
+            ID2Data(ID2Type.region),
+        # There is no E cave
+        rname.frc_f:
+            ID2Data(ID2Type.region),
+        rname.frc_g:
+            ID2Data(ID2Type.region),
+        rname.frc_h:
+            ID2Data(ID2Type.region),
+        rname.frc_i:
+            ID2Data(ID2Type.region),
+        rname.frc_j:
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+        rname.frc_k:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.frc_l:
+            ID2Data(ID2Type.region),
+        rname.frc_m:
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]]),
+        # N's entrance is one-way and requires entering from FC first
+        # There is no O or P cave
+        rname.frc_q:
+            ID2Data(ID2Type.region),
+        rname.frc_r:
+            ID2Data(ID2Type.region),
+        # S must be reached from N
+        rname.scc_p:
+            ID2Data(ID2Type.region),
+        rname.s2_p:
+            ID2Data(ID2Type.region, [[iname.has_opened_s2.value]]),  # TODO make event item
+    },
+    rname.fancy_hilltop: {
+        rname.frc_q:
+            ID2Data(ID2Type.region),
+        rname.d3_q:
+            ID2Data(ID2Type.region),
+    },
 
     # Caves
     # Fluffy Fields Caves
@@ -320,6 +372,77 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scc_q: {
         # Changing Tent
+    },
+    # Fancy Ruins Caves
+    rname.frc_a: {
+        lname.frc_two_torches:
+            ID2Data(ID2Type.location, [[iname.melee.value]]),
+    },
+    rname.frc_b: {
+        lname.frc_numbered_torches:
+            ID2Data(ID2Type.location, [[iname.melee.value]]),
+    },
+    rname.frc_c: {
+        lname.frc_two_crystals:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.frc_d: {
+        lname.frc_big_ogler_combat:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value, iname.roll.value]]),
+    },
+    rname.frc_f: {
+        rname.farthest_shore:
+            ID2Data(ID2Type.region),
+    },
+    rname.frc_g: {
+        lname.frc_hint_turnip:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.frc_h: {
+        lname.frc_rhythm_pillars:
+            ID2Data(ID2Type.location, [[iname.melee.value]]),
+    },
+    rname.frc_i: {
+        lname.frc_teleporter_puzzle:
+            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.frc_j: {
+        lname.frc_four_oglers_combat:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]]),
+    },
+    rname.frc_k: {
+        lname.frc_spike_path:
+            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+    },
+    rname.frc_l: {
+        lname.frc_hiding_hermit:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.frc_m: {
+        lname.frc_ice_and_torch:
+            ID2Data(ID2Type.location, [[iname.melee.value]]),
+    },
+    rname.frc_n: {
+        rname.fancy_ruins:
+            ID2Data(ID2Type.region),
+        rname.frozen_court:
+            ID2Data(ID2Type.region),
+        rname.frc_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.frc_q: {
+        rname.fancy_ruins:
+            ID2Data(ID2Type.region),
+        rname.fancy_hilltop:
+            ID2Data(ID2Type.region),
+    },
+    rname.frc_r: {
+        rname.scrap_yard_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.frc_s:{
+        rname.frc_n:
+            ID2Data(ID2Type.region),
     },
 
     # Dungeons
