@@ -114,8 +114,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.scc_f:
         # transitional cave, gives access to d and e
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value],
-                                     [iname.can_phase_dynamite.value],
+            ID2Data(ID2Type.region),
+        rname.sweetwater_hill:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite_difficult.value],
                                      [iname.can_phase_ice.value, iname.roll.value],
                                      [iname.can_phase_enemy_difficult.value, iname.roll.value]]),
         rname.scc_g:
@@ -142,6 +143,12 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.d2_g:
             ID2Data(ID2Type.region)
+    },
+    rname.sweetwater_hill: {
+        rname.scc_d:
+            ID2Data(ID2Type.region),
+        rname.scc_e:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
     },
     rname.fancy_ruins: {
         rname.fluffy_fields:
@@ -194,6 +201,74 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.d3_q:
             ID2Data(ID2Type.region),
+    },
+    rname.star_woods: {
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+        rname.sweetwater_coast:
+            ID2Data(ID2Type.region),
+        rname.swc_a:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.swc_b:
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+        rname.swc_c:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.swc_d:
+            ID2Data(ID2Type.region),
+        rname.swc_e:
+            ID2Data(ID2Type.region),
+        rname.swc_f:
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+        rname.swc_g:
+            ID2Data(ID2Type.region),
+        rname.swc_h:
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+        rname.swc_i:
+            ID2Data(ID2Type.region),
+        rname.swc_k:
+            ID2Data(ID2Type.region),
+        rname.swc_n:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.swc_q:
+            ID2Data(ID2Type.region),
+        rname.swc_r:
+            ID2Data(ID2Type.region),
+        rname.swc_s:
+            ID2Data(ID2Type.region),
+        rname.d4_r:
+            ID2Data(ID2Type.region),
+    },
+    rname.star_east: {
+        rname.swc_j:
+            ID2Data(ID2Type.region),
+        rname.swc_p:
+            # The star responds to all weapons, but only melee and ice can hit it rapidly enough
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.ice.value]]),
+        rname.swc_q:
+            ID2Data(ID2Type.region),
+        rname.swc_r:
+            ID2Data(ID2Type.region),
+        rname.s3_s:
+            ID2Data(ID2Type.region, [[iname.has_opened_s3.value]]),  # TODO turn into event item
+        rname.star_woods:
+            # clip by the artist's hous OoB, then navigate to the Fancy Ruins entrance
+            # other way is technically possible but unfeasible without freecam
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite_difficult.value, iname.roll.value],
+                                     # it can also be done with just ice and roll
+                                     [iname.can_phase_ice_difficult.value, iname.roll.value]])
+            # TODO honestly not that bad, maybe consider making them normal instead of difficult after feedback?
+    },
+    rname.star_coast: {
+        rname.swc_l:
+            ID2Data(ID2Type.region),
+        rname.swc_m:
+            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+        rname.swc_s:
+            ID2Data(ID2Type.region),
+        rname.swc_t:
+            # You need to be able to kill the Octocles blocking the path
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]]),
     },
 
     # Caves
@@ -324,10 +399,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region)
     },
     rname.scc_f: {
-        rname.scc_d:
-            ID2Data(ID2Type.region),
-        rname.scc_e:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+        rname.sweetwater_hill:
+            ID2Data(ID2Type.region)
     },
     rname.scc_g: {
         lname.scc_feral_gates_combat:
@@ -440,9 +513,103 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scrap_yard_f:
             ID2Data(ID2Type.region),
     },
-    rname.frc_s:{
+    rname.frc_s: {
         rname.frc_n:
             ID2Data(ID2Type.region),
+    },
+    # Star Woods Caves
+    rname.swc_a: {
+        lname.swc_turnip_combat:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]]),
+    },
+    rname.swc_b: {
+        lname.swc_barrel_blast:
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       # put the dynamite on the bridge, then press the button right before
+                                       # the dynamite explodes
+                                       [iname.dynamite.value]]),
+    },
+    rname.swc_c: {
+        lname.swc_four_crystals:
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       [iname.ice.value]])
+    },
+    rname.swc_d: {
+        lname.swc_sleeping_jenny:
+            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]])
+    },
+    rname.swc_e: {
+        # green star hint ogler
+    },
+    rname.swc_f: {
+        lname.swc_rotating_spikes:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.swc_g: {
+        lname.swc_number_tiles:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.swc_h: {
+        lname.swc_whirlwind:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.swc_i: {
+        lname.swc_magic_crystal:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.swc_j: {
+        lname.swc_artist_turnip:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.swc_k: {
+        lname.swc_hint_bee:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.swc_l: {
+        # Dancing Turnip
+    },
+    rname.swc_m: {
+        rname.swc_o:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+    },
+    rname.swc_n: {
+        rname.brutal_oasis:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value],
+                                     [iname.can_phase_itemless.value]])
+    },
+    rname.swc_o: {
+        lname.swc_extinguish_flames:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.swc_m:
+            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+    },
+    rname.swc_p: {
+        rname.former_colossus:
+            ID2Data(ID2Type.region)
+    },
+    rname.swc_q: {
+        rname.star_woods:
+            ID2Data(ID2Type.region),
+        rname.star_east:
+            ID2Data(ID2Type.region)
+    },
+    rname.swc_r: {
+        rname.star_woods:
+            ID2Data(ID2Type.region),
+        rname.star_east:
+            ID2Data(ID2Type.region)
+    },
+    rname.swc_s: {
+        rname.star_woods:
+            ID2Data(ID2Type.region),
+        rname.star_coast:
+            ID2Data(ID2Type.region)
+    },
+    rname.swc_t: {
+        rname.star_coast:
+            ID2Data(ID2Type.region),
+        rname.frozen_court:
+            ID2Data(ID2Type.region)
     },
 
     # Dungeons
