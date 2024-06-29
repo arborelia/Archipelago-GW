@@ -18,8 +18,8 @@ class ID2Location(Location):
 
 # group requirements and their individual requirements
 helper_reference: Dict[str, List[str]] = {
-    iname.can_break_weak_objects.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
-    iname.can_break_strong_objects.value: [iname.melee.value, iname.dynamite.value, iname.ice.value],
+    iname.weapons_no_force.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
+    iname.weapons_any.value: [iname.melee.value, iname.dynamite.value, iname.ice.value],
     iname.can_kill_basic_enemies.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value]
 }
 

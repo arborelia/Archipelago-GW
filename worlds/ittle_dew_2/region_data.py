@@ -51,11 +51,11 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.ffc_d:
             ID2Data(ID2Type.region),
         rname.ffc_e:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.ffc_f:
             ID2Data(ID2Type.region),
         rname.ffc_g:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.ffc_h:
             ID2Data(ID2Type.region),
         rname.ffc_i:
@@ -63,7 +63,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.ffc_j:
             ID2Data(ID2Type.region),
         rname.ffc_k:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.ffc_l:
             ID2Data(ID2Type.region),
         rname.ffc_m:
@@ -71,11 +71,11 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.ffc_n:
             ID2Data(ID2Type.region),
         rname.ffc_o:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.ffc_p:
             ID2Data(ID2Type.region),
         rname.ffc_q:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.ffc_r:
             ID2Data(ID2Type.region),
         rname.ffc_s:
@@ -109,7 +109,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scc_a:
             ID2Data(ID2Type.region),
         rname.scc_b:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_any.value]]),
         rname.scc_c:
             ID2Data(ID2Type.region),
         rname.scc_f:
@@ -120,7 +120,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_ice.value, iname.roll.value],
                                      [iname.can_phase_enemy_difficult.value, iname.roll.value]]),
         rname.scc_g:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_any.value]]),
         rname.scc_h:
             ID2Data(ID2Type.region),
         rname.scc_i:
@@ -130,13 +130,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scc_k:
             ID2Data(ID2Type.region),
         rname.scc_l:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.scc_m:
             ID2Data(ID2Type.region),
         rname.scc_n:
             ID2Data(ID2Type.region),
         rname.scc_o:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.scc_p:
             ID2Data(ID2Type.region),
         rname.scc_q:
@@ -148,7 +148,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scc_d:
             ID2Data(ID2Type.region),
         rname.scc_e:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
     },
     rname.fancy_ruins: {
         rname.fluffy_fields:
@@ -160,9 +160,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.frozen_court:
             ID2Data(ID2Type.region),
         rname.frc_a:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.frc_b:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.frc_c:
             ID2Data(ID2Type.region),
         rname.frc_d:
@@ -177,9 +177,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.frc_i:
             ID2Data(ID2Type.region),
         rname.frc_j:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_any.value]]),
         rname.frc_k:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.frc_l:
             ID2Data(ID2Type.region),
         rname.frc_m:
@@ -208,27 +208,27 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.sweetwater_coast:
             ID2Data(ID2Type.region),
         rname.swc_a:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.swc_b:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_any.value]]),
         rname.swc_c:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.swc_d:
             ID2Data(ID2Type.region),
         rname.swc_e:
             ID2Data(ID2Type.region),
         rname.swc_f:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_any.value]]),
         rname.swc_g:
             ID2Data(ID2Type.region),
         rname.swc_h:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_any.value]]),
         rname.swc_i:
             ID2Data(ID2Type.region),
         rname.swc_k:
             ID2Data(ID2Type.region),
         rname.swc_n:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.swc_q:
             ID2Data(ID2Type.region),
         rname.swc_r:
@@ -256,19 +256,61 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             # other way is technically possible but unfeasible without freecam
             ID2Data(ID2Type.region, [[iname.can_phase_dynamite_difficult.value, iname.roll.value],
                                      # it can also be done with just ice and roll
-                                     [iname.can_phase_ice_difficult.value, iname.roll.value]])
+                                     [iname.can_phase_ice_difficult.value, iname.melee.value, iname.roll.value]])
             # TODO honestly not that bad, maybe consider making them normal instead of difficult after feedback?
     },
     rname.star_coast: {
         rname.swc_l:
             ID2Data(ID2Type.region),
         rname.swc_m:
-            ID2Data(ID2Type.region, [[iname.can_break_strong_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_any.value]]),
         rname.swc_s:
             ID2Data(ID2Type.region),
         rname.swc_t:
             # You need to be able to kill the Octocles blocking the path
             ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]]),
+    },
+    rname.slippery_slope: {
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+        rname.sweetwater_coast:
+            ID2Data(ID2Type.region),
+        rname.pepperpain_prairie:
+            ID2Data(ID2Type.region),
+        rname.lonely_road_c_entrance:
+            ID2Data(ID2Type.region),
+        rname.ssc_a:
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
+        rname.ssc_b:
+            ID2Data(ID2Type.region),
+        rname.ssc_c:
+            ID2Data(ID2Type.region),
+        rname.ssc_d:
+            ID2Data(ID2Type.region),
+        rname.ssc_e:
+            ID2Data(ID2Type.region),
+        rname.ssc_f:
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
+        rname.ssc_g:
+            ID2Data(ID2Type.region),
+        rname.ssc_h:
+            # any weapon can hit the mushroom
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
+        rname.ssc_i:
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
+        rname.ssc_j:
+            ID2Data(ID2Type.region),
+        rname.ssc_k:
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
+        rname.ssc_l:
+            ID2Data(ID2Type.region),
+        rname.ssc_m:
+            # shortcut from house on the hill to warp, technically has two entrances
+            ID2Data(ID2Type.region),
+        rname.ssc_n:
+            ID2Data(ID2Type.region),
+        rname.ssc_o:
+            ID2Data(ID2Type.region),
     },
 
     # Caves
@@ -291,7 +333,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ffc_e: {
         lname.ffc_timed_bridge:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]]),
     },
     rname.ffc_f: {
         lname.ffc_hermit_hint:
@@ -332,7 +374,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ffc_o: {
         rname.ffc_t:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
     },
     rname.ffc_p: {
         lname.ffc_potion_bar:
@@ -350,16 +392,16 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ffc_s2: {
         rname.ffc_s:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
     },
     rname.ffc_t: {
         # Barrel room
     },
     rname.ffc_u: {
         lname.ffc_jenny_berry_house:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]]),
         rname.ffc_u2:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
     },
     rname.ffc_u2: {
         # Jenny Berry PR hint sign
@@ -369,13 +411,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ffc_x: {
         rname.ffc_x2:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
     },
     rname.ffc_x2: {
         lname.ffc_artist_backroom:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.ffc_x:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
     },
     rname.ffc_y: {
         # Raft storage
@@ -416,7 +458,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scc_j: {
         lname.scc_portal_spikes_chest:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]])
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]])
     },
     rname.scc_k: {
         lname.scc_hint_hermit:
@@ -438,7 +480,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scc_o: {
         rname.painful_plain:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]])
     },
     rname.scc_p: {
         # Transition cave to Fancy
@@ -477,7 +519,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.frc_i: {
         lname.frc_teleporter_puzzle:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]]),
     },
     rname.frc_j: {
         lname.frc_four_oglers_combat:
@@ -485,7 +527,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.frc_k: {
         lname.frc_spike_path:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]]),
     },
     rname.frc_l: {
         lname.frc_hiding_hermit:
@@ -536,7 +578,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.swc_d: {
         lname.swc_sleeping_jenny:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]])
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]])
     },
     rname.swc_e: {
         # green star hint ogler
@@ -570,18 +612,18 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.swc_m: {
         rname.swc_o:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]])
     },
     rname.swc_n: {
         rname.brutal_oasis:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value],
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value],
                                      [iname.can_phase_itemless.value]])
     },
     rname.swc_o: {
         lname.swc_extinguish_flames:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.swc_m:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]])
     },
     rname.swc_p: {
         rname.former_colossus:
@@ -611,6 +653,75 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.frozen_court:
             ID2Data(ID2Type.region)
     },
+    # Slippery Slope Caves
+    rname.ssc_a: {
+        lname.ssc_volcanic_path:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.ssc_b: {
+        lname.ssc_ice_and_barrels:
+            # This room is weird and you can't phase to any of the natural entities in this room.
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]])
+    },
+    rname.ssc_c: {
+        rname.ocean_castle:
+            ID2Data(ID2Type.region, [[iname.can_kill_basic_enemies.value]])
+    },
+    rname.ssc_d: {
+        lname.ssc_eight_crystals:
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       # push the crystals using phasing to more conveniently hit them
+                                       [iname.can_phase_ice.value]])
+    },
+    rname.ssc_e: {
+        lname.ssc_forgetful_jennies:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.ssc_f: {
+        lname.ssc_push_the_crystals:
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]])
+    },
+    rname.ssc_g: {
+        lname.ssc_exhausted_turnip:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.ssc_h: {
+        rname.sand_crucible_c:
+            ID2Data(ID2Type.region)
+    },
+    rname.ssc_i: {
+        lname.ssc_bee_nest_combat:
+            ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value]])
+    },
+    rname.ssc_j: {
+        lname.ssc_pushable_fan:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.ssc_k: {
+        lname.ssc_moving_crystals:
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       [iname.ice.value]])
+    },
+    rname.ssc_l: {
+        lname.ssc_shark_house:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.ssc_m: {
+        rname.slippery_slope:
+            ID2Data(ID2Type.region)
+    },
+    rname.ssc_n: {
+        rname.slippery_slope:
+            ID2Data(ID2Type.region),
+        rname.pepperpain_prairie:
+            ID2Data(ID2Type.region)
+    },
+    rname.ssc_o: {
+        rname.slippery_slope:
+            ID2Data(ID2Type.region),
+        rname.d5_s:
+            ID2Data(ID2Type.region)
+    },
 
     # Dungeons
     # Pillow Fort
@@ -632,7 +743,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d1_g:
             ID2Data(ID2Type.region),
         rname.d1_a:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value],
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value],
                                      [iname.can_phase_itemless.value]])
     },
     rname.d1_e: {
@@ -640,13 +751,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.location, [[iname.can_kill_basic_enemies.value],
                                        [iname.can_phase_enemy_difficult.value]]),
         rname.d1_f:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.d1_h:
             ID2Data(ID2Type.region)
     },
     rname.d1_f: {
         rname.d1_e:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]])
     },
     rname.d1_g: {
         lname.d1_crayon:
@@ -705,15 +816,15 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d2_c: {
         rname.d2_d:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.d2_h:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]])
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]])
     },
     rname.d2_d: {
         lname.d2_spikebun_dunes:
-            ID2Data(ID2Type.location, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.location, [[iname.weapons_no_force.value]]),
         rname.d2_c:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.d2_h:
             ID2Data(ID2Type.region)
     },
@@ -750,7 +861,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d2_h: {
         rname.d2_c:
-            ID2Data(ID2Type.region, [[iname.can_break_weak_objects.value]]),
+            ID2Data(ID2Type.region, [[iname.weapons_no_force.value]]),
         rname.d2_d:
             ID2Data(ID2Type.region),
         rname.d2_g:
