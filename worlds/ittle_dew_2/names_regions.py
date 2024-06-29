@@ -42,7 +42,8 @@ class RegionNames(str, Enum):
     lonely_road_d = "Lonely Road D"
     # Volcano Maze
     lonely_road_e = "Lonely Road E"
-    forbidden_area = "Forbidden Area"
+    forbidden_area_south = "Forbidden Area - Entrance"
+    forbidden_area_north = "Forbidden Area - Tomb Path"
 
     # Fluffy Caves
     ffc_a = "Fluffy Fields Caves A"
@@ -194,11 +195,13 @@ class RegionNames(str, Enum):
     lrc_b = "Lonely Road Caves B"
     lrc_c = "Lonely Road Caves C"
     lrc_d = "Lonely Road Caves D"
-    lrc_e = "Lonely Road Caves E"
+    lrc_e_upper = "Lonely Road Caves E - Transition"
+    lrc_e_lower = "Lonely Road Caves E - Shortcut to Entrance"
     lrc_f = "Lonely Road Caves F"
     lrc_g = "Lonely Road Caves G"
     lrc_h = "Lonely Road Caves H"
-    lrc_i = "Lonely Road Caves I"
+    lrc_i_left = "Lonely Road Caves I - West Entrance"
+    lrc_i_right = "Lonely Road Caves I - East Entrance"
     lrc_j = "Lonely Road Caves J"
     lrc_k = "Lonely Road Caves K"
     lrc_l = "Lonely Road Caves L"
@@ -209,15 +212,8 @@ class RegionNames(str, Enum):
     lrc_q = "Lonely Road Caves Q"
     lrc_r = "Lonely Road Caves R"
     lrc_s = "Lonely Road Caves S"
-    lrc_s2 = "Lonely Road Caves S2"
     lrc_t = "Lonely Road Caves T"
     lrc_u = "Lonely Road Caves U"
-    lrc_u2 = "Lonely Road Caves U2"
-    lrc_v = "Lonely Road Caves V"
-    lrc_w = "Lonely Road Caves W"
-    lrc_x = "Lonely Road Caves X"
-    lrc_x2 = "Lonely Road Caves X2"
-    lrc_y = "Lonely Road Caves Y"
 
     # Pillow Fort
     d1_a = "Pillow Fort A"
@@ -575,7 +571,8 @@ class RegionNames(str, Enum):
     northern_end_d = "Northern End D"
     northern_end_e = "Northern End E"
     northern_end_f = "Northern End F"
-    moon_garden = "Moon Garden"
+    moon_garden_south = "Moon Garden - Arena"
+    moon_garden_north = "Moon Garden - Chest Area"
     nowhere = "Nowhere"
     cave_of_mystery = "Cave of Mystery"
     somewhere = "Somewhere"
@@ -591,7 +588,12 @@ class RegionNames(str, Enum):
     dreamfly_nursery = "Dreamfly Nursery"
     bad_dream = "Bad Dream"
 
-    dreamworld = "Dreamworld"
+    dreamworld_hub = "Dreamworld"
+    dreamworld_force = "Dreamworld - Outside Wizardry Lab"
+    dreamworld_dynamite = "Dreamworld - Outside Syncope"
+    dreamworld_fire_chain = "Dreamworld - Outside Antigram"
+    dreamworld_ice = "Dreamworld - Outside Bottomless Tower"
+    dreamworld_end = "Dreamworld - Outside Quietus"
 
     # Syncope (DreamDynamite)
     # dd_a = "Syncope A"

@@ -420,6 +420,115 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fcc_o:
             ID2Data(ID2Type.region),
     },
+    # TODO determine phasability between LR regions
+    rname.lonely_road_a: {
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+        rname.lonely_road_b:
+            ID2Data(ID2Type.region),
+        rname.lrc_a:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.lrc_b:
+            ID2Data(ID2Type.region),
+        rname.lrc_c:
+            ID2Data(ID2Type.region),
+        rname.d8_y:
+            ID2Data(ID2Type.region, [[iname.has_opened_d8.value],
+                                     [iname.can_phase_dynamite_difficult.value, iname.roll.value]]),
+    },
+    rname.lonely_road_b: {
+        rname.lrc_d:
+            ID2Data(ID2Type.region),
+        rname.lrc_e_upper:
+            ID2Data(ID2Type.region),
+    },
+    rname.lonely_road_c_garden: {
+        rname.lrc_e_upper:
+            ID2Data(ID2Type.region),
+        rname.lrc_f:
+            ID2Data(ID2Type.region),
+        rname.lrc_k:
+            ID2Data(ID2Type.region, [[iname.roll.value, iname.weapon_no_force.value]])
+    },
+    rname.lonely_road_c_entrance: {
+        rname.slippery_slope:
+            ID2Data(ID2Type.region),
+        rname.lrc_e_lower:
+            ID2Data(ID2Type.region),
+        rname.lrc_g:
+            ID2Data(ID2Type.region),
+        rname.lrc_p:
+            ID2Data(ID2Type.region),
+        rname.lrc_q:
+            ID2Data(ID2Type.region)
+    },
+    rname.lonely_road_c_pond_trail: {
+        rname.lrc_f:
+            ID2Data(ID2Type.region),
+        rname.lrc_h:
+            ID2Data(ID2Type.region),
+        rname.lrc_l:
+            ID2Data(ID2Type.region),
+        rname.lrc_o:
+            ID2Data(ID2Type.region, [[iname.roll.value]]),
+    },
+    rname.lonely_road_c_lightning_rock_trail: {
+        rname.lrc_g:
+            ID2Data(ID2Type.region),
+        rname.lrc_h:
+            ID2Data(ID2Type.region),
+        rname.lrc_r:
+            ID2Data(ID2Type.region)
+    },
+    rname.lonely_road_c_lake: {
+        rname.lonely_road_d:
+            ID2Data(ID2Type.region),
+        rname.lonely_road_e:
+            ID2Data(ID2Type.region),
+        rname.lrc_h:
+            ID2Data(ID2Type.region),
+        rname.lrc_i_left:
+            ID2Data(ID2Type.region),
+        rname.lrc_m:
+            ID2Data(ID2Type.region, [[iname.melee.value]]),
+        rname.lrc_n:
+            ID2Data(ID2Type.region),
+        rname.lrc_s:
+            ID2Data(ID2Type.region, [[iname.melee.value]]),
+        rname.lrc_t:
+            ID2Data(ID2Type.region, [[iname.melee.value]])
+    },
+    rname.lonely_road_d: {
+        rname.lonely_road_c_lake:
+            ID2Data(ID2Type.region),
+        rname.lrc_u:
+            ID2Data(ID2Type.region, [[iname.melee.value]])
+    },
+    rname.lonely_road_e: {
+        rname.lonely_road_c_lake:
+            ID2Data(ID2Type.region),
+        rname.lrc_j:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]])
+    },
+    rname.forbidden_area_south: {
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+        rname.forbidden_area_north:
+            ID2Data(ID2Type.region, [[iname.has_opened_s4.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value],
+                                     [iname.can_phase_ice_difficult, iname.roll.value]]),
+        rname.lrc_i_right:
+            ID2Data(ID2Type.region),
+        rname.lrc_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.forbidden_area_north: {
+        rname.forbidden_area_south:
+            ID2Data(ID2Type.region, [[iname.has_opened_s4.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]]),
+        rname.s4_an:
+            ID2Data(ID2Type.region)
+    },
 
     # Caves
     # Fluffy Fields Caves
@@ -994,6 +1103,128 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fcc_i:
             # interestingly, you can open it this way with any weapon, but other way can't be done with force
             ID2Data(ID2Type.region, [[iname.weapon_any.value]])
+    },
+    # Lonely Road Caves
+    rname.lrc_a: {
+        rname.lonely_road_a:
+            ID2Data(ID2Type.region),
+        rname.moon_garden_south:
+            ID2Data(ID2Type.region),
+    },
+    rname.lrc_b: {
+        lname.lrc_timed_platforms:
+            ID2Data(ID2Type.location, [[iname.weapon_any.value]]),
+    },
+    rname.lrc_c: {
+        lname.lrc_timed_number_tiles:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.lrc_d: {
+        lname.lrc_volcano:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.lrc_e_upper: {
+        rname.lonely_road_b:
+            ID2Data(ID2Type.region),
+        rname.lonely_road_c_garden:
+            ID2Data(ID2Type.region),
+        rname.lrc_e_lower:
+            # one-way path
+            ID2Data(ID2Type.region),
+    },
+    rname.lrc_e_lower: {
+        rname.lonely_road_c_entrance:
+            ID2Data(ID2Type.region),
+        rname.lrc_e_upper:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value],
+                                     [iname.can_phase_dynamite.value]]),
+    },
+    rname.lrc_f: {
+        rname.lonely_road_c_garden:
+            ID2Data(ID2Type.region, [[iname.roll.value]]),
+        rname.lonely_road_c_pond_trail:
+            ID2Data(ID2Type.region, [[iname.roll.value]])
+    },
+    rname.lrc_g: {
+        rname.lonely_road_c_entrance:
+            ID2Data(ID2Type.region),
+        rname.lonely_road_c_lightning_rock_trail:
+            ID2Data(ID2Type.region),
+    },
+    rname.lrc_h: {
+        rname.lonely_road_c_lightning_rock_trail:
+            ID2Data(ID2Type.region),
+        rname.lonely_road_c_lake:
+            ID2Data(ID2Type.region),
+        rname.lonely_road_c_pond_trail:
+            ID2Data(ID2Type.region)
+    },
+    rname.lrc_i_left: {
+        rname.lonely_road_c_lake:
+            ID2Data(ID2Type.region),
+        rname.lrc_i_right:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]])
+    },
+    rname.lrc_i_right: {
+        rname.forbidden_area_south:
+            ID2Data(ID2Type.region),
+        rname.lrc_i_left:
+            ID2Data(ID2Type.region, [[iname.roll.value],
+                                     [iname.can_phase_itemless.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]]),
+    },
+    rname.lrc_j: {
+        rname.lonely_road_e:
+            ID2Data(ID2Type.region, [[iname.roll.value]]),
+        rname.forbidden_area_south:
+            ID2Data(ID2Type.region, [[iname.roll.value]]),
+    },
+    rname.lrc_k: {
+        lname.lrc_lava_fans:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.lrc_l: {
+        # Carrot cave
+    },
+    rname.lrc_m: {
+        lname.lrc_force_turrets:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.lrc_n: {
+        # Flower Jenny Cave
+    },
+    rname.lrc_o: {
+        # Jenny Cat Cave, Mjau
+    },
+    rname.lrc_p: {
+        lname.lrc_hint_shark:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.lrc_q: {
+        # Flower Jenny house
+    },
+    rname.lrc_r: {
+        lname.lrc_teleporter_cube:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.lrc_s: {
+        lname.lrc_dark_maze:
+            ID2Data(ID2Type.location, [[iname.weapon_no_dynamite.value]]),
+    },
+    rname.lrc_t: {
+        lname.lrc_block_factory:
+            ID2Data(ID2Type.region, [[iname.melee],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]]),
+    },
+    rname.lrc_u: {
+        rname.lonely_road_d:
+            ID2Data(ID2Type.region),
+        rname.northern_end_e:
+            ID2Data(ID2Type.region, [[iname.melee],
+                                     [iname.dynamite],
+                                     [iname.can_phase_ice_itemless.value, iname.roll.value]]),
     },
 
     # Dungeons

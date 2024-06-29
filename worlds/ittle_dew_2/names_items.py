@@ -136,7 +136,7 @@ class ItemNames(str, Enum):
     weapon_no_dynamite = "Weapon other than Dynamite"
     weapon_no_force = "Can Break Strong Objects"  # melee, dynamite, or ice, since force can't break everything
     weapon_projectile = "Has a projectile weapon"  # mace or force
-    force_jump = "Force Jump"  # Force + Ice # TODO add as an obtainable item
+    force_jump = "Force Jump"  # Force + Ice # TODO add as an obtainable "item"
     basic_combat = "Can Kill Basic Enemies"
     can_phase_itemless = "Can Phase Itemless"
     can_phase_itemless_difficult = "Can Phase Itemless (Difficult)"
@@ -150,6 +150,9 @@ class ItemNames(str, Enum):
     can_phase_enemy_difficult = "Can Do Enemy Phases (Difficult)"
 
     # Events
+    dw_2 = "2 Drewamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
+    dw_3 = "3 Dreamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
+    dw_4 = "4 Dreamworld Dungeons Complete"  # Typical Quietus Requiremtents # TODO add these events
     has_opened_d8 = "Has Opened Grand Library"
     has_opened_s1 = "Has Opened Sunken Labyrinth"
     has_opened_s2 = "Has Opened Machine Fortress"
