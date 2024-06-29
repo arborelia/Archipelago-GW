@@ -376,6 +376,50 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d6_q:
             ID2Data(ID2Type.region),
     },
+    rname.frozen_court: {
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+        rname.fancy_ruins:
+            ID2Data(ID2Type.region),
+        rname.fcc_a:
+            ID2Data(ID2Type.region, [[iname.melee.value]]),
+        rname.fcc_b:
+            ID2Data(ID2Type.region),
+        rname.fcc_c:
+            ID2Data(ID2Type.region, [[iname.melee.value]]),
+        rname.fcc_d:
+            ID2Data(ID2Type.region, [[iname.melee.value]]),
+        rname.fcc_e:
+            ID2Data(ID2Type.region),
+        rname.fcc_f:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.fcc_g:
+            ID2Data(ID2Type.region),
+        rname.fcc_h:
+            ID2Data(ID2Type.region),
+        rname.fcc_i:
+            ID2Data(ID2Type.region),
+        rname.fcc_j:
+            ID2Data(ID2Type.region),
+        rname.fcc_k:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.fcc_l:
+            ID2Data(ID2Type.region),
+        rname.fcc_m:
+            ID2Data(ID2Type.region),
+        rname.frc_n:
+            ID2Data(ID2Type.region),
+        rname.swc_t:
+            ID2Data(ID2Type.region),
+        rname.d7_y:
+            ID2Data(ID2Type.region),
+    },
+    rname.frozen_island: {
+        rname.fcc_m:
+            ID2Data(ID2Type.region),
+        rname.fcc_o:
+            ID2Data(ID2Type.region),
+    },
 
     # Caves
     # Fluffy Fields Caves
@@ -873,6 +917,83 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.ppc_u: {
         lname.ppc_pacifist_brute:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    # Frozen Court Caves
+    rname.fcc_a: {
+        lname.fcc_bushfire:
+            ID2Data(ID2Type.location, [[iname.melee.value]]),
+    },
+    rname.fcc_b: {
+        lname.fcc_cannon_spinner:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.fcc_c: {
+        lname.fcc_mimicbuns:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value]])
+    },
+    rname.fcc_d: {
+        rname.frozen_court:
+            ID2Data(ID2Type.region),
+        rname.wall_of_text_a:
+            ID2Data(ID2Type.region)
+    },
+    rname.fcc_e: {
+        lname.fcc_teleporter_maze:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.fcc_f: {
+        lname.fcc_chilly_roger_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]])
+    },
+    rname.fcc_g: {
+        rname.frozen_court:
+            ID2Data(ID2Type.region)
+    },
+    rname.fcc_h: {
+        lname.fcc_rickety_bridge:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.fcc_i: {
+        lname.fcc_titans_combat:
+            # Force can't knock back titans for some reason
+            ID2Data(ID2Type.location, [[iname.weapon_no_force.value],
+                                       # Just wait for the titans to fall into the pit on their own
+                                       [iname.can_phase_itemless.value, iname.can_open_chests.value]]),
+        rname.fcc_p:
+            ID2Data(ID2Type.region, [[iname.force_jump.value],
+                                     [iname.can_phase_itemless.value, iname.weapon_no_force.value]])
+    },
+    rname.fcc_j: {
+        lname.fcc_crystal_path:
+            ID2Data(ID2Type.location, [[iname.weapon_any.value],
+                                       [iname.can_phase_itemless.value, iname.can_open_chests.value]])
+    },
+    rname.fcc_k: {
+        lname.fcc_teleporter_grate:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.fcc_l: {
+        lname.fcc_hint_hermit:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+    },
+    rname.fcc_m: {
+        rname.frozen_court:
+            ID2Data(ID2Type.region),
+        rname.frozen_island:
+            ID2Data(ID2Type.region, [[iname.roll.value]])
+    },
+    rname.fcc_o: {
+        rname.frozen_island:
+            ID2Data(ID2Type.region),
+        rname.lost_city_d:
+            ID2Data(ID2Type.region)
+    },
+    rname.fcc_p: {
+        rname.frozen_court:
+            ID2Data(ID2Type.region),
+        rname.fcc_i:
+            # interestingly, you can open it this way with any weapon, but other way can't be done with force
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]])
     },
 
     # Dungeons

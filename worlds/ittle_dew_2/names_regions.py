@@ -23,6 +23,7 @@ class RegionNames(str, Enum):
     pepperpain_trail = "Pepperpain Trail"
     pepperpain_mountain = "Pepperpain Mountain"
     frozen_court = "Frozen Court"
+    frozen_island = "Frozen Court Island"
     # Outside Grand Library
     lonely_road_a = "Lonely Road A"
     # Path to Grand Library
@@ -185,7 +186,6 @@ class RegionNames(str, Enum):
     fcc_k = "Frozen Court Caves K"
     fcc_l = "Frozen Court Caves L"
     fcc_m = "Frozen Court Caves M"
-    fcc_n = "Frozen Court Caves N"
     fcc_o = "Frozen Court Caves O"
     fcc_p = "Frozen Court Caves P"
 
