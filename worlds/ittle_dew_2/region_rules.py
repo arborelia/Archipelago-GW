@@ -18,9 +18,11 @@ class ID2Location(Location):
 
 # group requirements and their individual requirements
 helper_reference: Dict[str, List[str]] = {
-    iname.weapons_no_force.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
-    iname.weapons_any.value: [iname.melee.value, iname.dynamite.value, iname.ice.value],
-    iname.can_kill_basic_enemies.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value]
+    iname.weapon_any.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
+    iname.weapon_no_dynamite.value: [iname.melee.value, iname.force.value, iname.ice.value],
+    iname.weapon_no_force.value: [iname.melee.value, iname.dynamite.value, iname.ice.value],
+    iname.weapon_projectile.value: [iname.fire_mace.value, iname.force.value],
+    iname.basic_combat.value: [iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value]
 }
 
 # number of keys in each dungeon

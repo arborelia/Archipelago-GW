@@ -131,9 +131,12 @@ class ItemNames(str, Enum):
 
     # Tricks, abilities, and options
     can_open_chests = "Can Open Chests"
-    weapons_no_force = "Can Break Weak Objects"  # every weapon except roll, can be used to open caves
-    weapons_any = "Can Break Strong Objects"  # melee, dynamite, or ice, since force can't break everything
-    can_kill_basic_enemies = "Can Kill Basic Enemies"
+    weapon_any = "Can Break Weak Objects"  # every weapon except roll, can be used to open caves
+    # useful in cases you need to use dynamite in conjunction with something else
+    weapon_no_dynamite = "Weapon other than Dynamite"
+    weapon_no_force = "Can Break Strong Objects"  # melee, dynamite, or ice, since force can't break everything
+    weapon_projectile = "Has a projectile weapon" # mace or force
+    basic_combat = "Can Kill Basic Enemies"
     can_phase_itemless = "Can Phase Itemless"
     can_phase_itemless_difficult = "Can Phase Itemless (Difficult)"
     can_phase_ice_itemless = "Can Phase to Existing Ice Blocks"

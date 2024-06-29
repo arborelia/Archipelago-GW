@@ -163,7 +163,6 @@ class RegionNames(str, Enum):
     ppc_k = "Pepperpain Caves K"
     ppc_l = "Pepperpain Caves L"
     ppc_m = "Pepperpain Caves M"
-    ppc_n = "Pepperpain Caves N"
     ppc_o = "Pepperpain Caves O"
     ppc_p = "Pepperpain Caves P"
     ppc_q = "Pepperpain Caves Q"
