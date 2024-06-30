@@ -437,6 +437,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_dynamite_difficult.value, iname.roll.value]]),
     },
     rname.lonely_road_b: {
+        rname.lonely_road_a:
+            ID2Data(ID2Type.region),
         rname.lrc_d:
             ID2Data(ID2Type.region),
         rname.lrc_e_upper:
@@ -1498,7 +1500,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.the_vault_b_center:
             ID2Data(ID2Type.region),
         lname.switch_vault_left:
-            ID2Data(ID2Type.location, [], iname.the_vault_left.value)
+            ID2Data(ID2Type.location, [[]], iname.the_vault_left.value)
     },
     rname.the_vault_b_center: {
         lname.the_vault:
@@ -1513,7 +1515,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.the_vault_b_center:
             ID2Data(ID2Type.region),
         lname.switch_vault_right:
-            ID2Data(ID2Type.location, [], iname.the_vault_right.value),
+            ID2Data(ID2Type.location, [[]], iname.the_vault_right.value),
     },
     rname.the_vault_c: {
         rname.the_vault_b_right:
@@ -1551,7 +1553,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scrap_yard_c_left: {
         lname.block_scrap_yard_left:
-            ID2Data(ID2Type.location, [], iname.scrap_yard_left.value),
+            ID2Data(ID2Type.location, [[]], iname.scrap_yard_left.value),
         rname.scrap_yard_c_center:
             ID2Data(ID2Type.region),
     },
@@ -1568,7 +1570,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scrap_yard_c_right: {
         lname.block_scrap_yard_right:
-            ID2Data(ID2Type.location, [], iname.scrap_yard_right.value),
+            ID2Data(ID2Type.location, [[]], iname.scrap_yard_right.value),
         rname.scrap_yard_c_center:
             ID2Data(ID2Type.region),
     },
@@ -1841,8 +1843,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.ludo_city: {
-        lname.ludo_city:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        # lname.ludo_city:
+        #     ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.somewhere:
             ID2Data(ID2Type.region),
     },
@@ -1869,8 +1871,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.bad_dream: {
-        lname.bad_dream:
-            ID2Data(ID2Type.location),
+        # lname.bad_dream:
+        #     ID2Data(ID2Type.location),
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
     }
