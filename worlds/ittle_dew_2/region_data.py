@@ -20,7 +20,7 @@ class ID2Data(NamedTuple):
 # First Union is the source region
 # Second Union is the destination region or location
 # The ID2Data is a list of requirements
-traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
+traversal_requirements: Dict[Union[rname, str], Dict[Union[lname, rname], ID2Data]] = {
     # Currently vanilla start will be the only available starting location
     # For now MVP is going to move starting logical location to be Sweetwater Coast
     rname.menu: {
@@ -1214,7 +1214,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.lrc_t: {
         lname.lrc_block_factory:
-            ID2Data(ID2Type.region, [[iname.melee],
+            ID2Data(ID2Type.region, [[iname.melee.value],
                                      [iname.can_phase_itemless.value, iname.roll.value],
                                      [iname.can_phase_dynamite.value, iname.roll.value]]),
     },
@@ -1222,9 +1222,72 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.lonely_road_d:
             ID2Data(ID2Type.region),
         rname.northern_end_e:
-            ID2Data(ID2Type.region, [[iname.melee],
-                                     [iname.dynamite],
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.dynamite.value],
                                      [iname.can_phase_ice_itemless.value, iname.roll.value]]),
+    },
+    rname.dreamworld_hub: {
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+        # to simplify logic, we're going to assume we can make the block in the hub always phasable
+        # TODO make sure Chris did that
+        rname.dreamworld_force:
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.dreamworld_dynamite:
+            ID2Data(ID2Type.region, [[iname.dynamite.value],
+                                     [iname.can_phase_ice_difficult.value]]),
+        rname.dreamworld_ice:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.force.value, iname.can_phase_itemless.value, iname.roll.value]]),
+        rname.dreamworld_fire_chain:
+            ID2Data(ID2Type.region, [[iname.fire_sword.value, iname.chain.value],
+                                     [iname.fire_sword.value, iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]]),
+        rname.dreamworld_end:
+            ID2Data(ID2Type.region, [[iname.dw_4.value, iname.ice.value, iname.fire_mace.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value],
+                                     [iname.can_phase_itemless.value, iname.dw_4.value, iname.fire_mace.value],
+                                     [iname.can_phase_itemless.value, iname.dw_3.value, iname.ice.value, iname.fire_mace.value],
+                                     [iname.can_phase_itemless.value, iname.dw_3.value, iname.force.value, iname.fire_mace.value],
+                                     [iname.can_phase_itemless.value, iname.dw_2.value, iname.ice.value, iname.force.value, iname.fire_mace.value]]),
+        rname.house_of_secrets:
+            ID2Data(ID2Type.region, [[iname.force_jump.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]]),
+    },
+    rname.dreamworld_force: {
+        rname.dreamworld_hub:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value]]),
+        rname.df_ad:
+            ID2Data(ID2Type.region),
+    },
+    rname.dreamworld_dynamite: {
+        rname.dreamworld_hub:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value]]),
+        rname.dd_au:
+            ID2Data(ID2Type.region),
+    },
+    rname.dreamworld_ice: {
+        rname.dreamworld_hub:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value]]),
+        rname.di_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.dreamworld_fire_chain: {
+        rname.dreamworld_hub:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value]]),
+        rname.dfc_q:
+            ID2Data(ID2Type.region),
+    },
+    rname.dreamworld_end: {
+        rname.dreamworld_hub:
+            ID2Data(ID2Type.region),
+        rname.da_b:
+            ID2Data(ID2Type.region),
     },
 
     # Dungeons
@@ -1409,6 +1472,383 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.ffc_a:
             ID2Data(ID2Type.region),
+    },
+    rname.the_vault_a: {
+        rname.the_vault_b_left:
+            ID2Data(ID2Type.region),
+        rname.the_vault_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.the_vault_b_left: {
+        rname.the_vault_a:
+            ID2Data(ID2Type.region),
+        rname.the_vault_b_center:
+            ID2Data(ID2Type.region),
+        "The Vault west button":
+            ID2Data(ID2Type.location, [], iname.the_vault_left.value)
+    },
+    rname.the_vault_b_center: {
+        lname.the_vault:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value, iname.the_vault_left.value, iname.the_vault_right.value]]),
+        rname.the_vault_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.the_vault_b_right: {
+        rname.the_vault_c:
+            ID2Data(ID2Type.region),
+        rname.the_vault_b_center:
+            ID2Data(ID2Type.region),
+        "The Vault east button":
+            ID2Data(ID2Type.location, [], iname.the_vault_right.value),
+    },
+    rname.the_vault_d: {
+        rname.the_vault_a:
+            ID2Data(ID2Type.region),
+        rname.the_vault_c:
+            ID2Data(ID2Type.region),
+        rname.swc_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.painful_plain: {
+        lname.painful_plain:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value]]),
+    },
+    rname.farthest_shore: {
+        lname.farthest_shore:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.nowhere:
+            ID2Data(ID2Type.region),
+    },
+    rname.scrap_yard_a: {
+        lname.scrap_yard:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.scrap_yard_b: {
+        rname.scrap_yard_c_left:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.scrap_yard_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.scrap_yard_c_left: {
+        "Scrap Yard - West Block":
+            ID2Data(ID2Type.location, [], iname.scrap_yard_left.value),
+        rname.scrap_yard_c_center:
+            ID2Data(ID2Type.region),
+    },
+    rname.scrap_yard_c_center: {
+        rname.scrap_yard_a:
+            ID2Data(ID2Type.region, [[iname.scrap_yard_left.value, iname.scrap_yard_right.value],
+                                     [iname.scrap_yard_left.value, iname.ice.value],
+                                     [iname.scrap_yard_right.value, iname.ice.value],
+                                     [iname.can_phase_itemless.value, iname.ice.value]]),
+        rname.scrap_yard_c_left:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value]]),
+        rname.scrap_yard_c_right:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value]]),
+    },
+    rname.scrap_yard_c_right: {
+        "Scrap Yard - East Block":
+            ID2Data(ID2Type.location, [], iname.scrap_yard_right.value),
+        rname.scrap_yard_c_center:
+            ID2Data(ID2Type.region),
+    },
+    rname.scrap_yard_d: {
+        rname.scrap_yard_c_right:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.scrap_yard_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.scrap_yard_e: {
+        rname.scrap_yard_b:
+            ID2Data(ID2Type.region),
+        rname.scrap_yard_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.scrap_yard_f: {
+        rname.scrap_yard_c_center:
+            ID2Data(ID2Type.region),
+        rname.scrap_yard_e:
+            ID2Data(ID2Type.region),
+        rname.scrap_yard_g:
+            ID2Data(ID2Type.region)
+    },
+    rname.scrap_yard_g: {
+        rname.scrap_yard_d:
+            ID2Data(ID2Type.region),
+        rname.scrap_yard_f:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value]]),
+    },
+    rname.brutal_oasis: {
+        lname.brutal_oasis:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.swc_n:
+            ID2Data(ID2Type.region),
+    },
+    rname.former_colossus: {
+        rname.former_colossus_end:
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value],
+                                     [iname.can_phase_enemy_difficult.value, iname.roll.value]]),
+        rname.swc_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.former_colossus_end: {
+        lname.former_colossus:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.former_colossus:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value],
+                                     [iname.can_phase_enemy_difficult.value, iname.roll.value]]),
+        rname.cave_of_mystery_a:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.sand_crucible_a: {
+        lname.sand_crucible:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.sand_crucible_c:
+            ID2Data(ID2Type.region),
+    },
+    rname.sand_crucible_b: {
+        rname.sand_crucible_a:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.sand_crucible_c: {
+        rname.sand_crucible_d:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.ssc_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.sand_crucible_d: {
+        rname.sand_crucible_c:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.sand_crucible_b:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+    },
+    rname.ocean_castle: {
+        lname.ocean_castle:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value, iname.roll.value],
+                                       [iname.can_phase_dynamite.value]]),
+    },
+    rname.promenade_path: {
+        lname.promenade_path:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.maze_of_steel_a_left: {
+        rname.maze_of_steel_a_right:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value],
+                                     [iname.roll.value]]),
+        rname.maze_of_steel_e:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.maze_of_steel_a_right: {
+        lname.maze_of_steel:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.maze_of_steel_a_left:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value]]),
+        rname.maze_of_steel_b:
+            ID2Data(ID2Type.region),
+    },
+    rname.maze_of_steel_b: {
+        rname.maze_of_steel_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.maze_of_steel_c: {
+        rname.maze_of_steel_a_left:
+            ID2Data(ID2Type.region),
+        rname.maze_of_steel_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.maze_of_steel_d: {
+        rname.maze_of_steel_c:
+            ID2Data(ID2Type.region),
+        rname.ppc_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.maze_of_steel_e: {
+        rname.maze_of_steel_a_left:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.maze_of_steel_f:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.maze_of_steel_f: {
+        rname.maze_of_steel_e:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.wall_of_text_a: {
+        rname.wall_of_text_b:
+            ID2Data(ID2Type.region),
+        rname.fcc_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.wall_of_text_b: {
+        lname.wall_of_text:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value, iname.roll.value],
+                                       [iname.can_phase_dynamite.value]]),
+        rname.wall_of_text_c: [[iname.weapon_any.value, iname.roll.value],
+                               [iname.can_phase_dynamite.value]]
+    },
+    rname.wall_of_text_c: {
+        rname.wall_of_text_b:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.lost_city_a_left: {
+        rname.lost_city_a_right:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]
+                                     [iname.can_phase_dynamite.value],
+                                     [iname.can_phase_enemy.value]]),
+        rname.lost_city_c:
+            ID2Data(ID2Type.region),
+    },
+    rname.lost_city_a_right: {
+        rname.lost_city_a_left:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]]),
+        rname.lost_city_b:
+            ID2Data(ID2Type.region),
+    },
+    rname.lost_city_b: {
+        rname.lost_city_a_right:
+            ID2Data(ID2Type.region),
+        rname.lost_city_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.lost_city_c: {
+        lname.lost_city:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.lost_city_a_left:
+            ID2Data(ID2Type.region),
+        rname.lost_city_d:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_ice.value, iname.roll.value]
+                                     [iname.can_phase_dynamite.value]]),
+    },
+    rname.lost_city_d: {
+        rname.lost_city_b:
+            ID2Data(ID2Type.region),
+        rname.fcc_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.lost_city_e: {
+        rname.lost_city_c:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.pr_q:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),  # TODO remove vanilla requirements
+    },
+    rname.northern_end_a: {
+        rname.northern_end_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.northern_end_b: {
+        rname.northern_end_a:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.northern_end_c: {
+        rname.northern_end_b:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.northern_end_d: {
+        rname.northern_end_c:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.northern_end_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.northern_end_e: {
+        rname.northern_end_d:
+            ID2Data(ID2Type.region),
+        rname.lrc_u:
+            ID2Data(ID2Type.region),
+    },
+    rname.northern_end_f: {
+        lname.northern_end:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.northern_end_a:
+            ID2Data(ID2Type.region),
+        rname.northern_end_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.moon_garden_south: {
+        rname.moon_garden_north:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value],
+                                     # Can just phase through the loading zone and navigate blind,using the map to help
+                                     [iname.can_phase_itemless.value, iname.roll.value]]),
+        rname.lrc_a:
+            ID2Data(ID2Type.region),
+    },
+    rname.moon_garden_north: {
+        lname.moon_garden:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.moon_garden_south:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value],
+                                     [iname.can_phase_enemy.value, iname.roll.value]]),
+        rname.abyssal_plain:
+            ID2Data(ID2Type.region),
+    },
+    rname.nowhere: {
+        rname.farthest_shore:
+            ID2Data(ID2Type.region),
+    },
+    rname.cave_of_mystery_a: {
+        rname.cave_of_mystery_b:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value, iname.fake_efcs.value],
+                                     [iname.weapon_any.value, iname.can_phase_itemless.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.former_colossus_end:
+            ID2Data(ID2Type.region)
+    },
+    rname.cave_of_mystery_b: {
+        rname.cave_of_mystery_a:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value, iname.can_phase_itemless.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.somewhere:
+            ID2Data(ID2Type.region),
+    },
+    rname.somewhere: {
+        rname.cave_of_mystery_b:
+            ID2Data(ID2Type.region),
+        rname.abandoned_house:
+            ID2Data(ID2Type.region),
+        rname.ludo_city:
+            ID2Data(ID2Type.region),
+    },
+    rname.test_chamber: {
+        rname.ffc_a:
+            ID2Data(ID2Type.region),
+    },
+    rname.ludo_city: {
+        rname.somewhere:
+            ID2Data(ID2Type.region),
+    },
+    rname.abyssal_plain: {
+        rname.moon_garden_north:
+            ID2Data(ID2Type.region),
+        rname.place_from_younger_days_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_from_younger_days_p: {
+        rname.abyssal_plain:
+            ID2Data(ID2Type.region),
+    },
+    rname.abandoned_house: {
+        rname.somewhere:
+            ID2Data(ID2Type.region),
+    },
+    rname.house_of_secrets: {
+        rname.dreamworld_hub:
+            ID2Data(ID2Type.region),
+    },
+    rname.dreamfly_nursery: {
+        rname.bad_dream:
+            ID2Data(ID2Type.region),
+    },
+    rname.bad_dream: {
+        lname.bad_dream:
+            ID2Data(ID2Type.region),
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
     }
-
 }

@@ -166,6 +166,12 @@ class ItemNames(str, Enum):
     has_opened_da = "Has Opened Quietus"
     victory = "Victory"
 
+    # Switch Events
+    the_vault_left = "The Vault Left Switch"
+    the_vault_right = "The Vault Right Switch"
+    scrap_yard_left = "Scrap Yard West Block"
+    scrap_yard_right = "Scrap Yard East Block"
+
     # Can Use Keys
     can_use_d1_keys = "Can Use Pillow Fort Keys"
     can_use_d2_keys = "Can Use Sand Castle Keys"
