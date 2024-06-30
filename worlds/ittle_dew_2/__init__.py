@@ -1,7 +1,7 @@
 from typing import Dict, List, Any, Union
 from copy import deepcopy
 from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
-from .items import item_name_to_id, item_table, item_name_groups, filler_items
+from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
 from .region_rules import create_regions_with_rules, key_count_requirements
@@ -92,9 +92,13 @@ class ID2World(World):
 
     # create an item on request with the proper settings
     def create_item(self, name: str) -> ID2Item:
-        item_data = item_table[name]
         print("CREATING ITEM: " + name)
-        return ID2Item(name, item_data.classification, self.item_name_to_id[name], self.player)
+        if name in item_table.keys():
+            item_data = item_table[name]
+            return ID2Item(name, item_data.classification, self.item_name_to_id[name], self.player)
+        else:
+            item_data = none_item_table[name]
+            return ID2Item(name, item_data.classification, None, self.player)
 
     # edit an item's base classification
     def create_item_alt(self, name: str, iclass: ItemClassification) -> ID2Item:
@@ -158,6 +162,10 @@ class ID2World(World):
         # configure shard count
         # items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
         #     + self.options.extra_shards.value
+
+        # open dreamworld
+        if self.options.open_dreamworld:
+            self.multiworld.push_precollected(self.create_item(iname.open_dw.value))
 
         # phasing
         if self.options.phasing_itemless:

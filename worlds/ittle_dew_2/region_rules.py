@@ -166,6 +166,63 @@ def create_regions_with_rules(world: "ID2World") -> None:
     fire_mace_event.access_rule = lambda state: state.has(iname.melee.value, player, 3)
     id2_regions[rname.menu].locations.append(fire_mace_event)
 
+    # Force Jump
+    force_jump_event = ID2Location(player, lname.event_force_jump, None, id2_regions[rname.menu])
+    force_jump_event.place_locked_item(ID2Item(iname.force_jump.value, ItemClassification.progression, None, player))
+    force_jump_event.access_rule = lambda state: state.has_all({iname.force.value, iname.ice.value}, player)
+    id2_regions[rname.menu].locations.append(force_jump_event)
+
+    # dreamworld dungeon complete events
+    if not options.open_dreamworld:
+        dw2_event = ID2Location(player, lname.event_dreamworld_2, None, id2_regions[rname.menu])
+        dw2_event.place_locked_item(ID2Item(iname.dw_2.value, ItemClassification.progression, None, player))
+        dw2_event.access_rule = lambda state: state.has(iname.dw_dungeon_complete.value, player, 2)
+        id2_regions[rname.menu].locations.append(dw2_event)
+
+        dw3_event = ID2Location(player, lname.event_dreamworld_3, None, id2_regions[rname.menu])
+        dw3_event.place_locked_item(ID2Item(iname.dw_3.value, ItemClassification.progression, None, player))
+        dw3_event.access_rule = lambda state: state.has(iname.dw_dungeon_complete.value, player, 3)
+        id2_regions[rname.menu].locations.append(dw3_event)
+
+        dw4_event = ID2Location(player, lname.event_dreamworld_4, None, id2_regions[rname.menu])
+        dw4_event.place_locked_item(ID2Item(iname.dw_4.value, ItemClassification.progression, None, player))
+        dw4_event.access_rule = lambda state: state.has(iname.dw_dungeon_complete.value, player, 4)
+        id2_regions[rname.menu].locations.append(dw4_event)
+
+    # open dungeons settings
+    d8_event = ID2Location(player, lname.event_d8, None, id2_regions[rname.menu])
+    d8_event.place_locked_item(ID2Item(iname.has_opened_d8.value, ItemClassification.progression, None, player))
+    if not options.open_d8:
+        d8_event.access_rule = lambda state: state.has(iname.raft.value, player, 7)
+    id2_regions[rname.menu].locations.append(d8_event)
+
+    s1_event = ID2Location(player, lname.event_s1, None, id2_regions[rname.menu])
+    s1_event.place_locked_item(ID2Item(iname.has_opened_s1.value, ItemClassification.progression, None, player))
+    s1_event.access_rule = lambda state: state.has(iname.shard.value, player, options.shard_settings.value * 4)
+    id2_regions[rname.menu].locations.append(s1_event)
+
+    s2_event = ID2Location(player, lname.event_s2, None, id2_regions[rname.menu])
+    s2_event.place_locked_item(ID2Item(iname.has_opened_s2.value, ItemClassification.progression, None, player))
+    s2_event.access_rule = lambda state: state.has(iname.shard.value, player, options.shard_settings.value * 8)
+    id2_regions[rname.menu].locations.append(s2_event)
+
+    s3_event = ID2Location(player, lname.event_s3, None, id2_regions[rname.menu])
+    s3_event.place_locked_item(ID2Item(iname.has_opened_s3.value, ItemClassification.progression, None, player))
+    s3_event.access_rule = lambda state: state.has(iname.shard.value, player, options.shard_settings.value * 12)
+    id2_regions[rname.menu].locations.append(s3_event)
+
+    s4_event = ID2Location(player, lname.event_s4, None, id2_regions[rname.menu])
+    s4_event.place_locked_item(ID2Item(iname.has_opened_s4.value, ItemClassification.progression, None, player))
+    if not options.open_s4:
+        s4_event.access_rule = lambda state: state.has(iname.f_key.value, player, 4)
+    id2_regions[rname.menu].locations.append(s4_event)
+
+    dw_event = ID2Location(player, lname.event_dw, None, id2_regions[rname.menu])
+    dw_event.place_locked_item(ID2Item(iname.has_opened_dw.value, ItemClassification.progression, None, player))
+    if not options.open_dreamworld:
+        dw_event.access_rule = lambda state: state.has(iname.raft.value, player, 1)
+    id2_regions[rname.menu].locations.append(dw_event)
+
     # conditional can_open_chests
     chest_opener_event = ID2Location(player, lname.event_chest_opener, None, id2_regions[rname.menu])
     chest_opener_event.place_locked_item(ID2Item(iname.can_open_chests.value, ItemClassification.progression,

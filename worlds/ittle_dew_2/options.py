@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from typing import Dict, Any
 from Options import (DefaultOnToggle, Toggle, StartInventoryPool, Choice, Range,
                      PerGameCommonOptions, OptionGroup)
-      
+
+
 class Goal(Choice):
     """
     Select the goal you need to reach to win.
@@ -17,6 +18,7 @@ class Goal(Choice):
     option_queen_of_dreams = 2
     default = 0
 
+
 class ProgressiveItems(DefaultOnToggle):
     """
     If on, there are three Force Wands, Dynamites, Ice Rings, and Chains in the pool (vanilla behavior).
@@ -26,12 +28,14 @@ class ProgressiveItems(DefaultOnToggle):
     internal_name = "progressive_items"
     display_name = "Progressive Items"
 
+
 class IncludePortalWorlds(Toggle):
     """
     Randomizes any chests in Portal Worlds.
     """
     internal_name = "include_portal_worlds"
     display_name = "Include Portal Worlds"
+
 
 class IncludeSecretDungeons(Toggle):
     """
@@ -40,12 +44,14 @@ class IncludeSecretDungeons(Toggle):
     internal_name = "include_secret_dungeons"
     display_name = "Include Secret Dungeons"
 
+
 class IncludeDreamDungeons(Toggle):
     """
     Randomizes any chests and cards in the five Dreamworld dungeons.
     """
     internal_name = "include_dream_dungeons"
     display_name = "Include Dream Dungeons"
+
 
 class IncludeSuperSecrets(Toggle):
     """
@@ -56,6 +62,7 @@ class IncludeSuperSecrets(Toggle):
     internal_name = "include_super_secrets"
     display_name = "Include Super Secrets"
 
+
 class OpenD8(Toggle):
     """
     Opens the entrance to Grand Library, removing the need to collect seven Raft Pieces.
@@ -63,12 +70,14 @@ class OpenD8(Toggle):
     internal_name = "open_d8"
     display_name = "Open Grand Library"
 
+
 class OpenS4(Toggle):
     """
     Opens the entrance to Tomb of Simulacrum and removes the Forbidden Keys from the pool.
     """
     internal_name = "open_s4"
     display_name = "Open Tomb of Simulacrum"
+
 
 class OpenDreamworld(Toggle):
     """
@@ -78,12 +87,14 @@ class OpenDreamworld(Toggle):
     internal_name = "open_dreamworld"
     display_name = "Open Dreamworld"
 
+
 class DreamDungeonsDoNotChangeItems(Toggle):
     """
     Dreamworld dungeons no longer restrict your items, but will also not give you the items expected to beat them.
     """
     internal_name = "dream_dungeons_do_not_change_items"
     display_name = "Dream Dungeons Do Not Change Items"
+
 
 class KeySettings(Choice):
     """
@@ -99,6 +110,7 @@ class KeySettings(Choice):
     option_keyrings = 1
     option_keysey = 2
     default = 0
+
 
 class ShardSettings(Choice):
     """
@@ -116,6 +128,7 @@ class ShardSettings(Choice):
     option_lockdown = 3
     default = 2
 
+
 class ExtraShards(Range):
     """
     Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle, Secret Shards will give you Portal or Cave Scrolls instead.
@@ -126,6 +139,7 @@ class ExtraShards(Range):
     range_end = 36
     default = 12
 
+
 class RandomizeStick(Toggle):
     """
     Start without Ittle's stick and places an additional Progressive Melee into the pool.
@@ -134,12 +148,14 @@ class RandomizeStick(Toggle):
     internal_name = "randomize_stick"
     display_name = "Start Without Stick"
 
+
 class RandomizeRoll(Toggle):
     """
     Start without the ability to roll and places a Roll item into the pool.
     """
     internal_name = "randomize_roll"
     display_name = "Start Without Roll"
+
 
 class RollOpensChests(Toggle):
     """
@@ -148,42 +164,53 @@ class RollOpensChests(Toggle):
     internal_name = "roll_opens_chests"
     display_name = "Roll Opens Chests"
 
+
 class PhasingItemless(Toggle):
     """
     ID2 has a glitch called "Phasing" which allows you to clip over gaps and through objects.
     There are different types of phases.
     This allows the use of "itemless" phases in logic, primarily useful for crossing gaps.
+    ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_itemless"
     display_name = "Allow Itemless Phases"
 
+
 class PhasingIce(Toggle):
     """
     This allows the use of Ice Block phases in logic, which can be used to clip through walls, as long as you can place an ice block on the opposite side of the wall you want to clip through (or one already exists).
+    ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_ice"
     display_name = "Allow Ice Block Phases"
 
+
 class PhasingDynamite(Toggle):
     """
     This allows the use of Dynamite Ice Block phases in logic, allowing you to clip through nearly any wall and obstacle.
+    ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_dynamite"
     display_name = "Allow Dynamite+Ice Block Phases"
 
+
 class PhasingEnemies(Toggle):
     """
     This allows the use of Enemy phases in logic, which can be used to clip through walls wherever there is an enemy.
+    ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_enemy"
     display_name = "Allow Enemy Phases"
 
+
 class PhasingDifficult(Toggle):
     """
     This allows very difficult and precise phases to be in logic, depending on your other phasing settings.
+    ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_difficult"
     display_name = "Allow Difficult phases"
+
 
 class StartWithTracker(Toggle):
     """
@@ -192,12 +219,14 @@ class StartWithTracker(Toggle):
     internal_name = "start_with_tracker"
     display_name = "Start Without Roll"
 
+
 class StartWithAllWarps(DefaultOnToggle):
     """
     Start with all the warps in the Warp Garden unlocked for convenience
     """
     internal_name = "start_with_all_warps"
     display_name = "Start With All Warps Unlocked"
+
 
 class LockpicksInPool(Range):
     """
@@ -209,6 +238,7 @@ class LockpicksInPool(Range):
     range_end = 24
     default = 12
 
+
 class CrayonsInPool(Range):
     """
     Number of crayons to place in the pool.
@@ -218,6 +248,7 @@ class CrayonsInPool(Range):
     range_start = 0
     range_end = 20
     default = 20
+
 
 @dataclass
 class ID2Options(PerGameCommonOptions):
@@ -247,6 +278,7 @@ class ID2Options(PerGameCommonOptions):
     start_with_all_warps: StartWithAllWarps
     lockpicks_in_pool: LockpicksInPool
     crayons_in_pool: CrayonsInPool
+
 
 # TODO add presets and option groups
 id2_options_groups = [

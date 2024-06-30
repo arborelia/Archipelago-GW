@@ -1,15 +1,17 @@
 from itertools import groupby
-from typing import Dict, List, Set, NamedTuple
+from typing import Dict, List, Set, NamedTuple, Union
 from BaseClasses import ItemClassification, Item
 from .names_items import ItemNames as iname
+
 
 class ID2Item(Item):
     game: str = "Ittle Dew 2"
 
+
 class ID2ItemData(NamedTuple):
     classification: ItemClassification
-    quantity_in_item_pool: int # 0 should be used for items not in pool by default and keys
-    item_id_offset: int
+    quantity_in_item_pool: int  # 0 should be used for items not in pool by default and keys
+    item_id_offset: Union[int, None]
     item_group: str = ""
 
 
@@ -18,10 +20,10 @@ item_base_id = 238492834
 item_table: Dict[str, ID2ItemData] = {
     # set these back to 3
     iname.melee.value: ID2ItemData(ItemClassification.progression, 3, 0, "Major Items"),
-    iname.force.value: ID2ItemData(ItemClassification.progression, 1, 1, "Major Items"),
-    # iname.dynamite.value: ID2ItemData(ItemClassification.progression, 1, 2, "Major Items"),
-    # iname.ice.value: ID2ItemData(ItemClassification.progression, 1, 3, "Major Items"),
-    # iname.chain.value: ID2ItemData(ItemClassification.progression, 1, 4, "Major Items"),
+    iname.force.value: ID2ItemData(ItemClassification.progression, 3, 1, "Major Items"),
+    iname.dynamite.value: ID2ItemData(ItemClassification.progression, 3, 2, "Major Items"),
+    iname.ice.value: ID2ItemData(ItemClassification.progression, 3, 3, "Major Items"),
+    iname.chain.value: ID2ItemData(ItemClassification.progression, 3, 4, "Major Items"),
     # Upgrades can substitute for two progressive weapons of the same type to prevent dupes
     iname.force_upgrade.value: ID2ItemData(ItemClassification.useful, 0, 5, "Upgrades"),
     iname.dynamite_upgrade.value: ID2ItemData(ItemClassification.useful, 0, 6, "Upgrades"),
@@ -29,16 +31,17 @@ item_table: Dict[str, ID2ItemData] = {
     iname.chain_upgrade.value: ID2ItemData(ItemClassification.useful, 0, 8, "Upgrades"),
     iname.roll.value: ID2ItemData(ItemClassification.progression, 1, 9, "Major Items"),
     iname.tracker.value: ID2ItemData(ItemClassification.useful, 3, 10, "Minor Items"),
-    # iname.headband.value: ID2ItemData(ItemClassification.useful, 3, 11, "Minor Items"),
-    # iname.amulet.value: ID2ItemData(ItemClassification.useful, 3, 12, "Minor Items"),
-    # iname.tome.value: ID2ItemData(ItemClassification.useful, 3, 13, "Minor Items"),
-    # iname.shard.value: ID2ItemData(ItemClassification.progression | ItemClassification.useful, 36, 14, "Collectables"),
-    # iname.f_key.value: ID2ItemData(ItemClassification.progression, 4, 15, "Collectables"),
+    iname.headband.value: ID2ItemData(ItemClassification.useful, 3, 11, "Minor Items"),
+    iname.amulet.value: ID2ItemData(ItemClassification.useful, 3, 12, "Minor Items"),
+    iname.tome.value: ID2ItemData(ItemClassification.useful, 3, 13, "Minor Items"),
+    iname.shard.value: ID2ItemData(ItemClassification.progression | ItemClassification.useful, 36, 14, "Collectables"),
+    iname.f_key.value: ID2ItemData(ItemClassification.progression, 4, 15, "Collectables"),
     iname.lockpick.value: ID2ItemData(ItemClassification.useful, 12, 16, "Minor Items"),
     iname.crayon.value: ID2ItemData(ItemClassification.useful, 20, 17, "Minor Items"),
     iname.scroll_cave.value: ID2ItemData(ItemClassification.filler, 0, 18, "Bonus Items"),
     iname.scroll_portal.value: ID2ItemData(ItemClassification.filler, 0, 19, "Bonus Items"),
     iname.heart_yellow.value: ID2ItemData(ItemClassification.filler, 0, 20, "Bonus Items"),
+    iname.raft.value: ID2ItemData(ItemClassification.progression, 8, 21, "Major Items"),
     iname.d1_key.value: ID2ItemData(ItemClassification.progression, 0, 22, "Keys"),
     iname.d1_keyring.value: ID2ItemData(ItemClassification.progression, 0, 23, "Key Rings"),
     iname.d2_key.value: ID2ItemData(ItemClassification.progression, 0, 24, "Keys"),
@@ -123,7 +126,11 @@ item_table: Dict[str, ID2ItemData] = {
     # iname.card_passel.value: ID2ItemData(ItemClassification.filler, 1, 137, "Cards"),
     # iname.card_tippsie.value: ID2ItemData(ItemClassification.filler, 1, 138, "Cards"),
     # iname.card_ittle.value: ID2ItemData(ItemClassification.filler, 1, 139, "Cards"),
-    # iname.card_fly.value: ID2ItemData(ItemClassification.filler, 1, 140, "Cards")
+    # iname.card_fly.value: ID2ItemData(ItemClassification.filler, 1, 140, "Cards"),
+}
+
+none_item_table: Dict[str, ID2ItemData] = {
+    iname.open_dw.value: ID2ItemData(ItemClassification.progression, 1, None, "Options")
 }
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}

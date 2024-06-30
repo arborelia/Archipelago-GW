@@ -13,6 +13,7 @@ class ItemNames(str, Enum):
     dynamite = "Progressive Dynamite"
     ice = "Progressive Ice Ring"
     chain = "Progressive Chain"
+    raft = "Raft Piece"
     roll = "Roll"
     loot = "Big Old Pile of Loot"
     fake_efcs = "Impossible Gates Pass"
@@ -150,6 +151,7 @@ class ItemNames(str, Enum):
     can_phase_enemy_difficult = "Can Do Enemy Phases (Difficult)"
 
     # Events
+    dw_dungeon_complete = "Completed a Dreamworld Dungeon"
     dw_2 = "2 Drewamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
     dw_3 = "3 Dreamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
     dw_4 = "4 Dreamworld Dungeons Complete"  # Typical Quietus Requiremtents # TODO add these events
@@ -159,11 +161,7 @@ class ItemNames(str, Enum):
     has_opened_s3 = "Has Opened Dark Hypostyle"
     has_opened_s4 = "Has Opened Tomb of Simulacrum"
     has_opened_dw = "Has Opened Dreamworld"
-    has_opened_dd = "Has Opened Syncope"
-    has_opened_df = "Has Opened Wizardry Lab"
-    has_opened_dfc = "Has Opened Antigram"
-    has_opened_di = "Has Opened Bottomless Tower"
-    has_opened_da = "Has Opened Quietus"
+    open_dw = "Open Dreamworld"
     victory = "Victory"
 
     # Switch Events
