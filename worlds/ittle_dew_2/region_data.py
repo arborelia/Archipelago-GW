@@ -1480,6 +1480,146 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d2_j:
             ID2Data(ID2Type.region, [[iname.basic_combat.value]])
     },
+    # Art Gallery
+    rname.d3_a: {
+        lname.d3_business_casual_man:
+            ID2Data(ID2Type.location),
+    },
+    rname.d3_b: {
+        rname.d3_a:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.d3_c:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+        rname.d3_e:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+    },
+    rname.d3_c: {
+        rname.d3_b:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+        rname.d3_d:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+    },
+    rname.d3_d: {
+        lname.d3_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.d3_c:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d3_e: {
+        lname.d3_spike_floor:
+            ID2Data(ID2Type.location),
+        rname.d3_b:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+        rname.d3_c:
+            ID2Data(ID2Type.region, [[iname.fire_sword.value]]),
+        rname.d3_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.d3_f: {
+        lname.d3_crayon:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.dynamite.value],
+                                     [iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.d3_g:
+            ID2Data(ID2Type.region),
+    },
+    rname.d3_g: {
+        rname.d3_f:
+            ID2Data(ID2Type.region),
+        rname.d3_j:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d3_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.d3_h: {
+        rname.d3_e:
+            ID2Data(ID2Type.region),
+        rname.d3_g:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.d3_i:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d3_k:
+            # odd, since you'd never come this way normally
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+    },
+    rname.d3_i: {
+        rname.d3_h:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d3_j: {
+        rname.d3_k:
+            ID2Data(ID2Type.region),
+        rname.d3_l:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+    },
+    rname.d3_k: {
+        rname.d3_h:
+            ID2Data(ID2Type.region, [[iname.dynamite.value],
+                                     [iname.can_phase_ice.value, iname.roll.value]]),
+        rname.d3_j:
+            ID2Data(ID2Type.region),
+        rname.d3_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.d3_l: {
+        lname.d3_treasure:
+            ID2Data(ID2Type.region, [[iname.can_open_chests.value]]),
+        rname.d3_j:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+    },
+    rname.d3_m: {
+        rname.d3_j:
+            ID2Data(ID2Type.region, [[iname.weapon_projectile.value],
+                                     [iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_ice.value]]),
+        rname.d3_k:
+            ID2Data(ID2Type.region),
+        rname.d3_n:
+            ID2Data(ID2Type.region),
+    },
+    rname.d3_n: {
+        lname.d3_evil_easels:
+            ID2Data(ID2Type.location),
+    },
+    rname.d3_o: {
+        rname.d3_j:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+    },
+    rname.d3_p: {
+        rname.d3_m:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d3_o:
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.ice.value],
+                                     [iname.can_phase_itemless.value]]),
+        rname.d3_r:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+    },
+    rname.d3_q: {
+        rname.d3_r:
+            ID2Data(ID2Type.region),
+        rname.fancy_hilltop:
+            ID2Data(ID2Type.region)
+    },
+    rname.d3_r: {
+        lname.d3_entry_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value],
+                                       [iname.can_phase_ice.value, iname.roll.value]]),
+        rname.d3_p:
+            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+        rname.d3_q:
+            ID2Data(ID2Type.region),
+        rname.d3_s:
+            ID2Data(ID2Type.region, [[iname.dynamite.value],
+                                     [iname.melee.value, iname.chain.value, iname.can_phase_itemless_difficult.value, iname.roll.value]])
+    },
+    rname.d3_s: {
+        rname.d3_g:
+            ID2Data(ID2Type.region),
+        rname.d3_r:
+            ID2Data(ID2Type.region),
+    },
 
     # Portal Worlds
     rname.autumn_climb: {
@@ -1528,7 +1668,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.the_vault_c:
             ID2Data(ID2Type.region),
-        rname.swc_e:
+        rname.scc_e:
             ID2Data(ID2Type.region),
     },
     rname.painful_plain: {

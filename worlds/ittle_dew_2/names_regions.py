@@ -69,7 +69,6 @@ class RegionNames(str, Enum):
     ffc_t = "Fluffy Fields Caves T"
     ffc_u = "Fluffy Fields Caves U"
     ffc_u2 = "Fluffy Fields Caves U2"
-    ffc_v = "Fluffy Fields Caves V"
     ffc_w = "Fluffy Fields Caves W"
     ffc_x = "Fluffy Fields Caves X"
     ffc_x2 = "Fluffy Fields Caves X2"
