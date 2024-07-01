@@ -29,9 +29,9 @@ helper_reference: Dict[str, List[str]] = {
 key_count_requirements: Dict[lname, int] = {
     lname.event_all_d1_keys: 2,
     lname.event_all_d2_keys: 2,
-    # lname.got_all_d3_keys: 4,
-    # lname.got_all_d4_keys: 4,
-    # lname.got_all_d5_keys: 5,
+    lname.event_all_d3_keys: 4,
+    lname.event_all_d4_keys: 4,
+    # lname.event_all_d5_keys: 5,
     # lname.got_all_d6_keys: 5,
     # lname.got_all_d7_keys: 5,
     # lname.got_all_d8_keys: 8,
@@ -147,9 +147,10 @@ def create_regions_with_rules(world: "ID2World") -> None:
 
         location.place_locked_item(ID2Item(key_name, ItemClassification.progression, None, player))
         print("KEY ITEM NAME: " + key_item)
-        if options.key_settings == KeySettings.option_default:
+        if options.key_settings.value == KeySettings.option_default:
             location.access_rule = lambda state: state.has(key_item, player, key_count_requirements[key_location])
-        elif options.key_settings == KeySettings.option_keyrings:
+            print(f"KEY REQUIREMENTS: {key_item} x {key_count_requirements[key_location]}")
+        elif options.key_settings.value == KeySettings.option_keyrings:
             location.access_rule = lambda state: state.has(key_item, player)
         else:  # keysey we can just assume we always have access to locked doors
             location.access_rule = lambda _: True

@@ -115,10 +115,22 @@ location_table: Dict[str, ID2LocationData] = {
     "Sand Castle - Spikebun Dunes Key": ID2LocationData(rname.d2_d.value, 902, "Dungeons"),
     "Sand Castle - Treasure Chest": ID2LocationData(rname.d2_j.value, 904, "Dungeons"),
     "Sand Castle - Boss Reward Chest": ID2LocationData(rname.d2_a.value, 905, "Dungeons"),
-    # 1000: Art Gallery
-
+    # 1000: Art Exhibit
+    "Art Exhibit - Entry Combat Key": ID2LocationData(rname.d3_r.value, 1000, "Dungeons"),
+    "Art Exhibit - Evil Easels Key": ID2LocationData(rname.d3_n.value, 1001, "Dungeons"),
+    "Art Exhibit - Treasure Chest": ID2LocationData(rname.d3_l.value, 1002, "Dungeons"),
+    "Art Exhibit - Crayon Chest": ID2LocationData(rname.d3_f.value, 1003, "Dungeons"),
+    "Art Exhibit - Spike Floor Key": ID2LocationData(rname.d3_e.value, 1004, "Dungeons"),
+    "Art Exhibit - Business Casual Man Key": ID2LocationData(rname.d3_a.value, 1005, "Dungeons"),
+    "Art Exhibit - Boss Reward Chest": ID2LocationData(rname.d3_d.value, 1006, "Dungeons"),
     # 1100: Trash Cave
-
+    "Trash Cave - Crayon Chest": ID2LocationData(rname.d4_m.value, 1100, "Dungeons"),
+    "Trash Cave - Ice Barricade Key": ID2LocationData(rname.d4_n_lower.value, 1101, "Dungeons"),
+    "Trash Cave - Rotnip Combat Key": ID2LocationData(rname.d4_g_left.value, 1102, "Dungeons"),
+    "Trash Cave - Treasure Chest": ID2LocationData(rname.d4_d.value, 1103, "Dungeons"),
+    "Trash Cave - Mimic Combat Key": ID2LocationData(rname.d4_h.value, 1104, "Dungeons"),
+    "Trash Cave - Block Maze Key": ID2LocationData(rname.d4_e.value, 1105, "Dungeons"),
+    "Trash Cave - Boss Reward Chest": ID2LocationData(rname.d4_b.value, 1106, "Dungeons"),
     # 1200: Flooded Basement
 
     # 1300: Potassium Mines

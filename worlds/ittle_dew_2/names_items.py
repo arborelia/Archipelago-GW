@@ -41,7 +41,7 @@ class ItemNames(str, Enum):
     # All locks assume you have all keys or the key ring
     d1_key = "Pillow Fort Key"
     d2_key = "Sand Castle Key"
-    d3_key = "Art Gallery Key"
+    d3_key = "Art Exhibit Key"
     d4_key = "Trash Cave Key"
     d5_key = "Flooded Basement Key"
     d6_key = "Potassium Mines Keys"
@@ -60,7 +60,7 @@ class ItemNames(str, Enum):
     # Key Rings
     d1_keyring = "Pillow Fort Key Ring"
     d2_keyring = "Sand Castle Key Ring"
-    d3_keyring = "Art Gallery Key Ring"
+    d3_keyring = "Art Exhibit Key Ring"
     d4_keyring = "Trash Cave Key Ring"
     d5_keyring = "Flooded Basement Key Ring"
     d6_keyring = "Potassium Mines Key Ring"
@@ -173,7 +173,7 @@ class ItemNames(str, Enum):
     # Can Use Keys
     can_use_d1_keys = "Can Use Pillow Fort Keys"
     can_use_d2_keys = "Can Use Sand Castle Keys"
-    can_use_d3_keys = "Can Use Art Gallery Keys"
+    can_use_d3_keys = "Can Use Art Exhibit Keys"
     can_use_d4_keys = "Can Use Trash Cave Keys"
     can_use_d5_keys = "Can Use Flooded Basement Keys"
     can_use_d6_keys = "Can Use Potassium Mines Keys"

@@ -135,13 +135,15 @@ class ID2World(World):
         if self.options.key_settings == KeySettings.option_default:
             items_to_create[iname.d1_key.value] = 2
             items_to_create[iname.d2_key.value] = 2
+            items_to_create[iname.d3_key.value] = 4
+            items_to_create[iname.d4_key.value] = 4
             # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
             items_to_create[iname.d1_keyring.value] = 1
             items_to_create[iname.d2_keyring.value] = 1
-            # items_to_create[iname.d3_keyring.value] = 1
-            # items_to_create[iname.d4_keyring.value] = 1
+            items_to_create[iname.d3_keyring.value] = 1
+            items_to_create[iname.d4_keyring.value] = 1
             # items_to_create[iname.d5_keyring.value] = 1
             # items_to_create[iname.d6_keyring.value] = 1
             # items_to_create[iname.d7_keyring.value] = 1
@@ -160,8 +162,8 @@ class ID2World(World):
             items_to_create[iname.f_key.value] = 0
 
         # configure shard count
-        # items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
-        #     + self.options.extra_shards.value
+        items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
+            + self.options.extra_shards.value
 
         # open dreamworld
         if self.options.open_dreamworld:
