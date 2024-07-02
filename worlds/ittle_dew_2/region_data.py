@@ -1630,7 +1630,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d4_b: {
         lname.d4_boss_reward:
-            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]], iname.victory),
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
         rname.d4_b:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
     },
@@ -1789,7 +1789,195 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d4_m:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
-
+    # Flooded Basement
+    rname.d5_a: {
+        lname.d5_portal_cube:
+            ID2Data(ID2Type.location),
+        rname.d5_f:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d5_b: {
+        rname.d5_a:
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.force.value, iname.dynamite.value],
+                                     # kind of precise?
+                                     [iname.ice.value]]),
+        rname.d5_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_c: {
+        lname.d5_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]], iname.victory),
+        rname.d5_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_d: {
+        rname.d5_c:
+            ID2Data(ID2Type.region),
+        rname.d5_h:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+    },
+    rname.d5_e: {
+        rname.d5_b:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_f: {
+        rname.d5_g:
+            ID2Data(ID2Type.region, [[iname.weapon_projectile.value, iname.ice.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value, iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_itemless_difficult.value, iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value],
+                                     [iname.can_phase_enemy.value, iname.roll.value, iname.weapon_any.value]]),
+        rname.d5_j:
+            ID2Data(ID2Type.region),
+        rname.d5_k_main:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+    },
+    rname.d5_g: {
+        lname.d5_crayon:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.d5_f:
+            ID2Data(ID2Type.region),
+        rname.d5_h:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+    },
+    rname.d5_h: {
+        lname.d5_treasure:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.d5_d:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+        rname.d5_g:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+        rname.d5_i:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d5_m:
+            ID2Data(ID2Type.region),
+        rname.d5_r:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_i: {
+        rname.d5_h:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d5_m:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d5_j: {
+        rname.d5_e:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d5_f:
+            ID2Data(ID2Type.region),
+        rname.d5_k_main:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_dynamite.value]]),
+    },
+    rname.d5_k_main: {
+        rname.d5_f:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+        rname.d5_j:
+            ID2Data(ID2Type.region),
+        rname.d5_o_top:
+            ID2Data(ID2Type.region, [[iname.force_jump.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.d5_k_side:
+            ID2Data(ID2Type.region, [[iname.force_jump.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value]]),
+    },
+    rname.d5_k_side: {
+        rname.d5_k_main:
+            ID2Data(ID2Type.region, [[iname.can_phase_ice.value]]),
+    },
+    rname.d5_l: {
+        lname.d5_crossway_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value]]),
+    },
+    rname.d5_m: {
+        lname.d5_number_blocks:
+            ID2Data(ID2Type.location),
+        rname.d5_h:
+            ID2Data(ID2Type.region),
+        rname.d5_i:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d5_n: {
+        rname.d5_j:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.d5_o_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_o_left: {
+        rname.d5_n:
+            ID2Data(ID2Type.region),
+        rname.d5_s:
+            ID2Data(ID2Type.region),
+        rname.d5_o_right:
+            ID2Data(ID2Type.region, [[iname.d5_o_block.value],
+                                     [iname.ice.value, iname.fire_sword.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]]),
+    },
+    rname.d5_o_right: {
+        rname.d5_o_left:
+            ID2Data(ID2Type.region),
+        rname.d5_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_o_top: {
+        lname.d5_o_block:
+            ID2Data(ID2Type.location, [[]], iname.d5_o_block.value),
+        rname.d5_o_left:
+            ID2Data(ID2Type.region),
+        rname.d5_o_right:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_p: {
+        rname.d5_l:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.d5_o_right:
+            ID2Data(ID2Type.region),
+        rname.d5_t:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+    },
+    rname.d5_q: {
+        rname.d5_h:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.d5_t:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+    },
+    rname.d5_r: {
+        lname.d5_keeled_fishbun:
+            ID2Data(ID2Type.location, [[iname.weapon_any.value]]),
+        rname.d5_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_s: {
+        rname.d5_o_left:
+            ID2Data(ID2Type.region),
+        rname.ssc_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_t: {
+        rname.d5_p:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+        rname.d5_q:
+            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+        rname.d5_s:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d5_u:
+            ID2Data(ID2Type.region),
+    },
+    rname.d5_u: {
+        lname.d5_land_sharks:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value]]),
+        rname.d5_t:
+            ID2Data(ID2Type.region),
+    },
 
     # Portal Worlds
     rname.autumn_climb: {

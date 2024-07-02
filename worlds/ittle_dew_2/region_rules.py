@@ -31,7 +31,7 @@ key_count_requirements: Dict[lname, int] = {
     lname.event_all_d2_keys: 2,
     lname.event_all_d3_keys: 4,
     lname.event_all_d4_keys: 4,
-    # lname.event_all_d5_keys: 5,
+    lname.event_all_d5_keys: 5,
     # lname.got_all_d6_keys: 5,
     # lname.got_all_d7_keys: 5,
     # lname.got_all_d8_keys: 8,

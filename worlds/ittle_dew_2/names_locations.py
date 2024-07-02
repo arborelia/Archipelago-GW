@@ -320,7 +320,7 @@ class LocationNames(str, Enum):
     event_all_d2_keys = "Received Sand Castle Keys"
     event_all_d3_keys = "Received Art Exhibit Keys"
     event_all_d4_keys = "Received Trash Cave Keys"
-    # event_all_d5_keys = "Received Flooded Basement Keys"
+    event_all_d5_keys = "Received Flooded Basement Keys"
     # event_all_d6_keys = "Received Potassium Mines Keys"
     # event_all_d7_keys = "Received Boiling Grave Keys"
     # event_all_d8_keys = "Received Grand Library Keys"
@@ -357,6 +357,7 @@ class LocationNames(str, Enum):
     event_phase_enemy_difficult = "Received Difficult Enemy Phase Requirements"
 
     # events for reaching parts of dungeons
+    d5_o_block = "Flooded Basement Crossway Access"
     switch_vault_left = "The Vault West Switch"
     switch_vault_right = "The Vault East Switch"
     block_scrap_yard_left = "Scrap Yard West Block"

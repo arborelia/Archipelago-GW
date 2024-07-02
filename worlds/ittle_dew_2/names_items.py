@@ -165,6 +165,7 @@ class ItemNames(str, Enum):
     victory = "Victory"
 
     # Switch Events
+    d5_o_block = "Flooded Basement Crossway Open"
     the_vault_left = "The Vault Left Switch"
     the_vault_right = "The Vault Right Switch"
     scrap_yard_left = "Scrap Yard West Block"

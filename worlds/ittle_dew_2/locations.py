@@ -132,7 +132,14 @@ location_table: Dict[str, ID2LocationData] = {
     "Trash Cave - Block Maze Key": ID2LocationData(rname.d4_e.value, 1105, "Dungeons"),
     "Trash Cave - Boss Reward Chest": ID2LocationData(rname.d4_b.value, 1106, "Dungeons"),
     # 1200: Flooded Basement
-
+    "Flooded Basement - Portal Cube Key": ID2LocationData(rname.d5_a.value, 1200, "Dungeons"),
+    "Flooded Basement - Crossway Combat Key": ID2LocationData(rname.d5_l.value, 1201, "Dungeons"),
+    "Flooded Basement - Land Sharks Key": ID2LocationData(rname.d5_u.value, 1202, "Dungeons"),
+    "Flooded Basement - Treasure Chest": ID2LocationData(rname.d5_h.value, 1203, "Dungeons"),
+    "Flooded Basement - Crayon Chest": ID2LocationData(rname.d5_g.value, 1204, "Dungeons"),
+    "Flooded Basement - Keeled Fishbun Key": ID2LocationData(rname.d5_r.value, 1205, "Dungeons"),
+    "Flooded Basement - Number Blocks Key": ID2LocationData(rname.d5_m.value, 1206, "Dungeons"),
+    "Flooded Basement - Boss Reward Chest": ID2LocationData(rname.d5_c.value, 1207, "Dungeons"),
     # 1300: Potassium Mines
 
     # 1400: Boiling Grave
