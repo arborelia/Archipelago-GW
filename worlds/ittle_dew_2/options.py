@@ -19,6 +19,36 @@ class Goal(Choice):
     default = 0
 
 
+class DungeonRewardsSetting(Choice):
+    """
+    Select what will be at the reward location in dungeons. In Dreamworld dungeons, the middle card is the reward.
+    This can produce more dungeon-heavy seeds, as the randomizer generally tries to avoid putting items deep in dungeons.
+    Anything: The reward can be anything
+    Priority: The reward can have any item marked progression in the multiworld
+    Rewards: The reward can be either a Raft Piece or a Forbidden Key (if Open Tomb of Simulacrum is off).
+    If there are more dungeon rewards locations in the pool than available reward items, the rest will be priority locations.
+    """
+    internal_name = "dungeon_rewards_setting"
+    display_name = "Dungeon Rewards Setting"
+    option_anything = 0
+    option_priority = 1
+    option_rewards = 2
+    default = 0
+
+
+class DungeonRewardsCount(Range):
+    """
+    How many dungeons should have their rewards set as per the Dungeon Rewards Setting?
+    Note that this will only set the reward locations for dungeons that are randomized in the pool,
+    so if you set this higher than the number of randomized dungeons, you'll get a yaml error.
+    """
+    internal_name = "dungeon_rewards_count"
+    displayname = "Dungeon Rewards Count"
+    range_start = 0
+    range_end = 17
+    default = 12
+
+
 class ProgressiveItems(DefaultOnToggle):
     """
     If on, there are three Force Wands, Dynamites, Ice Rings, and Chains in the pool (vanilla behavior).
@@ -165,6 +195,19 @@ class RollOpensChests(Toggle):
     display_name = "Roll Opens Chests"
 
 
+class MajorDungeonSkips(Toggle):
+    """
+    Allows the following tricks:
+    Early Grand Library
+    Grand Library Skip
+    Early Tomb of Simulacrum
+    Quietus Boss without breaking the crystals
+    You can keep this setting off to allow phasing in logic without it being too powerful.
+    """
+    internal_name = "major_dungeon_skips"
+    display_name = "Major Dungeon Skips"
+
+
 class PhasingItemless(Toggle):
     """
     ID2 has a glitch called "Phasing" which allows you to clip over gaps and through objects.
@@ -254,6 +297,8 @@ class CrayonsInPool(Range):
 class ID2Options(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     goal: Goal
+    dungeon_rewards_setting: DungeonRewardsSetting
+    dungeon_rewards_count: DungeonRewardsCount
     progressive_items: ProgressiveItems
     include_portal_worlds: IncludePortalWorlds
     include_secret_dungeons: IncludeSecretDungeons
@@ -269,6 +314,7 @@ class ID2Options(PerGameCommonOptions):
     randomize_stick: RandomizeStick
     randomize_roll: RandomizeRoll
     roll_opens_chests: RollOpensChests
+    major_dungeon_skips: MajorDungeonSkips
     phasing_itemless: PhasingItemless
     phasing_ice: PhasingIce
     phasing_dynamite: PhasingDynamite
@@ -280,7 +326,6 @@ class ID2Options(PerGameCommonOptions):
     crayons_in_pool: CrayonsInPool
 
 
-# TODO add presets and option groups
 id2_options_groups = [
     OptionGroup("Pool Options", [
         IncludePortalWorlds,
@@ -289,6 +334,7 @@ id2_options_groups = [
         IncludeSuperSecrets
     ]),
     OptionGroup("Phasing Options", [
+        MajorDungeonSkips,
         PhasingItemless,
         PhasingIce,
         PhasingDynamite,

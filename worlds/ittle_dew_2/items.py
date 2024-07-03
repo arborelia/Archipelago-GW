@@ -54,8 +54,8 @@ item_table: Dict[str, ID2ItemData] = {
     iname.d5_keyring.value: ID2ItemData(ItemClassification.progression, 0, 31, "Key Rings"),
     iname.d6_key.value: ID2ItemData(ItemClassification.progression, 0, 32, "Keys"),
     iname.d6_keyring.value: ID2ItemData(ItemClassification.progression, 0, 33, "Key Rings"),
-    # iname.d7_key.value: ID2ItemData(ItemClassification.progression, 0, 34, "Keys"),
-    # iname.d7_keyring.value: ID2ItemData(ItemClassification.progression, 0, 35, "Key Rings"),
+    iname.d7_key.value: ID2ItemData(ItemClassification.progression, 0, 34, "Keys"),
+    iname.d7_keyring.value: ID2ItemData(ItemClassification.progression, 0, 35, "Key Rings"),
     # iname.d8_key.value: ID2ItemData(ItemClassification.progression, 0, 36, "Keys"),
     # iname.d8_keyring.value: ID2ItemData(ItemClassification.progression, 0, 37, "Key Rings"),
     # iname.s1_key.value: ID2ItemData(ItemClassification.progression, 0, 38, "Keys"),
@@ -130,7 +130,10 @@ item_table: Dict[str, ID2ItemData] = {
 }
 
 none_item_table: Dict[str, ID2ItemData] = {
-    iname.open_dw.value: ID2ItemData(ItemClassification.progression, 1, None, "Options")
+    iname.open_d8.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.open_s4.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.open_dw.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.major_skips.value: ID2ItemData(ItemClassification.progression, 0, None, "Options")
 }
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}

@@ -432,7 +432,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.d8_y:
             ID2Data(ID2Type.region, [[iname.has_opened_d8.value],
-                                     [iname.can_phase_dynamite_difficult.value, iname.roll.value]]),
+                                     [iname.major_skips.value, iname.can_phase_dynamite_difficult.value, iname.roll.value]]),
     },
     rname.lonely_road_b: {
         rname.lonely_road_a:
@@ -1805,7 +1805,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d5_c: {
         lname.d5_boss_reward:
-            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]], iname.victory),
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
         rname.d5_d:
             ID2Data(ID2Type.region),
     },
@@ -2137,6 +2137,210 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d6_t:
             ID2Data(ID2Type.region),
     },
+    # Boiling Grave
+    rname.d7_a: {
+        rname.d7_b:
+            ID2Data(ID2Type.region, [[iname.melee.value]]),
+        rname.d7_g:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+    },
+    rname.d7_b: {
+        lname.d7_crayon:
+            ID2Data(ID2Type.location, [[iname.weapon_projectile.value],
+                                     [iname.melee.value, iname.chain.value]]),
+        rname.d7_a:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_c: {
+        rname.d7_d:
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     # can just bait everything into the pit
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]]),
+        rname.d7_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_d: {
+        lname.d7_chilly_roger_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d7_e: {
+        lname.d7_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]], iname.victory),
+        rname.d7_f:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d7_f: {
+        rname.d7_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_g: {
+        rname.d7_a:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_k:
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.ice.value]]),
+    },
+    rname.d7_h: {
+        rname.d7_c:
+            ID2Data(ID2Type.region),
+        rname.d7_g:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.d7_i:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_l:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d7_i: {
+        rname.d7_h:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_j:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]])
+    },
+    rname.d7_j: {
+        rname.d7_f:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_ice_itemless.value, iname.weapon_no_dynamite.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value]]),
+
+    },
+    rname.d7_k: {
+        lname.d7_royal_tomb:
+            ID2Data(ID2Type.location, [[iname.melee.value, iname.chain.value],
+                                       [iname.can_phase_itemless.value, iname.weapon_any.value],
+                                       [iname.can_phase_dynamite.value]]),
+    },
+    rname.d7_l: {
+        rname.d7_h:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d7_m:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_aa:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_m: {
+        rname.d7_l:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_n: {
+        rname.d7_r:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d7_o: {
+        lname.d7_roll_pillars:
+            ID2Data(ID2Type.location, [[iname.roll.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.d7_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_p: {
+        rname.d7_m:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_itemless.value, iname.weapon_any.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.d7_q:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_u:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d7_q: {
+        rname.d7_p:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.can_use_d7_keys.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value, iname.can_use_d7_keys.value],
+                                     [iname.can_phase_itemless_difficult.value, iname.can_use_d7_keys.value]]),
+    },
+    rname.d7_r: {
+        rname.d7_n:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d7_s:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_v:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+    },
+    rname.d7_s: {
+        rname.d7_o:
+            # when you freeze the blocks, the enemies can break them
+            ID2Data(ID2Type.region, [[iname.ice.value]]),
+        rname.d7_r:
+            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+        rname.d7_t:
+            ID2Data(ID2Type.region),
+        rname.d7_x:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_t: {
+        lname.d7_skullnips_combat:
+            # Technically can be done with nothing without phasing but is kind of annoying
+            ID2Data(ID2Type.location, [[iname.basic_combat.value],
+                                       [iname.can_phase_itemless.value]]),
+        rname.d7_s:
+            ID2Data(ID2Type.region),
+        rname.d7_u:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
+                                     [iname.weapon_projectile.value]]),
+        rname.d7_y:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_u: {
+        rname.d7_q:
+            ID2Data(ID2Type.region, [[iname.roll.value],
+                                     [iname.can_phase_itemless.value]]),
+        rname.d7_t:
+            ID2Data(ID2Type.region),
+        rname.d7_z:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_v: {
+        rname.d7_w:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d7_w: {
+        lname.d7_treasure:
+            ID2Data(ID2Type.location, [[iname.roll.value, iname.can_open_chests.value],
+                                       [iname.can_phase_ice.value],
+                                       [iname.can_phase_dynamite.value]]),
+        rname.d7_x:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value, iname.roll.value],
+                                     [iname.melee.value, iname.chain.value, iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value, iname.roll.value]]),
+    },
+    rname.d7_x: {
+        rname.d7_s:
+            ID2Data(ID2Type.region),
+        rname.d7_y:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_y: {
+        rname.d7_t:
+            ID2Data(ID2Type.region),
+        rname.d7_x:
+            ID2Data(ID2Type.region),
+        rname.d7_z:
+            ID2Data(ID2Type.region),
+        rname.frozen_court:
+            ID2Data(ID2Type.region),
+    },
+    rname.d7_z: {
+        lname.d7_titans_combat:
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       [iname.can_phase_itemless.value]]),
+        rname.d7_u:
+            ID2Data(ID2Type.region),
+        rname.d7_y:
+            ID2Data(ID2Type.region)
+    },
+    rname.d7_aa: {
+        rname.d7_l:
+            ID2Data(ID2Type.region),
+        rname.d7_z:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
+                                     [iname.weapon_projectile.value]]),
+    },
+    # Grand Library
 
     # Portal Worlds
     rname.autumn_climb: {

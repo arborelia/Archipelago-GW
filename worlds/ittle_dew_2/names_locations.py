@@ -322,7 +322,7 @@ class LocationNames(str, Enum):
     event_all_d4_keys = "Received Trash Cave Keys"
     event_all_d5_keys = "Received Flooded Basement Keys"
     event_all_d6_keys = "Received Potassium Mines Keys"
-    # event_all_d7_keys = "Received Boiling Grave Keys"
+    event_all_d7_keys = "Received Boiling Grave Keys"
     # event_all_d8_keys = "Received Grand Library Keys"
     # event_all_s1_keys = "Received Sunken Labyrinth Keys"
     # event_all_s2_keys = "Received Machine Fortress Keys"

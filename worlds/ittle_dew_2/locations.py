@@ -150,7 +150,14 @@ location_table: Dict[str, ID2LocationData] = {
     "Potassium Mines - Ice Tutorial Key": ID2LocationData(rname.d6_d.value, 1306, "Dungeons"),
     "Potassium Mines - Boss Reward Chest": ID2LocationData(rname.d6_a.value, 1307, "Dungeons"),
     # 1400: Boiling Grave
-
+    "Boiling Grave - Skullnips Combat Key": ID2LocationData(rname.d7_t.value, 1400, "Dungeons"),
+    "Boiling Grave - Titans Combat Key": ID2LocationData(rname.d7_z.value, 1401, "Dungeons"),
+    "Boiling Grave - Treasure Chest": ID2LocationData(rname.d7_w.value, 1402, "Dungeons"),
+    "Boiling Grave - Roll Pillars Key": ID2LocationData(rname.d7_o.value, 1403, "Dungeons"),
+    "Boiling Grave - Royal Tomb Key": ID2LocationData(rname.d7_k.value, 1404, "Dungeons"),
+    "Boiling Grave - Crayon Chest": ID2LocationData(rname.d7_b.value, 1405, "Dungeons"),
+    "Boiling Grave - Chilly Roger Combat Key": ID2LocationData(rname.d7_d.value, 1406, "Dungeons"),
+    "Boiling Grave - Boss Reward Chest": ID2LocationData(rname.d7_e.value, 1407, "Dungeons"),
     # 1500: Grand Library
 
     # 1600: Sunken Labyrinth

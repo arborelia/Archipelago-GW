@@ -161,7 +161,10 @@ class ItemNames(str, Enum):
     has_opened_s3 = "Has Opened Dark Hypostyle"
     has_opened_s4 = "Has Opened Tomb of Simulacrum"
     has_opened_dw = "Has Opened Dreamworld"
+    open_d8 = "Open Grand Library"
+    open_s4 = "Open Tomb of Simulacrum"
     open_dw = "Open Dreamworld"
+    major_skips = "Major Skips Allowed"
     victory = "Victory"
 
     # Switch Events
@@ -178,7 +181,7 @@ class ItemNames(str, Enum):
     can_use_d4_keys = "Can Use Trash Cave Keys"
     can_use_d5_keys = "Can Use Flooded Basement Keys"
     can_use_d6_keys = "Can Use Potassium Mines Keys"
-    can_use_d7_keys = "Can Use Boiling Graves Keys"
+    can_use_d7_keys = "Can Use Boiling Grave Keys"
     can_use_d8_keys = "Can Use Grand Library Keys"
     can_use_s1_keys = "Can Use Sunken Labyrinth Keys"
     can_use_s2_keys = "Can Use Machine Fortress Keys"

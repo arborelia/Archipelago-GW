@@ -1,4 +1,5 @@
 from typing import Dict, List, Any, Union
+from Options import OptionError
 from copy import deepcopy
 from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
@@ -60,6 +61,15 @@ class ID2World(World):
     traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]]
 
     def generate_early(self) -> None:
+        dungeon_count = 8
+        if self.options.include_secret_dungeons:
+            dungeon_count += 4
+        if self.options.include_dream_dungeons:
+            dungeon_count += 5
+        if self.options.dungeon_rewards_setting.value != options.DungeonRewardsSetting.option_anything and self.options.dungeon_rewards_count.value > dungeon_count:
+            print(f"Not enough dungeons available to place dungeon rewards in, clamping down to {dungeon_count} instead")
+            self.options.dungeon_rewards_count.value = dungeon_count
+
         # For Universal Tracker
         if hasattr(self.multiworld, "re_gen_passthrough"):
             if "Ittle Dew 2" in self.multiworld.re_gen_passthrough:
@@ -139,6 +149,7 @@ class ID2World(World):
             items_to_create[iname.d4_key.value] = 4
             items_to_create[iname.d5_key.value] = 5
             items_to_create[iname.d6_key.value] = 5
+            items_to_create[iname.d7_key.value] = 5
             # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
@@ -148,7 +159,7 @@ class ID2World(World):
             items_to_create[iname.d4_keyring.value] = 1
             items_to_create[iname.d5_keyring.value] = 1
             items_to_create[iname.d6_keyring.value] = 1
-            # items_to_create[iname.d7_keyring.value] = 1
+            items_to_create[iname.d7_keyring.value] = 1
             # items_to_create[iname.d8_keyring.value] = 1
             # items_to_create[iname.s1_keyring.value] = 1
             # items_to_create[iname.s2_keyring.value] = 1
@@ -167,7 +178,15 @@ class ID2World(World):
         items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
             + self.options.extra_shards.value
 
-        # open dreamworld
+        # major skips
+        if self.options.major_dungeon_skips:
+            self.multiworld.push_precollected((self.create_item(iname.major_skips.value)))
+
+        # open options
+        if self.options.open_d8:
+            self.multiworld.push_precollected(self.create_item(iname.open_d8.value))
+        if self.options.open_s4:
+            self.multiworld.push_precollected(self.create_item(iname.open_s4.value))
         if self.options.open_dreamworld:
             self.multiworld.push_precollected(self.create_item(iname.open_dw.value))
 
@@ -222,13 +241,17 @@ class ID2World(World):
         visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         return self.options.as_dict(
             "goal",
+            "progressive_items",
             "open_d8",
             "open_s4",
             "open_dreamworld",
             "dream_dungeons_do_not_change_items",
+            "key_settings",
+            "shard_settings",
+            "randomize_stick",
+            "randomize_roll",
             "roll_opens_chests",
-            "start_with_all_warps",
-            "key_settings"
+            "start_with_all_warps"
         )
 
     # Universal Tracker stuff
