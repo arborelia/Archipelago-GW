@@ -82,8 +82,6 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.ffc_s2:
             ID2Data(ID2Type.region),
-        rname.ffc_t:
-            ID2Data(ID2Type.region),
         rname.ffc_u:
         # only requires waiting in the corner of warp garden,
         # but otherwise should be considered a Super Secret location
@@ -1631,7 +1629,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.d4_b: {
         lname.d4_boss_reward:
             ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
-        rname.d4_b:
+        rname.d4_a:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
     },
     rname.d4_c: {
@@ -1823,7 +1821,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d5_f: {
         rname.d5_g:
-            ID2Data(ID2Type.region, [[iname.weapon_projectile.value, iname.ice.value],
+            ID2Data(ID2Type.region, [[iname.weapon_projectile.value, iname.ice.value, iname.melee.value],
                                      [iname.can_phase_itemless.value, iname.roll.value, iname.melee.value, iname.chain.value],
                                      [iname.can_phase_itemless_difficult.value, iname.melee.value, iname.chain.value],
                                      [iname.can_phase_ice.value, iname.roll.value],
@@ -1976,6 +1974,167 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d5_land_sharks:
             ID2Data(ID2Type.location, [[iname.basic_combat.value]]),
         rname.d5_t:
+            ID2Data(ID2Type.region),
+    },
+    # Potassium Mines
+    rname.d6_a: {
+        lname.d6_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.d6_b:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d6_b: {
+        rname.d6_a:
+            ID2Data(ID2Type.region),
+        rname.d6_e:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+    },
+    rname.d6_c: {
+        rname.d6_d:
+            ID2Data(ID2Type.region, [[iname.ice.value]]),
+    },
+    rname.d6_d: {
+        lname.d6_ice_tutorial:
+            ID2Data(ID2Type.location, [[iname.ice.value],
+                                       [iname.force.value, iname.can_phase_itemless.value],
+                                       [iname.can_phase_dynamite.value]]),
+        rname.d6_i:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                       [iname.force.value, iname.can_phase_itemless.value],
+                                       [iname.can_phase_dynamite.value]])
+    },
+    rname.d6_e: {
+        rname.d6_b:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+        rname.d6_i:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+    },
+    rname.d6_f: {
+        rname.d6_j:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d6_g: {
+        rname.d6_l:
+            ID2Data(ID2Type.region),
+        rname.d6_p:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d6_h: {
+        lname.d6_crayon:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.d6_c:
+            ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value],
+                                     [iname.force_jump.value], # very tight
+                                     [iname.can_phase_ice.value, iname.roll.value]]),
+        rname.d6_p:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value]]),
+    },
+    rname.d6_i: {
+        rname.d6_e:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+        rname.d6_h:
+            ID2Data(ID2Type.region, [[iname.ice.value]]),
+    },
+    rname.d6_j: {
+        lname.d6_treasure:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.d6_f:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d6_n:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value]]),
+    },
+    rname.d6_k: {
+        rname.d6_j:
+            ID2Data(ID2Type.region),
+        rname.d6_o_upper:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+    },
+    rname.d6_l: {
+        lname.d6_west_minecart_track:
+            ID2Data(ID2Type.location),
+        rname.d6_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.d6_m: {
+        lname.d6_hub_room:
+            ID2Data(ID2Type.location),
+        rname.d6_l:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.dynamite.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value, iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_itemless_difficult.value, iname.melee.value, iname.chain.value]]),
+        rname.d6_i:
+            ID2Data(ID2Type.region, [[iname.ice.value]]),
+        rname.d6_r:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+        rname.d6_s:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+        rname.d6_u:
+            ID2Data(ID2Type.region, [[iname.weapon_no_dynamite.value]]),
+    },
+    rname.d6_n: {
+        lname.d6_number_tiles:
+            ID2Data(ID2Type.location),
+        rname.d6_j:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_ice.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value],]),
+        rname.d6_m:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d6_o_upper:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d6_o_upper: {
+        rname.d6_n:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d6_k:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+        rname.d6_o_lower:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value],
+                                     [iname.can_phase_enemy.value, iname.roll.value]]),
+    },
+    rname.d6_o_lower: {
+        rname.d6_o_upper:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+    },
+    rname.d6_p: {
+        rname.d6_g:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d6_q:
+            ID2Data(ID2Type.region),
+        rname.d6_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.d6_q: {
+        rname.d6_m:
+            ID2Data(ID2Type.region),
+        rname.pepperpain_mountain:
+            ID2Data(ID2Type.region),
+    },
+    rname.d6_r: {
+        rname.d6_m:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+        rname.d6_n:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.force.value]]),
+        rname.d6_o_lower:
+            ID2Data(ID2Type.region),
+    },
+    rname.d6_s: {
+        rname.d6_m:
+            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+        rname.d6_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.d6_t: {
+        lname.d6_south_conveyor:
+            ID2Data(ID2Type.location),
+        rname.d6_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.d6_u: {
+        rname.d6_t:
             ID2Data(ID2Type.region),
     },
 
@@ -2274,7 +2433,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.northern_end_d: {
         rname.northern_end_c:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
-        rname.northern_end_d:
+        rname.northern_end_e:
             ID2Data(ID2Type.region),
     },
     rname.northern_end_e: {

@@ -141,7 +141,14 @@ location_table: Dict[str, ID2LocationData] = {
     "Flooded Basement - Number Blocks Key": ID2LocationData(rname.d5_m.value, 1206, "Dungeons"),
     "Flooded Basement - Boss Reward Chest": ID2LocationData(rname.d5_c.value, 1207, "Dungeons"),
     # 1300: Potassium Mines
-
+    "Potassium Mines - Hub Room Key": ID2LocationData(rname.d6_m.value, 1300, "Dungeons"),
+    "Potassium Mines - South conveyor Key": ID2LocationData(rname.d6_t.value, 1301, "Dungeons"),
+    "Potassium Mines - Crayon Chest": ID2LocationData(rname.d6_h.value, 1302, "Dungeons"),
+    "Potassium Mines - West Minecart Track Key": ID2LocationData(rname.d6_l.value, 1303, "Dungeons"),
+    "Potassium Mines - Number Tiles Key": ID2LocationData(rname.d6_n.value, 1304, "Dungeons"),
+    "Potassium Mines - Treasure Chest": ID2LocationData(rname.d6_j.value, 1305, "Dungeons"),
+    "Potassium Mines - Ice Tutorial Key": ID2LocationData(rname.d6_d.value, 1306, "Dungeons"),
+    "Potassium Mines - Boss Reward Chest": ID2LocationData(rname.d6_a.value, 1307, "Dungeons"),
     # 1400: Boiling Grave
 
     # 1500: Grand Library

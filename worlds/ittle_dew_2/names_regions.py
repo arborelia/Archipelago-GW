@@ -326,7 +326,8 @@ class RegionNames(str, Enum):
     d6_l = "Potassium Mines L"
     d6_m = "Potassium Mines M"
     d6_n = "Potassium Mines N"
-    d6_o = "Potassium Mines O"
+    d6_o_upper = "Potassium Mines O - Upper Area"
+    d6_o_lower = "Potassium Mines O - Arena"
     d6_p = "Potassium Mines P"
     d6_q = "Potassium Mines Q"
     d6_r = "Potassium Mines R"
@@ -586,7 +587,7 @@ class RegionNames(str, Enum):
     moon_garden_north = "Moon Garden - Chest Area"
     nowhere = "Nowhere"
     cave_of_mystery_a = "Cave of Mystery A"
-    cave_of_mystery_b = "Cave of Myster B"
+    cave_of_mystery_b = "Cave of Mystery B"
     somewhere = "Somewhere"
     # Debug room, normally inaccessible
     test_chamber = "Test Chamber"

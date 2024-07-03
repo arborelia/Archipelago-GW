@@ -44,7 +44,7 @@ class ItemNames(str, Enum):
     d3_key = "Art Exhibit Key"
     d4_key = "Trash Cave Key"
     d5_key = "Flooded Basement Key"
-    d6_key = "Potassium Mines Keys"
+    d6_key = "Potassium Mines Key"
     d7_key = "Boiling Grave Key"
     d8_key = "Grand Library Key"
     s1_key = "Sunken Labyrinth Key"

@@ -32,7 +32,7 @@ key_count_requirements: Dict[lname, int] = {
     lname.event_all_d3_keys: 4,
     lname.event_all_d4_keys: 4,
     lname.event_all_d5_keys: 5,
-    # lname.got_all_d6_keys: 5,
+    lname.event_all_d6_keys: 5,
     # lname.got_all_d7_keys: 5,
     # lname.got_all_d8_keys: 8,
     # lname.got_all_s1_keys: 3,
@@ -138,23 +138,25 @@ def create_regions_with_rules(world: "ID2World") -> None:
     # "give" the player permission to use their keys once they've obained them all
     keys_location_list = [name for name in lname if name.endswith(" Keys")]
     for key_location in keys_location_list:
-        location = ID2Location(player, key_location, None, id2_regions[rname.menu])
+        print(f"PLACING KEY LOCATION {key_location}")
+        key_access_location = ID2Location(player, key_location, None, id2_regions[rname.menu])
         key_name = key_location.value.replace("Received", "Can Use")
         key_item = key_location.value.removeprefix("Received ")
         key_item = key_item.removesuffix("s")
         if options.key_settings == KeySettings.option_keyrings:
             key_item += " Ring"
 
-        location.place_locked_item(ID2Item(key_name, ItemClassification.progression, None, player))
+        key_access_location.place_locked_item(ID2Item(key_name, ItemClassification.progression, None, player))
         print("KEY ITEM NAME: " + key_item)
+        print("KEY EVENT NAME: " + key_name)
         if options.key_settings.value == KeySettings.option_default:
-            location.access_rule = lambda state: state.has(key_item, player, key_count_requirements[key_location])
+            key_access_location.access_rule = lambda state, item=key_item, quantity=key_count_requirements[key_location]: state.has(item, player, quantity)
             print(f"KEY REQUIREMENTS: {key_item} x {key_count_requirements[key_location]}")
         elif options.key_settings.value == KeySettings.option_keyrings:
-            location.access_rule = lambda state: state.has(key_item, player)
+            key_access_location.access_rule = lambda state, item=key_item: state.has(item, player)
         else:  # keysey we can just assume we always have access to locked doors
-            location.access_rule = lambda _: True
-        id2_regions[rname.menu].locations.append(location)
+            key_access_location.access_rule = lambda _: True
+        id2_regions[rname.menu].locations.append(key_access_location)
 
     # give the player access to fire sword and mace once they've obtained 2 and 3 progressive melees
     fire_sword_event = ID2Location(player, lname.event_fire_sword, None, id2_regions[rname.menu])

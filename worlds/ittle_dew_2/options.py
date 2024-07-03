@@ -19,21 +19,6 @@ class Goal(Choice):
     default = 0
 
 
-class DungeonRewardPlando(Choice):
-    """
-    Off: Raft Pieces and Forbidden Keys can be anywhere in the multiworld
-    Half: Plandoes four Raft Pieces and two Forbidden Keys to be in their vanilla locations, while the rest can be elsewhere. Required dungeons are random.
-    Full: Plandoes all Raft Pieces and Forbidden Keys to be in their vanilla locations.
-    This setting can increase the number of required dungeons, producing longer seeds.
-    """
-    internal_name = "dungeon_reward_plando"
-    display_name = "Dungeon Reward Plando"
-    option_off = 0
-    option_half = 1
-    option_full = 2
-    default = 0
-
-
 class ProgressiveItems(DefaultOnToggle):
     """
     If on, there are three Force Wands, Dynamites, Ice Rings, and Chains in the pool (vanilla behavior).
@@ -269,7 +254,6 @@ class CrayonsInPool(Range):
 class ID2Options(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     goal: Goal
-    dungeon_reward_plando: DungeonRewardPlando
     progressive_items: ProgressiveItems
     include_portal_worlds: IncludePortalWorlds
     include_secret_dungeons: IncludeSecretDungeons
