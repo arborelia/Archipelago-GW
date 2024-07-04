@@ -44,7 +44,7 @@ class ItemNames(str, Enum):
     d3_key = "Art Exhibit Key"
     d4_key = "Trash Cave Key"
     d5_key = "Flooded Basement Key"
-    d6_key = "Potassium Mines Key"
+    d6_key = "Potassium Mine Key"
     d7_key = "Boiling Grave Key"
     d8_key = "Grand Library Key"
     s1_key = "Sunken Labyrinth Key"
@@ -63,7 +63,7 @@ class ItemNames(str, Enum):
     d3_keyring = "Art Exhibit Key Ring"
     d4_keyring = "Trash Cave Key Ring"
     d5_keyring = "Flooded Basement Key Ring"
-    d6_keyring = "Potassium Mines Key Ring"
+    d6_keyring = "Potassium Mine Key Ring"
     d7_keyring = "Boiling Grave Key Ring"
     d8_keyring = "Grand Library Key Ring"
     s1_keyring = "Sunken Labyrinth Key Ring"
@@ -176,14 +176,13 @@ class ItemNames(str, Enum):
     scrap_yard_left = "Scrap Yard West Block"
     scrap_yard_right = "Scrap Yard East Block"
 
-
     # Can Use Keys
     can_use_d1_keys = "Can Use Pillow Fort Keys"
     can_use_d2_keys = "Can Use Sand Castle Keys"
     can_use_d3_keys = "Can Use Art Exhibit Keys"
     can_use_d4_keys = "Can Use Trash Cave Keys"
     can_use_d5_keys = "Can Use Flooded Basement Keys"
-    can_use_d6_keys = "Can Use Potassium Mines Keys"
+    can_use_d6_keys = "Can Use Potassium Mine Keys"
     can_use_d7_keys = "Can Use Boiling Grave Keys"
     can_use_d8_keys = "Can Use Grand Library Keys"
     can_use_s1_keys = "Can Use Sunken Labyrinth Keys"

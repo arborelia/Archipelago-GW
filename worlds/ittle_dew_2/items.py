@@ -81,10 +81,10 @@ item_table: Dict[str, ID2ItemData] = {
     iname.outfit_tiger.value: ID2ItemData(ItemClassification.useful, 1, 58, "Outfits"),
     iname.outfit_id.value: ID2ItemData(ItemClassification.useful, 1, 59, "Outfits"),
     iname.outfit_delinquint.value: ID2ItemData(ItemClassification.useful, 1, 60, "Outfits"),
-    iname.outfit_berry.value: ID2ItemData(ItemClassification.useful, 1, 61, "Outfits"),
-    iname.outfit_apa.value: ID2ItemData(ItemClassification.useful, 1, 62, "Outfits"),
-    iname.outfit_that_guy.value: ID2ItemData(ItemClassification.useful, 1, 63, "Outfits"),
-    iname.loot.value: ID2ItemData(ItemClassification.useful, 1 , 64, "Major Items"),
+    iname.outfit_berry.value: ID2ItemData(ItemClassification.useful, 0, 61, "Outfits"),
+    iname.outfit_apa.value: ID2ItemData(ItemClassification.useful, 0, 62, "Outfits"),
+    iname.outfit_that_guy.value: ID2ItemData(ItemClassification.useful, 0, 63, "Outfits"),
+    iname.loot.value: ID2ItemData(ItemClassification.useful, 0, 64, "Major Items"),
     iname.fake_efcs.value: ID2ItemData(ItemClassification.progression, 1, 65, "Major Items"),
     iname.card_fishbun.value: ID2ItemData(ItemClassification.useful, 1, 100, "Cards"),
     iname.card_bee.value: ID2ItemData(ItemClassification.useful, 1, 101, "Cards"),
@@ -126,14 +126,19 @@ item_table: Dict[str, ID2ItemData] = {
     iname.card_passel.value: ID2ItemData(ItemClassification.useful, 1, 137, "Cards"),
     iname.card_tippsie.value: ID2ItemData(ItemClassification.useful, 1, 138, "Cards"),
     iname.card_ittle.value: ID2ItemData(ItemClassification.useful, 1, 139, "Cards"),
-    iname.card_fly.value: ID2ItemData(ItemClassification.useful, 1, 140, "Cards"),
+    iname.card_fly.value: ID2ItemData(ItemClassification.useful, 0, 140, "Cards"),
 }
 
 none_item_table: Dict[str, ID2ItemData] = {
     iname.open_d8.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.open_s4.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.open_dw.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
-    iname.major_skips.value: ID2ItemData(ItemClassification.progression, 0, None, "Options")
+    iname.major_skips.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.option_phasing.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.option_phasing_ice.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.option_phasing_dynamite.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.option_phasing_enemy.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.option_phasing_difficult.value: ID2ItemData(ItemClassification.progression, 0, None, "Options")
 }
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}

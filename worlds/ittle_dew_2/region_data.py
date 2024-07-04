@@ -2560,6 +2560,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.d8_y: {
         rname.d8_m:
             ID2Data(ID2Type.region, [[iname.ice.value]]),
+        # can skip directly to the end by just phasing out of bounds and navigating to the loading zone
+        rname.d8_shifting_chambers:
+            ID2Data(ID2Type.region, [[iname.major_skips.value, iname.can_phase_itemless_difficult.value]]),
         rname.lonely_road_a:
             ID2Data(ID2Type.region),
     },

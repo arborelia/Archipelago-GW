@@ -27,6 +27,7 @@ class DungeonRewardsSetting(Choice):
     Priority: The reward can have any item marked progression in the multiworld
     Rewards: The reward can be either a Raft Piece or a Forbidden Key (if Open Tomb of Simulacrum is off).
     If there are more dungeon rewards locations in the pool than available reward items, the rest will be priority locations.
+    Tomb of Simulacrum can never have its reward set with this. If you want to require Tomb, use the Queen of Adventure goal.
     """
     internal_name = "dungeon_rewards_setting"
     display_name = "Dungeon Rewards Setting"
@@ -40,19 +41,20 @@ class DungeonRewardsCount(Range):
     """
     How many dungeons should have their rewards set as per the Dungeon Rewards Setting?
     Note that this will only set the reward locations for dungeons that are randomized in the pool,
-    so if you set this higher than the number of randomized dungeons, you'll get a yaml error.
+    so if you set this higher than the number of randomized dungeons, it will be the number of dungeons instead.
     """
     internal_name = "dungeon_rewards_count"
     displayname = "Dungeon Rewards Count"
     range_start = 0
-    range_end = 17
+    range_end = 16
     default = 12
 
 
 class ProgressiveItems(DefaultOnToggle):
     """
     If on, there are three Force Wands, Dynamites, Ice Rings, and Chains in the pool (vanilla behavior).
-    If off, there are only one of each, and there are two upgrades available of each which will only apply once you've obtained the base item.
+    If off, there are only one of each, and there are two upgrades available of each which will only apply
+    once you've obtained the base item.
     This makes it harder to get these items.
     """
     internal_name = "progressive_items"
@@ -61,7 +63,7 @@ class ProgressiveItems(DefaultOnToggle):
 
 class IncludePortalWorlds(Toggle):
     """
-    Randomizes any chests in Portal Worlds.
+    Randomizes any chests in Portal Worlds. Excludes the Super Secret Portal Worlds.
     """
     internal_name = "include_portal_worlds"
     display_name = "Include Portal Worlds"
@@ -70,6 +72,7 @@ class IncludePortalWorlds(Toggle):
 class IncludeSecretDungeons(Toggle):
     """
     Randomizes any chests in the three shard dungeons and Tomb of Simulacrum.
+    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "include_secret_dungeons"
     display_name = "Include Secret Dungeons"
@@ -78,6 +81,7 @@ class IncludeSecretDungeons(Toggle):
 class IncludeDreamDungeons(Toggle):
     """
     Randomizes any chests and cards in the five Dreamworld dungeons.
+    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "include_dream_dungeons"
     display_name = "Include Dream Dungeons"
@@ -104,6 +108,7 @@ class OpenD8(Toggle):
 class OpenS4(Toggle):
     """
     Opens the entrance to Tomb of Simulacrum and removes the Forbidden Keys from the pool.
+    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "open_s4"
     display_name = "Open Tomb of Simulacrum"
@@ -113,6 +118,7 @@ class OpenDreamworld(Toggle):
     """
     Opens the entrance to Dreamworld and the five dungeons within.
     This removes the need for a Raft Piece to enter Dreamworld and items to enter dungeons.
+    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "open_dreamworld"
     display_name = "Open Dreamworld"
@@ -121,6 +127,7 @@ class OpenDreamworld(Toggle):
 class DreamDungeonsDoNotChangeItems(Toggle):
     """
     Dreamworld dungeons no longer restrict your items, but will also not give you the items expected to beat them.
+    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "dream_dungeons_do_not_change_items"
     display_name = "Dream Dungeons Do Not Change Items"
@@ -130,7 +137,8 @@ class KeySettings(Choice):
     """
     How should dungeon keys be treated by the randomizer? Forbidden Keys are not affected by this setting.
     Default: Keys are individual items. You are logically expected to have every key for a dungeon to open a locked door
-    Keyrings: All keys are removed and keyrings for each dungeon are placed in the pool instead, granting all the keys you need at once
+    Keyrings: All keys are removed and keyrings for each dungeon are placed in the pool instead,
+    granting all the keys you need at once
     Keysey: All keys and locks are removed
     """
     # Eventually add legacy key setting to make a unique key for each lock
@@ -144,10 +152,12 @@ class KeySettings(Choice):
 
 class ShardSettings(Choice):
     """
-    Open: Secret Shards are not required to access any of the secret dungeons. Shards are removed from the pool and Extra Shards is ignored.
+    Open: Secret Shards are not required to access any of the secret dungeons.
+    Shards are removed from the pool and Extra Shards is ignored.
     Half: Sunken Labyrinth needs 4 Shards to enter, Machine Fortress needs 8, and Dark Hypostyle needs 12.
     Vanilla: Secret dungeons require their normal amount of shards to enter.
     Lockdown: Sunken Labyrinth needs 12 Shards to enter, Machine Fortress needs 24, and Dark Hypostyle needs 36.
+    CURRENTLY NOT SUPPORTED. Will update the randomized shards, but will not affect your ability to enter dungeons.
     """
     # Eventually add settings to make these individually customizable and random
     internal_name = "shard_settings"
@@ -161,7 +171,9 @@ class ShardSettings(Choice):
 
 class ExtraShards(Range):
     """
-    Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle, Secret Shards will give you Portal or Cave Scrolls instead.
+    Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle,
+    Secret Shards will give you Portal or Cave Scrolls instead.
+    CURRENTLY NOT SUPPORTED. Will add extra shards to the pool, but will not give scrolls.
     """
     internal_name = "extra_shards"
     display_name = "Extra Shards"
@@ -221,7 +233,9 @@ class PhasingItemless(Toggle):
 
 class PhasingIce(Toggle):
     """
-    This allows the use of Ice Block phases in logic, which can be used to clip through walls, as long as you can place an ice block on the opposite side of the wall you want to clip through (or one already exists).
+    This allows the use of Ice Block phases in logic, which can be used to clip through walls,
+    as long as you can place an ice block on the opposite side of the wall you want to clip through
+    (or one already exists).
     ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_ice"
@@ -230,7 +244,8 @@ class PhasingIce(Toggle):
 
 class PhasingDynamite(Toggle):
     """
-    This allows the use of Dynamite Ice Block phases in logic, allowing you to clip through nearly any wall and obstacle.
+    This allows the use of Dynamite Ice Block phases in logic,
+    allowing you to clip through nearly any wall and obstacle.
     ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_dynamite"
@@ -257,7 +272,8 @@ class PhasingDifficult(Toggle):
 
 class StartWithTracker(Toggle):
     """
-    Start with Tracker 3 (and removes all Progressive Trackers from the pool), allowing you to know where all locations in dungeons are.
+    Start with Tracker 3 (and removes all Progressive Trackers from the pool),
+    allowing you to know where all locations in dungeons are.
     """
     internal_name = "start_with_tracker"
     display_name = "Start Without Roll"

@@ -147,15 +147,15 @@ class LocationNames(str, Enum):
     d5_number_blocks = "Flooded Basement - Number Blocks Key"
     d5_boss_reward = "Flooded Basement - Boss Reward Chest"
 
-    # Potassium Mines
-    d6_hub_room = "Potassium Mines - Hub Room Key"
-    d6_south_conveyor = "Potassium Mines - South conveyor Key"
-    d6_crayon = "Potassium Mines - Crayon Chest"
-    d6_west_minecart_track = "Potassium Mines - West Minecart Track Key"
-    d6_number_tiles = "Potassium Mines - Number Tiles Key"
-    d6_treasure = "Potassium Mines - Treasure Chest"
-    d6_ice_tutorial = "Potassium Mines - Ice Tutorial Key"
-    d6_boss_reward = "Potassium Mines - Boss Reward Chest"
+    # Potassium Mine
+    d6_hub_room = "Potassium Mine - Hub Room Key"
+    d6_south_conveyor = "Potassium Mine - South conveyor Key"
+    d6_crayon = "Potassium Mine - Crayon Chest"
+    d6_west_minecart_track = "Potassium Mine - West Minecart Track Key"
+    d6_number_tiles = "Potassium Mine - Number Tiles Key"
+    d6_treasure = "Potassium Mine - Treasure Chest"
+    d6_ice_tutorial = "Potassium Mine - Ice Tutorial Key"
+    d6_boss_reward = "Potassium Mine - Boss Reward Chest"
 
     # Boiling Grave
     d7_skullnips_combat = "Boiling Grave - Skullnips Combat Key"
@@ -321,7 +321,7 @@ class LocationNames(str, Enum):
     event_all_d3_keys = "Received Art Exhibit Keys"
     event_all_d4_keys = "Received Trash Cave Keys"
     event_all_d5_keys = "Received Flooded Basement Keys"
-    event_all_d6_keys = "Received Potassium Mines Keys"
+    event_all_d6_keys = "Received Potassium Mine Keys"
     event_all_d7_keys = "Received Boiling Grave Keys"
     event_all_d8_keys = "Received Grand Library Keys"
     # event_all_s1_keys = "Received Sunken Labyrinth Keys"

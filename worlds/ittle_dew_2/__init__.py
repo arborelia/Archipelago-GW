@@ -61,6 +61,9 @@ class ID2World(World):
     traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]]
 
     def generate_early(self) -> None:
+        if not self.options.open_dreamworld:
+            self.options.open_dreamworld.value = options.OpenDreamworld.option_true
+
         dungeon_count = 8
         if self.options.include_secret_dungeons:
             dungeon_count += 4
@@ -188,6 +191,13 @@ class ID2World(World):
         items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
             + self.options.extra_shards.value
 
+        # Super Secret stuff
+        if self.options.include_super_secrets:
+            items_to_create[iname.outfit_apa.value] = 1
+            items_to_create[iname.outfit_berry.value] = 1
+            items_to_create[iname.outfit_that_guy.value] = 1
+            items_to_create[iname.card_fly.value] = 1
+
         # major skips
         if self.options.major_dungeon_skips:
             self.multiworld.push_precollected((self.create_item(iname.major_skips.value)))
@@ -202,19 +212,19 @@ class ID2World(World):
 
         # phasing
         if self.options.phasing_itemless:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing.value))
 
         if self.options.phasing_ice:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_ice))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_ice.value))
 
         if self.options.phasing_dynamite:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite.value))
 
         if self.options.phasing_enemies:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_enemy))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_enemy.value))
 
         if self.options.phasing_difficult:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult.value))
 
         # crayon count
         items_to_create[iname.crayon.value] = self.options.crayons_in_pool.value
@@ -242,14 +252,14 @@ class ID2World(World):
 
         self.multiworld.itempool += id2_items
 
-
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        state = self.multiworld.get_all_state(False)
-        state.update_reachable_regions(self.player)
-        visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
+        # Logic PUML graph stuff
+        # state = self.multiworld.get_all_state(False)
+        # state.update_reachable_regions(self.player)
+        # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         return self.options.as_dict(
             "goal",
             "progressive_items",
