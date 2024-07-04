@@ -13,6 +13,7 @@ class ItemNames(str, Enum):
     dynamite = "Progressive Dynamite"
     ice = "Progressive Ice Ring"
     chain = "Progressive Chain"
+    raft = "Raft Piece"
     roll = "Roll"
     loot = "Big Old Pile of Loot"
     fake_efcs = "Impossible Gates Pass"
@@ -40,10 +41,10 @@ class ItemNames(str, Enum):
     # All locks assume you have all keys or the key ring
     d1_key = "Pillow Fort Key"
     d2_key = "Sand Castle Key"
-    d3_key = "Art Gallery Key"
+    d3_key = "Art Exhibit Key"
     d4_key = "Trash Cave Key"
     d5_key = "Flooded Basement Key"
-    d6_key = "Potassium Mines Keys"
+    d6_key = "Potassium Mine Key"
     d7_key = "Boiling Grave Key"
     d8_key = "Grand Library Key"
     s1_key = "Sunken Labyrinth Key"
@@ -59,10 +60,10 @@ class ItemNames(str, Enum):
     # Key Rings
     d1_keyring = "Pillow Fort Key Ring"
     d2_keyring = "Sand Castle Key Ring"
-    d3_keyring = "Art Gallery Key Ring"
+    d3_keyring = "Art Exhibit Key Ring"
     d4_keyring = "Trash Cave Key Ring"
     d5_keyring = "Flooded Basement Key Ring"
-    d6_keyring = "Potassium Mines Key Ring"
+    d6_keyring = "Potassium Mine Key Ring"
     d7_keyring = "Boiling Grave Key Ring"
     d8_keyring = "Grand Library Key Ring"
     s1_keyring = "Sunken Labyrinth Key Ring"
@@ -131,9 +132,13 @@ class ItemNames(str, Enum):
 
     # Tricks, abilities, and options
     can_open_chests = "Can Open Chests"
-    can_break_weak_objects = "Can Break Weak Objects"  # every weapon except roll, can be used to open caves
-    can_break_strong_objects = "Can Break Strong Objects"  # melee, dynamite, or ice, since force can't break everything
-    can_kill_basic_enemies = "Can Kill Basic Enemies"
+    weapon_any = "Can Break Weak Objects"  # every weapon except roll, can be used to open caves
+    # useful in cases you need to use dynamite in conjunction with something else
+    weapon_no_dynamite = "Weapon other than Dynamite"
+    weapon_no_force = "Can Break Strong Objects"  # melee, dynamite, or ice, since force can't break everything
+    weapon_projectile = "Has a projectile weapon"  # mace or force
+    force_jump = "Force Jump"  # Force + Ice # TODO add as an obtainable "item"
+    basic_combat = "Can Kill Basic Enemies"
     can_phase_itemless = "Can Phase Itemless"
     can_phase_itemless_difficult = "Can Phase Itemless (Difficult)"
     can_phase_ice_itemless = "Can Phase to Existing Ice Blocks"
@@ -146,27 +151,39 @@ class ItemNames(str, Enum):
     can_phase_enemy_difficult = "Can Do Enemy Phases (Difficult)"
 
     # Events
+    dw_dungeon_complete = "Completed a Dreamworld Dungeon"
+    dw_2 = "2 Drewamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
+    dw_3 = "3 Dreamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
+    dw_4 = "4 Dreamworld Dungeons Complete"  # Typical Quietus Requiremtents # TODO add these events
     has_opened_d8 = "Has Opened Grand Library"
     has_opened_s1 = "Has Opened Sunken Labyrinth"
     has_opened_s2 = "Has Opened Machine Fortress"
     has_opened_s3 = "Has Opened Dark Hypostyle"
     has_opened_s4 = "Has Opened Tomb of Simulacrum"
     has_opened_dw = "Has Opened Dreamworld"
-    has_opened_dd = "Has Opened Syncope"
-    has_opened_df = "Has Opened Wizardry Lab"
-    has_opened_dfc = "Has Opened Antigram"
-    has_opened_di = "Has Opened Bottomless Tower"
-    has_opened_da = "Has Opened Quietus"
+    open_d8 = "Open Grand Library"
+    open_s4 = "Open Tomb of Simulacrum"
+    open_dw = "Open Dreamworld"
+    major_skips = "Major Skips Allowed"
     victory = "Victory"
+
+    # Switch Events
+    d5_o_block = "Flooded Basement Crossway Open"
+    d8_k_left_door = "Grand Library K Left Door Opened"
+    d8_k_right_door = "Grand Library K Right Door Opened"
+    the_vault_left = "The Vault Left Switch"
+    the_vault_right = "The Vault Right Switch"
+    scrap_yard_left = "Scrap Yard West Block"
+    scrap_yard_right = "Scrap Yard East Block"
 
     # Can Use Keys
     can_use_d1_keys = "Can Use Pillow Fort Keys"
     can_use_d2_keys = "Can Use Sand Castle Keys"
-    can_use_d3_keys = "Can Use Art Gallery Keys"
+    can_use_d3_keys = "Can Use Art Exhibit Keys"
     can_use_d4_keys = "Can Use Trash Cave Keys"
     can_use_d5_keys = "Can Use Flooded Basement Keys"
-    can_use_d6_keys = "Can Use Potassium Mines Keys"
-    can_use_d7_keys = "Can Use Boiling Graves Keys"
+    can_use_d6_keys = "Can Use Potassium Mine Keys"
+    can_use_d7_keys = "Can Use Boiling Grave Keys"
     can_use_d8_keys = "Can Use Grand Library Keys"
     can_use_s1_keys = "Can Use Sunken Labyrinth Keys"
     can_use_s2_keys = "Can Use Machine Fortress Keys"

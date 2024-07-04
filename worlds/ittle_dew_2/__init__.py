@@ -1,7 +1,8 @@
 from typing import Dict, List, Any, Union
+from Options import OptionError
 from copy import deepcopy
 from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
-from .items import item_name_to_id, item_table, item_name_groups, filler_items
+from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
 from .region_rules import create_regions_with_rules, key_count_requirements
@@ -60,6 +61,18 @@ class ID2World(World):
     traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]]
 
     def generate_early(self) -> None:
+        if not self.options.open_dreamworld:
+            self.options.open_dreamworld.value = options.OpenDreamworld.option_true
+
+        dungeon_count = 8
+        if self.options.include_secret_dungeons:
+            dungeon_count += 4
+        if self.options.include_dream_dungeons:
+            dungeon_count += 5
+        if self.options.dungeon_rewards_setting.value != options.DungeonRewardsSetting.option_anything and self.options.dungeon_rewards_count.value > dungeon_count:
+            print(f"Not enough dungeons available to place dungeon rewards in, clamping down to {dungeon_count} instead")
+            self.options.dungeon_rewards_count.value = dungeon_count
+
         # For Universal Tracker
         if hasattr(self.multiworld, "re_gen_passthrough"):
             if "Ittle Dew 2" in self.multiworld.re_gen_passthrough:
@@ -92,9 +105,13 @@ class ID2World(World):
 
     # create an item on request with the proper settings
     def create_item(self, name: str) -> ID2Item:
-        item_data = item_table[name]
         print("CREATING ITEM: " + name)
-        return ID2Item(name, item_data.classification, self.item_name_to_id[name], self.player)
+        if name in item_table.keys():
+            item_data = item_table[name]
+            return ID2Item(name, item_data.classification, self.item_name_to_id[name], self.player)
+        else:
+            item_data = none_item_table[name]
+            return ID2Item(name, item_data.classification, None, self.player)
 
     # edit an item's base classification
     def create_item_alt(self, name: str, iclass: ItemClassification) -> ID2Item:
@@ -105,6 +122,15 @@ class ID2World(World):
         id2_items: List[ID2Item] = []
 
         items_to_create: Dict[str, int] = {item: data.quantity_in_item_pool for item, data in item_table.items()}
+
+        # rafts
+        if self.options.dungeon_rewards_setting.value == self.options.dungeon_rewards_setting.option_rewards:
+            rafts_to_create = 8 - self.options.dungeon_rewards_count.value
+            if rafts_to_create < 0:
+                rafts_to_create = 0
+
+            items_to_create[iname.raft.value] = rafts_to_create
+            # TODO also FKeys
 
         # if randomize stick is off, give the player a free melee and remove one from the pool
         if not self.options.randomize_stick:
@@ -129,50 +155,76 @@ class ID2World(World):
 
         # key settings
         if self.options.key_settings == KeySettings.option_default:
+            items_to_create[iname.d1_key.value] = 2
             items_to_create[iname.d2_key.value] = 2
+            items_to_create[iname.d3_key.value] = 4
+            items_to_create[iname.d4_key.value] = 4
+            items_to_create[iname.d5_key.value] = 5
+            items_to_create[iname.d6_key.value] = 5
+            items_to_create[iname.d7_key.value] = 5
+            items_to_create[iname.d8_key.value] = 8
             # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
-            # items_to_create[iname.d1_keyring.value] = 1,
+            items_to_create[iname.d1_keyring.value] = 1
             items_to_create[iname.d2_keyring.value] = 1
-            # items_to_create[iname.d3_keyring.value] = 1,
-            # items_to_create[iname.d4_keyring.value] = 1,
-            # items_to_create[iname.d5_keyring.value] = 1,
-            # items_to_create[iname.d6_keyring.value] = 1,
-            # items_to_create[iname.d7_keyring.value] = 1,
-            # items_to_create[iname.d8_keyring.value] = 1,
-            # items_to_create[iname.s1_keyring.value] = 1,
-            # items_to_create[iname.s2_keyring.value] = 1,
-            # items_to_create[iname.s3_keyring.value] = 1,
-            # items_to_create[iname.s4_keyring.value] = 1,
-            # items_to_create[iname.dd_keyring.value] = 1,
-            # items_to_create[iname.dfc_keyring.value] = 1,
-            # items_to_create[iname.di_keyring.value] = 1,
-            # items_to_create[iname.da_keyring.value] = 1,
+            items_to_create[iname.d3_keyring.value] = 1
+            items_to_create[iname.d4_keyring.value] = 1
+            items_to_create[iname.d5_keyring.value] = 1
+            items_to_create[iname.d6_keyring.value] = 1
+            items_to_create[iname.d7_keyring.value] = 1
+            items_to_create[iname.d8_keyring.value] = 1
+            # items_to_create[iname.s1_keyring.value] = 1
+            # items_to_create[iname.s2_keyring.value] = 1
+            # items_to_create[iname.s3_keyring.value] = 1
+            # items_to_create[iname.s4_keyring.value] = 1
+            # items_to_create[iname.dd_keyring.value] = 1
+            # items_to_create[iname.dfc_keyring.value] = 1
+            # items_to_create[iname.di_keyring.value] = 1
+            # items_to_create[iname.da_keyring.value] = 1
 
         # remove Forbidden Keys from pool if S4 is open
         if self.options.open_s4:
             items_to_create[iname.f_key.value] = 0
 
         # configure shard count
-        # items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
-        #     + self.options.extra_shards.value
+        items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
+            + self.options.extra_shards.value
+
+        # Super Secret stuff
+        if self.options.include_super_secrets:
+            items_to_create[iname.outfit_apa.value] = 1
+            items_to_create[iname.outfit_berry.value] = 1
+            items_to_create[iname.outfit_that_guy.value] = 1
+            items_to_create[iname.card_fly.value] = 1
+
+        # major skips
+        if self.options.major_dungeon_skips:
+            self.multiworld.push_precollected((self.create_item(iname.major_skips.value)))
+
+        # open options
+        if self.options.open_d8:
+            self.multiworld.push_precollected(self.create_item(iname.open_d8.value))
+        if self.options.open_s4:
+            self.multiworld.push_precollected(self.create_item(iname.open_s4.value))
+        if self.options.open_dreamworld:
+            self.multiworld.push_precollected(self.create_item(iname.open_dw.value))
 
         # phasing
         if self.options.phasing_itemless:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing.value))
 
         if self.options.phasing_ice:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_ice))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_ice.value))
 
         if self.options.phasing_dynamite:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite.value))
 
         if self.options.phasing_enemies:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_enemy))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_enemy.value))
 
         if self.options.phasing_difficult:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult))
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult.value))
 
         # crayon count
         items_to_create[iname.crayon.value] = self.options.crayons_in_pool.value
@@ -204,18 +256,23 @@ class ID2World(World):
         return self.random.choice(filler_items)
 
     def fill_slot_data(self) -> Dict[str, Any]:
+        # Logic PUML graph stuff
         # state = self.multiworld.get_all_state(False)
         # state.update_reachable_regions(self.player)
         # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         return self.options.as_dict(
             "goal",
+            "progressive_items",
             "open_d8",
             "open_s4",
             "open_dreamworld",
             "dream_dungeons_do_not_change_items",
+            "key_settings",
+            "shard_settings",
+            "randomize_stick",
+            "randomize_roll",
             "roll_opens_chests",
-            "start_with_all_warps",
-            "key_settings"
+            "start_with_all_warps"
         )
 
     # Universal Tracker stuff
