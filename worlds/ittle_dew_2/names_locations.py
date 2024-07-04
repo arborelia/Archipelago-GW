@@ -364,3 +364,5 @@ class LocationNames(str, Enum):
     switch_vault_right = "The Vault East Switch"
     block_scrap_yard_left = "Scrap Yard West Block"
     block_scrap_yard_right = "Scrap Yard East Block"
+
+    victory_location = "VICTORY"

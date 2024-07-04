@@ -1,11 +1,12 @@
 from typing import List, Dict, TYPE_CHECKING, cast
-from BaseClasses import Region, Location, ItemClassification
+from  random import randint
+from BaseClasses import Region, Location, ItemClassification, LocationProgressType
 from worlds.generic.Rules import CollectionRule
 from .region_data import ID2Type
 from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
-from .items import ID2Item
+from .items import ID2Item, item_name_to_id
 from .options import KeySettings
 
 if TYPE_CHECKING:
@@ -103,11 +104,46 @@ def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
     return lambda state: any(state.has_all(sublist, world.player) for sublist in reqs)
 
 
+def determine_required_dungeons(world: "ID2World") -> List[str]:
+    options = world.options
+    if options.dungeon_rewards_setting.value != options.dungeon_rewards_setting.option_anything:
+        main_dungeons: List[str] = [
+            lname.d1_boss_reward,
+            lname.d2_boss_reward,
+            lname.d3_boss_reward,
+            lname.d4_boss_reward,
+            lname.d5_boss_reward,
+            lname.d6_boss_reward,
+            lname.d7_boss_reward,
+            lname.d8_boss_reward
+        ]
+        # TODO support other pools
+        all_dungeons: List[str] = []
+        all_dungeons += main_dungeons
+        selected_dungeons: List[str] = []
+        while len(selected_dungeons) < options.dungeon_rewards_count.value:
+            if len(all_dungeons) == 0:
+                raise ValueError("Not enough dungeons to place rewards in!")
+            rnd = randint(0, len(all_dungeons) - 1)
+            selected_dungeons.append(all_dungeons[rnd])
+            all_dungeons.remove(all_dungeons[rnd])
+
+        return selected_dungeons
+
+
 # create the regions, fill them with exits and locations, and assign logic
 def create_regions_with_rules(world: "ID2World") -> None:
     player = world.player
     options = world.options
     id2_regions = create_id2_regions(world)
+    required_dungeons: List[str] = []
+    rafts_to_place = 0
+    fkeys_to_place = 0
+    if options.dungeon_rewards_setting.value != options.dungeon_rewards_setting.option_anything:
+        required_dungeons = determine_required_dungeons(world)
+        if options.dungeon_rewards_setting.value == options.dungeon_rewards_setting.option_rewards:
+            rafts_to_place = 8
+            # TODO FKeys
 
     for origin_name, destinations in world.traversal_requirements.items():
         origin_name = cast(str, origin_name.value)
@@ -125,6 +161,14 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 else:
                     location = ID2Location(player, destination_name, world.location_name_to_id[destination_name],
                                            id2_regions[origin_name])
+                    if destination_name in required_dungeons:
+                        print(f"SETTING {destination_name} AS A REQUIRED LOCATION")
+                        if rafts_to_place > 0:
+                            location.place_locked_item(ID2Item(iname.raft.value, ItemClassification.progression, item_name_to_id[iname.raft.value], player))
+                        # TODO fkeys
+                        # remember that if S4 is in, it can't be an FKey
+                        else:
+                            location.progress_type = LocationProgressType.PRIORITY
                 location.access_rule = interpret_rule(data.rules, world)
                 id2_regions[origin_name].locations.append(location)
             elif data.type == ID2Type.region:
@@ -323,6 +367,14 @@ def create_regions_with_rules(world: "ID2World") -> None:
                                                                                    iname.option_phasing_difficult,
                                                                                    iname.roll}, player)
             id2_regions[rname.menu].locations.append(phase_enemy_difficult_event)
+
+    # Victory
+    victory_event = ID2Location(player, lname.victory_location, None, id2_regions[rname.fluffy_fields])
+    victory_event.place_locked_item(ID2Item(iname.victory, ItemClassification.progression, None, player))
+    if options.goal.value == options.goal.option_raft_quest:
+        victory_event.access_rule = lambda state: state.has(iname.raft.value, player, 8)
+    # TODO support other victory conditions
+    id2_regions[rname.fluffy_fields].locations.append(victory_event)
 
     for region in id2_regions.values():
         world.multiworld.regions.append(region)

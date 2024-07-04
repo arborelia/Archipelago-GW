@@ -2618,7 +2618,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d8_rewards: {
         lname.d8_boss_reward:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]], iname.victory),
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         lname.d8_boss_reward_extra:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
     },

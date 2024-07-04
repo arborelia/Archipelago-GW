@@ -120,6 +120,15 @@ class ID2World(World):
 
         items_to_create: Dict[str, int] = {item: data.quantity_in_item_pool for item, data in item_table.items()}
 
+        # rafts
+        if self.options.dungeon_rewards_setting.value == self.options.dungeon_rewards_setting.option_rewards:
+            rafts_to_create = 8 - self.options.dungeon_rewards_count.value
+            if rafts_to_create < 0:
+                rafts_to_create = 0
+
+            items_to_create[iname.raft.value] = rafts_to_create
+            # TODO also FKeys
+
         # if randomize stick is off, give the player a free melee and remove one from the pool
         if not self.options.randomize_stick:
             self.multiworld.push_precollected(self.create_item(iname.melee.value))
@@ -232,6 +241,7 @@ class ID2World(World):
             id2_items.append(self.create_item(self.get_filler_item_name()))
 
         self.multiworld.itempool += id2_items
+
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
