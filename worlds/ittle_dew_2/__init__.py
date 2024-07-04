@@ -150,6 +150,7 @@ class ID2World(World):
             items_to_create[iname.d5_key.value] = 5
             items_to_create[iname.d6_key.value] = 5
             items_to_create[iname.d7_key.value] = 5
+            items_to_create[iname.d8_key.value] = 8
             # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
@@ -160,7 +161,7 @@ class ID2World(World):
             items_to_create[iname.d5_keyring.value] = 1
             items_to_create[iname.d6_keyring.value] = 1
             items_to_create[iname.d7_keyring.value] = 1
-            # items_to_create[iname.d8_keyring.value] = 1
+            items_to_create[iname.d8_keyring.value] = 1
             # items_to_create[iname.s1_keyring.value] = 1
             # items_to_create[iname.s2_keyring.value] = 1
             # items_to_create[iname.s3_keyring.value] = 1

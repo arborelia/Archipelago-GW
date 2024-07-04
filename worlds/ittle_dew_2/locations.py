@@ -159,7 +159,19 @@ location_table: Dict[str, ID2LocationData] = {
     "Boiling Grave - Chilly Roger Combat Key": ID2LocationData(rname.d7_d.value, 1406, "Dungeons"),
     "Boiling Grave - Boss Reward Chest": ID2LocationData(rname.d7_e.value, 1407, "Dungeons"),
     # 1500: Grand Library
-
+    "Grand Library - Treasure Chest": ID2LocationData(rname.d8_g.value, 1500, "Dungeons"),
+    "Grand Library - Crayon Chest": ID2LocationData(rname.d8_aa.value, 1501, "Dungeons"),
+    "Grand Library - Patient Key": ID2LocationData(rname.d8_ac.value, 1502, "Dungeons"),
+    "Grand Library - Hidden Key": ID2LocationData(rname.d8_t.value, 1503, "Dungeons"),
+    "Grand Library - Fighter's Combat Key": ID2LocationData(rname.d8_ad.value, 1504, "Dungeons"),
+    "Grand Library - Storied Key": ID2LocationData(rname.d8_ae.value, 1505, "Dungeons"),
+    "Grand Library - Delayed Key": ID2LocationData(rname.d8_u.value, 1506, "Dungeons"),
+    "Grand Library - Carrot Lobotomy Key": ID2LocationData(rname.d8_ab.value, 1507, "Dungeons"),
+    "Grand Library - Crystals and Buttons Key": ID2LocationData(rname.d8_q.value, 1508, "Dungeons"),
+    "Grand Library - Hexrot Combat Key": ID2LocationData(rname.d8_a.value, 1509, "Dungeons"),
+    "Grand Library - Boss Key Chest": ID2LocationData(rname.d8_e.value, 1510, "Dungeons"),
+    "Grand Library - Boss Reward Chest": ID2LocationData(rname.d8_rewards.value, 1511, "Dungeons"),
+    "Grand Library - Extra Boss Reward Chest": ID2LocationData(rname.d8_rewards.value, 1512, "Dungeons"),
     # 1600: Sunken Labyrinth
 
     # 1700: Machine Fortress

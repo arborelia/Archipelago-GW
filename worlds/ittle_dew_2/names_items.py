@@ -169,10 +169,13 @@ class ItemNames(str, Enum):
 
     # Switch Events
     d5_o_block = "Flooded Basement Crossway Open"
+    d8_k_left_door = "Grand Library K Left Door Opened"
+    d8_k_right_door = "Grand Library K Right Door Opened"
     the_vault_left = "The Vault Left Switch"
     the_vault_right = "The Vault Right Switch"
     scrap_yard_left = "Scrap Yard West Block"
     scrap_yard_right = "Scrap Yard East Block"
+
 
     # Can Use Keys
     can_use_d1_keys = "Can Use Pillow Fort Keys"

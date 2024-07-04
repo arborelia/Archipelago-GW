@@ -323,7 +323,7 @@ class LocationNames(str, Enum):
     event_all_d5_keys = "Received Flooded Basement Keys"
     event_all_d6_keys = "Received Potassium Mines Keys"
     event_all_d7_keys = "Received Boiling Grave Keys"
-    # event_all_d8_keys = "Received Grand Library Keys"
+    event_all_d8_keys = "Received Grand Library Keys"
     # event_all_s1_keys = "Received Sunken Labyrinth Keys"
     # event_all_s2_keys = "Received Machine Fortress Keys"
     # event_all_s3_keys = "Received Dark Hypostyle Keys"
@@ -358,6 +358,8 @@ class LocationNames(str, Enum):
 
     # events for reaching parts of dungeons
     d5_o_block = "Flooded Basement Crossway Access"
+    d8_k_left_door = "Grand Library K Left Door"
+    d8_k_right_door = "Grand Library K Right Door"
     switch_vault_left = "The Vault West Switch"
     switch_vault_right = "The Vault East Switch"
     block_scrap_yard_left = "Scrap Yard West Block"

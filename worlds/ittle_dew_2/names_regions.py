@@ -366,7 +366,8 @@ class RegionNames(str, Enum):
 
     # Grand Library
     d8_a = "Grand Library A"
-    d8_b = "Grand Library B"
+    d8_b_upper = "Grand Library B - Exit"
+    d8_b_lower = "Grand Library B - Arena"
     d8_c = "Grand Library C"
     d8_d = "Grand Library D"
     d8_e = "Grand Library E"
@@ -375,12 +376,15 @@ class RegionNames(str, Enum):
     d8_h = "Grand Library H"
     d8_i = "Grand Library I"
     d8_j = "Grand Library J"
-    d8_k = "Grand Library K"
+    d8_k_left = "Grand Library K - Left"
+    d8_k_right = "Grand Library K - Right"
+    d8_k_bottom = "Grand Library K - Bottom"
     d8_l = "Grand Library L"
     d8_m = "Grand Library M"
     d8_n = "Grand Library N"
     d8_o = "Grand Library O"
-    d8_p = "Grand Library P"
+    d8_p_left = "Grand Library P - Left"
+    d8_p_right = "Grand Library P - Right"
     d8_q = "Grand Library Q"
     d8_r = "Grand Library R"
     d8_s = "Grand Library S"
@@ -396,7 +400,8 @@ class RegionNames(str, Enum):
     d8_ac = "Grand Library AC"
     d8_ad = "Grand Library AD"
     d8_ae = "Grand Library AE"
-    d8_sc = "Grand Library Shifting Chambers"
+    d8_shifting_chambers = "Grand Library Shifting Chambers"
+    d8_rewards = "Grand Library Rewards Room"
 
     # Sunken Labyrinth
     s1_a = "Sunken Labyrinth A"

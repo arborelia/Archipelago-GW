@@ -2166,7 +2166,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d7_e: {
         lname.d7_boss_reward:
-            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]], iname.victory),
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
         rname.d7_f:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
     },
@@ -2341,7 +2341,287 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.weapon_projectile.value]]),
     },
     # Grand Library
-
+    rname.d8_a: {
+        lname.d8_hexrot_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d8_b_upper: {
+        rname.d8_shifting_chambers:
+            ID2Data(ID2Type.region),
+        rname.d8_b_lower:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]]),
+    },
+    rname.d8_b_lower: {
+        rname.d8_b_upper:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]]),
+        rname.d8_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_c: {
+        rname.d8_h:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d8_v:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_d: {
+        rname.d8_o:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_w:
+            ID2Data(ID2Type.region, [[iname.force.value, iname.dynamite.value],
+                                     [iname.ice.value, iname.can_phase_itemless.value, iname.dynamite.value]]),
+    },
+    rname.d8_e: {
+        lname.d8_boss_key:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.d8_f:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d8_k_left:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+    },
+    rname.d8_f: {
+        rname.d8_b_lower:
+            ID2Data(ID2Type.region),
+        rname.d8_e:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d8_g: {
+        lname.d8_treasure:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.d8_h: {
+        rname.d8_c:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d8_i:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_n:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+    },
+    rname.d8_i: {
+        rname.d8_h:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_o:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+    },
+    rname.d8_j: {
+        rname.d8_a:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.d8_k_left:
+            ID2Data(ID2Type.region, [[iname.d8_k_left_door.value]]),
+        rname.d8_p_left:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d8_k_left: {
+        rname.d8_k_right:
+            ID2Data(ID2Type.region),
+        rname.d8_j:
+            ID2Data(ID2Type.region, [[iname.d8_k_left_door.value]]),
+        rname.d8_e:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+    },
+    rname.d8_k_right: {
+        lname.d8_k_left_door:
+            ID2Data(ID2Type.location, [[iname.ice.value, iname.melee.value, iname.chain.value, iname.weapon_projectile.value],
+                                       [iname.can_phase_itemless.value, iname.roll.value, iname.melee.value, iname.chain.value],
+                                       [iname.can_phase_itemless_difficult.value, iname.melee.value, iname.chain.value],
+                                       [iname.can_phase_ice.value],
+                                       [iname.can_phase_dynamite.value]], iname.d8_k_left_door.value),
+        rname.d8_k_left:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value, iname.d8_k_left_door.value],
+                                     [iname.can_phase_itemless_difficult.value, iname.d8_k_left_door.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.d8_k_bottom:
+            ID2Data(ID2Type.region),
+        rname.d8_l:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d8_k_bottom: {
+        lname.d8_k_right_door:
+            ID2Data(ID2Type.location, [[iname.ice.value, iname.melee.value, iname.chain.value, iname.weapon_projectile.value],
+                                       [iname.can_phase_itemless.value, iname.roll.value, iname.melee.value, iname.chain.value],
+                                       [iname.can_phase_itemless_difficult.value, iname.melee.value, iname.chain.value],
+                                       [iname.can_phase_dynamite.value]], iname.d8_k_right_door.value),
+        rname.d8_k_right:
+            ID2Data(ID2Type.region, [[iname.can_phase_itemless.value, iname.d8_k_right_door.value],
+                                     [iname.can_phase_itemless_difficult.value, iname.d8_k_right_door.value],
+                                     [iname.can_phase_dynamite.value]]),
+    },
+    rname.d8_l: {
+        rname.d8_k_right:
+            ID2Data(ID2Type.region, [[iname.d8_k_right_door.value]]),
+        rname.d8_aa:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_m: {
+        rname.d8_g:
+            ID2Data(ID2Type.region, [[iname.fire_sword.value, iname.chain.value],
+                                     [iname.can_phase_dynamite.value, iname.fire_sword.value]]),
+        rname.d8_l:
+            ID2Data(ID2Type.region, [[iname.fire_mace.value],
+                                     [iname.can_phase_dynamite.value, iname.fire_sword.value]]),
+        rname.d8_n:
+            ID2Data(ID2Type.region, [[iname.fire_mace.value],
+                                     [iname.can_phase_dynamite.value, iname.fire_sword.value]]),
+        rname.d8_s:
+            ID2Data(ID2Type.region, [[iname.fire_mace.value],
+                                     [iname.can_phase_dynamite.value, iname.fire_sword.value]]),
+    },
+    rname.d8_n: {
+        rname.d8_h:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]])
+    },
+    rname.d8_o: {
+        rname.d8_d:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_i:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_m:
+            ID2Data(ID2Type.region, [[iname.ice.value]]),
+        rname.d8_u:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value]]),
+    },
+    rname.d8_p_left: {
+        rname.d8_j:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d8_p_right:
+            ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value]]),
+    },
+    rname.d8_p_right: {
+        rname.d8_p_left:
+            ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value, iname.weapon_projectile.value]]),
+        rname.d8_r:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_q: {
+        lname.d8_crystal_button:
+            ID2Data(ID2Type.location, [[iname.ice.value, iname.force.value],
+                                       [iname.ice.value, iname.can_phase_itemless.value, iname.roll.value],
+                                       [iname.can_phase_ice.value],
+                                       [iname.can_phase_dynamite.value]]),
+        rname.d8_k_bottom:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.weapon_projectile.value, iname.dynamite.value, iname.ice.value]]),
+        rname.d8_w:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+    },
+    rname.d8_r: {
+        rname.d8_m:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d8_p_right:
+            ID2Data(ID2Type.region),
+        rname.d8_x:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+    },
+    rname.d8_s: {
+        rname.d8_z:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d8_t: {
+        lname.d8_hidden:
+            ID2Data(ID2Type.location, [[iname.force.value, iname.ice.value],
+                                       [iname.can_phase_itemless.value],
+                                       [iname.can_phase_ice.value],
+                                       [iname.can_phase_dynamite.value]]),
+        rname.d8_z:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.d8_u: {
+        lname.d8_delayed:
+            ID2Data(ID2Type.location, [[iname.force.value, iname.ice.value],
+                                     [iname.force.value, iname.can_phase_itemless.value],
+                                     [iname.can_phase_ice.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.d8_z:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_v: {
+        rname.d8_c:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_w: {
+        rname.d8_d:
+            ID2Data(ID2Type.region),
+        rname.d8_q:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_x:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+    },
+    rname.d8_x: {
+        rname.d8_r:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_w:
+            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+        rname.d8_ab:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.d8_y: {
+        rname.d8_m:
+            ID2Data(ID2Type.region, [[iname.ice.value]]),
+        rname.lonely_road_a:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_z: {
+        rname.d8_t:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.d8_ac:
+            ID2Data(ID2Type.region),
+        rname.d8_ad:
+            ID2Data(ID2Type.region),
+        rname.d8_ae:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_aa: {
+        lname.d8_crayon:
+            ID2Data(ID2Type.location, [[iname.weapon_projectile.value],
+                                       [iname.can_phase_itemless.value, iname.can_open_chests.value],
+                                       [iname.can_phase_dynamite.value]]),
+        rname.d8_l:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_ab: {
+        lname.d8_carrot_lobotomy:
+            ID2Data(ID2Type.location, [[iname.force.value, iname.ice.value],
+                                     [iname.can_phase_itemless.value, iname.ice.value]]),
+    },
+    rname.d8_ac: {
+        lname.d8_patient:
+            ID2Data(ID2Type.location, [[iname.ice.value, iname.force.value, iname.fire_mace.value, iname.chain.value],
+                                       [iname.can_phase_ice.value, iname.fire_sword.value],
+                                       [iname.can_phase_dynamite.value, iname.fire_sword.value, iname.chain.value]]),
+        rname.d8_z:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_ad: {
+        lname.d8_fighter_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value],
+                                       [iname.can_phase_ice.value]]),
+        rname.d8_z:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_ae: {
+        lname.d8_storied:
+            ID2Data(ID2Type.location, [[iname.force.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.d8_z:
+            ID2Data(ID2Type.region),
+    },
+    rname.d8_shifting_chambers: {
+        rname.d8_rewards:
+            ID2Data(ID2Type.region, [[iname.fire_sword.value, iname.dynamite.value, iname.force.value, iname.ice.value, iname.chain.value, iname.roll.value],
+                                     # Ice only is possible, but requires a bit of RNG
+                                     [iname.can_phase_ice_difficult.value, iname.dynamite.value, iname.roll.value],
+                                     [iname.can_phase_dynamite.value, iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_enemy.value, iname.roll.value]]),
+    },
+    rname.d8_rewards: {
+        lname.d8_boss_reward:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]], iname.victory),
+        lname.d8_boss_reward_extra:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
     # Portal Worlds
     rname.autumn_climb: {
         lname.autumn_climb:
