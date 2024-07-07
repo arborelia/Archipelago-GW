@@ -32,7 +32,7 @@ class ItemNames(str, Enum):
     amulet = "Progressive Amulet"
     tome = "Progressive Tome"
     lockpick = "Lockpick"
-    crayon = "Crayon"
+    crayon = "Box of Crayons"
     scroll_cave = "Cave Scroll"
     scroll_portal = "Portal World Scroll"
     heart_yellow = "Yellow Heart"
