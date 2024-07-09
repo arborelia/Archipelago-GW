@@ -15,10 +15,10 @@ class ItemNames(str, Enum):
     chain = "Progressive Chain"
     raft = "Raft Piece"
     roll = "Roll"
-    loot = "Big Old Pile of Loot"
+    loot = "Big Old Pile o' Loot"
     fake_efcs = "Impossible Gates Pass"
     shard = "Secret Shard"
-    f_key = "Forbidden Keys"
+    f_key = "Forbidden Key"
 
     # Upgrades
     force_upgrade = "Force Wand Upgrade"
