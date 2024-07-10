@@ -35,7 +35,7 @@ item_table: Dict[str, ID2ItemData] = {
     iname.amulet.value: ID2ItemData(ItemClassification.useful, 3, 12, "Minor Items"),
     iname.tome.value: ID2ItemData(ItemClassification.useful, 3, 13, "Minor Items"),
     iname.shard.value: ID2ItemData(ItemClassification.progression | ItemClassification.useful, 36, 14, "Collectables"),
-    iname.f_key.value: ID2ItemData(ItemClassification.progression, 4, 15, "Collectables"),
+    iname.f_key.value: ID2ItemData(ItemClassification.progression, 0, 15, "Collectables"),
     iname.lockpick.value: ID2ItemData(ItemClassification.useful, 12, 16, "Minor Items"),
     iname.crayon.value: ID2ItemData(ItemClassification.useful, 20, 17, "Minor Items"),
     iname.scroll_cave.value: ID2ItemData(ItemClassification.filler, 0, 18, "Bonus Items"),
@@ -127,6 +127,8 @@ item_table: Dict[str, ID2ItemData] = {
     iname.card_tippsie.value: ID2ItemData(ItemClassification.useful, 1, 138, "Cards"),
     iname.card_ittle.value: ID2ItemData(ItemClassification.useful, 1, 139, "Cards"),
     iname.card_fly.value: ID2ItemData(ItemClassification.useful, 0, 140, "Cards"),
+    iname.buff.value: ID2ItemData(ItemClassification.filler, 0, 141, "Bonus Items"),
+    iname.debuff.value: ID2ItemData(ItemClassification.trap, 0, 142, "Traps")
 }
 
 none_item_table: Dict[str, ID2ItemData] = {
@@ -143,7 +145,7 @@ none_item_table: Dict[str, ID2ItemData] = {
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}
 
-filler_items: List[str] = [name for name, data in item_table.items() if data.classification == ItemClassification.filler]
+filler_items: List[str] = [name for name, data in item_table.items() if data.classification in [ItemClassification.filler | ItemClassification.trap]]
 
 
 def get_item_group(item_name: str) -> str:

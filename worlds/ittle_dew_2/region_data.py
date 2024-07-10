@@ -2987,8 +2987,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.ludo_city: {
-        # lname.ludo_city:
-        #     ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        lname.ludo_city:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.somewhere:
             ID2Data(ID2Type.region),
     },

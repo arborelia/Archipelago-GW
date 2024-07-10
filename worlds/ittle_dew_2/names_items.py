@@ -36,6 +36,10 @@ class ItemNames(str, Enum):
     scroll_cave = "Cave Scroll"
     scroll_portal = "Portal World Scroll"
     heart_yellow = "Yellow Heart"
+    buff = "Random Buff"
+
+    # Traps
+    debuff = "Random Debuff Trap"
 
     # Keys
     # All locks assume you have all keys or the key ring

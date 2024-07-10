@@ -5,7 +5,7 @@ from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemC
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
-from .region_rules import create_regions_with_rules, key_count_requirements
+from .region_rules import create_regions_with_rules, key_count_requirements, required_dungeons
 from .options import ID2Options, id2_options_groups, id2_options_presets, KeySettings
 from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
@@ -63,6 +63,9 @@ class ID2World(World):
     def generate_early(self) -> None:
         if not self.options.open_dreamworld:
             self.options.open_dreamworld.value = options.OpenDreamworld.option_true
+
+        self.options.shard_settings.value = options.ShardSettings.option_open
+        self.options.open_s4.value = options.OpenS4.option_true
 
         dungeon_count = 8
         if self.options.include_secret_dungeons:
@@ -187,9 +190,9 @@ class ID2World(World):
         if self.options.open_s4:
             items_to_create[iname.f_key.value] = 0
 
-        # configure shard count
-        items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 \
-            + self.options.extra_shards.value
+        # configure shard count (currently not supported)
+        items_to_create[iname.shard.value] = 0  # self.options.shard_settings.value * 12 \
+            # + self.options.extra_shards.value
 
         # Super Secret stuff
         if self.options.include_super_secrets:
@@ -257,23 +260,42 @@ class ID2World(World):
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # Logic PUML graph stuff
-        # state = self.multiworld.get_all_state(False)
-        # state.update_reachable_regions(self.player)
-        # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
-        return self.options.as_dict(
+        state = self.multiworld.get_all_state(False)
+        state.update_reachable_regions(self.player)
+        visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
+        slot_data = self.options.as_dict(
             "goal",
+            "dungeon_rewards_setting",
+            "dungeon_rewards_count",
             "progressive_items",
+            "include_portal_worlds",
+            "include_secret_dungeons",
+            "include_dream_dungeons",
+            "include_super_secrets",
             "open_d8",
             "open_s4",
             "open_dreamworld",
             "dream_dungeons_do_not_change_items",
             "key_settings",
             "shard_settings",
+            "extra_shards",
             "randomize_stick",
-            "randomize_roll",
             "roll_opens_chests",
-            "start_with_all_warps"
+            "major_dungeon_skips",
+            "phasing_itemless",
+            "phasing_ice",
+            "phasing_dynamite",
+            "phasing_enemies",
+            "phasing_difficult",
+            "start_with_tracker",
+            "start_with_all_warps",
+            "lockpicks_in_pool",
+            "crayons_in_pool"
         )
+        slot_data["required_dungeons"] = required_dungeons
+        print("SLOT DATA:")
+        print(slot_data)
+        return slot_data
 
     # Universal Tracker stuff
     @staticmethod

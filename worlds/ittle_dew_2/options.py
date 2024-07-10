@@ -26,6 +26,7 @@ class DungeonRewardsSetting(Choice):
     Anything: The reward can be anything
     Priority: The reward can have any item marked progression in the multiworld
     Rewards: The reward can be either a Raft Piece or a Forbidden Key (if Open Tomb of Simulacrum is off).
+    FORBIDDEN KEYS ARE CURRENTLY NOT IN THE POOL.
     If there are more dungeon rewards locations in the pool than available reward items, the rest will be priority locations.
     Tomb of Simulacrum can never have its reward set with this. If you want to require Tomb, use the Queen of Adventure goal.
     """
@@ -46,8 +47,8 @@ class DungeonRewardsCount(Range):
     internal_name = "dungeon_rewards_count"
     displayname = "Dungeon Rewards Count"
     range_start = 0
-    range_end = 16
-    default = 12
+    range_end = 8
+    default = 4
 
 
 class ProgressiveItems(DefaultOnToggle):
@@ -108,7 +109,7 @@ class OpenD8(Toggle):
 class OpenS4(Toggle):
     """
     Opens the entrance to Tomb of Simulacrum and removes the Forbidden Keys from the pool.
-    CURRENTLY NOT SUPPORTED.
+    CURRENTLY NOT SUPPORTED. FORBIDDEN KEYS ARE NOT IN THE POOL.
     """
     internal_name = "open_s4"
     display_name = "Open Tomb of Simulacrum"
@@ -118,7 +119,7 @@ class OpenDreamworld(Toggle):
     """
     Opens the entrance to Dreamworld and the five dungeons within.
     This removes the need for a Raft Piece to enter Dreamworld and items to enter dungeons.
-    CURRENTLY NOT SUPPORTED.
+    CURRENTLY NOT SUPPORTED. Cards are still in the pool.
     """
     internal_name = "open_dreamworld"
     display_name = "Open Dreamworld"
@@ -157,7 +158,7 @@ class ShardSettings(Choice):
     Half: Sunken Labyrinth needs 4 Shards to enter, Machine Fortress needs 8, and Dark Hypostyle needs 12.
     Vanilla: Secret dungeons require their normal amount of shards to enter.
     Lockdown: Sunken Labyrinth needs 12 Shards to enter, Machine Fortress needs 24, and Dark Hypostyle needs 36.
-    CURRENTLY NOT SUPPORTED. Will update the randomized shards, but will not affect your ability to enter dungeons.
+    CURRENTLY NOT SUPPORTED. Shards are not in the pool.
     """
     # Eventually add settings to make these individually customizable and random
     internal_name = "shard_settings"
@@ -173,7 +174,7 @@ class ExtraShards(Range):
     """
     Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle,
     Secret Shards will give you Portal or Cave Scrolls instead.
-    CURRENTLY NOT SUPPORTED. Will add extra shards to the pool, but will not give scrolls.
+    CURRENTLY NOT SUPPORTED. Shards are not in the pool.
     """
     internal_name = "extra_shards"
     display_name = "Extra Shards"
@@ -295,7 +296,7 @@ class LockpicksInPool(Range):
     display_name = "Lockpicks In Pool"
     range_start = 0
     range_end = 24
-    default = 12
+    default = 4
 
 
 class CrayonsInPool(Range):

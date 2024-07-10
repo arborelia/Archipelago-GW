@@ -47,6 +47,9 @@ key_count_requirements: Dict[lname, int] = {
     # lname.event_all_da_keys: 4,
 }
 
+# dungeons expected to beat the seed
+required_dungeons: List[str] = []
+
 
 # cut grouped requirements into their individual requirements
 def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[str]]:
@@ -108,7 +111,7 @@ def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
 def determine_required_dungeons(world: "ID2World") -> List[str]:
     options = world.options
     if options.dungeon_rewards_setting.value != options.dungeon_rewards_setting.option_anything:
-        main_dungeons: List[str] = [
+        main_dungeons: List[lname] = [
             lname.d1_boss_reward,
             lname.d2_boss_reward,
             lname.d3_boss_reward,
@@ -119,15 +122,17 @@ def determine_required_dungeons(world: "ID2World") -> List[str]:
             lname.d8_boss_reward
         ]
         # TODO support other pools
-        all_dungeons: List[str] = []
+        all_dungeons: List[lname] = []
         all_dungeons += main_dungeons
         selected_dungeons: List[str] = []
         while len(selected_dungeons) < options.dungeon_rewards_count.value:
             if len(all_dungeons) == 0:
                 raise ValueError("Not enough dungeons to place rewards in!")
             rnd = randint(0, len(all_dungeons) - 1)
-            selected_dungeons.append(all_dungeons[rnd])
-            all_dungeons.remove(all_dungeons[rnd])
+            dungeon = all_dungeons[rnd]
+            selected_dungeons.append(dungeon)
+            required_dungeons.append(dungeon.value.split(" - ", 1)[0])
+            all_dungeons.remove(dungeon)
 
         return selected_dungeons
 
