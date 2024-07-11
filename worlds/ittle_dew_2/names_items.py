@@ -40,6 +40,7 @@ class ItemNames(str, Enum):
 
     # Traps
     debuff = "Random Debuff Trap"
+    bee = "Bee Trap"
 
     # Keys
     # All locks assume you have all keys or the key ring

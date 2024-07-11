@@ -128,7 +128,8 @@ item_table: Dict[str, ID2ItemData] = {
     iname.card_ittle.value: ID2ItemData(ItemClassification.useful, 1, 139, "Cards"),
     iname.card_fly.value: ID2ItemData(ItemClassification.useful, 0, 140, "Cards"),
     iname.buff.value: ID2ItemData(ItemClassification.filler, 0, 141, "Bonus Items"),
-    iname.debuff.value: ID2ItemData(ItemClassification.trap, 0, 142, "Traps")
+    iname.debuff.value: ID2ItemData(ItemClassification.trap, 0, 142, "Traps"),
+    iname.bee.value: ID2ItemData(ItemClassification.trap, 0, 143, "Traps")
 }
 
 none_item_table: Dict[str, ID2ItemData] = {
