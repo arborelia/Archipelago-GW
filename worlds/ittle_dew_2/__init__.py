@@ -260,9 +260,9 @@ class ID2World(World):
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # Logic PUML graph stuff
-        state = self.multiworld.get_all_state(False)
-        state.update_reachable_regions(self.player)
-        visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
+        # state = self.multiworld.get_all_state(False)
+        # state.update_reachable_regions(self.player)
+        # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         slot_data = self.options.as_dict(
             "goal",
             "dungeon_rewards_setting",
