@@ -280,6 +280,7 @@ class ID2World(World):
             "shard_settings",
             "extra_shards",
             "randomize_stick",
+            "randomize_roll",
             "roll_opens_chests",
             "major_dungeon_skips",
             "phasing_itemless",

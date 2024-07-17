@@ -1495,7 +1495,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d3_b:
             ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
         rname.d3_d:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, []),
     },
     rname.d3_d: {
         lname.d3_boss_reward:
@@ -2026,7 +2026,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value],
                                      [iname.force_jump.value], # very tight
                                      [iname.can_phase_ice.value, iname.roll.value]]),
-        rname.d6_p:
+        rname.d6_l:
             ID2Data(ID2Type.region, [[iname.ice.value],
                                      [iname.can_phase_itemless.value, iname.roll.value]]),
     },
