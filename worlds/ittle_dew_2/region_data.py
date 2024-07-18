@@ -595,7 +595,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ffc_p: {
         lname.ffc_potion_bar:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+            ID2Data(ID2Type.location, [[iname.weapon_any.value]]),
     },
     rname.ffc_q: {
         lname.ffc_six_buns_combat:
@@ -1554,7 +1554,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.d3_k: {
         rname.d3_h:
             ID2Data(ID2Type.region, [[iname.dynamite.value],
-                                     [iname.can_phase_ice.value, iname.roll.value]]),
+                                     [iname.can_phase_ice.value]]),
         rname.d3_j:
             ID2Data(ID2Type.region),
         rname.d3_m:
@@ -2014,14 +2014,14 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     rname.d6_g: {
+        lname.d6_crayon:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.d6_l:
             ID2Data(ID2Type.region),
         rname.d6_p:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     rname.d6_h: {
-        lname.d6_crayon:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.d6_c:
             ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value],
                                      [iname.force_jump.value], # very tight
@@ -2195,7 +2195,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d7_h:
             ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
         rname.d7_j:
-            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]])
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.roll.value],
+                                       [iname.force.value, iname.roll.value],
+                                       [iname.dynamite.value, iname.roll.value]])
     },
     rname.d7_j: {
         rname.d7_f:
@@ -2687,7 +2689,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scrap_yard_a: {
         lname.scrap_yard:
-            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+            ID2Data(ID2Type.location, [[iname.melee.value, iname.roll.value],
+                                       [iname.force.value, iname.roll.value],
+                                       [iname.dynamite.value, iname.roll.value]]),
     },
     rname.scrap_yard_b: {
         rname.scrap_yard_c_left:
