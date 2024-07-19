@@ -47,10 +47,6 @@ key_count_requirements: Dict[lname, int] = {
     # lname.event_all_da_keys: 4,
 }
 
-# dungeons expected to beat the seed
-required_dungeons: List[str] = []
-
-
 # cut grouped requirements into their individual requirements
 def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[str]]:
     new_list_storage: List[List[str]] = []
@@ -122,6 +118,7 @@ def determine_required_dungeons(world: "ID2World") -> List[str]:
             lname.d8_boss_reward
         ]
         # TODO support other pools
+        world.required_dungeons = []
         all_dungeons: List[lname] = []
         all_dungeons += main_dungeons
         selected_dungeons: List[str] = []
@@ -131,7 +128,7 @@ def determine_required_dungeons(world: "ID2World") -> List[str]:
             rnd = randint(0, len(all_dungeons) - 1)
             dungeon = all_dungeons[rnd]
             selected_dungeons.append(dungeon)
-            required_dungeons.append(dungeon.value.split(" - ", 1)[0])
+            world.required_dungeons.append(dungeon.value.split(" - ", 1)[0])
             all_dungeons.remove(dungeon)
 
         return selected_dungeons

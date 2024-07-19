@@ -1,11 +1,11 @@
-from typing import Dict, List, Any, Union
+from typing import Dict, List, Any, Union, TextIO
 from Options import OptionError
 from copy import deepcopy
 from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
-from .region_rules import create_regions_with_rules, key_count_requirements, required_dungeons
+from .region_rules import create_regions_with_rules, key_count_requirements
 from .options import ID2Options, id2_options_groups, id2_options_presets, KeySettings
 from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
@@ -49,6 +49,8 @@ class ID2World(World):
     """
     game = "Ittle Dew 2"
     web = ID2Web()
+
+    required_dungeons: List[str] = []
 
     options: ID2Options
     options_dataclass = ID2Options
@@ -258,6 +260,12 @@ class ID2World(World):
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
 
+    def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
+        if self.options.dungeon_rewards_setting.value != options.DungeonRewardsSetting.option_anything:
+            spoiler_handle.write("\nRequired Dungeons:\n\n")
+            for dungeon in self.required_dungeons:
+                spoiler_handle.write(f"  {dungeon}\n")
+
     def fill_slot_data(self) -> Dict[str, Any]:
         # Logic PUML graph stuff
         # state = self.multiworld.get_all_state(False)
@@ -293,7 +301,7 @@ class ID2World(World):
             "lockpicks_in_pool",
             "crayons_in_pool"
         )
-        slot_data["required_dungeons"] = required_dungeons
+        slot_data["required_dungeons"] = self.required_dungeons
         print("SLOT DATA:")
         print(slot_data)
         return slot_data
