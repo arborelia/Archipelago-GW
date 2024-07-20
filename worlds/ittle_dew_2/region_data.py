@@ -416,7 +416,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fcc_m:
             ID2Data(ID2Type.region),
         rname.fcc_o:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [iname.weapon_any.value]),
     },
     # TODO determine phasability between LR regions
     rname.lonely_road_a: {
@@ -675,7 +675,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scc_j: {
         lname.scc_portal_spikes_chest:
-            ID2Data(ID2Type.location, [[iname.weapon_any.value]])
+            ID2Data(ID2Type.location, [[iname.weapon_any.value],
+                                       [iname.can_phase_itemless.value, iname.can_open_chests.value]])
     },
     rname.scc_k: {
         lname.scc_hint_hermit:
@@ -716,7 +717,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.frc_c: {
         lname.frc_two_crystals:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+            ID2Data(ID2Type.location, [[iname.weapon_any.value],
+                                       [iname.can_phase_itemless.value, iname.roll.value, iname.can_open_chests.value]]),
     },
     rname.frc_d: {
         lname.frc_big_ogler_combat:
@@ -914,7 +916,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ssc_j: {
         lname.ssc_pushable_fan:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+            ID2Data(ID2Type.location, [[iname.weapon_any.value],
+                                       [iname.can_phase_itemless_difficult.value, iname.roll.value]])
     },
     rname.ssc_k: {
         lname.ssc_moving_crystals:
@@ -1117,7 +1120,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.lrc_c: {
         lname.lrc_timed_number_tiles:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+            ID2Data(ID2Type.location, [[iname.weapon_any.value]]),
     },
     rname.lrc_d: {
         lname.lrc_volcano:
@@ -1149,7 +1152,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.lonely_road_c_entrance:
             ID2Data(ID2Type.region),
         rname.lonely_road_c_lightning_rock_trail:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.weapon_any.value],
+                                     [iname.can_phase_itemless.value, iname.roll],
+                                     [iname.can_phase_itemless_difficult.value]]),
     },
     rname.lrc_h: {
         rname.lonely_road_c_lightning_rock_trail:
@@ -1455,7 +1460,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d2_i: {
         lname.d2_orbiting_balls:
-            ID2Data(ID2Type.location, [[iname.melee.value, iname.roll.value]]),
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       [iname.can_phase_itemless.value, iname.roll.value, iname.can_use_d2_keys.value],
+                                       [iname.can_phase_itemless_difficult.value, iname.can_use_d2_keys.value]]),
         rname.d2_e:
             ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value, iname.melee.value, iname.roll.value],
                                      [iname.can_phase_itemless.value, iname.roll.value],
@@ -2147,7 +2154,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.d7_b: {
         lname.d7_crayon:
             ID2Data(ID2Type.location, [[iname.weapon_projectile.value],
-                                     [iname.melee.value, iname.chain.value]]),
+                                       [iname.melee.value, iname.chain.value],
+                                       [iname.can_phase_itemless.value, iname.roll.value, iname.can_open_chests.value]]),
         rname.d7_a:
             ID2Data(ID2Type.region),
     },
@@ -2619,7 +2627,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      # Ice only is possible, but requires a bit of RNG
                                      [iname.can_phase_ice_difficult.value, iname.dynamite.value, iname.roll.value],
                                      [iname.can_phase_dynamite.value, iname.melee.value, iname.chain.value],
-                                     [iname.can_phase_enemy.value, iname.roll.value]]),
+                                     [iname.can_phase_enemy.value, iname.melee.value, iname.roll.value],
+                                     [iname.can_phase_enemy.value, iname.ice.value, iname.roll.value]]),
     },
     rname.d8_rewards: {
         lname.d8_boss_reward:
@@ -2826,7 +2835,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.maze_of_steel_c: {
         rname.maze_of_steel_a_left:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
         rname.maze_of_steel_d:
             ID2Data(ID2Type.region),
     },
