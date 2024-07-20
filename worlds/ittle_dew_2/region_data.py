@@ -416,7 +416,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fcc_m:
             ID2Data(ID2Type.region),
         rname.fcc_o:
-            ID2Data(ID2Type.region, [iname.weapon_any.value]),
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     # TODO determine phasability between LR regions
     rname.lonely_road_a: {
