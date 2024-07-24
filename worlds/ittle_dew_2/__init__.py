@@ -110,7 +110,7 @@ class ID2World(World):
 
     # create an item on request with the proper settings
     def create_item(self, name: str) -> ID2Item:
-        print("CREATING ITEM: " + name)
+        # print("CREATING ITEM: " + name)
         if name in item_table.keys():
             item_data = item_table[name]
             return ID2Item(name, item_data.classification, self.item_name_to_id[name], self.player)

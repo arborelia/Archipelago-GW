@@ -2982,7 +2982,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.cave_of_mystery_b: {
         rname.cave_of_mystery_a:
-            ID2Data(ID2Type.region, [[iname.weapon_any.value, iname.can_phase_itemless.value],
+            ID2Data(ID2Type.region, [[iname.weapon_any.value, iname.fake_efcs.value],
+                                     [iname.weapon_any.value, iname.can_phase_itemless.value],
                                      [iname.can_phase_dynamite.value]]),
         rname.somewhere:
             ID2Data(ID2Type.region),

@@ -1,4 +1,4 @@
-from typing import List, Dict, TYPE_CHECKING, cast
+from typing import List, Dict, TYPE_CHECKING, cast, Tuple
 from random import randint
 from BaseClasses import Region, Location, ItemClassification, LocationProgressType
 from worlds.generic.Rules import CollectionRule
@@ -47,6 +47,7 @@ key_count_requirements: Dict[lname, int] = {
     # lname.event_all_da_keys: 4,
 }
 
+
 # cut grouped requirements into their individual requirements
 def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[str]]:
     new_list_storage: List[List[str]] = []
@@ -54,6 +55,7 @@ def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[st
         for j, req in enumerate(sublist):
             if req == helper_name:
                 for replacement in helper_reference[helper_name]:
+                    # replaces requirements that can be one of multiple items with duplicates that have one of the items
                     new_list = sublist.copy()
                     new_list[j] = replacement
                     # print("REPLACEMENT LIST: ")
@@ -64,25 +66,52 @@ def convert_helper_reqs(helper_name: str, reqs: List[List[str]]) -> List[List[st
                 break
 
     for sublist in new_list_storage:
-        # newlist: List[str] = []
-        # for list_item in sublist:
-        #     print("LIST ITEM: " + list_item)
-        #     # item: iname = cast(iname, list_item)
-        #     check_item_type = copy(item)
-        #     is_an_iname = isinstance(check_item_type, iname)
-        #     print(is_an_iname)
-        #     print("ACTUAL ITEM (the enum): " + item)
-        #     if is_an_iname:
-        #         newlist.append(item.value)
-        #     else:
-        #         newlist.append(item)
-        # print("NEW LIST:")
-        # print(newlist)
         reqs.append(sublist)
 
-    # TODO remove empty lists from the reqs
-
     return reqs
+
+
+def get_requirement_quantities(reqs: List[List[str]], world: "ID2World") -> List[Dict[str, int]]:
+    new_list: List[Dict[str, int]] = []
+    for sublist in reqs:
+        item_reqs: Dict[str, int] = {}
+        print("LOGICAL REQUIREMENTS:")
+        for item in sublist:
+            if "*" in item:
+                if "Key" in item and "Forbidden" not in item:
+                    key_req = convert_key_requirements(item, world)
+                    item_reqs[key_req[0]] = key_req[1]
+                else:
+                    components = item.split("*")
+                    item_reqs[components[0]] = int(components[1])
+            else:
+                item_reqs[item] = 1
+                print(item)
+
+            print(f"DICTIONARY LENGTH: {len(item_reqs)}")
+
+        new_list.append(item_reqs)
+
+    return new_list
+
+
+def convert_key_requirements(key_name: str, world: "ID2World") -> Tuple[str, int]:
+    options = world.options
+    key_setting = options.key_settings
+    converted_item: Tuple[str, int] = []
+    components = key_name.split("*")
+    item = components[0]
+    quantity = int(components[1])
+    if key_setting.value == KeySettings.option_keyrings:
+        item += " Ring"
+        quantity = 1
+    elif key_setting.value == KeySettings.option_keysey:
+        item = iname.keysey.value
+        quantity = 1
+
+    converted_item = item, quantity
+
+    return converted_item
 
 
 # create a bunch of empty regions
@@ -97,11 +126,14 @@ def create_id2_regions(world: "ID2World") -> Dict[str, Region]:
 
 # break down and convert requirements
 def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
+    item_reqs: List[Dict[str, int]] = []
     for helper_name in helper_reference.keys():
         reqs = convert_helper_reqs(helper_name, reqs)
-    # print("REQUIREMENTS INTERPRETED: ")
-    # print(reqs)
-    return lambda state: any(state.has_all(sublist, world.player) for sublist in reqs)
+
+    item_reqs = get_requirement_quantities(reqs)
+    print("REQUIREMENTS INTERPRETED: ")
+    print(item_reqs)
+    return lambda state: any(state.has_all_counts(sublist, world.player) for sublist in item_reqs)
 
 
 def determine_required_dungeons(world: "ID2World") -> List[str]:
@@ -152,11 +184,11 @@ def create_regions_with_rules(world: "ID2World") -> None:
         origin_name = cast(str, origin_name.value)
         # TODO exclude regions based on pool settings
 
-        # print("ADDING REGION: " + origin_name)
+        print("ADDING REGION: " + origin_name)
         for destination_name, data in destinations.items():
             destination_name = cast(str, destination_name.value)
             if data.type == ID2Type.location:
-                # print(f"ADDING LOCATION: {destination_name}")
+                print(f"ADDING LOCATION: {destination_name}")
                 if not options.include_portal_worlds:
                     if destination_name in location_name_groups["Portal Worlds"]:
                         # print("Portal Worlds are off, excluding this location.")
@@ -191,7 +223,7 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 location.access_rule = interpret_rule(data.rules, world)
                 id2_regions[origin_name].locations.append(location)
             elif data.type == ID2Type.region:
-                # print(f"ADDING REGION CONNECTION: {destination_name}")
+                print(f"ADDING REGION CONNECTION: {destination_name}")
                 # TODO add shard requirements for shard dungeons (maybe make that an item?)
                 id2_regions[origin_name].connect(connecting_region=id2_regions[destination_name],
                                                  rule=interpret_rule(data.rules, world))

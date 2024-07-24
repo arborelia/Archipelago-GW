@@ -199,6 +199,8 @@ class ItemNames(str, Enum):
     can_use_di_keys = "Can Use Bottomless Tower Keys"
     can_use_da_keys = "Can Use Quietus Keys"
 
+    keysey = "Keysey"
+
     # Options
     option_phasing = "Option - Can Phase Itemless"
     option_phasing_ice = "Option - Can Phase to Ice Blocks"
