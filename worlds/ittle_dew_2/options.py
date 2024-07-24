@@ -277,7 +277,7 @@ class StartWithTracker(Toggle):
     allowing you to know where all locations in dungeons are.
     """
     internal_name = "start_with_tracker"
-    display_name = "Start Without Roll"
+    display_name = "Start With Tracker 3"
 
 
 class StartWithAllWarps(DefaultOnToggle):

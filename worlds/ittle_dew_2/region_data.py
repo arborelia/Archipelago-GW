@@ -663,7 +663,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scc_g: {
         lname.scc_feral_gates_combat:
-            ID2Data(ID2Type.location, [[iname.can_open_chests.value]])
+            ID2Data(ID2Type.location, [[iname.basic_combat.value]])
     },
     rname.scc_h: {
         lname.scc_three_teleporters:
