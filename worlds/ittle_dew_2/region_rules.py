@@ -86,7 +86,7 @@ def get_requirement_quantities(reqs: List[List[str]], world: "ID2World") -> List
                     item_reqs[components[0]] = int(components[1])
             else:
                 item_reqs[item] = 1
-                print(item)
+                print(f"Adding a single {item}")
 
             print(f"DICTIONARY LENGTH: {len(item_reqs)}")
 

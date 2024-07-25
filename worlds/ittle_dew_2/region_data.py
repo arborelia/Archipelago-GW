@@ -1417,7 +1417,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d2_f:
             ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
         rname.d2_i:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value]])
+            ID2Data(ID2Type.region, [[iname.d2_key.value + "*2"]])
     },
     rname.d2_f: {
         rname.d2_b:
@@ -1456,18 +1456,18 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_ice.value],
                                      [iname.can_phase_enemy.value]]),
         rname.d2_k:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value]])
+            ID2Data(ID2Type.region, [[iname.d2_key.value + "*2"]])
     },
     rname.d2_i: {
         lname.d2_orbiting_balls:
             ID2Data(ID2Type.location, [[iname.melee.value],
-                                       [iname.can_phase_itemless.value, iname.roll.value, iname.can_use_d2_keys.value],
-                                       [iname.can_phase_itemless_difficult.value, iname.can_use_d2_keys.value]]),
+                                       [iname.can_phase_itemless.value, iname.roll.value, iname.d2_key.value + "*2"],
+                                       [iname.can_phase_itemless_difficult.value, iname.d2_key.value + "*2"]]),
         rname.d2_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value, iname.melee.value, iname.roll.value],
-                                     [iname.can_phase_itemless.value, iname.roll.value],
-                                     [iname.can_phase_itemless_difficult.value],
-                                     [iname.can_phase_dynamite.value]]),
+            ID2Data(ID2Type.region, [[iname.d2_key.value + "*2", iname.melee.value, iname.roll.value],
+                                     [iname.d2_key.value + "*2", iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.d2_key.value + "*2", iname.can_phase_itemless_difficult.value],
+                                     [iname.d2_key.value + "*2", iname.can_phase_dynamite.value]]),
         rname.d2_g:
             ID2Data(ID2Type.region)
     },
@@ -1481,7 +1481,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d2_k: {
         rname.d2_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d2_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d2_key.value + "*2"]]),
         rname.d2_j:
             ID2Data(ID2Type.region, [[iname.basic_combat.value]])
     },
@@ -1494,13 +1494,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d3_a:
             ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
         rname.d3_c:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*4"]]),
         rname.d3_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*4"]]),
     },
     rname.d3_c: {
         rname.d3_b:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*3"]]),
         rname.d3_d:
             ID2Data(ID2Type.region),
     },
@@ -1514,7 +1514,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d3_spike_floor:
             ID2Data(ID2Type.location),
         rname.d3_b:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*3"]]),
         rname.d3_c:
             ID2Data(ID2Type.region, [[iname.fire_sword.value]]),
         rname.d3_h:
@@ -1556,7 +1556,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d3_k:
             ID2Data(ID2Type.region),
         rname.d3_l:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*4"]]),
     },
     rname.d3_k: {
         rname.d3_h:
@@ -1571,7 +1571,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d3_treasure:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.d3_j:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*4"]]),
     },
     rname.d3_m: {
         rname.d3_j:
@@ -1599,7 +1599,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.ice.value],
                                      [iname.can_phase_itemless.value]]),
         rname.d3_r:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*1"]]),
     },
     rname.d3_q: {
         rname.d3_r:
@@ -1612,7 +1612,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.location, [[iname.basic_combat.value],
                                        [iname.can_phase_ice.value, iname.roll.value]]),
         rname.d3_p:
-            ID2Data(ID2Type.region, [[iname.can_use_d3_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d3_key.value + "*1"]]),
         rname.d3_q:
             ID2Data(ID2Type.region),
         rname.d3_s:
@@ -1631,7 +1631,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d4_b:
             ID2Data(ID2Type.region),
         rname.d4_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*4"]]),
     },
     rname.d4_b: {
         lname.d4_boss_reward:
@@ -1651,20 +1651,20 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d4_c:
             ID2Data(ID2Type.region),
         rname.d4_f:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value, iname.weapon_any.value],
-                                     [iname.can_phase_itemless.value, iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*4", iname.weapon_any.value],
+                                     [iname.can_phase_itemless.value, iname.d4_key.value + "*4"]]),
     },
     rname.d4_e: {
         lname.d4_block_maze:
             ID2Data(ID2Type.location, [[iname.basic_combat.value]]),
         rname.d4_a:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*4"]]),
         rname.d4_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*3"]]),
     },
     rname.d4_f: {
         rname.d4_d:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*4"]]),
         rname.d4_g_left:
             ID2Data(ID2Type.region, [[iname.force.value],
                                      [iname.can_phase_itemless.value],
@@ -1690,13 +1690,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d4_mimic_combat:
             ID2Data(ID2Type.location),
         rname.d4_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*3"]]),
     },
     rname.d4_i: {
         rname.d4_f:
             ID2Data(ID2Type.region),
         rname.d4_l:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*3"]]),
     },
     rname.d4_j: {
         rname.d4_f:
@@ -1716,7 +1716,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d4_l: {
         rname.d4_i:
-            ID2Data(ID2Type.region, [[iname.can_use_d4_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d4_key.value + "*3"]]),
         rname.d4_m:
             ID2Data(ID2Type.region, [[iname.melee.value, iname.chain.value],
                                      [iname.can_phase_ice.value, iname.weapon_projectile.value]]),
@@ -1820,7 +1820,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d5_c:
             ID2Data(ID2Type.region),
         rname.d5_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
     },
     rname.d5_e: {
         rname.d5_b:
@@ -1837,7 +1837,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d5_j:
             ID2Data(ID2Type.region),
         rname.d5_k_main:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
     },
     rname.d5_g: {
         lname.d5_crayon:
@@ -1845,15 +1845,15 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d5_f:
             ID2Data(ID2Type.region),
         rname.d5_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
     },
     rname.d5_h: {
         lname.d5_treasure:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.d5_d:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
         rname.d5_g:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
         rname.d5_i:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d5_m:
@@ -1878,7 +1878,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d5_k_main: {
         rname.d5_f:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
         rname.d5_j:
             ID2Data(ID2Type.region),
         rname.d5_o_top:
@@ -1947,13 +1947,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d5_o_right:
             ID2Data(ID2Type.region),
         rname.d5_t:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*4"]]),
     },
     rname.d5_q: {
         rname.d5_h:
             ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
         rname.d5_t:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
     },
     rname.d5_r: {
         lname.d5_keeled_fishbun:
@@ -1969,9 +1969,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d5_t: {
         rname.d5_p:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*4"]]),
         rname.d5_q:
-            ID2Data(ID2Type.region, [[iname.can_use_d5_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d5_key.value + "*5"]]),
         rname.d5_s:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d5_u:
@@ -1994,7 +1994,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d6_a:
             ID2Data(ID2Type.region),
         rname.d6_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*5"]]),
     },
     rname.d6_c: {
         rname.d6_d:
@@ -2012,9 +2012,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d6_e: {
         rname.d6_b:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*5"]]),
         rname.d6_i:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*4"]]),
     },
     rname.d6_f: {
         rname.d6_j:
@@ -2031,7 +2031,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.d6_h: {
         rname.d6_c:
             ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value],
-                                     [iname.force_jump.value], # very tight
+                                     [iname.force_jump.value],  # just push ice diagonally
                                      [iname.can_phase_ice.value, iname.roll.value]]),
         rname.d6_l:
             ID2Data(ID2Type.region, [[iname.ice.value],
@@ -2039,7 +2039,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d6_i: {
         rname.d6_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*4"]]),
         rname.d6_h:
             ID2Data(ID2Type.region, [[iname.ice.value]]),
     },
@@ -2056,7 +2056,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d6_j:
             ID2Data(ID2Type.region),
         rname.d6_o_upper:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*5"]]),
     },
     rname.d6_l: {
         lname.d6_west_minecart_track:
@@ -2074,9 +2074,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d6_i:
             ID2Data(ID2Type.region, [[iname.ice.value]]),
         rname.d6_r:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*4"]]),
         rname.d6_s:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*5"]]),
         rname.d6_u:
             ID2Data(ID2Type.region, [[iname.weapon_no_dynamite.value]]),
     },
@@ -2096,7 +2096,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d6_n:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d6_k:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*5"]]),
         rname.d6_o_lower:
             ID2Data(ID2Type.region, [[iname.can_phase_dynamite.value],
                                      [iname.can_phase_enemy.value, iname.roll.value]]),
@@ -2121,7 +2121,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d6_r: {
         rname.d6_m:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*4"]]),
         rname.d6_n:
             ID2Data(ID2Type.region, [[iname.ice.value],
                                      [iname.force.value]]),
@@ -2130,7 +2130,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d6_s: {
         rname.d6_m:
-            ID2Data(ID2Type.region, [[iname.can_use_d6_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d6_key.value + "*5"]]),
         rname.d6_p:
             ID2Data(ID2Type.region),
     },
@@ -2149,7 +2149,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d7_b:
             ID2Data(ID2Type.region, [[iname.melee.value]]),
         rname.d7_g:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*5"]]),
     },
     rname.d7_b: {
         lname.d7_crayon:
@@ -2184,7 +2184,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d7_g: {
         rname.d7_a:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*5"]]),
         rname.d7_k:
             ID2Data(ID2Type.region, [[iname.melee.value],
                                      [iname.ice.value]]),
@@ -2195,13 +2195,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d7_g:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
         rname.d7_i:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*5"]]),
         rname.d7_l:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     rname.d7_i: {
         rname.d7_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*5"]]),
         rname.d7_j:
             ID2Data(ID2Type.region, [[iname.melee.value, iname.roll.value],
                                        [iname.force.value, iname.roll.value],
@@ -2225,13 +2225,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d7_h:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d7_m:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*3"]]),
         rname.d7_aa:
             ID2Data(ID2Type.region),
     },
     rname.d7_m: {
         rname.d7_l:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*3"]]),
         rname.d7_o:
             ID2Data(ID2Type.region),
     },
@@ -2253,21 +2253,21 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_ice.value],
                                      [iname.can_phase_dynamite.value]]),
         rname.d7_q:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*2"]]),
         rname.d7_u:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     rname.d7_q: {
         rname.d7_p:
-            ID2Data(ID2Type.region, [[iname.melee.value, iname.can_use_d7_keys.value],
-                                     [iname.can_phase_itemless.value, iname.roll.value, iname.can_use_d7_keys.value],
-                                     [iname.can_phase_itemless_difficult.value, iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.d7_key.value + "*2"],
+                                     [iname.can_phase_itemless.value, iname.roll.value, iname.d7_key.value + "*2"],
+                                     [iname.can_phase_itemless_difficult.value, iname.d7_key.value + "*2"]]),
     },
     rname.d7_r: {
         rname.d7_n:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d7_s:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*5"]]),
         rname.d7_v:
             ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
     },
@@ -2276,7 +2276,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             # when you freeze the blocks, the enemies can break them
             ID2Data(ID2Type.region, [[iname.ice.value]]),
         rname.d7_r:
-            ID2Data(ID2Type.region, [[iname.can_use_d7_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d7_key.value + "*5"]]),
         rname.d7_t:
             ID2Data(ID2Type.region),
         rname.d7_x:
@@ -2378,7 +2378,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d8_d: {
         rname.d8_o:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_w:
             ID2Data(ID2Type.region, [[iname.force.value, iname.dynamite.value],
                                      [iname.ice.value, iname.can_phase_itemless.value, iname.dynamite.value]]),
@@ -2389,7 +2389,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_f:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d8_k_left:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
     },
     rname.d8_f: {
         rname.d8_b_lower:
@@ -2405,15 +2405,15 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_c:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d8_i:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_n:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
     },
     rname.d8_i: {
         rname.d8_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_o:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
     },
     rname.d8_j: {
         rname.d8_a:
@@ -2429,7 +2429,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_j:
             ID2Data(ID2Type.region, [[iname.d8_k_left_door.value]]),
         rname.d8_e:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
     },
     rname.d8_k_right: {
         lname.d8_k_left_door:
@@ -2481,13 +2481,13 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d8_n: {
         rname.d8_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]])
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]])
     },
     rname.d8_o: {
         rname.d8_d:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_i:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_m:
             ID2Data(ID2Type.region, [[iname.ice.value]]),
         rname.d8_u:
@@ -2515,7 +2515,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_k_bottom:
             ID2Data(ID2Type.region, [[iname.melee.value, iname.weapon_projectile.value, iname.dynamite.value, iname.ice.value]]),
         rname.d8_w:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
     },
     rname.d8_r: {
         rname.d8_m:
@@ -2523,7 +2523,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_p_right:
             ID2Data(ID2Type.region),
         rname.d8_x:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
     },
     rname.d8_s: {
         rname.d8_z:
@@ -2555,15 +2555,15 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_d:
             ID2Data(ID2Type.region),
         rname.d8_q:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_x:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
     },
     rname.d8_x: {
         rname.d8_r:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_w:
-            ID2Data(ID2Type.region, [[iname.can_use_d8_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
         rname.d8_ab:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
     },
