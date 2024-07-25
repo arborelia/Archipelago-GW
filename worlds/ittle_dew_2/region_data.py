@@ -2378,7 +2378,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d8_d: {
         rname.d8_o:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*4"]]),
         rname.d8_w:
             ID2Data(ID2Type.region, [[iname.force.value, iname.dynamite.value],
                                      [iname.ice.value, iname.can_phase_itemless.value, iname.dynamite.value]]),
@@ -2405,15 +2406,19 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_c:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.d8_i:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*2"]]),
         rname.d8_n:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*1"]]),
     },
     rname.d8_i: {
         rname.d8_h:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*2"]]),
         rname.d8_o:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*3"]]),
     },
     rname.d8_j: {
         rname.d8_a:
@@ -2481,13 +2486,16 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d8_n: {
         rname.d8_h:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]])
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*1"]])
     },
     rname.d8_o: {
         rname.d8_d:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*4"]]),
         rname.d8_i:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*3"]]),
         rname.d8_m:
             ID2Data(ID2Type.region, [[iname.ice.value]]),
         rname.d8_u:
@@ -2515,7 +2523,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_k_bottom:
             ID2Data(ID2Type.region, [[iname.melee.value, iname.weapon_projectile.value, iname.dynamite.value, iname.ice.value]]),
         rname.d8_w:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*7"]]),
     },
     rname.d8_r: {
         rname.d8_m:
@@ -2523,7 +2532,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_p_right:
             ID2Data(ID2Type.region),
         rname.d8_x:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*7"]]),
     },
     rname.d8_s: {
         rname.d8_z:
@@ -2555,15 +2565,19 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d8_d:
             ID2Data(ID2Type.region),
         rname.d8_q:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*7"]]),
         rname.d8_x:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*6"]]),
     },
     rname.d8_x: {
         rname.d8_r:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*7"]]),
         rname.d8_w:
-            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"]]),
+            ID2Data(ID2Type.region, [[iname.d8_key.value + "*8"],
+                                     [iname.glitchless.value, iname.d8_key.value + "*6"]]),
         rname.d8_ab:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
     },

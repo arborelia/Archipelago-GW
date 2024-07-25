@@ -201,6 +201,8 @@ class ItemNames(str, Enum):
 
     keysey = "Keysey"
 
+    glitchless = "No Glitches"
+
     # Options
     option_phasing = "Option - Can Phase Itemless"
     option_phasing_ice = "Option - Can Phase to Ice Blocks"

@@ -234,6 +234,9 @@ class ID2World(World):
         if self.options.phasing_difficult:
             self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult.value))
 
+        if not self.options.phasing_itemless and not self.options.phasing_ice and not self.options.phasing_dynamite and not self.options.phasing_enemies:
+            self.multiworld.push_precollected(self.create_item(iname.glitchless.value))
+
         # crayon count
         items_to_create[iname.crayon.value] = self.options.crayons_in_pool.value
 
