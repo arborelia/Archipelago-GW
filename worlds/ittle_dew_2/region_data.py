@@ -1326,7 +1326,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d1_d: {
         rname.d1_g:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.d1_key.value + "*2"]]),
         rname.d1_a:
             ID2Data(ID2Type.region, [[iname.weapon_any.value],
                                      [iname.can_phase_itemless.value]])
@@ -1348,7 +1348,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d1_crayon:
             ID2Data(ID2Type.location, [[iname.basic_combat.value]]),
         rname.d1_d:
-            ID2Data(ID2Type.region, [[iname.can_use_d1_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d1_key.value + "*2"]]),
         rname.d1_h:
             ID2Data(ID2Type.region),
         rname.d1_j:
@@ -1362,7 +1362,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d1_j:
             ID2Data(ID2Type.region),
         rname.d1_k:
-            ID2Data(ID2Type.region, [[iname.can_use_d1_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d1_key.value + "*2"]]),
     },
     rname.d1_i: {
         lname.d1_treasure:
@@ -1382,7 +1382,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.d1_k: {
         rname.d1_h:
-            ID2Data(ID2Type.region, [[iname.can_use_d1_keys.value]]),
+            ID2Data(ID2Type.region, [[iname.d1_key.value + "*2"]]),
         rname.d1_i:
             ID2Data(ID2Type.region),
     },

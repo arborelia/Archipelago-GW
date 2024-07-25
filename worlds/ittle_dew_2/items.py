@@ -133,6 +133,7 @@ item_table: Dict[str, ID2ItemData] = {
 }
 
 none_item_table: Dict[str, ID2ItemData] = {
+    iname.keysey.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.open_d8.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.open_s4.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.open_dw.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),

@@ -98,10 +98,11 @@ def get_requirement_quantities(reqs: List[List[str]], world: "ID2World") -> List
 def convert_key_requirements(key_name: str, world: "ID2World") -> Tuple[str, int]:
     options = world.options
     key_setting = options.key_settings
-    converted_item: Tuple[str, int] = []
+    converted_item: Tuple[str, int]
     components = key_name.split("*")
     item = components[0]
     quantity = int(components[1])
+    print(f"Converting key requirements for {quantity} {item}s")
     if key_setting.value == KeySettings.option_keyrings:
         item += " Ring"
         quantity = 1
@@ -110,6 +111,7 @@ def convert_key_requirements(key_name: str, world: "ID2World") -> Tuple[str, int
         quantity = 1
 
     converted_item = item, quantity
+    print(converted_item)
 
     return converted_item
 
@@ -130,7 +132,7 @@ def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
     for helper_name in helper_reference.keys():
         reqs = convert_helper_reqs(helper_name, reqs)
 
-    item_reqs = get_requirement_quantities(reqs)
+    item_reqs = get_requirement_quantities(reqs, world)
     print("REQUIREMENTS INTERPRETED: ")
     print(item_reqs)
     return lambda state: any(state.has_all_counts(sublist, world.player) for sublist in item_reqs)

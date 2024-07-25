@@ -188,6 +188,9 @@ class ID2World(World):
             # items_to_create[iname.di_keyring.value] = 1
             # items_to_create[iname.da_keyring.value] = 1
 
+        elif self.options.key_settings == KeySettings.option_keysey:
+            self.multiworld.push_precollected(self.create_item(iname.keysey.value))
+
         # remove Forbidden Keys from pool if S4 is open
         if self.options.open_s4:
             items_to_create[iname.f_key.value] = 0
@@ -205,7 +208,7 @@ class ID2World(World):
 
         # major skips
         if self.options.major_dungeon_skips:
-            self.multiworld.push_precollected((self.create_item(iname.major_skips.value)))
+            self.multiworld.push_precollected(self.create_item(iname.major_skips.value))
 
         # open options
         if self.options.open_d8:
