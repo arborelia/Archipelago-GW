@@ -218,6 +218,12 @@ class ID2World(World):
         if self.options.open_dreamworld:
             self.multiworld.push_precollected(self.create_item(iname.open_dw.value))
 
+        # dreamworld
+        if self.options.dream_dungeons_do_not_change_items:
+            self.multiworld.push_precollected(self.create_item(iname.dw_fun.value))
+        else:
+            self.multiworld.push_precollected(self.create_item(iname.dw_vanilla.value))
+
         # phasing
         if self.options.phasing_itemless:
             self.multiworld.push_precollected(self.create_item(iname.option_phasing.value))
