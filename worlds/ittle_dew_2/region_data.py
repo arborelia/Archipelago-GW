@@ -2650,6 +2650,228 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d8_boss_reward_extra:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
     },
+    # Dreamworld Dungeons
+    rname.df_b: {
+        rname.df_ah:
+            ID2Data(ID2Type.region)
+    },
+    rname.df_c: {
+        lname.df_cannon:
+            ID2Data(ID2Type.location),
+        rname.df_b:
+            ID2Data(ID2Type.region, [[iname.df_ne_generator.value, iname.df_ne_circuit.value, iname.df_nw_generator.value]]),
+        rname.df_k_center:
+            ID2Data(ID2Type.region)
+    },
+    rname.df_e: {
+        lname.df_ne_generator:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value]], iname.df_ne_circuit.value),
+        rname.df_l_top:
+            ID2Data(ID2Type.region)
+    },
+    rname.df_i: {
+        rname.df_w:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.force.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless.value, iname.ice.value, iname.melee.value, iname.roll.value]])
+    },
+    rname.df_j: {
+        rname.df_i:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.force.value],
+                                     [iname.dw_fun.value, iname.ice.value, iname.fire_mace.value, iname.chain.value]])
+    },
+    rname.df_k_center: {
+        # The game actually doesn't care about the south generators at this point
+        # and they'll be active even if you've never entered the generator rooms
+        rname.df_c:
+            ID2Data(ID2Type.region),
+        rname.df_k_left:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.force.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+        rname.df_k_right:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.force.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+        rname.df_y:
+            ID2Data(ID2Type.region)
+    },
+    rname.df_k_left: {
+        rname.df_j:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.df_k_center:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.can_phase_itemless.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless.value, iname.weapon_any.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless_difficult.value, iname.weapon_any.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]])
+    },
+    rname.df_k_right: {
+        rname.df_l_bottom:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.df_k_center:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.can_phase_itemless.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless.value, iname.weapon_any.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.can_phase_itemless_difficult.value, iname.weapon_any.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]])
+    },
+    rname.df_l_top: {
+        rname.df_e:
+            ID2Data(ID2Type.region),
+        rname.df_l_bottom:
+            ID2Data(ID2Type.region)
+    },
+    rname.df_l_bottom: {
+        rname.df_m_top:
+            ID2Data(ID2Type.region),
+        rname.df_l_top:
+            ID2Data(ID2Type.region, [[iname.df_ne_generator.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]])
+    },
+    rname.df_m_top: {
+        rname.df_k_center:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.force.value],
+                                     [iname.can_phase_itemless.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+        rname.df_l_bottom:
+            ID2Data(ID2Type.region),
+        rname.df_m_bottom:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.force.value],
+                                     [iname.can_phase_itemless.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+    },
+    rname.df_m_bottom: {
+        lname.df_east_mirrors:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.can_phase_itemless.value],
+                                       [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+        rname.df_aa:
+            ID2Data(ID2Type.region),
+        rname.df_m_top:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.can_phase_itemless.value],
+                                       [iname.dw_fun.value, iname.can_phase_dynamite.value]])
+    },
+    rname.df_w: {
+        lname.df_west_energy_source:
+            ID2Data(ID2Type.location, [[iname.df_nw_generator.value]]),
+        lname.df_nw_generator:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.can_phase_itemless.value],
+                                       [iname.dw_fun.value, iname.can_phase_ice.value],
+                                       [iname.dw_fun.value, iname.can_phase_dynamite.value]], iname.df_nw_generator.value),
+        rname.df_i:
+            ID2Data(ID2Type.region),
+        rname.df_k_center:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.force.value],
+                                     [iname.can_phase_itemless.value],
+                                     [iname.dw_fun.value, iname.can_phase_ice.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+    },
+    rname.df_x: {
+        lname.df_sw_circuit:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.can_phase_dynamite.value]], iname.df_sw_circuit.value),
+        rname.df_y:
+            ID2Data(ID2Type.region, [[iname.df_sw_circuit.value]]),
+    },
+    rname.df_y: {
+        rname.df_k_center:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.df_se_generator.value, iname.df_sw_generator.value, iname.df_sw_circuit.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]]),
+        rname.df_af:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.df_se_generator.value, iname.df_sw_generator.value, iname.df_sw_circuit.value],
+                                     [iname.can_phase_itemless.value, iname.roll.value],
+                                     [iname.can_phase_itemless_difficult.value]]),
+    },
+    rname.df_z: {
+        lname.df_se_circuit:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value, iname.df_se_generator.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.df_se_generator.value]], lname.df_se_circuit.value),
+        rname.df_y:
+            ID2Data(ID2Type.region, [[iname.df_se_circuit.value],
+                                     [iname.can_phase_itemless.value, iname.ice.value, iname.roll.value, iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_itemless_difficult.value, iname.ice.value, iname.melee.value, iname.chain.value]]),
+    },
+    rname.df_aa: {
+        lname.df_ne_generator:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.dw_fun.value, iname.can_phase_dynamite.value]], iname.df_ne_generator.value),
+        lname.df_east_energy_source:
+            ID2Data(ID2Type.location, [[iname.df_ne_generator.value]]),
+        rname.df_m_bottom:
+            ID2Data(ID2Type.region),
+    },
+    rname.df_ae: {
+        lname.df_sw_generator:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.can_phase_itemless.value, iname.ice.value, iname.roll.value],
+                                       [iname.dw_fun.value, iname.can_phase_itemless_difficult.value, iname.ice.value]], iname.df_sw_generator.value),
+        rname.df_x:
+            ID2Data(ID2Type.region, [[iname.df_sw_generator.value]]),
+        rname.df_af:
+            ID2Data(ID2Type.region),
+    },
+    rname.df_ad: {
+        lname.df_entrance:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.can_phase_itemless.value]]),
+        rname.df_af:
+            ID2Data(ID2Type.region),
+        rname.dreamworld_force:
+            ID2Data(ID2Type.region),
+    },
+    rname.df_af: {
+        rname.df_y:
+            ID2Data(ID2Type.region),
+        rname.df_ae:
+            ID2Data(ID2Type.region),
+        rname.df_ag:
+            ID2Data(ID2Type.region),
+        rname.df_ad:
+            ID2Data(ID2Type.region)
+    },
+    rname.df_ag: {
+        lname.df_se_generator:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value]], iname.df_se_generator.value),
+        rname.df_z:
+            ID2Data(ID2Type.region, iname.df_se_generator.value),
+        rname.df_af:
+            ID2Data(ID2Type.region),
+    },
+    rname.df_ah: {
+        lname.event_finished_df:
+            ID2Data(ID2Type.location),
+        lname.df_reward_a:
+            ID2Data(ID2Type.location),
+        lname.df_reward_b:
+            ID2Data(ID2Type.location),
+        lname.df_reward_c:
+            ID2Data(ID2Type.location),
+        rname.dreamworld_force:
+            ID2Data(ID2Type.region)
+    },
+
     # Portal Worlds
     rname.autumn_climb: {
         lname.autumn_climb:

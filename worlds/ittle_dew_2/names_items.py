@@ -166,6 +166,7 @@ class ItemNames(str, Enum):
     has_opened_s3 = "Has Opened Dark Hypostyle"
     has_opened_s4 = "Has Opened Tomb of Simulacrum"
     has_opened_dw = "Has Opened Dreamworld"
+    has_finished_df = "Has Finished Wizardry Lab"
     open_d8 = "Open Grand Library"
     open_s4 = "Open Tomb of Simulacrum"
     open_dw = "Open Dreamworld"
@@ -176,6 +177,13 @@ class ItemNames(str, Enum):
     d5_o_block = "Flooded Basement Crossway Open"
     d8_k_left_door = "Grand Library K Left Door Opened"
     d8_k_right_door = "Grand Library K Right Door Opened"
+    df_sw_generator = "Wizardry Lab Southwest Generator"
+    df_se_generator = "Wizardry Lab Southeast Generator"
+    df_nw_generator = "Wizardry Lab Northwest Generator"
+    df_ne_generator = "Wizardry Lab Northeast Generator"
+    df_ne_circuit = "Wizardry Lab Northeast Circuit"
+    df_sw_circuit = "Wizardry Lab Southwest Circuit"
+    df_se_circuit = "Wizardry Lab Southeast Circuit"
     the_vault_left = "The Vault Left Switch"
     the_vault_right = "The Vault Right Switch"
     scrap_yard_left = "Scrap Yard West Block"
@@ -202,6 +210,8 @@ class ItemNames(str, Enum):
     keysey = "Keysey"
 
     glitchless = "No Glitches"
+    dw_vanilla = "Dreamworld Changes Items"
+    dw_fun = "Dreamworld Does Not Change Items"
 
     # Options
     option_phasing = "Option - Can Phase Itemless"

@@ -183,7 +183,14 @@ location_table: Dict[str, ID2LocationData] = {
     # 2000: Syncope
 
     # 2100: Wizardry Lab
-
+    "Wizardry Lab - Entrance Card": ID2LocationData(rname.df_ad.value, 2100, "Dreamworld"),
+    "Wizardry Lab - West Energy Source Card": ID2LocationData(rname.df_w.value, 2101, "Dreamworld"),
+    "Wizardry Lab - Cannon Card": ID2LocationData(rname.df_c.value, 2102, "Dreamworld"),
+    "Wizardry Lab - East Mirrors Card": ID2LocationData(rname.df_m_bottom.value, 2103, "Dreamworld"),
+    "Wizardry Lab - East Energy Source Card": ID2LocationData(rname.df_aa.value, 2104, "Dreamworld"),
+    "Wizardry Lab - Reward Card A": ID2LocationData(rname.df_ah.value, 2105, "Dreamworld"),
+    "Wizardry Lab - Reward Card B": ID2LocationData(rname.df_ah.value, 2106, "Dreamworld"),
+    "Wizardry Lab - Reward Card C": ID2LocationData(rname.df_ah.value, 2107, "Dreamworld"),
     # 2200: Antigram
 
     # 2300: Bottomless Tower
