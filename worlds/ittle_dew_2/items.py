@@ -142,7 +142,7 @@ none_item_table: Dict[str, ID2ItemData] = {
     iname.open_dw.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.major_skips.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.option_phasing.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
-    iname.option_phasing_ice.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
+    iname.option_phasing_objects.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.option_phasing_dynamite.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.option_phasing_enemy.value: ID2ItemData(ItemClassification.progression, 0, None, "Options"),
     iname.option_phasing_difficult.value: ID2ItemData(ItemClassification.progression, 0, None, "Options")

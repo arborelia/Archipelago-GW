@@ -225,22 +225,22 @@ class ID2World(World):
             self.multiworld.push_precollected(self.create_item(iname.dw_vanilla.value))
 
         # phasing
-        if self.options.phasing_itemless:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing.value))
-
-        if self.options.phasing_ice:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_ice.value))
-
-        if self.options.phasing_dynamite:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite.value))
-
         if self.options.phasing_enemies:
+            if self.options.phasing_setting.value < options.PhasingSetting.option_object_phases:
+                self.options.phasing_setting.value = options.PhasingSetting.option_object_phases
             self.multiworld.push_precollected(self.create_item(iname.option_phasing_enemy.value))
 
         if self.options.phasing_difficult:
             self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult.value))
 
-        if not self.options.phasing_itemless and not self.options.phasing_ice and not self.options.phasing_dynamite and not self.options.phasing_enemies:
+        if self.options.phasing_setting.value >= options.PhasingSetting.option_gap_phases:
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing.value))
+            if self.options.phasing_setting.value >= options.PhasingSetting.option_object_phases:
+                self.multiworld.push_precollected(self.create_item(iname.option_phasing_objects.value))
+                if self.options.phasing_setting.value >= options.PhasingSetting.option_ice_dynamite_clips:
+                    self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite.value))
+
+        if self.options.phasing_setting == options.PhasingSetting.option_off and not self.options.phasing_enemies:
             self.multiworld.push_precollected(self.create_item(iname.glitchless.value))
 
         # crayon count

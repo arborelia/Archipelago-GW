@@ -221,41 +221,60 @@ class MajorDungeonSkips(Toggle):
     display_name = "Major Dungeon Skips"
 
 
-class PhasingItemless(Toggle):
+class PhasingSetting(Choice):
     """
     ID2 has a glitch called "Phasing" which allows you to clip over gaps and through objects.
-    There are different types of phases.
-    This allows the use of "itemless" phases in logic, primarily useful for crossing gaps.
+    There are different types of phases, and this setting allows them being required in logic.
+    Gap Phases: Allows phasing over pits and through loading zones (phasing through door transitions requires rolling).
+    Object Phases: Allows phasing through collision to objects, including Ice Ring blocks. Also allows Gap Phases.
+    Ice Dynamite Clips: Allows clipping through walls using Ice and Dynamite Clips. Also allows Gap and Object Phases.
     ALL PHASING EXPECTS A CONTROLLER.
     """
-    internal_name = "phasing_itemless"
-    display_name = "Allow Itemless Phases"
+    internal_name = "phasing_setting"
+    display_name = "Allow Phasing"
+    option_off = 0
+    option_gap_phases = 1
+    option_object_phases = 2
+    option_ice_dynamite_clips = 3
+    default = 0
 
 
-class PhasingIce(Toggle):
-    """
-    This allows the use of Ice Block phases in logic, which can be used to clip through walls,
-    as long as you can place an ice block on the opposite side of the wall you want to clip through
-    (or one already exists).
-    ALL PHASING EXPECTS A CONTROLLER.
-    """
-    internal_name = "phasing_ice"
-    display_name = "Allow Ice Block Phases"
-
-
-class PhasingDynamite(Toggle):
-    """
-    This allows the use of Dynamite Ice Block phases in logic,
-    allowing you to clip through nearly any wall and obstacle.
-    ALL PHASING EXPECTS A CONTROLLER.
-    """
-    internal_name = "phasing_dynamite"
-    display_name = "Allow Dynamite+Ice Block Phases"
+# class PhasingItemless(Toggle):
+#     """
+#     ID2 has a glitch called "Phasing" which allows you to clip over gaps and through objects.
+#     There are different types of phases.
+#     This allows the use of "itemless" phases in logic, primarily useful for crossing gaps.
+#     ALL PHASING EXPECTS A CONTROLLER.
+#     """
+#     internal_name = "phasing_itemless"
+#     display_name = "Allow Itemless Phases"
+#
+#
+# class PhasingIce(Toggle):
+#     """
+#     This allows the use of Ice Block phases in logic, which can be used to clip through walls,
+#     as long as you can place an ice block on the opposite side of the wall you want to clip through
+#     (or one already exists).
+#     ALL PHASING EXPECTS A CONTROLLER.
+#     """
+#     internal_name = "phasing_ice"
+#     display_name = "Allow Ice Block Phases"
+#
+#
+# class PhasingDynamite(Toggle):
+#     """
+#     This allows the use of Dynamite Ice Block phases in logic,
+#     allowing you to clip through nearly any wall and obstacle.
+#     ALL PHASING EXPECTS A CONTROLLER.
+#     """
+#     internal_name = "phasing_dynamite"
+#     display_name = "Allow Dynamite+Ice Block Phases"
 
 
 class PhasingEnemies(Toggle):
     """
     This allows the use of Enemy phases in logic, which can be used to clip through walls wherever there is an enemy.
+    Turning this setting on also enables Object Phasing.
     ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_enemy"
@@ -264,7 +283,8 @@ class PhasingEnemies(Toggle):
 
 class PhasingDifficult(Toggle):
     """
-    This allows very difficult and precise phases to be in logic, depending on your other phasing settings.
+    This allows difficult, precise, or annoying phases to be in logic, depending on your other phasing settings.
+    For example, you can now be expected to have to phase through room transitions without roll.
     ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_difficult"
@@ -332,9 +352,10 @@ class ID2Options(PerGameCommonOptions):
     randomize_roll: RandomizeRoll
     roll_opens_chests: RollOpensChests
     major_dungeon_skips: MajorDungeonSkips
-    phasing_itemless: PhasingItemless
-    phasing_ice: PhasingIce
-    phasing_dynamite: PhasingDynamite
+    phasing_setting: PhasingSetting
+    # phasing_itemless: PhasingItemless
+    # phasing_ice: PhasingIce
+    # phasing_dynamite: PhasingDynamite
     phasing_enemies: PhasingEnemies
     phasing_difficult: PhasingDifficult
     start_with_tracker: StartWithTracker
@@ -352,9 +373,10 @@ id2_options_groups = [
     ]),
     OptionGroup("Phasing Options", [
         MajorDungeonSkips,
-        PhasingItemless,
-        PhasingIce,
-        PhasingDynamite,
+        PhasingSetting,
+        # PhasingItemless,
+        # PhasingIce,
+        # PhasingDynamite,
         PhasingEnemies,
         PhasingDifficult
     ])
@@ -362,9 +384,7 @@ id2_options_groups = [
 
 id2_options_presets: Dict[str, Dict[str, Any]] = {
     "Pro": {
-        "phasing_itemless": True,
-        "phasing_ice": True,
-        "phasing_dynamite": True,
+        "phasing_setting": PhasingSetting.option_ice_dynamite_clips,
         "phasing_enemies": True
     },
     "Allsanity": {
@@ -378,9 +398,7 @@ id2_options_presets: Dict[str, Dict[str, Any]] = {
         "include_secret_dungeons": True,
         "include_dream_dungeons": True,
         "include_super_secrets": True,
-        "phasing_itemless": True,
-        "phasing_ice": True,
-        "phasing_dynamite": True,
+        "phasing_setting": PhasingSetting.option_ice_dynamite_clips,
         "phasing_enemies": True
     }
 }

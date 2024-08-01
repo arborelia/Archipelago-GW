@@ -144,16 +144,15 @@ class ItemNames(str, Enum):
     weapon_projectile = "Has a projectile weapon"  # mace or force
     force_jump = "Force Jump"  # Force + Ice # TODO add as an obtainable "item"
     basic_combat = "Can Kill Basic Enemies"
-    can_phase_itemless = "Can Phase Itemless"
-    can_phase_itemless_difficult = "Can Phase Itemless (Difficult)"
-    can_phase_ice_itemless = "Can Phase to Existing Ice Blocks"
-    can_phase_ice_itemless_difficult = "Can Phase to Existing Ice Blocks (Difficult)"
-    can_phase_ice = "Can Phase to Ice Blocks"
-    can_phase_ice_difficult = "Can Phase to Ice Blocks (Difficult)"
+    can_phase_gap = "Can Phase Gaps"
+    can_phase_gap_difficult = "Can Phase Gaps (Difficult)"
+    can_phase_object = "Can Phase to Objects"
+    can_phase_object_difficult = "Can Phase to Objects (Difficult)"
     can_phase_dynamite = "Can Dynamite-Ice Clip"
     can_phase_dynamite_difficult = "Can Dynamite-Ice Clip (Difficult)"
     can_phase_enemy = "Can Do Enemy Phases"
     can_phase_enemy_difficult = "Can Do Enemy Phases (Difficult)"
+    can_phase_doors = "Can Phase Through Doors"
 
     # Events
     dw_dungeon_complete = "Completed a Dreamworld Dungeon"
@@ -166,7 +165,7 @@ class ItemNames(str, Enum):
     has_opened_s3 = "Has Opened Dark Hypostyle"
     has_opened_s4 = "Has Opened Tomb of Simulacrum"
     has_opened_dw = "Has Opened Dreamworld"
-    has_finished_df = "Has Finished Wizardry Lab"
+    dw_finished_dungeon = "Finished a Dreamworld Dungeon"
     open_d8 = "Open Grand Library"
     open_s4 = "Open Tomb of Simulacrum"
     open_dw = "Open Dreamworld"
@@ -189,24 +188,6 @@ class ItemNames(str, Enum):
     scrap_yard_left = "Scrap Yard West Block"
     scrap_yard_right = "Scrap Yard East Block"
 
-    # Can Use Keys
-    can_use_d1_keys = "Can Use Pillow Fort Keys"
-    can_use_d2_keys = "Can Use Sand Castle Keys"
-    can_use_d3_keys = "Can Use Art Exhibit Keys"
-    can_use_d4_keys = "Can Use Trash Cave Keys"
-    can_use_d5_keys = "Can Use Flooded Basement Keys"
-    can_use_d6_keys = "Can Use Potassium Mine Keys"
-    can_use_d7_keys = "Can Use Boiling Grave Keys"
-    can_use_d8_keys = "Can Use Grand Library Keys"
-    can_use_s1_keys = "Can Use Sunken Labyrinth Keys"
-    can_use_s2_keys = "Can Use Machine Fortress Keys"
-    can_use_s3_keys = "Can Use Dark Hypostyle Keys"
-    can_use_s4_keys = "Can Use Tomb of Simulacrum Keys"
-    can_use_dd_keys = "Can Use Syncope Keys"
-    can_use_dfc_keys = "Can Use Antigram Keys"
-    can_use_di_keys = "Can Use Bottomless Tower Keys"
-    can_use_da_keys = "Can Use Quietus Keys"
-
     keysey = "Keysey"
 
     glitchless = "No Glitches"
@@ -215,7 +196,7 @@ class ItemNames(str, Enum):
 
     # Options
     option_phasing = "Option - Can Phase Itemless"
-    option_phasing_ice = "Option - Can Phase to Ice Blocks"
+    option_phasing_objects = "Option - Can Phase to Objects"
     option_phasing_dynamite = "Option - Can Dynamite-Ice Clip"
     option_phasing_enemy = "Option - Can Do Enemy Phases"
     option_phasing_difficult = "Option - Can Do Difficult Phases"
