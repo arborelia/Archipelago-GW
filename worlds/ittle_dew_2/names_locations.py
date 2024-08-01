@@ -341,6 +341,7 @@ class LocationNames(str, Enum):
     event_phase_door = "Received Door Phase Requirements"
 
     # events for reaching parts of dungeons
+    d5_k_south_door = "Flooded Basement K South Door"
     d5_o_block = "Flooded Basement Crossway Access"
     d8_k_left_door = "Grand Library K Left Door"
     d8_k_right_door = "Grand Library K Right Door"

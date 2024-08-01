@@ -1,17 +1,15 @@
 from typing import Dict, List, Any, Union, TextIO
-from Options import OptionError
 from copy import deepcopy
-from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
+from BaseClasses import Location, Item, Tutorial, ItemClassification
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
-from .region_rules import create_regions_with_rules, key_count_requirements
+from .region_rules import create_regions_with_rules
 from .options import ID2Options, id2_options_groups, id2_options_presets, KeySettings
 from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
 from worlds.AutoWorld import WebWorld, World
-from Utils import visualize_regions
 
 
 class ID2Web(WebWorld):
@@ -97,9 +95,7 @@ class ID2World(World):
                 self.options.randomize_stick.value = passthrough["randomize_stick"]
                 self.options.randomize_roll.value = passthrough["randomize_roll"]
                 self.options.roll_opens_chests.value = passthrough["roll_opens_chests"]
-                self.options.phasing_itemless.value = passthrough["phasing_itemless"]
-                self.options.phasing_ice.value = passthrough["phasing_ice"]
-                self.options.phasing_dynamite.value = passthrough["phasing_dynamite"]
+                self.options.phasing_setting.value = passthrough["phasing_setting"]
                 self.options.phasing_enemies.value = passthrough["phasing_enemies"]
                 self.options.phasing_difficult.value = passthrough["phasing_difficult"]
 

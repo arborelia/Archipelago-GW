@@ -239,38 +239,6 @@ class PhasingSetting(Choice):
     default = 0
 
 
-# class PhasingItemless(Toggle):
-#     """
-#     ID2 has a glitch called "Phasing" which allows you to clip over gaps and through objects.
-#     There are different types of phases.
-#     This allows the use of "itemless" phases in logic, primarily useful for crossing gaps.
-#     ALL PHASING EXPECTS A CONTROLLER.
-#     """
-#     internal_name = "phasing_itemless"
-#     display_name = "Allow Itemless Phases"
-#
-#
-# class PhasingIce(Toggle):
-#     """
-#     This allows the use of Ice Block phases in logic, which can be used to clip through walls,
-#     as long as you can place an ice block on the opposite side of the wall you want to clip through
-#     (or one already exists).
-#     ALL PHASING EXPECTS A CONTROLLER.
-#     """
-#     internal_name = "phasing_ice"
-#     display_name = "Allow Ice Block Phases"
-#
-#
-# class PhasingDynamite(Toggle):
-#     """
-#     This allows the use of Dynamite Ice Block phases in logic,
-#     allowing you to clip through nearly any wall and obstacle.
-#     ALL PHASING EXPECTS A CONTROLLER.
-#     """
-#     internal_name = "phasing_dynamite"
-#     display_name = "Allow Dynamite+Ice Block Phases"
-
-
 class PhasingEnemies(Toggle):
     """
     This allows the use of Enemy phases in logic, which can be used to clip through walls wherever there is an enemy.
@@ -353,9 +321,6 @@ class ID2Options(PerGameCommonOptions):
     roll_opens_chests: RollOpensChests
     major_dungeon_skips: MajorDungeonSkips
     phasing_setting: PhasingSetting
-    # phasing_itemless: PhasingItemless
-    # phasing_ice: PhasingIce
-    # phasing_dynamite: PhasingDynamite
     phasing_enemies: PhasingEnemies
     phasing_difficult: PhasingDifficult
     start_with_tracker: StartWithTracker
@@ -374,9 +339,6 @@ id2_options_groups = [
     OptionGroup("Phasing Options", [
         MajorDungeonSkips,
         PhasingSetting,
-        # PhasingItemless,
-        # PhasingIce,
-        # PhasingDynamite,
         PhasingEnemies,
         PhasingDifficult
     ])
