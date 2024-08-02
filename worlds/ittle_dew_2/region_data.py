@@ -2887,7 +2887,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.dd_piano:
             ID2Data(ID2Type.location),
         rname.dd_d_left:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.dd_piano_code.value]]),
         rname.dd_d_right:
             ID2Data(ID2Type.region),
     },
@@ -2941,6 +2941,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.dd_w: {
         lname.dd_garden_block:
             ID2Data(ID2Type.location, [[]], iname.dd_garden_block.value),
+        lname.dd_piano_code:
+            ID2Data(ID2Type.location, [[]], iname.dd_piano_code.value),
         rname.dd_x:
             ID2Data(ID2Type.region),
     },
