@@ -2832,6 +2832,215 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.dreamworld_force:
             ID2Data(ID2Type.region)
     },
+    # Syncope
+    rname.dd_a: {
+        rname.dd_v:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_b: {
+        rname.dd_a:
+            ID2Data(ID2Type.region),
+        rname.dd_c:
+            ID2Data(ID2Type.region, [[iname.can_phase_gap.value]]),
+    },
+    rname.dd_c: {
+        lname.dd_knights_hint:
+            ID2Data(ID2Type.location),
+        rname.dd_b:
+            ID2Data(ID2Type.region),
+        rname.dd_i:
+            ID2Data(ID2Type.region),
+        rname.dd_z:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_d_left: {
+        lname.dd_shadow_walker:
+            ID2Data(ID2Type.location),
+    },
+    rname.dd_d_right: {
+        rname.dd_k:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_e: {
+        rname.dd_l:
+            ID2Data(ID2Type.region),
+        rname.dd_ao:
+            ID2Data(ID2Type.region, [[iname.dd_e_block.value],
+                                     [iname.dw_fun.value, iname.ice.value],
+                                     [iname.can_phase_gap.value]]),
+    },
+    rname.dd_f: {
+        lname.dd_e_block:
+            ID2Data(ID2Type.location, [[]], iname.dd_e_block.value),
+        rname.dd_l:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_i: {
+        rname.dd_c:
+            ID2Data(ID2Type.region),
+        rname.dd_r:
+            ID2Data(ID2Type.region),
+        rname.dd_x:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_k: {
+        lname.dd_piano:
+            ID2Data(ID2Type.location),
+        rname.dd_d_left:
+            ID2Data(ID2Type.region),
+        rname.dd_d_right:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_l: {
+        lname.dd_north_clock:
+            ID2Data(ID2Type.location, [[]], iname.dd_north_clock.value),
+        rname.dd_e:
+            ID2Data(ID2Type.region),
+        rname.dd_f:
+            ID2Data(ID2Type.region, [[iname.dd_north_clock.value, iname.dd_west_clock.value, iname.dd_east_clock.value],
+                                     [iname.can_phase_doors.value],
+                                     [iname.dw_fun.value, iname.can_phase_object.value, iname.ice.value]]),
+        rname.dd_n:
+            ID2Data(ID2Type.region),
+        rname.dd_r:
+            ID2Data(ID2Type.region),
+        rname.dd_z:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_n: {
+        lname.dd_garden:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value, iname.dd_garden_block.value],
+                                       [iname.dw_fun.value, iname.dynamite.value, iname.weapon_no_dynamite.value, iname.dd_garden_block.value],
+                                       [iname.dw_fun.value, iname.dynamite.value, iname.ice.value],
+                                       [iname.dw_fun.value, iname.weapon_projectile.value],
+                                       [iname.can_phase_gap.value]]),
+        rname.dd_l:
+            ID2Data(ID2Type.region),
+        rname.dd_ab:
+            ID2Data(ID2Type.region, [[iname.dd_key.value + "*3"]]),
+    },
+    rname.dd_r: {
+        rname.dd_k:
+            ID2Data(ID2Type.region),
+        rname.dd_i:
+            ID2Data(ID2Type.region),
+        rname.dd_l:
+            ID2Data(ID2Type.region),
+        rname.dd_y:
+            ID2Data(ID2Type.region, [[iname.dd_key.value + "*3"]]),
+    },
+    rname.dd_v: {
+        lname.dd_force_turret_maze:
+            ID2Data(ID2Type.location),
+        rname.dd_a:
+            ID2Data(ID2Type.region),
+        rname.dd_w:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.weapon_any.value]]),
+    },
+    rname.dd_w: {
+        lname.dd_garden_block:
+            ID2Data(ID2Type.location, [[]], iname.dd_garden_block.value),
+        rname.dd_x:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_x: {
+        rname.dd_i:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_y: {
+        lname.dd_west_clock:
+            ID2Data(ID2Type.location, [[]], iname.dd_west_clock.value),
+        rname.dd_r:
+            # One-sided lock lol, it's free on this side
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_z: {
+        lname.dd_foyer:
+            ID2Data(ID2Type.location),
+        rname.dd_l:
+            ID2Data(ID2Type.region),
+        rname.dd_sc:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_ab: {
+        lname.dd_east_clock:
+            ID2Data(ID2Type.location, [[]], iname.dd_east_clock.value),
+    },
+    rname.dd_sc: {
+        lname.dd_shifting_chamber:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.dynamite.value],
+                                       [iname.can_phase_gap.value]]),
+        rname.dd_z:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.dd_sc_switch.value],
+                                     [iname.dw_fun.value, iname.dd_sc_switch.value, iname.dynamite.value],
+                                     # works in Red-Blue state
+                                     [iname.dw_fun.value, iname.ice.value, iname.weapon_projectile.value],
+                                     [iname.dw_fun.value, iname.force_jump.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.dd_an:
+            ID2Data(ID2Type.region, [[iname.can_phase_gap.value]]),
+    },
+    rname.dd_al: {
+        rname.dd_am:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.dynamite.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.ice.value, iname.weapon_projectile.value]]),
+        rname.dd_as:
+            # one-way combat door lol
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_am: {
+        lname.dd_sc_switch:
+            ID2Data(ID2Type.location, [[]], iname.dd_sc_switch.value),
+        lname.dd_switch_chamber:
+            ID2Data(ID2Type.location),
+        rname.dd_al:
+            ID2Data(ID2Type.region),
+        rname.dd_an:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_an: {
+        rname.dd_sc:
+            ID2Data(ID2Type.region),
+        rname.dd_au:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_ao: {
+        lname.dd_reward_a:
+            ID2Data(ID2Type.location),
+        lname.dd_reward_b:
+            ID2Data(ID2Type.location),
+        lname.dd_reward_c:
+            ID2Data(ID2Type.location),
+        lname.event_finished_dd:
+            ID2Data(ID2Type.location, [[]], iname.dw_finished_dungeon.value),
+        rname.dreamworld_dynamite:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_as: {
+        rname.dd_am:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.basic_combat.value]]),
+        rname.dd_at:
+            ID2Data(ID2Type.region),
+    },
+    rname.dd_at: {
+        rname.dd_as:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.dynamite.value, iname.weapon_no_dynamite.value],
+                                     [iname.dw_fun.value, iname.force.value, iname.weapon_no_force.value]]),
+        rname.dd_au:
+            ID2Data(ID2Type.region, [[iname.dd_key.value + "*3"]]),
+    },
+    rname.dd_au: {
+        rname.dd_an:
+            ID2Data(ID2Type.region),
+        rname.dd_at:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.glitchless.value, iname.dd_key.value + "*1"],
+                                     [iname.dd_key.value + "*3"]]),
+    },
 
     # Portal Worlds
     rname.autumn_climb: {

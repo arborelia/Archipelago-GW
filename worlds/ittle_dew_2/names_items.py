@@ -158,7 +158,7 @@ class ItemNames(str, Enum):
     dw_dungeon_complete = "Completed a Dreamworld Dungeon"
     dw_2 = "2 Drewamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
     dw_3 = "3 Dreamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
-    dw_4 = "4 Dreamworld Dungeons Complete"  # Typical Quietus Requiremtents # TODO add these events
+    dw_4 = "4 Dreamworld Dungeons Complete"  # Typical Quietus Requirements # TODO add these events
     has_opened_d8 = "Has Opened Grand Library"
     has_opened_s1 = "Has Opened Sunken Labyrinth"
     has_opened_s2 = "Has Opened Machine Fortress"
@@ -184,6 +184,12 @@ class ItemNames(str, Enum):
     df_ne_circuit = "Wizardry Lab Northeast Circuit"
     df_sw_circuit = "Wizardry Lab Southwest Circuit"
     df_se_circuit = "Wizardry Lab Southeast Circuit"
+    dd_sc_switch = "Syncope Chamber Shifter"
+    dd_e_block = "Syncope E Block"
+    dd_garden_block = "Syncope Garden Block"
+    dd_west_clock = "Syncope West Clock"
+    dd_east_clock = "Syncope East Clock"
+    dd_north_clock = "Syncope North Clock"
     the_vault_left = "The Vault Left Switch"
     the_vault_right = "The Vault Right Switch"
     scrap_yard_left = "Scrap Yard West Block"

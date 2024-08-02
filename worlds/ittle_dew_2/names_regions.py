@@ -617,7 +617,8 @@ class RegionNames(str, Enum):
     dd_a = "Syncope A"
     dd_b = "Syncope B"
     dd_c = "Syncope C"
-    dd_d = "Syncope D"
+    dd_d_left = "Syncope D Left"
+    dd_d_right = "Syncope D Right"
     dd_e = "Syncope E"
     dd_f = "Syncope F"
     dd_i = "Syncope I"
@@ -642,6 +643,7 @@ class RegionNames(str, Enum):
     dd_as = "Syncope AS"
     dd_at = "Syncope AT"
     dd_au = "Syncope AU"
+    dd_sc = "Syncope Shifting Chambers"
 
     # Wizardry Lab (DreamForce)
     df_b = "Wizardry Lab B"
