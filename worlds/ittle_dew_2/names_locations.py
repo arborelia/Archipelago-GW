@@ -360,6 +360,8 @@ class LocationNames(str, Enum):
     dd_west_clock = "Syncope West Clock Wound"
     dd_east_clock = "Syncope East Clock Wound"
     dd_north_clock = "Syncope North Clock Wound"
+    dfc_left_switch = "Antigram Left Switch Pressed"
+    dfc_right_switch = "Antigram Right Switch Pressed"
     switch_vault_left = "The Vault West Switch"
     switch_vault_right = "The Vault East Switch"
     block_scrap_yard_left = "Scrap Yard West Block"

@@ -3041,6 +3041,182 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.glitchless.value, iname.dd_key.value + "*1"],
                                      [iname.dd_key.value + "*3"]]),
     },
+    # Antigram
+    rname.dfc_a: {
+        lname.dfc_reward_a:
+            ID2Data(ID2Type.location),
+        lname.dfc_reward_b:
+            ID2Data(ID2Type.location),
+        lname.dfc_reward_c:
+            ID2Data(ID2Type.location),
+        lname.event_finished_dfc:
+            ID2Data(ID2Type.location, [[]], iname.dw_finished_dungeon.value),
+        rname.dreamworld_fire_chain:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_b: {
+        lname.dfc_west_bombs:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.can_phase_object.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value, iname.dynamite.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value, iname.weapon_projectile.value]]),
+    },
+    rname.dfc_c: {
+        rname.dfc_a:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.basic_combat.value, iname.roll.value]]),
+        rname.dfc_e:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.dfc_d: {
+        lname.dfc_east_bombs:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.can_phase_object.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value, iname.dynamite.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value, iname.weapon_projectile.value]]),
+    },
+    rname.dfc_e: {
+        lname.dfc_end_west_bridge:
+            ID2Data(ID2Type.location),
+        lname.dfc_end_east_bridge:
+            ID2Data(ID2Type.location),
+        rname.dfc_c:
+            ID2Data(ID2Type.region, [[iname.dfc_key.value + "*4"]]),
+    },
+    rname.dfc_f: {
+        rname.dfc_b:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value],
+                                     [iname.dw_fun.value, iname.dynamite.value],
+                                     [iname.dw_fun.value, iname.ice.value, iname.melee.value, iname.weapon_projectile.value],
+                                     [iname.dw_fun.value, iname.can_phase_object.value, iname.roll.value, iname.weapon_any.value]]),
+        rname.dfc_g:
+            ID2Data(ID2Type.region, [[iname.dfc_key.value + "*4"],
+                                     [iname.dfc_key.value + "*3", iname.glitchless.value]]),
+        rname.dfc_k:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_g: {
+        rname.dfc_f:
+            ID2Data(ID2Type.region, [[iname.dfc_key.value + "*4"]]),
+        rname.dfc_h_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_h_left: {
+        lname.dfc_left_switch:
+            ID2Data(ID2Type.location, [[]], iname.dfc_left_switch.value),
+        rname.dfc_h_center:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_h_center: {
+        rname.dfc_e:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.dfc_left_switch.value, iname.dfc_right_switch.value],
+                                     [iname.dw_fun.value, iname.dfc_left_switch.value, iname.dfc_right_switch.value, iname.melee.value, iname.chain.value],
+                                     [iname.dw_fun.value, iname.dfc_left_switch.value, iname.dfc_right_switch.value, iname.weapon_projectile.value]]),
+        rname.dfc_h_left:
+            ID2Data(ID2Type.region, [[iname.dw_fun.value, iname.can_phase_doors.value, iname.can_phase_dynamite.value],
+                                     [iname.dw_fun.value, iname.dfc_right_switch.value, iname.can_phase_dynamite.value],
+                                     [iname.dw_fun.value, iname.dfc_right_switch.value, iname.can_phase_object.value, iname.ice.value, iname.roll.value]]),
+        rname.dfc_h_right:
+            ID2Data(ID2Type.region, [[iname.dw_fun.value, iname.can_phase_doors.value, iname.can_phase_dynamite.value],
+                                     [iname.dw_fun.value, iname.dfc_left_switch.value, iname.can_phase_dynamite.value],
+                                     [iname.dw_fun.value, iname.dfc_left_switch.value, iname.can_phase_object.value, iname.ice.value, iname.roll.value]]),
+        rname.dfc_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_h_right: {
+        lname.dfc_right_switch:
+            ID2Data(ID2Type.location, [[]], iname.dfc_right_switch.value),
+        rname.dfc_h_center:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_i: {
+        rname.dfc_h_right:
+            ID2Data(ID2Type.region),
+        rname.dfc_j:
+            ID2Data(ID2Type.region, [[iname.dfc_key.value + "*4"]]),
+    },
+    rname.dfc_j: {
+        rname.dfc_d:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value],
+                                     [iname.dw_fun.value, iname.melee.value, iname.weapon_projectile.value],
+                                     [iname.can_phase_object.value, iname.dynamite.value, iname.weapon_no_dynamite.value]]),
+        rname.dfc_i:
+            ID2Data(ID2Type.region, [[iname.dfc_key.value + "*4"],
+                                     [iname.dfc_key.value + "*3", iname.glitchless.value]]),
+        rname.dfc_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_k: {
+        lname.dfc_west_ice:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value],
+                                       [iname.dw_fun.value, iname.ice.value]]),
+        rname.dfc_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_l: {
+        rname.dfc_k:
+            ID2Data(ID2Type.region),
+        rname.dfc_m:
+            ID2Data(ID2Type.region),
+        rname.dfc_p:
+            ID2Data(ID2Type.region, [[iname.dfc_key.value + "*4"]]),
+    },
+    rname.dfc_m: {
+        rname.dfc_h_center:
+            ID2Data(ID2Type.region),
+        rname.dfc_n:
+            ID2Data(ID2Type.region),
+        rname.dfc_q:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_n: {
+        rname.dfc_o:
+            ID2Data(ID2Type.region),
+        rname.dfc_r:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_o: {
+        lname.dfc_east_ice:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value],
+                                       [iname.dw_fun.value, iname.ice.value]]),
+        rname.dfc_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_p: {
+        lname.dfc_west_light_bridge:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.fire_mace.value],
+                                       [iname.can_phase_gap.value]]),
+        rname.dfc_l:
+            ID2Data(ID2Type.region, [[iname.dfc_key.value + "*1"]]),
+    },
+    rname.dfc_q: {
+        rname.dfc_p:
+            ID2Data(ID2Type.region),
+        rname.dfc_r:
+            ID2Data(ID2Type.region),
+        rname.dreamworld_fire_chain:
+            ID2Data(ID2Type.region),
+    },
+    rname.dfc_r: {
+        lname.dfc_east_light_bridge:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.fire_mace.value],
+                                       [iname.can_phase_gap.value]]),
+        lname.dfc_free:
+            ID2Data(ID2Type.location),
+        rname.dfc_q:
+            ID2Data(ID2Type.region),
+    },
 
     # Portal Worlds
     rname.autumn_climb: {

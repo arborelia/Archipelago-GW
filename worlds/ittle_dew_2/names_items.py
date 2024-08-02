@@ -190,6 +190,8 @@ class ItemNames(str, Enum):
     dd_west_clock = "Syncope West Clock"
     dd_east_clock = "Syncope East Clock"
     dd_north_clock = "Syncope North Clock"
+    dfc_left_switch = "Antigram Left Switch"
+    dfc_right_switch = "Antigram Right Switch"
     the_vault_left = "The Vault Left Switch"
     the_vault_right = "The Vault Right Switch"
     scrap_yard_left = "Scrap Yard West Block"
