@@ -935,9 +935,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ssc_n: {
         rname.slippery_slope:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.access_slope.value]]),
         rname.pepperpain_prairie:
-            ID2Data(ID2Type.region)
+            ID2Data(ID2Type.region, [[iname.access_prairie.value]])
     },
     rname.ssc_o: {
         rname.slippery_slope:
@@ -2007,8 +2007,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                        [iname.can_phase_dynamite.value]]),
         rname.d6_i:
             ID2Data(ID2Type.region, [[iname.ice.value],
-                                       [iname.force.value, iname.can_phase_itemless.value],
-                                       [iname.can_phase_dynamite.value]])
+                                     [iname.force.value, iname.can_phase_itemless.value],
+                                     [iname.can_phase_dynamite.value]])
     },
     rname.d6_e: {
         rname.d6_b:
@@ -2031,7 +2031,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.d6_h: {
         rname.d6_c:
             ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value],
-                                     [iname.force_jump.value], # very tight
+                                     [iname.force_jump.value],  # very tight
                                      [iname.can_phase_ice.value, iname.roll.value]]),
         rname.d6_l:
             ID2Data(ID2Type.region, [[iname.ice.value],
