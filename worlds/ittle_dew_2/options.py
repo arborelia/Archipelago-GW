@@ -117,18 +117,17 @@ class OpenS4(Toggle):
 
 class OpenDreamworld(Toggle):
     """
-    Opens the entrance to Dreamworld and the five dungeons within.
-    This removes the need for a Raft Piece to enter Dreamworld and items to enter dungeons.
-    CURRENTLY NOT SUPPORTED. Cards are still in the pool.
+    Opens the entrance the first four Dreamworld dungeons.
+    This does not remove the need for a Raft Piece,
+    but it does make it so you do not need items to enter the dungeons themselves.
     """
     internal_name = "open_dreamworld"
-    display_name = "Open Dreamworld"
+    display_name = "Open Dreamworld Dungeons"
 
 
 class DreamDungeonsDoNotChangeItems(Toggle):
     """
     Dreamworld dungeons no longer restrict your items, but will also not give you the items expected to beat them.
-    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "dream_dungeons_do_not_change_items"
     display_name = "Dream Dungeons Do Not Change Items"

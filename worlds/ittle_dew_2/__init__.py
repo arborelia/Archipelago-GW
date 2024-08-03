@@ -61,8 +61,6 @@ class ID2World(World):
     traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]]
 
     def generate_early(self) -> None:
-        if not self.options.open_dreamworld:
-            self.options.open_dreamworld.value = options.OpenDreamworld.option_true
 
         self.options.shard_settings.value = options.ShardSettings.option_open
         self.options.open_s4.value = options.OpenS4.option_true
@@ -299,9 +297,7 @@ class ID2World(World):
             "randomize_roll",
             "roll_opens_chests",
             "major_dungeon_skips",
-            "phasing_itemless",
-            "phasing_ice",
-            "phasing_dynamite",
+            "phasing_setting",
             "phasing_enemies",
             "phasing_difficult",
             "start_with_tracker",

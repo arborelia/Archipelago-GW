@@ -181,6 +181,17 @@ location_table: Dict[str, ID2LocationData] = {
     # 1900: Tomb of Simulacrum
 
     # 2000: Syncope
+    "Syncope - Shifting Chamber Key": ID2LocationData(rname.dd_sc.value, 2000, "Dreamworld"),
+    "Syncope - Switch Chamber Card": ID2LocationData(rname.dd_am.value, 2001, "Dreamworld"),
+    "Syncope - Foyer Card": ID2LocationData(rname.dd_z.value, 2002, "Dreamworld"),
+    "Syncope - Garden Key": ID2LocationData(rname.dd_n.value, 2003, "Dreamworld"),
+    "Syncope - Piano Card": ID2LocationData(rname.dd_k.value, 2004, "Dreamworld"),
+    "Syncope - Knights Hint Card": ID2LocationData(rname.dd_c.value, 2005, "Dreamworld"),
+    "Syncope - Shadow Walker Key": ID2LocationData(rname.dd_d_left.value, 2006, "Dreamworld"),
+    "Syncope - Force Turret Maze": ID2LocationData(rname.dd_v.value, 2007, "Dreamworld"),
+    "Syncope - Reward Card A": ID2LocationData(rname.dd_ao.value, 2008, "Dreamworld"),
+    "Syncope - Reward Card B": ID2LocationData(rname.dd_ao.value, 2009, "Dreamworld"),
+    "Syncope - Reward Card C": ID2LocationData(rname.dd_ao.value, 2010, "Dreamworld"),
 
     # 2100: Wizardry Lab
     "Wizardry Lab - Entrance Card": ID2LocationData(rname.df_ad.value, 2100, "Dreamworld"),
@@ -191,11 +202,48 @@ location_table: Dict[str, ID2LocationData] = {
     "Wizardry Lab - Reward Card A": ID2LocationData(rname.df_ah.value, 2105, "Dreamworld"),
     "Wizardry Lab - Reward Card B": ID2LocationData(rname.df_ah.value, 2106, "Dreamworld"),
     "Wizardry Lab - Reward Card C": ID2LocationData(rname.df_ah.value, 2107, "Dreamworld"),
+
     # 2200: Antigram
-
+    "Antigram - Free Key": ID2LocationData(rname.dfc_r.value, 2200, "Dreamworld"),
+    "Antigram - West Light Bridge Card": ID2LocationData(rname.dfc_p.value, 2201, "Dreamworld"),
+    "Antigram - East Light Bridge Card": ID2LocationData(rname.dfc_r.value, 2202, "Dreamworld"),
+    "Antigram - West Ice Card": ID2LocationData(rname.dfc_k.value, 2203, "Dreamworld"),
+    "Antigram - East Ice Card": ID2LocationData(rname.dfc_o.value, 2204, "Dreamworld"),
+    "Antigram - West Bombs Key": ID2LocationData(rname.dfc_b.value, 2205, "Dreamworld"),
+    "Antigram - East Bombs Key": ID2LocationData(rname.dfc_d.value, 2206, "Dreamworld"),
+    "Antigram - End East Bridge Card": ID2LocationData(rname.dfc_e.value, 2207, "Dreamworld"),
+    "Antigram - End West Bridge Key": ID2LocationData(rname.dfc_e.value, 2208, "Dreamworld"),
+    "Antigram - Reward Card A": ID2LocationData(rname.dfc_a.value, 2209, "Dreamworld"),
+    "Antigram - Reward Card B": ID2LocationData(rname.dfc_a.value, 2210, "Dreamworld"),
+    "Antigram - Reward Card C": ID2LocationData(rname.dfc_a.value, 2211, "Dreamworld"),
+    
     # 2300: Bottomless Tower
-
+    "Bottomless Tower - First Floor Card": ID2LocationData(rname.di_g.value, 2300, "Dreamworld"),
+    "Bottomless Tower - First Floor Key": ID2LocationData(rname.di_c.value, 2301, "Dreamworld"),
+    "Bottomless Tower - Second Floor Card": ID2LocationData(rname.di_d.value, 2302, "Dreamworld"),
+    "Bottomless Tower - Second Floor Key": ID2LocationData(rname.di_f.value, 2303, "Dreamworld"),
+    "Bottomless Tower - Blue Portal Card": ID2LocationData(rname.di_a.value, 2304, "Dreamworld"),
+    "Bottomless Tower - Third Floor Spike Gates Card": ID2LocationData(rname.di_x.value, 2305, "Dreamworld"),
+    "Bottomless Tower - Third Floor Key": ID2LocationData(rname.di_ab.value, 2306, "Dreamworld"),
+    "Bottomless Tower - Third Floor Ice Square Card": ID2LocationData(rname.di_y.value, 2307, "Dreamworld"),
+    "Bottomless Tower - Fourth Floor Key": ID2LocationData(rname.di_w.value, 2308, "Dreamworld"),
+    "Bottomless Tower - Reward Card A": ID2LocationData(rname.di_z.value, 2309, "Dreamworld"),
+    "Bottomless Tower - Reward Card B": ID2LocationData(rname.di_z.value, 2310, "Dreamworld"),
+    "Bottomless Tower - Reward Card C": ID2LocationData(rname.di_z.value, 2311, "Dreamworld"),
+    
     # 2400: Quietus
+    "Quietus - Center Card": ID2LocationData(rname.da_n.value, 2400, "Dreamworld"),
+    "Quietus - Alternating Floors Key": ID2LocationData(rname.da_f.value, 2401, "Dreamworld"),
+    "Quietus - Tangled Wires Key": ID2LocationData(rname.da_j.value, 2402, "Dreamworld"),
+    "Quietus - Push the Coil Key": ID2LocationData(rname.da_r.value, 2403, "Dreamworld"),
+    "Quietus - Giant Mess Key": ID2LocationData(rname.da_v.value, 2404, "Dreamworld"),
+    "Quietus - Northwest Vault Card": ID2LocationData(rname.da_g.value, 2405, "Dreamworld"),
+    "Quietus - Northeast Vault Card": ID2LocationData(rname.da_i.value, 2406, "Dreamworld"),
+    "Quietus - Southwest Vault Card": ID2LocationData(rname.da_s.value, 2407, "Dreamworld"),
+    "Quietus - Southeast Vault Card": ID2LocationData(rname.da_u.value, 2408, "Dreamworld"),
+    "Quietus - Reward Card A": ID2LocationData(rname.da_ab.value, 2409, "Dreamworld"),
+    "Quietus - Reward Card B": ID2LocationData(rname.da_ab.value, 2410, "Dreamworld"),
+    "Quietus - Reward Card C": ID2LocationData(rname.da_ab.value, 2411, "Dreamworld"),
 
     # 2500: Portal Worlds
     "Autumn Climb - Chest": ID2LocationData(rname.autumn_climb.value, 2500, "Portal Worlds"),
