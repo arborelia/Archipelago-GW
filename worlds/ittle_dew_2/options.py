@@ -29,6 +29,7 @@ class DungeonRewardsSetting(Choice):
     FORBIDDEN KEYS ARE CURRENTLY NOT IN THE POOL.
     If there are more dungeon rewards locations in the pool than available reward items, the rest will be priority locations.
     Tomb of Simulacrum can never have its reward set with this. If you want to require Tomb, use the Queen of Adventure goal.
+    Quietus will also never be required.
     """
     internal_name = "dungeon_rewards_setting"
     display_name = "Dungeon Rewards Setting"
@@ -47,7 +48,7 @@ class DungeonRewardsCount(Range):
     internal_name = "dungeon_rewards_count"
     displayname = "Dungeon Rewards Count"
     range_start = 0
-    range_end = 8
+    range_end = 12
     default = 4
 
 

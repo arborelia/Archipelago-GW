@@ -73,9 +73,9 @@ class ID2World(World):
 
         dungeon_count = 8
         if self.options.include_secret_dungeons:
-            dungeon_count += 4
+            dungeon_count += 3
         if self.options.include_dream_dungeons:
-            dungeon_count += 5
+            dungeon_count += 4
         if self.options.dungeon_rewards_setting.value != options.DungeonRewardsSetting.option_anything and self.options.dungeon_rewards_count.value > dungeon_count:
             print(f"Not enough dungeons available to place dungeon rewards in, clamping down to {dungeon_count} instead")
             self.options.dungeon_rewards_count.value = dungeon_count
@@ -345,9 +345,9 @@ class ID2World(World):
             "ACCEDE",
             "ACCEDED",
             "BAA", "BAD", "BAG", "BED", "BEE", "BEG",
-            "BABE", "BADE", "BEAD", "BEEF"
+            "BABE", "BADE", "BEAD", "BEEF",
             "BADGE",
-            "BADGED", "BAGGED", "BEADED", "BEDDED", "BEEFED", "BEGGED"
+            "BADGED", "BAGGED", "BEADED", "BEDDED", "BEEFED", "BEGGED",
             "CAB", "CAD",
             "CAFE", "CAGE", "CEDE",
             "CAGED", "CEDED",
@@ -364,8 +364,8 @@ class ID2World(World):
             "EFFACE",
             "EFFACED",
             "FAB", "FAD", "FED", "FEE",
-            "FACE", "FADE", "FEED"
-            "FACED", "FADED"
+            "FACE", "FADE", "FEED",
+            "FACED", "FADED",
             "FACADE",
             "FEEDBAG",
             "GAB", "GAG", "GAD",

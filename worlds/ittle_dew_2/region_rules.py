@@ -131,10 +131,18 @@ def determine_required_dungeons(world: "ID2World") -> List[str]:
             lname.d7_boss_reward,
             lname.d8_boss_reward
         ]
+        dream_dungeons: List[lname] = [
+            lname.dfc_reward_b,
+            lname.df_reward_b,
+            lname.dd_reward_b,
+            lname.di_reward_b
+        ]
         # TODO support other pools
         world.required_dungeons = []
         all_dungeons: List[lname] = []
         all_dungeons += main_dungeons
+        if options.include_dream_dungeons:
+            all_dungeons += dream_dungeons
         selected_dungeons: List[str] = []
         while len(selected_dungeons) < options.dungeon_rewards_count.value:
             if len(all_dungeons) == 0:
@@ -164,7 +172,6 @@ def create_regions_with_rules(world: "ID2World") -> None:
 
     for origin_name, destinations in world.traversal_requirements.items():
         origin_name = cast(str, origin_name.value)
-        # TODO exclude regions based on pool settings
 
         print("ADDING REGION: " + origin_name)
         for destination_name, data in destinations.items():
@@ -181,7 +188,7 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 #         print("Secret Dungeons are off, excluding this location.")
                 #         continue
                 if not options.include_dream_dungeons:
-                    if destination_name in location_name_groups["Dream Dungeons"]:
+                    if destination_name in location_name_groups["Dreamworld"]:
                         print("Dream Dungeons are off, excluding this location.")
                         continue
                 if not options.include_super_secrets:
@@ -199,6 +206,7 @@ def create_regions_with_rules(world: "ID2World") -> None:
                         if rafts_to_place > 0:
                             location.place_locked_item(ID2Item(iname.raft.value, ItemClassification.progression,
                                                                item_name_to_id[iname.raft.value], player))
+                            rafts_to_place -= 1
                         # TODO fkeys
                         # remember that if S4 is in, it can't be an FKey
                         else:
