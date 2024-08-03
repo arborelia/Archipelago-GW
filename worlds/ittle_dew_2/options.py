@@ -297,6 +297,24 @@ class CrayonsInPool(Range):
     default = 20
 
 
+class RandomizePianoPuzzle(Choice):
+    """
+    Randomizes the Syncope piano puzzle.
+    The solution to the puzzle can be found in the room with the three knights.
+    Off: The solution will be the vanilla "DEAD"
+    Words: The solution will be a real word, 3-7 characters long, consisting of only white keys.
+    Black Keys: Same as Words, but some white keys are randomly replaced by black keys.
+    Full Random: The solution is a completely random string, 3-7 characters long, including white and black keys.
+    """
+    internal_name = "randomize_piano_puzzle"
+    display_name = "Randomize Piano Puzzle"
+    option_off = 0
+    option_words = 1
+    option_black_keys = 2
+    option_full_random = 3
+    default = 0
+
+
 @dataclass
 class ID2Options(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
@@ -326,6 +344,7 @@ class ID2Options(PerGameCommonOptions):
     start_with_all_warps: StartWithAllWarps
     lockpicks_in_pool: LockpicksInPool
     crayons_in_pool: CrayonsInPool
+    randomize_piano_puzzle: RandomizePianoPuzzle
 
 
 id2_options_groups = [

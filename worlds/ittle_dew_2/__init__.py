@@ -1,6 +1,9 @@
 from typing import Dict, List, Any, Union, TextIO
 from copy import deepcopy
+
+import Options
 from BaseClasses import Location, Item, Tutorial, ItemClassification
+from random import randint
 from Utils import visualize_regions
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
@@ -50,6 +53,7 @@ class ID2World(World):
     web = ID2Web()
 
     required_dungeons: List[str] = []
+    piano_puzzle: str = "DEAD"
 
     options: ID2Options
     options_dataclass = ID2Options
@@ -65,6 +69,7 @@ class ID2World(World):
 
         self.options.shard_settings.value = options.ShardSettings.option_open
         self.options.open_s4.value = options.OpenS4.option_true
+        self.piano_puzzle = self.generate_piano_puzzle()
 
         dungeon_count = 8
         if self.options.include_secret_dungeons:
@@ -276,6 +281,7 @@ class ID2World(World):
             spoiler_handle.write("\nRequired Dungeons:\n\n")
             for dungeon in self.required_dungeons:
                 spoiler_handle.write(f"  {dungeon}\n")
+        spoiler_handle.write(f"\nSyncope Piano Code: {self.piano_puzzle}\n")
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # Logic PUML graph stuff
@@ -311,6 +317,7 @@ class ID2World(World):
             "crayons_in_pool"
         )
         slot_data["required_dungeons"] = self.required_dungeons
+        slot_data["piano_puzzle"] = self.piano_puzzle
         print("SLOT DATA:")
         print(slot_data)
         return slot_data
@@ -320,3 +327,75 @@ class ID2World(World):
     def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
         # returning slot_data so it regens, giving it back in multiworld.re_gen_passthrough
         return slot_data
+
+    def generate_piano_puzzle(self) -> str:
+        # To make parsing the hint easier on the mod side, we make white keys uppercase while black keys are lowercase
+        white_keys: List[str] = ["C", "D", "E", "F", "G", "A", "B"]
+        black_keys: Dict[str, str] = {
+            "C": "c",
+            "D": "d",
+            "F": "f",
+            "G": "g",
+            "A": "a"
+        }
+        words: List[str] = [
+            "ACE", "ADD", "AGE",
+            "ACED", "AGED",
+            "ADAGE",
+            "ACCEDE",
+            "ACCEDED",
+            "BAA", "BAD", "BAG", "BED", "BEE", "BEG",
+            "BABE", "BADE", "BEAD", "BEEF"
+            "BADGE",
+            "BADGED", "BAGGED", "BEADED", "BEDDED", "BEEFED", "BEGGED"
+            "CAB", "CAD",
+            "CAFE", "CAGE", "CEDE",
+            "CAGED", "CEDED",
+            "CABBED",
+            "CABBAGE",
+            "DAB", "DAD", "DAG",
+            "DACE", "DEAD", "DEAF", "DEED",
+            "DECAF",
+            "DABBED", "DECADE", "DEEDED", "DEFACE",
+            "DEFACED",
+            "EBB", "EGG",
+            "EDGE", "EGAD",
+            "EBBED", "EDGED",
+            "EFFACE",
+            "EFFACED",
+            "FAB", "FAD", "FED", "FEE",
+            "FACE", "FADE", "FEED"
+            "FACED", "FADED"
+            "FACADE",
+            "FEEDBAG",
+            "GAB", "GAG", "GAD",
+            "GAFF",
+            "GAFFE",
+            "GAFFED", "GAGGED"
+        ]
+        piano_text = "DEAD"
+
+        piano_option = self.options.randomize_piano_puzzle.value
+        if piano_option != options.RandomizePianoPuzzle.option_off:
+            new_text = ""
+            if piano_option == options.RandomizePianoPuzzle.option_full_random:
+                word_length = randint(3, 7)
+                for _ in range(word_length):
+                    rnd = randint(0, len(white_keys) - 1)
+                    new_text += white_keys[rnd]
+            else:
+                rnd = randint(0, len(words) - 1)
+                new_text = words[rnd]
+            if piano_option != options.RandomizePianoPuzzle.option_words:
+                sharp_text = ""
+                for letter in new_text:
+                    new_letter = letter
+                    if letter in black_keys.keys():
+                        rnd = randint(0, 1)
+                        if rnd == 0:
+                            new_letter = black_keys[letter]
+                    sharp_text += new_letter
+                new_text = sharp_text
+            piano_text = new_text
+
+        return piano_text
