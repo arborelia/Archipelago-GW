@@ -155,10 +155,6 @@ class ItemNames(str, Enum):
     can_phase_doors = "Can Phase Through Doors"
 
     # Events
-    dw_dungeon_complete = "Completed a Dreamworld Dungeon"
-    dw_2 = "2 Drewamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
-    dw_3 = "3 Dreamworld Dungeons Complete"  # Phasing can adjust Quietus Requirements
-    dw_4 = "4 Dreamworld Dungeons Complete"  # Typical Quietus Requirements # TODO add these events
     has_opened_d8 = "Has Opened Grand Library"
     has_opened_s1 = "Has Opened Sunken Labyrinth"
     has_opened_s2 = "Has Opened Machine Fortress"

@@ -1,6 +1,7 @@
 from typing import Dict, List, Any, Union, TextIO
 from copy import deepcopy
 from BaseClasses import Location, Item, Tutorial, ItemClassification
+from Utils import visualize_regions
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
@@ -162,6 +163,10 @@ class ID2World(World):
             items_to_create[iname.d6_key.value] = 5
             items_to_create[iname.d7_key.value] = 5
             items_to_create[iname.d8_key.value] = 8
+            items_to_create[iname.dd_key.value] = 3
+            items_to_create[iname.dfc_key.value] = 4
+            items_to_create[iname.di_key.value] = 4
+            items_to_create[iname.da_key.value] = 4
             # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
@@ -177,10 +182,10 @@ class ID2World(World):
             # items_to_create[iname.s2_keyring.value] = 1
             # items_to_create[iname.s3_keyring.value] = 1
             # items_to_create[iname.s4_keyring.value] = 1
-            # items_to_create[iname.dd_keyring.value] = 1
-            # items_to_create[iname.dfc_keyring.value] = 1
-            # items_to_create[iname.di_keyring.value] = 1
-            # items_to_create[iname.da_keyring.value] = 1
+            items_to_create[iname.dd_keyring.value] = 1
+            items_to_create[iname.dfc_keyring.value] = 1
+            items_to_create[iname.di_keyring.value] = 1
+            items_to_create[iname.da_keyring.value] = 1
 
         elif self.options.key_settings == KeySettings.option_keysey:
             self.multiworld.push_precollected(self.create_item(iname.keysey.value))

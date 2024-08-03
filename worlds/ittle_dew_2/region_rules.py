@@ -230,23 +230,6 @@ def create_regions_with_rules(world: "ID2World") -> None:
     force_jump_event.access_rule = lambda state: state.has_all({iname.force.value, iname.ice.value}, player)
     id2_regions[rname.menu].locations.append(force_jump_event)
 
-    # dreamworld dungeon complete events
-    if not options.open_dreamworld:
-        dw2_event = ID2Location(player, lname.event_dreamworld_2, None, id2_regions[rname.menu])
-        dw2_event.place_locked_item(ID2Item(iname.dw_2.value, ItemClassification.progression, None, player))
-        dw2_event.access_rule = lambda state: state.has(iname.dw_dungeon_complete.value, player, 2)
-        id2_regions[rname.menu].locations.append(dw2_event)
-
-        dw3_event = ID2Location(player, lname.event_dreamworld_3, None, id2_regions[rname.menu])
-        dw3_event.place_locked_item(ID2Item(iname.dw_3.value, ItemClassification.progression, None, player))
-        dw3_event.access_rule = lambda state: state.has(iname.dw_dungeon_complete.value, player, 3)
-        id2_regions[rname.menu].locations.append(dw3_event)
-
-        dw4_event = ID2Location(player, lname.event_dreamworld_4, None, id2_regions[rname.menu])
-        dw4_event.place_locked_item(ID2Item(iname.dw_4.value, ItemClassification.progression, None, player))
-        dw4_event.access_rule = lambda state: state.has(iname.dw_dungeon_complete.value, player, 4)
-        id2_regions[rname.menu].locations.append(dw4_event)
-
     # open dungeons settings
     d8_event = ID2Location(player, lname.event_d8, None, id2_regions[rname.menu])
     d8_event.place_locked_item(ID2Item(iname.has_opened_d8.value, ItemClassification.progression, None, player))

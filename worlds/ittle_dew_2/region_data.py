@@ -2811,7 +2811,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
                                        [iname.dw_fun.value, iname.force.value]], iname.df_se_generator.value),
         rname.df_z:
-            ID2Data(ID2Type.region, iname.df_se_generator.value),
+            ID2Data(ID2Type.region, [[iname.df_se_generator.value]]),
         rname.df_af:
             ID2Data(ID2Type.region),
     },
@@ -3374,7 +3374,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.di_1f_fire:
             ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
                                        [iname.dw_fun.value, iname.melee.value, iname.ice.value],
-                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.melee.value]], lname.di_1f_fire),
+                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.melee.value]], iname.di_1f_fire.value),
         rname.di_n:
             ID2Data(ID2Type.region, [[iname.di_1f_fire.value]]),
         rname.di_i:
