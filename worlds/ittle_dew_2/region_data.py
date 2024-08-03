@@ -3219,6 +3219,317 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.dfc_q:
             ID2Data(ID2Type.region),
     },
+    # Bottomless Tower
+    rname.di_a: {
+        lname.di_blue_portal:
+            ID2Data(ID2Type.location),
+        rname.di_b:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.ice.value],
+                                     [iname.can_phase_gap.value, iname.roll.value]]),
+        rname.di_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_b: {
+        rname.di_c:
+            ID2Data(ID2Type.region),
+        rname.di_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_c: {
+        lname.di_1f_key:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.melee.value],
+                                       [iname.dw_fun.value, iname.weapon_projectile.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value, iname.can_phase_doors.value],
+                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.ice.value]]),
+        rname.di_b:
+            ID2Data(ID2Type.region),
+        rname.di_i:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_d: {
+        lname.di_2f_card:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.melee.value],
+                                       [iname.can_phase_object.value, iname.roll.value],
+                                       [iname.can_phase_object.value, iname.ice.value]]),
+        rname.di_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_e: {
+        rname.di_k_top:
+            ID2Data(ID2Type.region),
+        rname.di_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_f: {
+        lname.di_2f_key:
+            ID2Data(ID2Type.location),
+        rname.di_l_right:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_g: {
+        lname.di_1f_card:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.melee.value],
+                                       [iname.dw_fun.value, iname.force.value, iname.ice.value],
+                                       [iname.can_phase_gap_difficult.value],
+                                       [iname.dw_fun.value, iname.can_phase_doors.value, iname.can_phase_dynamite.value]]),
+        rname.di_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_h: {
+        rname.di_b:
+            ID2Data(ID2Type.region),
+        rname.di_g:
+            ID2Data(ID2Type.region),
+        rname.di_i:
+            ID2Data(ID2Type.region),
+        rname.di_n:
+            ID2Data(ID2Type.region),
+        rname.dreamworld_ice:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_i: {
+        rname.di_c:
+            ID2Data(ID2Type.region),
+        rname.di_h:
+            ID2Data(ID2Type.region),
+        rname.di_o:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.glitchless.value, iname.di_key.value + "*1"],
+                                     [iname.di_key.value + "*3"]]),
+    },
+    rname.di_j: {
+        rname.di_d:
+            ID2Data(ID2Type.region),
+        rname.di_k_left:
+            ID2Data(ID2Type.region),
+        rname.di_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_k_left: {
+        rname.di_k_top:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.di_2f_fire.value],
+                                     [iname.dw_fun.value, iname.di_2f_fire.value, iname.ice.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value, iname.ice.value],
+                                     [iname.dw_fun.value, iname.force_jump.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.di_k_right:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.ice.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.force_jump.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.di_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_k_top: {
+        rname.di_e:
+            ID2Data(ID2Type.region),
+        rname.di_k_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_k_right: {
+        rname.di_k_left:
+            ID2Data(ID2Type.region, [[iname.dw_fun.value, iname.force.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.di_l_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_l_left: {
+        rname.di_k_right:
+            ID2Data(ID2Type.region),
+        rname.di_l_right:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.ice.value],
+                                     # maybe dumb?
+                                     [iname.dw_fun.value, iname.dynamite.value],
+                                     [iname.dw_fun.value, iname.force.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value]]),
+    },
+    rname.di_l_right: {
+        rname.di_f:
+            ID2Data(ID2Type.region),
+        rname.di_r:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.glitchless.value, iname.di_key.value + "*2"],
+                                     [iname.di_key.value + "*3"]]),
+    },
+    rname.di_m: {
+        rname.di_g:
+            ID2Data(ID2Type.region),
+        rname.di_n:
+            ID2Data(ID2Type.region),
+        rname.di_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_n: {
+        rname.di_h:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.di_1f_fire.value],
+                                     [iname.dw_fun.value, iname.di_1f_fire.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value],
+                                     [iname.can_phase_doors.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+        rname.di_m:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.di_1f_fire.value],
+                                     [iname.dw_fun.value, iname.di_1f_fire.value, iname.melee.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value],
+                                     [iname.can_phase_doors.value]]),
+    },
+    rname.di_o: {
+        lname.di_1f_fire:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.ice.value],
+                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.melee.value]], lname.di_1f_fire),
+        rname.di_n:
+            ID2Data(ID2Type.region, [[iname.di_1f_fire.value]]),
+        rname.di_i:
+            ID2Data(ID2Type.region, [[iname.di_key.value + "*4", iname.dw_fun.value, iname.ice.value, iname.can_phase_object.value],
+                                     [iname.di_key.value + "*4", iname.can_phase_object.value, iname.roll.value],
+                                     [iname.di_key.value + "*4", iname.dw_vanilla.value, iname.can_phase_doors.value],
+                                     [iname.di_key.value + "*4", iname.dw_fun.value, iname.melee.value, iname.can_phase_doors.value]]),
+    },
+    rname.di_p: {
+        rname.di_j:
+            ID2Data(ID2Type.region),
+        rname.di_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_q: {
+        lname.di_2f_fire:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value]], iname.di_2f_fire.value),
+        rname.di_k_left:
+            ID2Data(ID2Type.region, [[iname.di_2f_fire.value]]),
+    },
+    rname.di_r: {
+        rname.di_l_right:
+            ID2Data(ID2Type.region, [[iname.di_key.value + "*4"]]),
+        rname.di_q:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.ice.value],
+                                     [iname.dw_fun.value, iname.dynamite.value, iname.force.value]]),
+    },
+    rname.di_s: {
+        rname.di_t:
+            ID2Data(ID2Type.region, [[iname.di_key.value + "*4"]]),
+        rname.di_v_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_t: {
+        rname.di_a:
+            ID2Data(ID2Type.region),
+        rname.di_s:
+            ID2Data(ID2Type.region, [[iname.di_key.value + "*3"]]),
+        rname.di_u:
+            ID2Data(ID2Type.region, [[iname.di_3f_fire.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value]]),
+        rname.di_x:
+            ID2Data(ID2Type.region),
+        rname.di_ab:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_u: {
+        rname.di_y:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_v_left: {
+        rname.di_s:
+            ID2Data(ID2Type.region),
+        rname.di_v_right:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.ice.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.di_ac:
+            ID2Data(ID2Type.region, [[iname.di_key.value + "*4"]]),
+    },
+    rname.di_v_right: {
+        rname.di_v_left:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.ice.value],
+                                     [iname.can_phase_object.value]]),
+        rname.di_w:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_w: {
+        lname.di_4f_key:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.melee.value],
+                                       [iname.can_phase_gap.value, iname.roll],
+                                       [iname.can_phase_object.value]]),
+        rname.di_v_right:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_x: {
+        lname.di_3f_spike_gates:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value]]),
+        rname.di_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_y: {
+        lname.di_3f_ice_square:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value]]),
+        rname.di_t:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.weapon_any.value]]),
+        rname.di_u:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_z: {
+        lname.di_reward_a:
+            ID2Data(ID2Type.location),
+        lname.di_reward_b:
+            ID2Data(ID2Type.location),
+        lname.di_reward_c:
+            ID2Data(ID2Type.location),
+        lname.event_finished_di:
+            ID2Data(ID2Type.location, [[]], iname.dw_finished_dungeon.value),
+        rname.dreamworld_ice:
+            ID2Data(ID2Type.region),
+        # Super Secret!
+        rname.dreamfly_nursery:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_aa: {
+        lname.di_3f_fire:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.melee.value]], iname.di_3f_fire.value),
+        rname.di_t:
+            ID2Data(ID2Type.region, [[iname.di_3f_fire.value]]),
+        rname.di_ac:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_ab: {
+        lname.di_3f_key:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.melee.value],
+                                       [iname.can_phase_gap.value]]),
+        rname.di_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_ac: {
+        rname.di_aa:
+            ID2Data(ID2Type.region),
+        rname.di_v_left:
+            ID2Data(ID2Type.region, [[iname.di_key.value + "*4"]]),
+        rname.di_ad:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.di_3f_fire.value],
+                                     [iname.dw_fun.value, iname.di_3f_fire.value, iname.ice.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value, iname.ice.value]]),
+    },
+    rname.di_ad: {
+        rname.di_ae:
+            ID2Data(ID2Type.region),
+    },
+    rname.di_ae: {
+        rname.di_z:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.ice.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.force.value, iname.roll.value]]),
+    },
 
     # Portal Worlds
     rname.autumn_climb: {
@@ -3616,8 +3927,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.bad_dream: {
-        # lname.bad_dream:
-        #     ID2Data(ID2Type.location),
+        lname.bad_dream:
+            ID2Data(ID2Type.location),
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
     }
