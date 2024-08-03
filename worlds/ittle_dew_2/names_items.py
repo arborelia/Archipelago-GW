@@ -135,6 +135,15 @@ class ItemNames(str, Enum):
     outfit_apa = "Apathetic Frog Outfit"
     outfit_that_guy = "That Guy Outfit"
 
+    # Access cards
+    access_coast = "Sweetwater Coast Access"
+    access_ruins = "Fancy Ruins Access"
+    access_woods = "Star Woods Access"
+    access_slope = "Slippery Slope Access"
+    access_prairie = "Pepperpain Prairie Access"
+    access_court = "Frozen Court Access"
+    access_road = "Lonely Road Access"
+
     # Tricks, abilities, and options
     can_open_chests = "Can Open Chests"
     weapon_any = "Can Break Weak Objects"  # every weapon except roll, can be used to open caves

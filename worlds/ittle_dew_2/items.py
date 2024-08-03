@@ -129,7 +129,14 @@ item_table: Dict[str, ID2ItemData] = {
     iname.card_fly.value: ID2ItemData(ItemClassification.useful, 0, 140, "Cards"),
     iname.buff.value: ID2ItemData(ItemClassification.filler, 0, 141, "Bonus Items"),
     iname.debuff.value: ID2ItemData(ItemClassification.trap, 0, 142, "Traps"),
-    iname.bee.value: ID2ItemData(ItemClassification.trap, 0, 143, "Traps")
+    iname.bee.value: ID2ItemData(ItemClassification.trap, 0, 143, "Traps"),
+    iname.access_coast.value: ID2ItemData(ItemClassification.progression, 1, 900, "Area Access"),
+    iname.access_ruins.value: ID2ItemData(ItemClassification.progression, 1, 901, "Area Access"),
+    iname.access_woods.value: ID2ItemData(ItemClassification.progression, 1, 902, "Area Access"),
+    iname.access_slope.value: ID2ItemData(ItemClassification.progression, 1, 903, "Area Access"),
+    iname.access_prairie.value: ID2ItemData(ItemClassification.progression, 1, 904, "Area Access"),
+    iname.access_court.value: ID2ItemData(ItemClassification.progression, 1, 905, "Area Access"),
+    iname.access_road.value: ID2ItemData(ItemClassification.progression, 1, 906, "Area Access")
 }
 
 none_item_table: Dict[str, ID2ItemData] = {
