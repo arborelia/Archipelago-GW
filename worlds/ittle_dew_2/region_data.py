@@ -3530,6 +3530,284 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.dw_fun.value, iname.fire_sword.value, iname.roll.value],
                                      [iname.dw_fun.value, iname.force.value, iname.roll.value]]),
     },
+    # Quietus
+    rname.da_a: {
+        lname.da_nw_crystal:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.weapon_projectile.value, iname.chain.value, iname.melee.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.dynamite.value, iname.roll.value, iname.melee.value, iname.chain.value, iname.can_phase_gap_difficult.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.can_phase_object.value]], iname.da_crystal.value),
+        rname.da_d:
+            ID2Data(ID2Type.region),
+        rname.da_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_b: {
+        rname.dreamworld_end:
+            ID2Data(ID2Type.region),
+        rname.da_d:
+            ID2Data(ID2Type.region),
+        rname.da_e:
+            ID2Data(ID2Type.region),
+        rname.da_h:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_c: {
+        lname.da_ne_crystal:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.force.value, iname.ice.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.can_phase_gap.value, iname.melee.value, iname.chain.value, iname.force.value, iname.roll.value],
+                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.weapon_no_dynamite.value]], iname.da_crystal.value),
+        rname.da_e:
+            ID2Data(ID2Type.region),
+        rname.da_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_d: {
+        rname.da_a:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.weapon_projectile.value, iname.roll.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.da_b:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.weapon_projectile.value, iname.roll.value],
+                                     [iname.can_phase_gap.value]]),
+    },
+    rname.da_e: {
+        rname.da_b:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.weapon_projectile.value]]),
+        rname.da_c:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.weapon_projectile.value]]),
+    },
+    rname.da_f: {
+        lname.da_alternating_floors:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value, iname.ice.value],
+                                       [iname.can_phase_gap.value]]),
+        rname.da_a:
+            ID2Data(ID2Type.region),
+        rname.da_l:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_g: {
+        lname.da_northwest_vault:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value, iname.chain.value, iname.force.value, iname.ice.value],
+                                       [iname.can_phase_gap.value]]),
+        rname.da_m:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+    },
+    rname.da_h: {
+        rname.da_b:
+            ID2Data(ID2Type.region),
+        rname.da_n:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_i: {
+        lname.da_northeast_vault:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.force.value],
+                                       [iname.can_phase_object.value]]),
+        rname.da_o:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+    },
+    rname.da_j: {
+        lname.da_tangled_wires:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+        rname.da_c:
+            ID2Data(ID2Type.region),
+        rname.da_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_k: {
+        rname.da_b:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_l: {
+        rname.da_f:
+            ID2Data(ID2Type.region),
+        rname.da_k:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.dynamite.value]]),
+        rname.da_m:
+            ID2Data(ID2Type.region),
+        rname.da_r:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_m: {
+        rname.da_g:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+        rname.da_l:
+            ID2Data(ID2Type.region),
+        rname.da_n:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_n: {
+        lname.da_center:
+            ID2Data(ID2Type.location),
+        lname.da_center_crystal:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.ice.value, iname.force.value],
+                                       [iname.dw_fun.value, iname.can_phase_gap.value, iname.melee.value, iname.chain.value],
+                                       [iname.dw_fun.value, iname.can_phase_gap.value, iname.weapon_projectile.value],
+                                       [iname.dw_fun.value, iname.can_phase_gap.value, iname.dynamite.value],
+                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.ice.value]], iname.da_center_crystal.value),
+        rname.da_h:
+            ID2Data(ID2Type.region),
+        rname.da_m:
+            ID2Data(ID2Type.region),
+        rname.da_o:
+            ID2Data(ID2Type.region),
+        rname.da_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_o: {
+        rname.da_i:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+        rname.da_n:
+            ID2Data(ID2Type.region),
+        rname.da_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_p: {
+        rname.da_j:
+            ID2Data(ID2Type.region),
+        rname.da_o:
+            ID2Data(ID2Type.region),
+        rname.da_q:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.dynamite.value]]),
+        rname.da_v:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_q: {
+        rname.da_b:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_r: {
+        lname.da_push_the_coil:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
+                                       [iname.can_phase_object.value]]),
+        rname.da_l:
+            ID2Data(ID2Type.region),
+        rname.da_w:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_s: {
+        lname.da_southwest_vault:
+            ID2Data(ID2Type.location),
+        rname.da_x:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+    },
+    rname.da_t: {
+        rname.da_n:
+            ID2Data(ID2Type.region),
+        rname.da_y:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.dynamite.value]]),
+    },
+    rname.da_u: {
+        lname.da_southeast_vault:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.force.value, iname.ice.value],
+                                       [iname.can_phase_object.value]]),
+        rname.da_z:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+    },
+    rname.da_v: {
+        lname.da_giant_mess:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.fire_sword.value, iname.chain.value, iname.dynamite.value, iname.ice.value],
+                                       [iname.dw_fun.value, iname.can_phase_doors.value, iname.can_phase_object.value, iname.ice.value]]),
+        rname.da_p:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.melee.value, iname.chain.value],
+                                     [iname.can_phase_doors.value]]),
+        rname.da_aa:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.fire_sword.value],
+                                     [iname.can_phase_doors.value]]),
+    },
+    rname.da_w: {
+        lname.da_sw_crystal:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value, iname.dynamite.value, iname.force.value, iname.ice.value],
+                                       [iname.dw_fun.value, iname.can_phase_gap.value, iname.melee.value, iname.chain.value, iname.force.value],
+                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.weapon_no_dynamite.value]]),
+        rname.da_r:
+            ID2Data(ID2Type.region),
+        rname.da_x:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_x: {
+        rname.da_s:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+        rname.da_w:
+            ID2Data(ID2Type.region),
+        rname.da_y:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.dynamite.value]]),
+    },
+    rname.da_y: {
+        rname.da_b:
+            ID2Data(ID2Type.region),
+        rname.da_t:
+            ID2Data(ID2Type.region),
+        rname.da_x:
+            ID2Data(ID2Type.region),
+        rname.da_z:
+            ID2Data(ID2Type.region),
+        rname.da_ac:
+            ID2Data(ID2Type.region, [[iname.da_crystal.value + "*4", iname.da_center_crystal.value],
+                                     [iname.dw_fun.value, iname.can_phase_dynamite.value]]),
+    },
+    rname.da_z: {
+        rname.da_u:
+            ID2Data(ID2Type.region, [[iname.da_key.value + "*4"]]),
+        rname.da_y:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value],
+                                     [iname.dw_fun.value, iname.dynamite.value]]),
+        rname.da_aa:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_aa: {
+        lname.da_se_crystal:
+            ID2Data(ID2Type.location, [[iname.dw_vanilla.value],
+                                       [iname.dw_fun.value, iname.melee.value, iname.chain.value, iname.force.value, iname.ice.value],
+                                       [iname.dw_fun.value, iname.can_phase_gap.value, iname.melee.value, iname.chain.value, iname.ice.value],
+                                       [iname.dw_fun.value, iname.can_phase_object.value, iname.weapon_no_dynamite.value]]),
+        rname.da_z:
+            ID2Data(ID2Type.region),
+        rname.da_v:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_ab: {
+        lname.da_reward_a:
+            ID2Data(ID2Type.location),
+        lname.da_reward_b:
+            ID2Data(ID2Type.location),
+        lname.da_reward_c:
+            ID2Data(ID2Type.location),
+        rname.dreamworld_end:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_ac: {
+        rname.da_ad:
+            ID2Data(ID2Type.region),
+    },
+    rname.da_ad: {
+        rname.da_ab:
+            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.dynamite.value, iname.ice.value, iname.roll.value],
+                                     [iname.dw_fun.value, iname.can_phase_object.value, iname.dynamite.value, iname.ice.value, iname.roll.value]]),
+        rname.da_ac:
+            ID2Data(ID2Type.region),
+    },
 
     # Portal Worlds
     rname.autumn_climb: {

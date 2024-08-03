@@ -180,10 +180,10 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 #     if destination_name in location_name_groups["Secret Dungeons"]:
                 #         print("Secret Dungeons are off, excluding this location.")
                 #         continue
-                # if not options.include_dream_dungeons:
-                #     if destination_name in location_name_groups["Dream Dungeons"]:
-                #         print("Dream Dungeons are off, excluding this location.")
-                #         continue
+                if not options.include_dream_dungeons:
+                    if destination_name in location_name_groups["Dream Dungeons"]:
+                        print("Dream Dungeons are off, excluding this location.")
+                        continue
                 if not options.include_super_secrets:
                     if destination_name in location_name_groups["Super Secrets"]:
                         # print("Super Secrets are off, excluding this location.")

@@ -196,6 +196,8 @@ class ItemNames(str, Enum):
     di_1f_fire = "Bottomless Tower First Floor Green Fire"
     di_2f_fire = "Bottomless Tower Second Floor Green Fire"
     di_3f_fire = "Bottomless Tower Third Floor Green Fire"
+    da_crystal = "Quietus Crystal Broken"
+    da_center_crystal = "Quietus Central Crystal Broken"
     the_vault_left = "The Vault Left Switch"
     the_vault_right = "The Vault Right Switch"
     scrap_yard_left = "Scrap Yard West Block"
