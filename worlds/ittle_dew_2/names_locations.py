@@ -245,7 +245,7 @@ class LocationNames(str, Enum):
     dd_piano = "Syncope - Piano Card"
     dd_knights_hint = "Syncope - Knights Hint Card"
     dd_shadow_walker = "Syncope - Shadow Walker Key"
-    dd_force_turret_maze = "Syncope - Force Turret Maze"
+    dd_force_turret_maze = "Syncope - Force Turret Maze Card"
     dd_reward_a = "Syncope - Reward Card A"
     dd_reward_b = "Syncope - Reward Card B"
     dd_reward_c = "Syncope - Reward Card C"

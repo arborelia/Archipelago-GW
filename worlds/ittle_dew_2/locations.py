@@ -188,7 +188,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Syncope - Piano Card": ID2LocationData(rname.dd_k.value, 2004, "Dreamworld"),
     "Syncope - Knights Hint Card": ID2LocationData(rname.dd_c.value, 2005, "Dreamworld"),
     "Syncope - Shadow Walker Key": ID2LocationData(rname.dd_d_left.value, 2006, "Dreamworld"),
-    "Syncope - Force Turret Maze": ID2LocationData(rname.dd_v.value, 2007, "Dreamworld"),
+    "Syncope - Force Turret Maze Card": ID2LocationData(rname.dd_v.value, 2007, "Dreamworld"),
     "Syncope - Reward Card A": ID2LocationData(rname.dd_ao.value, 2008, "Dreamworld"),
     "Syncope - Reward Card B": ID2LocationData(rname.dd_ao.value, 2009, "Dreamworld"),
     "Syncope - Reward Card C": ID2LocationData(rname.dd_ao.value, 2010, "Dreamworld"),

@@ -83,7 +83,6 @@ class IncludeSecretDungeons(Toggle):
 class IncludeDreamDungeons(Toggle):
     """
     Randomizes any chests and cards in the five Dreamworld dungeons.
-    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "include_dream_dungeons"
     display_name = "Include Dream Dungeons"

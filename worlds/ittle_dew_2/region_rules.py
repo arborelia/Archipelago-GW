@@ -370,12 +370,19 @@ def create_regions_with_rules(world: "ID2World") -> None:
             id2_regions[rname.menu].locations.append(phase_enemy_difficult_event)
 
     # Victory
-    victory_event = ID2Location(player, lname.victory_location, None, id2_regions[rname.fluffy_fields])
-    victory_event.place_locked_item(ID2Item(iname.victory, ItemClassification.progression, None, player))
-    if options.goal.value == options.goal.option_raft_quest:
-        victory_event.access_rule = lambda state: state.has(iname.raft.value, player, 8)
-    # TODO support other victory conditions
-    id2_regions[rname.fluffy_fields].locations.append(victory_event)
+    if options.goal.value != options.goal.option_queen_of_dreams:
+        victory_event = ID2Location(player, lname.victory_location, None, id2_regions[rname.fluffy_fields])
+        victory_event.place_locked_item(ID2Item(iname.victory, ItemClassification.progression, None, player))
+        if options.goal.value == options.goal.option_raft_quest:
+            victory_event.access_rule = lambda state: state.has(iname.raft.value, player, 8)
+        else:
+            victory_event.access_rule = lambda state: state.has(iname.raft.value, player, 8) and state.has(iname.loot.value, player)
+        id2_regions[rname.fluffy_fields].locations.append(victory_event)
+    else:
+        victory_event = ID2Location(player, lname.victory_location, None, id2_regions[rname.da_ab])
+        victory_event.place_locked_item(ID2Item(iname.victory, ItemClassification.progression, None, player))
+        victory_event.access_rule = lambda state: state.has(iname.dw_finished_dungeon.value, player, 4)
+        id2_regions[rname.da_ab].locations.append(victory_event)
 
     for region in id2_regions.values():
         world.multiworld.regions.append(region)
