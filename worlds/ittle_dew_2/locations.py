@@ -173,11 +173,32 @@ location_table: Dict[str, ID2LocationData] = {
     "Grand Library - Boss Reward Chest": ID2LocationData(rname.d8_rewards.value, 1511, "Dungeons"),
     "Grand Library - Extra Boss Reward Chest": ID2LocationData(rname.d8_rewards.value, 1512, "Dungeons"),
     # 1600: Sunken Labyrinth
-
+    "Sunken Labyrinth - Gold Titan Combat Key": ID2LocationData(rname.s1_e.value, 1600, "Secret Dungeons"),
+    "Sunken Labyrinth - Death Ogler Combat Key": ID2LocationData(rname.s1_c.value, 1601, "Secret Dungeons"),
+    "Sunken Labyrinth - Treasure Chest": ID2LocationData(rname.s1_j.value, 1602, "Secret Dungeons"),
+    "Sunken Labyrinth - Mimic Combat Key": ID2LocationData(rname.s1_o.value, 1603, "Secret Dungeons"),
+    "Sunken Labyrinth - Crayon Chest": ID2LocationData(rname.s1_u.value, 1604, "Secret Dungeons"),
+    "Sunken Labyrinth - Boss Reward Chest": ID2LocationData(rname.s1_g.value, 1605, "Secret Dungeons"),
     # 1700: Machine Fortress
-
+    "Machine Fortress - Hyperdusa conveyor Key": ID2LocationData(rname.s2_l.value, 1700, "Secret Dungeons"),
+    "Machine Fortress - Bee Chest": ID2LocationData(rname.s2_o.value, 1701, "Secret Dungeons"),
+    "Machine Fortress - Crayon Chest": ID2LocationData(rname.s2_m.value, 1702, "Secret Dungeons"),
+    "Machine Fortress - Number Tiles Key": ID2LocationData(rname.s2_h.value, 1703, "Secret Dungeons"),
+    "Machine Fortress - Cannon conveyors Key": ID2LocationData(rname.s2_f.value, 1704, "Secret Dungeons"),
+    "Machine Fortress - Light Bridge Key": ID2LocationData(rname.s2_e.value, 1705, "Secret Dungeons"),
+    "Machine Fortress - Steel Skullnip Combat Key": ID2LocationData(rname.s2_d.value, 1706, "Secret Dungeons"),
+    "Machine Fortress - Treasure Chest": ID2LocationData(rname.s2_b.value, 1707, "Secret Dungeons"),
+    "Machine Fortress - Boss Reward Chest": ID2LocationData(rname.s2_g.value, 1708, "Secret Dungeons"),
     # 1800: Dark Hypostyle
-
+    "Dark Hypostyle - Initial Key": ID2LocationData(rname.s3_a.value, 1800, "Secret Dungeons"),
+    "Dark Hypostyle - Crayon Chest": ID2LocationData(rname.s3_v_upper.value, 1801, "Secret Dungeons"),
+    "Dark Hypostyle - Blue Path Key": ID2LocationData(rname.s3_t.value, 1802, "Secret Dungeons"),
+    "Dark Hypostyle - Yellow Path Monochrome Key": ID2LocationData(rname.s3_p.value, 1803, "Secret Dungeons"),
+    "Dark Hypostyle - Treasure Chest": ID2LocationData(rname.s3_q.value, 1804, "Secret Dungeons"),
+    "Dark Hypostyle - Yellow Path Key": ID2LocationData(rname.s3_l.value, 1805, "Secret Dungeons"),
+    "Dark Hypostyle - Red Path Cannon Key": ID2LocationData(rname.s3_h.value, 1806, "Secret Dungeons"),
+    "Dark Hypostyle - Red Path Key": ID2LocationData(rname.s3_g.value, 1807, "Secret Dungeons"),
+    "Dark Hypostyle - Boss Reward Chest": ID2LocationData(rname.s3_d.value, 1808, "Secret Dungeons"),
     # 1900: Tomb of Simulacrum
 
     # 2000: Syncope

@@ -420,7 +420,8 @@ class RegionNames(str, Enum):
     s1_n = "Sunken Labyrinth N"
     s1_o = "Sunken Labyrinth O"
     s1_p = "Sunken Labyrinth P"
-    s1_q = "Sunken Labyrinth Q"
+    s1_q_left = "Sunken Labyrinth Q Left"
+    s1_q_right = "Sunken Labyrinth Q Right"
     s1_r = "Sunken Labyrinth R"
     s1_s = "Sunken Labyrinth S"
     s1_t = "Sunken Labyrinth T"
@@ -468,7 +469,8 @@ class RegionNames(str, Enum):
     s3_s = "Dark Hypostyle S"
     s3_t = "Dark Hypostyle T"
     s3_u = "Dark Hypostyle U"
-    s3_v = "Dark Hypostyle V"
+    s3_v_upper = "Dark Hypostyle V Upper"
+    s3_v_lower = "Dark Hypostyle V Lower"
     s3_w = "Dark Hypostyle W"
 
     # Tomb of Simulacrum

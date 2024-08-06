@@ -173,6 +173,7 @@ class ItemNames(str, Enum):
     d5_o_block = "Flooded Basement Crossway Open"
     d8_k_left_door = "Grand Library K Left Door Opened"
     d8_k_right_door = "Grand Library K Right Door Opened"
+    s1_q_blocks = "Sunken Labyrinth Q Block Puzzle Solved"
     df_sw_generator = "Wizardry Lab Southwest Generator"
     df_se_generator = "Wizardry Lab Southeast Generator"
     df_nw_generator = "Wizardry Lab Northwest Generator"

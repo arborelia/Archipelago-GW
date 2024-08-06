@@ -344,6 +344,7 @@ class LocationNames(str, Enum):
     d5_o_block = "Flooded Basement Crossway Access"
     d8_k_left_door = "Grand Library K Left Door"
     d8_k_right_door = "Grand Library K Right Door"
+    s1_q_blocks = "Sunken Labyrinth Q Blocks"
     df_sw_generator = "Wizardry Lab Southwest Generator Activated"
     df_se_generator = "Wizardry Lab Southeast Generator Activated"
     df_nw_generator = "Wizardry Lab Northwest Generator Activated"

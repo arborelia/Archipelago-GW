@@ -2612,6 +2612,440 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.d8_boss_reward_extra:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
     },
+    # Secret Dungeons
+    # Sunken Labyrinth
+    rname.s1_a: {
+        rname.s1_d:
+            ID2Data(ID2Type.region),
+        rname.s1_n:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_b: {
+        rname.s1_e:
+            ID2Data(ID2Type.region),
+        rname.s1_f:
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.s1_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_c: {
+        lname.s1_death_ogler_combat:
+            ID2Data(ID2Type.location),
+        rname.s1_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_d: {
+        rname.s1_a:
+            ID2Data(ID2Type.region),
+        rname.s1_c:
+            ID2Data(ID2Type.region),
+        rname.s1_e:
+            ID2Data(ID2Type.region),
+        rname.s1_h:
+            ID2Data(ID2Type.region, [[iname.s1_key.value + "*2"]]),
+        rname.s1_i:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_e: {
+        lname.s1_gold_titan_combat:
+            ID2Data(ID2Type.location, [[iname.melee.value],
+                                       [iname.ice.value],
+                                       [iname.can_phase_gap.value]]),
+        rname.s1_d:
+            ID2Data(ID2Type.region),
+        rname.s1_i:
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.ice.value],
+                                     [iname.can_phase_gap.value]]),
+    },
+    rname.s1_f: {
+        rname.s1_g:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_g: {
+        lname.s1_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.s1_f:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s1_h: {
+        rname.s1_d:
+            ID2Data(ID2Type.region, [[iname.s1_key.value + "*3"]]),
+        rname.s1_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_i: {
+        rname.s1_d:
+            ID2Data(ID2Type.region),
+        rname.s1_l:
+            ID2Data(ID2Type.region),
+        rname.s1_q_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_j: {
+        lname.s1_treasure:
+            ID2Data(ID2Type.location),
+        rname.s1_k:
+            ID2Data(ID2Type.region, [[iname.force.value]]),
+    },
+    rname.s1_k: {
+        rname.s1_m:
+            ID2Data(ID2Type.region),
+        rname.s1_o:
+            ID2Data(ID2Type.region),
+        rname.s1_p:
+            ID2Data(ID2Type.region, [[iname.s1_key.value + "*2"]]),
+    },
+    rname.s1_l: {
+        rname.s1_i:
+            ID2Data(ID2Type.region),
+        rname.s1_k:
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_doors.value]]),
+        rname.s1_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_m: {
+        rname.s1_l:
+            ID2Data(ID2Type.region),
+        rname.fluffy_fields:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_n: {
+        rname.s1_a:
+            ID2Data(ID2Type.region),
+        rname.s1_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_o: {
+        lname.s1_mimic_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value],
+                                       [iname.can_phase_enemy_difficult.value, iname.roll.value]]),
+        rname.s1_k:
+            ID2Data(ID2Type.region),
+        rname.s1_q_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_p: {
+        rname.s1_k:
+            ID2Data(ID2Type.region, [[iname.s1_key.value + "*3"]]),
+        rname.s1_r:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s1_q_left: {
+        rname.s1_o:
+            ID2Data(ID2Type.region, [[iname.s1_q_blocks.value]]),
+        rname.s1_i:
+            ID2Data(ID2Type.region),
+        rname.s1_q_right:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_object.value]]),
+    },
+    rname.s1_q_right: {
+        lname.s1_q_blocks:
+            ID2Data(ID2Type.location, [[]], iname.s1_q_blocks.value),
+        rname.s1_q_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.s1_r: {
+        rname.s1_q_right:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.s1_t:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+    },
+    rname.s1_s: {
+        rname.s1_b:
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_gap.value]]),
+    },
+    rname.s1_t: {
+        rname.s1_r:
+            ID2Data(ID2Type.region),
+        rname.s1_s:
+            ID2Data(ID2Type.region, [[iname.force.value]]),
+        rname.s1_u:
+            ID2Data(ID2Type.region, [[iname.s1_key.value + "*3"]]),
+    },
+    rname.s1_u: {
+        lname.s1_crayon:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.s1_r:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.s1_t:
+            ID2Data(ID2Type.region, [[iname.s1_key.value + "*3"]]),
+    },
+    # Machine Fortress
+    rname.s2_a: {
+        rname.s2_b:
+            ID2Data(ID2Type.region),
+        rname.s2_d:
+            ID2Data(ID2Type.region, [[iname.s2_key.value + "*5"]]),
+    },
+    rname.s2_b: {
+        lname.s2_treasure:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.s2_c:
+            ID2Data(ID2Type.region, [[iname.dynamite.value, iname.weapon_no_dynamite.value]]),
+    },
+    rname.s2_c: {
+        rname.s2_i:
+            ID2Data(ID2Type.region),
+    },
+    rname.s2_d: {
+        lname.s2_steel_skullnip_combat:
+            ID2Data(ID2Type.location, [[iname.roll.value]]),
+        rname.s2_a:
+            ID2Data(ID2Type.region, [[iname.s2_key.value + "*5", iname.roll.value]]),
+        rname.s2_e:
+            ID2Data(ID2Type.region, [[iname.roll.value],
+                                     [iname.s2_key.value + "*5"]]),
+    },
+    rname.s2_e: {
+        lname.s2_light_bridge:
+            ID2Data(ID2Type.location),
+        rname.s2_d:
+            ID2Data(ID2Type.region, [[iname.s2_key.value + "*4"]]),
+        rname.s2_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.s2_f: {
+        lname.s2_cannon_conveyors:
+            ID2Data(ID2Type.location),
+        rname.s2_e:
+            ID2Data(ID2Type.region, [[iname.s2_key.value + "*3"]]),
+        rname.s2_h:
+            ID2Data(ID2Type.region, [[iname.s2_key.value + "*5"]]),
+    },
+    rname.s2_g: {
+        lname.s2_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.s2_k:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s2_h: {
+        lname.s2_number_tiles:
+            ID2Data(ID2Type.location),
+        rname.s2_f:
+            ID2Data(ID2Type.region, [[iname.s2_key.value + "*2"]]),
+        rname.s2_l:
+            ID2Data(ID2Type.region),
+    },
+    rname.s2_i: {
+        rname.s2_c:
+            ID2Data(ID2Type.region),
+        rname.s2_h:
+            ID2Data(ID2Type.region),
+        rname.s2_j:
+            ID2Data(ID2Type.region, [[iname.roll.value]]),
+    },
+    rname.s2_j: {
+        rname.s2_k:
+            ID2Data(ID2Type.region, [[iname.weapon_no_dynamite.value, iname.dynamite.value],
+                                     [iname.melee.value, iname.chain.value]]),
+    },
+    rname.s2_k: {
+        rname.s2_g:
+            ID2Data(ID2Type.region),
+    },
+    rname.s2_l: {
+        lname.s2_hyperdusa_conveyor:
+            ID2Data(ID2Type.location),
+        rname.s2_h:
+            ID2Data(ID2Type.region, [[iname.s2_key.value]]),
+        rname.s2_p:
+            ID2Data(ID2Type.region),
+        rname.s2_q:
+            ID2Data(ID2Type.region, [[iname.dynamite.value],
+                                     [iname.can_phase_object.value, iname.ice.value, iname.roll.value]]),
+    },
+    rname.s2_m: {
+        lname.s2_crayon.value:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.s2_l:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.s2_n: {
+        rname.s2_m:
+            ID2Data(ID2Type.region, [[iname.dynamite.value],
+                                     [iname.can_phase_object.value, iname.ice.value]]),
+        rname.s2_o:
+            ID2Data(ID2Type.region, [[iname.dynamite.value],
+                                     [iname.can_phase_object.value, iname.roll.value],
+                                     [iname.can_phase_object.value, iname.ice.value]]),
+    },
+    rname.s2_o: {
+        lname.s2_bee:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+    },
+    rname.s2_p: {
+        rname.s2_l:
+            ID2Data(ID2Type.region),
+        rname.fancy_ruins:
+            ID2Data(ID2Type.region),
+    },
+    rname.s2_q: {
+        rname.s2_r:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+    },
+    rname.s2_r: {
+        rname.s2_n:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    # Dark Hypostyle
+    rname.s3_a: {
+        lname.s3_initial_key:
+            ID2Data(ID2Type.location),
+        rname.s3_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_b: {
+        rname.s3_c:
+            ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value]]),
+    },
+    rname.s3_c: {
+        rname.s3_d:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_d: {
+        lname.s3_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.s3_c:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s3_e: {
+        rname.s3_f:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*5"]]),
+        rname.s3_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_f: {
+        rname.s3_a:
+            ID2Data(ID2Type.region),
+        rname.s3_e:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*4"]]),
+        rname.s3_k:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*4"]]),
+        rname.s3_n:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*5"]]),
+        rname.s3_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_g: {
+        lname.s3_red_path:
+            ID2Data(ID2Type.location),
+        rname.s3_b:
+            ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value]]),
+        rname.s3_f:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+        rname.s3_h:
+            ID2Data(ID2Type.region, [[iname.s3_key + "*5"]]),
+    },
+    rname.s3_h: {
+        lname.s3_red_path_cannon:
+            ID2Data(ID2Type.location),
+        rname.s3_g:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*5"]]),
+    },
+    rname.s3_i: {
+        rname.s3_h:
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.ice.value],
+                                     [iname.can_phase_doors.value]]),
+        rname.s3_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_j: {
+        rname.s3_i:
+            ID2Data(ID2Type.region),
+        rname.s3_u:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_k: {
+        rname.s3_u:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.s3_l: {
+        lname.s3_yellow_path:
+            ID2Data(ID2Type.location),
+        rname.s3_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_m: {
+        rname.s3_l:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s3_n: {
+        rname.s3_f:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*5"]]),
+        rname.s3_r:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
+    },
+    rname.s3_o: {
+        rname.s3_e:
+            ID2Data(ID2Type.region),
+        rname.s3_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_p: {
+        lname.s3_yellow_path_monochrome:
+            ID2Data(ID2Type.location, [[iname.melee.value]]),
+        rname.s3_m:
+            ID2Data(ID2Type.region, [[iname.ice.value, iname.melee.value]]),
+        rname.s3_o:
+            ID2Data(ID2Type.region),
+        rname.s3_q:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*5"]]),
+    },
+    rname.s3_q: {
+        lname.s3_treasure:
+            ID2Data(ID2Type.location),
+        rname.s3_p:
+            ID2Data(ID2Type.region, [[iname.s3_key.value + "*5"]]),
+    },
+    rname.s3_r: {
+        rname.s3_w:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_s: {
+        rname.s3_f:
+            ID2Data(ID2Type.region),
+        rname.star_east:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_t: {
+        lname.s3_blue_path:
+            ID2Data(ID2Type.location),
+        rname.s3_s:
+            ID2Data(ID2Type.region),
+        rname.s3_v_upper:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_u: {
+        rname.s3_k:
+            ID2Data(ID2Type.region, [[iname.can_phase_gap.value]]),
+        rname.s3_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_v_upper: {
+        lname.s3_crayon:
+            ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.s3_v_lower:
+            ID2Data(ID2Type.region, [[iname.can_phase_enemy.value],
+                                     [iname.can_phase_dynamite.value]]),
+        rname.s3_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.s3_v_lower: {
+        rname.s3_v_upper:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s3_w: {
+        rname.s3_v_lower:
+            ID2Data(ID2Type.region),
+        rname.s3_r:
+            ID2Data(ID2Type.region),
+    },
     # Dreamworld Dungeons
     # Wizardry Lab
     rname.df_b: {
