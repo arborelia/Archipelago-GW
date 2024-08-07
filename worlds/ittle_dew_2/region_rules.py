@@ -398,9 +398,13 @@ def create_regions_with_rules(world: "ID2World") -> None:
         victory_event.access_rule = lambda state: state.has(iname.dw_finished_dungeon.value, player, 4)
         id2_regions[rname.da_ab].locations.append(victory_event)
 
+    if options.include_super_secrets:
+        efcs_event = ID2Location(player, lname.event_efcs, None, id2_regions[rname.menu])
+        efcs_event.place_locked_item(ID2Item(iname.efcs, ItemClassification.progression, None, player))
+        efcs_event.access_rule = lambda state: state.has_all({iname.fire_mace.value, iname.fake_efcs.value}, player)
+        id2_regions[rname.menu].locations.append(efcs_event)
+
     for region in id2_regions.values():
         world.multiworld.regions.append(region)
-
-    # TODO special entrances conditions
 
     world.multiworld.completion_condition[world.player] = lambda state: state.has(iname.victory.value, world.player)

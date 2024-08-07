@@ -338,6 +338,7 @@ class LocationNames(str, Enum):
     event_phase_enemy = "Received Enemy Phase Requirements"
     event_phase_enemy_difficult = "Received Difficult Enemy Phase Requirements"
     event_phase_door = "Received Door Phase Requirements"
+    event_efcs = "Received EFCS Requirements"
 
     # events for reaching parts of dungeons
     d5_k_south_door = "Flooded Basement K South Door"

@@ -4965,16 +4965,276 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.abyssal_plain: {
         rname.moon_garden_north:
             ID2Data(ID2Type.region),
-        rname.place_from_younger_days_p:
+        rname.place_p:
             ID2Data(ID2Type.region),
     },
-    rname.place_from_younger_days_p: {
+    rname.place_a: {
+        rname.place_b:
+            ID2Data(ID2Type.region),
+        rname.place_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_b: {
+        rname.place_a:
+            ID2Data(ID2Type.region),
+        rname.place_c:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_c: {
+        rname.place_b:
+            ID2Data(ID2Type.region),
+        rname.place_g_main:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_d: {
+        rname.place_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_e: {
+        rname.place_a:
+            ID2Data(ID2Type.region),
+        rname.place_d:
+            ID2Data(ID2Type.region),
+        rname.place_f:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_f: {
+        rname.place_e:
+            ID2Data(ID2Type.region),
+        rname.place_g_alcove:
+            ID2Data(ID2Type.region),
+        rname.place_k:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_g_alcove: {
+        rname.place_f:
+            ID2Data(ID2Type.region),
+        rname.place_g_main:
+            ID2Data(ID2Type.region, [[iname.can_phase_doors.value]]),
+    },
+    rname.place_g_main: {
+        rname.place_c:
+            ID2Data(ID2Type.region),
+        rname.place_g_alcove:
+            ID2Data(ID2Type.region, [[iname.can_phase_doors.value]]),
+        rname.place_h_alcove:
+            ID2Data(ID2Type.region),
+        rname.place_l_top:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_h_alcove: {
+        rname.place_g_main:
+            ID2Data(ID2Type.region),
+        rname.place_h_main:
+            ID2Data(ID2Type.region, [[iname.can_phase_doors.value]]),
+    },
+    rname.place_h_main: {
+        rname.place_h_alcove:
+            ID2Data(ID2Type.region, [[iname.can_phase_doors.value]]),
+        rname.place_m:
+            ID2Data(ID2Type.region),
+        rname.lrc_a:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_i: {
+        rname.place_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_j: {
+        rname.place_i:
+            ID2Data(ID2Type.region),
+        rname.place_k:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_k: {
+        rname.place_f:
+            ID2Data(ID2Type.region),
+        rname.place_j:
+            ID2Data(ID2Type.region),
+        rname.place_l_left:
+            ID2Data(ID2Type.region),
+        rname.place_n:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_l_top: {
+        rname.place_g_main:
+            ID2Data(ID2Type.region),
+        rname.place_l_left:
+            ID2Data(ID2Type.region, [[iname.can_phase_doors.value]]),
+        rname.place_m:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_l_left: {
+        rname.place_k:
+            ID2Data(ID2Type.region),
+        rname.place_l_top:
+            ID2Data(ID2Type.region, [[iname.can_phase_doors.value]]),
+    },
+    rname.place_m: {
+        rname.place_h_main:
+            ID2Data(ID2Type.region),
+        rname.place_l_top:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_n: {
+        rname.place_k:
+            ID2Data(ID2Type.region),
+        rname.place_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_o: {
+        rname.place_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.place_p: {
+        rname.place_n:
+            ID2Data(ID2Type.region),
+        rname.place_o:
+            ID2Data(ID2Type.region),
         rname.abyssal_plain:
             ID2Data(ID2Type.region),
     },
     rname.abandoned_house: {
         rname.somewhere:
             ID2Data(ID2Type.region),
+    },
+    rname.pr_b: {
+        lname.promised_remedy:
+            ID2Data(ID2Type.location, [[iname.weapon_any.value]]),
+        rname.fcc_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_c: {
+        rname.pr_b:
+            ID2Data(ID2Type.region, [[iname.efcs.value, iname.roll.value]]),
+    },
+    rname.pr_d: {
+        rname.pr_c:
+            ID2Data(ID2Type.region),
+        rname.pr_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_e: {
+        rname.pr_d:
+            ID2Data(ID2Type.region),
+        rname.pr_g:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_f: {
+        rname.pr_j:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_g: {
+        rname.pr_e:
+            ID2Data(ID2Type.region),
+        rname.pr_h:
+            ID2Data(ID2Type.region),
+        rname.pr_k_top:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_h: {
+        rname.pr_g:
+            ID2Data(ID2Type.region),
+        rname.pr_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_i: {
+        rname.pr_j:
+            ID2Data(ID2Type.region),
+        rname.pr_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_j: {
+        rname.pr_f:
+            ID2Data(ID2Type.region),
+        rname.pr_i:
+            ID2Data(ID2Type.region),
+        rname.pr_k_middle:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_k_top: {
+        rname.pr_g:
+            ID2Data(ID2Type.region),
+        rname.pr_k_middle:
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_object.value, iname.ice.value],
+                                     [iname.can_phase_doors.value]]),
+    },
+    rname.pr_k_middle: {
+        rname.pr_j:
+            ID2Data(ID2Type.region),
+        rname.pr_k_top:
+            ID2Data(ID2Type.region, [[iname.can_phase_doors.value],
+                                     [iname.can_phase_object.value, iname.ice.value]]),
+        rname.pr_k_bottom:
+            ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.can_phase_object.value, iname.ice.value],
+                                     [iname.can_phase_doors.value]]),
+        rname.pr_l:
+            ID2Data(ID2Type.region)
+    },
+    rname.pr_k_bottom: {
+        rname.pr_k_middle:
+            ID2Data(ID2Type.region, [[iname.can_phase_object.value, iname.ice.value],
+                                     [iname.can_phase_doors.value]]),
+        rname.pr_q:
+            ID2Data(ID2Type.region, [[iname.efcs.value]]),
+    },
+    rname.pr_l: {
+        rname.pr_k_middle:
+            ID2Data(ID2Type.region),
+        rname.pr_r:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_m: {
+        rname.pr_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_n: {
+        rname.pr_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_o: {
+        rname.pr_i:
+            ID2Data(ID2Type.region),
+        rname.pr_n:
+            ID2Data(ID2Type.region),
+        rname.pr_p:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_p: {
+        rname.pr_o:
+            ID2Data(ID2Type.region),
+        rname.pr_q:
+            ID2Data(ID2Type.region, [[iname.efcs.value]]),
+    },
+    rname.pr_q: {
+        rname.pr_k_bottom:
+            ID2Data(ID2Type.region, [[iname.efcs.value]]),
+        rname.pr_p:
+            ID2Data(ID2Type.region, [[iname.efcs.value]]),
+        rname.fcc_o:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_r: {
+        rname.pr_l:
+            ID2Data(ID2Type.region),
+        rname.pr_s:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_s: {
+        rname.pr_m:
+            ID2Data(ID2Type.region),
+        rname.pr_r:
+            ID2Data(ID2Type.region),
+        rname.pr_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.pr_t: {
+        rname.pr_h:
+            ID2Data(ID2Type.region, [[iname.efcs.value]]),
+        rname.pr_s:
+            ID2Data(ID2Type.region, [[iname.efcs.value]]),
     },
     rname.house_of_secrets: {
         rname.dreamworld_hub:

@@ -298,6 +298,7 @@ location_table: Dict[str, ID2LocationData] = {
     # 2600+: Misc Locations
     "Ludo City - Chest": ID2LocationData(rname.ludo_city.value, 2600, "Super Secrets"),
     "Bad Dream - Card": ID2LocationData(rname.bad_dream.value, 2602, "Super Secrets"),
+    "Promised Remedy - That Guy Outfit": ID2LocationData(rname.pr_b.value, 2603, "Super Secrets")
 }
 
 event_location_table: Dict[str, ID2LocationData] = {

@@ -142,7 +142,7 @@ class ItemNames(str, Enum):
     weapon_no_dynamite = "Weapon other than Dynamite"
     weapon_no_force = "Can Break Strong Objects"  # melee, dynamite, or ice, since force can't break everything
     weapon_projectile = "Has a projectile weapon"  # mace or force
-    force_jump = "Force Jump"  # Force + Ice # TODO add as an obtainable "item"
+    force_jump = "Force Jump"  # Force + Ice
     basic_combat = "Can Kill Basic Enemies"
     can_phase_gap = "Can Phase Gaps"
     can_phase_gap_difficult = "Can Phase Gaps (Difficult)"
@@ -167,6 +167,7 @@ class ItemNames(str, Enum):
     open_dw = "Open Dreamworld"
     major_skips = "Major Skips Allowed"
     victory = "Victory"
+    efcs = "Exploding Flaming Chainsaw Shotgun"
 
     # Switch Events
     d5_k_south_door = "Flooded Basement K South Door Opened"
