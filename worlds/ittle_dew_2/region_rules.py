@@ -182,11 +182,10 @@ def create_regions_with_rules(world: "ID2World") -> None:
                     if destination_name in location_name_groups["Portal Worlds"]:
                         # print("Portal Worlds are off, excluding this location.")
                         continue
-                # TODO re-enable these when locations with these are in
-                # if not options.include_secret_dungeons:
-                #     if destination_name in location_name_groups["Secret Dungeons"]:
-                #         print("Secret Dungeons are off, excluding this location.")
-                #         continue
+                if not options.include_secret_dungeons:
+                    if destination_name in location_name_groups["Secret Dungeons"]:
+                        print("Secret Dungeons are off, excluding this location.")
+                        continue
                 if not options.include_dream_dungeons:
                     if destination_name in location_name_groups["Dreamworld"]:
                         print("Dream Dungeons are off, excluding this location.")
@@ -211,6 +210,11 @@ def create_regions_with_rules(world: "ID2World") -> None:
                         # remember that if S4 is in, it can't be an FKey
                         else:
                             location.progress_type = LocationProgressType.PRIORITY
+                    elif destination_name == lname.s4_boss_reward:
+                        quality = ItemClassification.filler
+                        if options.goal.value == options.goal.option_queen_of_adventure:
+                            quality = ItemClassification.progression
+                        location.place_locked_item(ID2Item(iname.loot.value, quality, item_name_to_id[iname.loot.value], player))
                 location.access_rule = interpret_rule(data.rules, world)
                 id2_regions[origin_name].locations.append(location)
             elif data.type == ID2Type.region:

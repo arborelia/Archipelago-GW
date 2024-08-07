@@ -2860,7 +2860,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_object.value, iname.ice.value, iname.roll.value]]),
     },
     rname.s2_m: {
-        lname.s2_crayon.value:
+        lname.s2_crayon:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
         rname.s2_l:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
@@ -3091,7 +3091,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
                                      [iname.can_phase_gap.value]]),
     },
     rname.s4_g: {
-        # Loot is added manually in rules
+        lname.s4_boss_reward:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value]]),
         rname.s4_n:
             ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
     },
@@ -3193,7 +3194,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.s4_roundabout_crystal:
             ID2Data(ID2Type.location, [[iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
                                        [iname.can_phase_object.value, iname.ice.value, iname.weapon_projectile.value],
-                                       [iname.can_phase_object.value, iname.ice.value, iname.roll.value]
+                                       [iname.can_phase_object.value, iname.ice.value, iname.roll.value],
                                        [iname.can_phase_dynamite.value]]),
     },
     rname.s4_v: {

@@ -66,9 +66,6 @@ class ID2World(World):
     traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]]
 
     def generate_early(self) -> None:
-
-        self.options.shard_settings.value = options.ShardSettings.option_open
-        self.options.open_s4.value = options.OpenS4.option_true
         self.piano_puzzle = self.generate_piano_puzzle()
 
         dungeon_count = 8
@@ -168,11 +165,14 @@ class ID2World(World):
             items_to_create[iname.d6_key.value] = 5
             items_to_create[iname.d7_key.value] = 5
             items_to_create[iname.d8_key.value] = 8
+            items_to_create[iname.s1_key.value] = 3
+            items_to_create[iname.s2_key.value] = 5
+            items_to_create[iname.s3_key.value] = 5
+            items_to_create[iname.s4_key.value] = 10
             items_to_create[iname.dd_key.value] = 3
             items_to_create[iname.dfc_key.value] = 4
             items_to_create[iname.di_key.value] = 4
             items_to_create[iname.da_key.value] = 4
-            # TODO add the other keys
 
         elif self.options.key_settings == KeySettings.option_keyrings:
             items_to_create[iname.d1_keyring.value] = 1
@@ -183,10 +183,10 @@ class ID2World(World):
             items_to_create[iname.d6_keyring.value] = 1
             items_to_create[iname.d7_keyring.value] = 1
             items_to_create[iname.d8_keyring.value] = 1
-            # items_to_create[iname.s1_keyring.value] = 1
-            # items_to_create[iname.s2_keyring.value] = 1
-            # items_to_create[iname.s3_keyring.value] = 1
-            # items_to_create[iname.s4_keyring.value] = 1
+            items_to_create[iname.s1_keyring.value] = 1
+            items_to_create[iname.s2_keyring.value] = 1
+            items_to_create[iname.s3_keyring.value] = 1
+            items_to_create[iname.s4_keyring.value] = 1
             items_to_create[iname.dd_keyring.value] = 1
             items_to_create[iname.dfc_keyring.value] = 1
             items_to_create[iname.di_keyring.value] = 1
@@ -200,8 +200,7 @@ class ID2World(World):
             items_to_create[iname.f_key.value] = 0
 
         # configure shard count (currently not supported)
-        items_to_create[iname.shard.value] = 0  # self.options.shard_settings.value * 12 \
-            # + self.options.extra_shards.value
+        items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 + self.options.extra_shards.value
 
         # Super Secret stuff
         if self.options.include_super_secrets:
