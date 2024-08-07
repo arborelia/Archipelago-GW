@@ -125,14 +125,21 @@ class ID2World(World):
 
         items_to_create: Dict[str, int] = {item: data.quantity_in_item_pool for item, data in item_table.items()}
 
-        # rafts
+        # rafts and fkeys
         if self.options.dungeon_rewards_setting.value == self.options.dungeon_rewards_setting.option_rewards:
             rafts_to_create = 8 - self.options.dungeon_rewards_count.value
+            spill = 0
             if rafts_to_create < 0:
+                spill = -rafts_to_create
                 rafts_to_create = 0
 
             items_to_create[iname.raft.value] = rafts_to_create
-            # TODO also FKeys
+
+            fkeys_to_create = 4 - spill
+            if fkeys_to_create < 0:
+                fkeys_to_create = 0
+
+            items_to_create[iname.f_key.value] = fkeys_to_create
 
         # if randomize stick is off, give the player a free melee and remove one from the pool
         if not self.options.randomize_stick:
@@ -165,14 +172,17 @@ class ID2World(World):
             items_to_create[iname.d6_key.value] = 5
             items_to_create[iname.d7_key.value] = 5
             items_to_create[iname.d8_key.value] = 8
-            items_to_create[iname.s1_key.value] = 3
-            items_to_create[iname.s2_key.value] = 5
-            items_to_create[iname.s3_key.value] = 5
-            items_to_create[iname.s4_key.value] = 10
-            items_to_create[iname.dd_key.value] = 3
-            items_to_create[iname.dfc_key.value] = 4
-            items_to_create[iname.di_key.value] = 4
-            items_to_create[iname.da_key.value] = 4
+            if self.options.include_secret_dungeons:
+                items_to_create[iname.s1_key.value] = 3
+                items_to_create[iname.s2_key.value] = 5
+                items_to_create[iname.s3_key.value] = 5
+            if self.options.include_secret_dungeons or self.options.goal == options.Goal.option_queen_of_adventure:
+                items_to_create[iname.s4_key.value] = 10
+            if self.options.include_dream_dungeons:
+                items_to_create[iname.dd_key.value] = 3
+                items_to_create[iname.dfc_key.value] = 4
+                items_to_create[iname.di_key.value] = 4
+                items_to_create[iname.da_key.value] = 4
 
         elif self.options.key_settings == KeySettings.option_keyrings:
             items_to_create[iname.d1_keyring.value] = 1
@@ -183,14 +193,17 @@ class ID2World(World):
             items_to_create[iname.d6_keyring.value] = 1
             items_to_create[iname.d7_keyring.value] = 1
             items_to_create[iname.d8_keyring.value] = 1
-            items_to_create[iname.s1_keyring.value] = 1
-            items_to_create[iname.s2_keyring.value] = 1
-            items_to_create[iname.s3_keyring.value] = 1
-            items_to_create[iname.s4_keyring.value] = 1
-            items_to_create[iname.dd_keyring.value] = 1
-            items_to_create[iname.dfc_keyring.value] = 1
-            items_to_create[iname.di_keyring.value] = 1
-            items_to_create[iname.da_keyring.value] = 1
+            if self.options.include_secret_dungeons:
+                items_to_create[iname.s1_keyring.value] = 1
+                items_to_create[iname.s2_keyring.value] = 1
+                items_to_create[iname.s3_keyring.value] = 1
+            if self.options.include_secret_dungeons or self.options.goal == options.Goal.option_queen_of_adventure:
+                items_to_create[iname.s4_keyring.value] = 1
+            if self.options.include_dream_dungeons:
+                items_to_create[iname.dd_keyring.value] = 1
+                items_to_create[iname.dfc_keyring.value] = 1
+                items_to_create[iname.di_keyring.value] = 1
+                items_to_create[iname.da_keyring.value] = 1
 
         elif self.options.key_settings == KeySettings.option_keysey:
             self.multiworld.push_precollected(self.create_item(iname.keysey.value))
@@ -199,8 +212,14 @@ class ID2World(World):
         if self.options.open_s4:
             items_to_create[iname.f_key.value] = 0
 
-        # configure shard count (currently not supported)
+        # configure shard count
         items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 + self.options.extra_shards.value
+
+        # cards
+        if not self.options.include_dream_dungeons:
+            for card in items_to_create.keys():
+                if card in item_name_groups["Cards"]:
+                    items_to_create[card] = 0
 
         # Super Secret stuff
         if self.options.include_super_secrets:
@@ -284,9 +303,9 @@ class ID2World(World):
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # Logic PUML graph stuff
-        # state = self.multiworld.get_all_state(False)
-        # state.update_reachable_regions(self.player)
-        # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
+        state = self.multiworld.get_all_state(False)
+        state.update_reachable_regions(self.player)
+        visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         slot_data = self.options.as_dict(
             "goal",
             "dungeon_rewards_setting",

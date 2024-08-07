@@ -9,7 +9,7 @@ class Goal(Choice):
     Select the goal you need to reach to win.
     Raft Quest: Collect eight Raft Pieces and escape the island.
     Queen of Adventure: Collect eight Raft Pieces, defeat Simulacrum, and escape the island.
-    Queen of Dreams: Complete Quietus and defeat the Dream Moth. This is a short goal.
+    Queen of Dreams: Complete all five Dreamworld dungeons, which will let you escape the island, then do so.
     """
     internal_name = "goal"
     display_name = "Goal"
@@ -26,7 +26,6 @@ class DungeonRewardsSetting(Choice):
     Anything: The reward can be anything
     Priority: The reward can have any item marked progression in the multiworld
     Rewards: The reward can be either a Raft Piece or a Forbidden Key (if Open Tomb of Simulacrum is off).
-    FORBIDDEN KEYS ARE CURRENTLY NOT IN THE POOL.
     If there are more dungeon rewards locations in the pool than available reward items, the rest will be priority locations.
     Tomb of Simulacrum can never have its reward set with this. If you want to require Tomb, use the Queen of Adventure goal.
     Quietus will also never be required.
@@ -48,7 +47,7 @@ class DungeonRewardsCount(Range):
     internal_name = "dungeon_rewards_count"
     displayname = "Dungeon Rewards Count"
     range_start = 0
-    range_end = 12
+    range_end = 15
     default = 4
 
 
@@ -74,7 +73,6 @@ class IncludePortalWorlds(Toggle):
 class IncludeSecretDungeons(Toggle):
     """
     Randomizes any chests in the three shard dungeons and Tomb of Simulacrum.
-    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "include_secret_dungeons"
     display_name = "Include Secret Dungeons"
@@ -109,7 +107,6 @@ class OpenD8(Toggle):
 class OpenS4(Toggle):
     """
     Opens the entrance to Tomb of Simulacrum and removes the Forbidden Keys from the pool.
-    CURRENTLY NOT SUPPORTED. FORBIDDEN KEYS ARE NOT IN THE POOL.
     """
     internal_name = "open_s4"
     display_name = "Open Tomb of Simulacrum"
@@ -136,12 +133,12 @@ class DreamDungeonsDoNotChangeItems(Toggle):
 class KeySettings(Choice):
     """
     How should dungeon keys be treated by the randomizer? Forbidden Keys are not affected by this setting.
-    Default: Keys are individual items. You are logically expected to have every key for a dungeon to open a locked door
+    Default: Keys are individual items.
     Keyrings: All keys are removed and keyrings for each dungeon are placed in the pool instead,
     granting all the keys you need at once
     Keysey: All keys and locks are removed
     """
-    # Eventually add legacy key setting to make a unique key for each lock
+    # TODO Eventually add legacy key setting to make a unique key for each lock
     internal_name = "key_settings"
     display_name = "Key_Settings"
     option_default = 0
@@ -157,9 +154,8 @@ class ShardSettings(Choice):
     Half: Sunken Labyrinth needs 4 Shards to enter, Machine Fortress needs 8, and Dark Hypostyle needs 12.
     Vanilla: Secret dungeons require their normal amount of shards to enter.
     Lockdown: Sunken Labyrinth needs 12 Shards to enter, Machine Fortress needs 24, and Dark Hypostyle needs 36.
-    CURRENTLY NOT SUPPORTED. Shards are not in the pool.
     """
-    # Eventually add settings to make these individually customizable and random
+    # TODO Eventually add settings to make these individually customizable and random
     internal_name = "shard_settings"
     display_name = "Secret Shard Requirements"
     option_open = 0
@@ -172,8 +168,7 @@ class ShardSettings(Choice):
 class ExtraShards(Range):
     """
     Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle,
-    Secret Shards will give you Portal or Cave Scrolls instead.
-    CURRENTLY NOT SUPPORTED. Shards are not in the pool.
+    Secret Shards will give you a random heart instead.
     """
     internal_name = "extra_shards"
     display_name = "Extra Shards"
@@ -283,7 +278,7 @@ class LockpicksInPool(Range):
     display_name = "Lockpicks In Pool"
     range_start = 0
     range_end = 24
-    default = 4
+    default = 12
 
 
 class CrayonsInPool(Range):

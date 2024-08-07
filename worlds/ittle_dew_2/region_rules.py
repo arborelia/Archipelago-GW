@@ -1,7 +1,7 @@
 from typing import List, Dict, TYPE_CHECKING, cast, Tuple
 from random import randint
 from BaseClasses import Region, Location, ItemClassification, LocationProgressType
-from worlds.generic.Rules import CollectionRule
+from worlds.generic.Rules import CollectionRule, forbid_item
 from .locations import location_name_groups
 from .region_data import ID2Type
 from .names_regions import RegionNames as rname
@@ -99,7 +99,6 @@ def convert_key_requirements(key_name: str, world: "ID2World") -> Tuple[str, int
 # create a bunch of empty regions
 def create_id2_regions(world: "ID2World") -> Dict[str, Region]:
     id2_regions: Dict[str, Region] = {}
-    # TODO exclude regions based on options
     for region_name in rname:
         # print(f"CREATING REGION: {region_name}")
         id2_regions[region_name] = Region(region_name, world.player, world.multiworld)
@@ -131,16 +130,22 @@ def determine_required_dungeons(world: "ID2World") -> List[str]:
             lname.d7_boss_reward,
             lname.d8_boss_reward
         ]
+        secret_dungeons: List[lname] = [
+            lname.s1_boss_reward,
+            lname.s2_boss_reward,
+            lname.s3_boss_reward
+        ]
         dream_dungeons: List[lname] = [
             lname.dfc_reward_b,
             lname.df_reward_b,
             lname.dd_reward_b,
             lname.di_reward_b
         ]
-        # TODO support other pools
         world.required_dungeons = []
         all_dungeons: List[lname] = []
         all_dungeons += main_dungeons
+        if options.include_secret_dungeons:
+            all_dungeons += secret_dungeons
         if options.include_dream_dungeons:
             all_dungeons += dream_dungeons
         selected_dungeons: List[str] = []
@@ -168,7 +173,8 @@ def create_regions_with_rules(world: "ID2World") -> None:
         required_dungeons = determine_required_dungeons(world)
         if options.dungeon_rewards_setting.value == options.dungeon_rewards_setting.option_rewards:
             rafts_to_place = 8
-            # TODO FKeys
+            if not options.open_s4:
+                fkeys_to_place = 4
 
     for origin_name, destinations in world.traversal_requirements.items():
         origin_name = cast(str, origin_name.value)
@@ -206,8 +212,10 @@ def create_regions_with_rules(world: "ID2World") -> None:
                             location.place_locked_item(ID2Item(iname.raft.value, ItemClassification.progression,
                                                                item_name_to_id[iname.raft.value], player))
                             rafts_to_place -= 1
-                        # TODO fkeys
-                        # remember that if S4 is in, it can't be an FKey
+                        elif fkeys_to_place > 0:
+                            location.place_locked_item(ID2Item(iname.f_key.value, ItemClassification.progression,
+                                                               item_name_to_id[iname.f_key.value], player))
+                            fkeys_to_place -= 1
                         else:
                             location.progress_type = LocationProgressType.PRIORITY
                     elif destination_name == lname.s4_boss_reward:
@@ -215,6 +223,8 @@ def create_regions_with_rules(world: "ID2World") -> None:
                         if options.goal.value == options.goal.option_queen_of_adventure:
                             quality = ItemClassification.progression
                         location.place_locked_item(ID2Item(iname.loot.value, quality, item_name_to_id[iname.loot.value], player))
+                    if destination_name in location_name_groups["Secret Dungeons"]:
+                        forbid_item(location, iname.shard.value, player)
                 location.access_rule = interpret_rule(data.rules, world)
                 id2_regions[origin_name].locations.append(location)
             elif data.type == ID2Type.region:
