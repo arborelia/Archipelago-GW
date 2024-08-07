@@ -222,7 +222,7 @@ class LocationNames(str, Enum):
     s4_death_ogler_combat = "Tomb of Simulacrum - Death Ogler Combat Key"
     s4_efcs_door = "Tomb of Simulacrum - EFCS Door Key"
     s4_large_chasm = "Tomb of Simulacrum - Large Chasm Key"
-    s4_spiked_orbitals = "Tomb of Simulacrum - Spiked Orbitals"
+    s4_spiked_orbitals = "Tomb of Simulacrum - Spiked Orbitals Key"
     s4_molten_conveyors = "Tomb of Simulacrum - Molten Conveyors Key"
     s4_treasure = "Tomb of Simulacrum - Treasure Chest"
     s4_boss_reward = "Tomb of Simulacrum - Boss Reward Chest"

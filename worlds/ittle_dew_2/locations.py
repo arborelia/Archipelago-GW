@@ -200,7 +200,19 @@ location_table: Dict[str, ID2LocationData] = {
     "Dark Hypostyle - Red Path Key": ID2LocationData(rname.s3_g.value, 1807, "Secret Dungeons"),
     "Dark Hypostyle - Boss Reward Chest": ID2LocationData(rname.s3_d.value, 1808, "Secret Dungeons"),
     # 1900: Tomb of Simulacrum
-
+    "Tomb of Simulacrum - Mercury Jello Number Tiles Key": ID2LocationData(rname.s4_ak.value, 1900, "Secret Dungeons"),
+    "Tomb of Simulacrum - Self Locked Tile Key": ID2LocationData(rname.s4_af.value, 1901, "Secret Dungeons"),
+    "Tomb of Simulacrum - Eight Tile Key": ID2LocationData(rname.s4_ab.value, 1902, "Secret Dungeons"),
+    "Tomb of Simulacrum - Roundabout Crystal Key": ID2LocationData(rname.s4_u.value, 1903, "Secret Dungeons"),
+    "Tomb of Simulacrum - Corner Torch Key": ID2LocationData(rname.s4_q.value, 1904, "Secret Dungeons"),
+    "Tomb of Simulacrum - Crayon Chest": ID2LocationData(rname.s4_ac.value, 1905, "Secret Dungeons"),
+    "Tomb of Simulacrum - Death Ogler Combat Key": ID2LocationData(rname.s4_ai.value, 1906, "Secret Dungeons"),
+    "Tomb of Simulacrum - EFCS Door Key": ID2LocationData(rname.s4_s.value, 1907, "Secret Dungeons"),
+    "Tomb of Simulacrum - Large Chasm Key": ID2LocationData(rname.s4_y.value, 1908, "Secret Dungeons"),
+    "Tomb of Simulacrum - Spiked Orbitals Key": ID2LocationData(rname.s4_t.value, 1909, "Secret Dungeons"),
+    "Tomb of Simulacrum - Molten Conveyors Key": ID2LocationData(rname.s4_aq.value, 1910, "Secret Dungeons"),
+    "Tomb of Simulacrum - Treasure Chest": ID2LocationData(rname.s4_i.value, 1911, "Secret Dungeons"),
+    "Tomb of Simulacrum - Boss Reward Chest": ID2LocationData(rname.s4_g.value, 1912, "Secret Dungeons"),
     # 2000: Syncope
     "Syncope - Shifting Chamber Key": ID2LocationData(rname.dd_sc.value, 2000, "Dreamworld"),
     "Syncope - Switch Chamber Card": ID2LocationData(rname.dd_am.value, 2001, "Dreamworld"),

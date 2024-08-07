@@ -3046,6 +3046,355 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.s3_r:
             ID2Data(ID2Type.region),
     },
+    # Tomb of Simulacrum:
+    rname.s4_a: {
+        rname.s4_h:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.force.value, iname.ice.value],
+                                     [iname.can_phase_object.value, iname.roll.value],
+                                     [iname.can_phase_object.value, iname.ice.value],
+                                     [iname.can_phase_object.value, iname.force.value]]),
+    },
+    rname.s4_b: {
+        rname.s4_a:
+            ID2Data(ID2Type.region, [[iname.force.value, iname.ice.value],
+                                     [iname.can_phase_object.value, iname.ice.value],
+                                     [iname.can_phase_object.value, iname.melee.value, iname.ice.value]]),
+    },
+    rname.s4_c: {
+        rname.s4_b:
+            ID2Data(ID2Type.region, [[iname.force.value, iname.dynamite.value, iname.ice.value],
+                                     [iname.can_phase_gap.value, iname.weapon_no_force.value]]),
+        rname.s4_d:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+        rname.s4_j:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_object.value, iname.roll.value]]),
+    },
+    rname.s4_d: {
+        rname.s4_c:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+        rname.s4_k:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+    },
+    rname.s4_e: {
+        rname.s4_f:
+            ID2Data(ID2Type.region),
+        rname.s4_l:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_f: {
+        rname.s4_e:
+            ID2Data(ID2Type.region, [[iname.dynamite.value, iname.roll.value],
+                                     [iname.can_phase_gap.value]]),
+        rname.s4_m:
+            ID2Data(ID2Type.region, [[iname.dynamite.value, iname.roll.value],
+                                     [iname.can_phase_gap.value]]),
+    },
+    rname.s4_g: {
+        # Loot is added manually in rules
+        rname.s4_n:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s4_h: {
+        rname.s4_i:
+            ID2Data(ID2Type.region, [[iname.force.value, iname.ice.value],
+                                     [iname.can_phase_object.value, iname.roll.value],
+                                     [iname.can_phase_object.value, iname.ice.value]]),
+    },
+    rname.s4_i: {
+        lname.s4_treasure:
+            ID2Data(ID2Type.location, [[iname.force_jump.value],
+                                       [iname.can_phase_object.value, iname.ice.value,]]),
+        rname.s4_j:
+            ID2Data(ID2Type.region, [[iname.force_jump.value],
+                                     [iname.can_phase_object.value, iname.ice.value]]),
+    },
+    rname.s4_j: {
+        rname.s4_k:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*8"]]),
+        rname.s4_ao_left:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_k: {
+        rname.s4_j:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+        rname.s4_d:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*9"]]),
+        rname.s4_r:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_l: {
+        rname.s4_e:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_m: {
+        rname.s4_f:
+            ID2Data(ID2Type.region),
+        rname.s4_n:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_n: {
+        rname.s4_g:
+            ID2Data(ID2Type.region),
+        rname.s4_m:
+            ID2Data(ID2Type.region),
+        rname.s4_t:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_o: {
+        rname.s4_p:
+            ID2Data(ID2Type.region, [[iname.can_phase_enemy.value, iname.s4_key.value + "*10"],
+                                     [iname.can_phase_dynamite.value, iname.s4_key.value + "*10"]]),
+        rname.s4_ah:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value],
+                                     [iname.can_phase_enemy_difficult.value]]),
+    },
+    rname.s4_p: {
+        rname.s4_o:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*2"]]),
+        rname.s4_q:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.s4_v:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+    },
+    rname.s4_q: {
+        lname.s4_corner_torch:
+            ID2Data(ID2Type.location, [[iname.fire_mace.value, iname.ice.value],
+                                       [iname.can_phase_object.value, iname.ice.value]]),
+        rname.s4_w:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_gap.value, iname.roll.value]]),
+    },
+    rname.s4_r: {
+        rname.s4_x:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+        rname.s4_ad:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_s: {
+        lname.s4_efcs_door:
+            ID2Data(ID2Type.location),
+        rname.s4_l:
+            ID2Data(ID2Type.region, [[iname.fake_efcs.value]]),
+        rname.s4_t:
+            ID2Data(ID2Type.region),
+        rname.s4_y:
+            ID2Data(ID2Type.region),
+        rname.s4_ad:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_t: {
+        lname.s4_spiked_orbitals:
+            ID2Data(ID2Type.location),
+        rname.s4_y:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_u: {
+        lname.s4_roundabout_crystal:
+            ID2Data(ID2Type.location, [[iname.melee.value, iname.force.value, iname.dynamite.value, iname.ice.value],
+                                       [iname.can_phase_object.value, iname.ice.value, iname.weapon_projectile.value],
+                                       [iname.can_phase_object.value, iname.ice.value, iname.roll.value]
+                                       [iname.can_phase_dynamite.value]]),
+    },
+    rname.s4_v: {
+        rname.s4_p:
+            ID2Data(ID2Type.region, [[iname.s4_key.value]]),
+        rname.s4_w:
+            ID2Data(ID2Type.region, [[iname.ice.value]]),
+    },
+    rname.s4_w: {
+        rname.s4_ae:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_x: {
+        rname.s4_r:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*5"]]),
+        rname.s4_w:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_gap.value, iname.roll.value]]),
+        rname.s4_ac:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+    },
+    rname.s4_y: {
+        lname.s4_large_chasm:
+            ID2Data(ID2Type.location, [[iname.roll.value]]),
+        rname.s4_s:
+            ID2Data(ID2Type.region),
+        rname.s4_t:
+            ID2Data(ID2Type.region),
+        rname.s4_ad:
+            ID2Data(ID2Type.region),
+        rname.s4_ai:
+            ID2Data(ID2Type.region),
+        rname.s4_aj:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_z: {
+        rname.s4_u:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.roll.value],
+                                     [iname.ice.value, iname.roll.value]]),
+        rname.s4_aa:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.roll.value],
+                                     [iname.ice.value, iname.roll.value]]),
+        rname.s4_ae:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.roll.value],
+                                     [iname.ice.value, iname.roll.value]]),
+    },
+    rname.s4_aa: {
+        rname.s4_v:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.dynamite.value, iname.roll.value]]),
+        rname.s4_z:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.dynamite.value, iname.roll.value]]),
+        rname.s4_af:
+            ID2Data(ID2Type.region, [[iname.melee.value, iname.dynamite.value, iname.roll.value]]),
+    },
+    rname.s4_ab: {
+        lname.s4_eight_tile:
+            ID2Data(ID2Type.location, [[iname.force.value, iname.ice.value],
+                                       [iname.can_phase_gap.value, iname.ice.value]]),
+        rname.s4_w:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_gap.value, iname.ice.value]]),
+        rname.s4_aa:
+            ID2Data(ID2Type.region, [[iname.force.value, iname.ice.value],
+                                     # phase the ice block over the gap
+                                     [iname.can_phase_gap.value, iname.ice.value]]),
+    },
+    rname.s4_ac: {
+        lname.s4_crayon:
+            ID2Data(ID2Type.location, [[iname.fake_efcs.value, iname.ice.value],
+                                       [iname.can_phase_gap.value, iname.ice.value]]),
+        rname.s4_x:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*4"]]),
+        rname.s4_ah:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]])
+    },
+    rname.s4_ad: {
+        rname.s4_r:
+            ID2Data(ID2Type.region),
+        rname.s4_s:
+            ID2Data(ID2Type.region),
+        rname.s4_y:
+            ID2Data(ID2Type.region),
+        rname.s4_ai:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_ae: {
+        rname.s4_w:
+            ID2Data(ID2Type.region),
+        rname.s4_z:
+            ID2Data(ID2Type.region),
+        rname.s4_af:
+            ID2Data(ID2Type.region),
+        rname.s4_ak:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_af: {
+        lname.s4_self_locked_tile:
+            ID2Data(ID2Type.location, [[iname.melee.value, iname.ice.value],
+                                       [iname.can_phase_object.value, iname.ice.value, iname.roll.value]]),
+        rname.s4_aa:
+            ID2Data(ID2Type.region, [[iname.fire_mace.value, iname.force.value, iname.dynamite.value, iname.ice.value]]),
+        rname.s4_ae:
+            ID2Data(ID2Type.region),
+        rname.s4_ag:
+            ID2Data(ID2Type.region),
+        rname.s4_al:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_ag: {
+        rname.s4_ab:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+        rname.s4_af:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_ah: {
+        rname.s4_o:
+            ID2Data(ID2Type.region),
+        rname.s4_ac:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*3"]]),
+        rname.s4_an:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_gap.value, iname.roll.value]]),
+    },
+    rname.s4_ai: {
+        lname.s4_death_ogler_combat:
+            ID2Data(ID2Type.location, [[iname.basic_combat.value, iname.roll.value],
+                                       [iname.can_phase_enemy_difficult.value]]),
+        rname.s4_y:
+            ID2Data(ID2Type.region),
+        rname.s4_ad:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_aj: {
+        rname.s4_y:
+            ID2Data(ID2Type.region),
+        rname.s4_aq:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.roll.value]]),
+    },
+    rname.s4_ak: {
+        lname.s4_mercury_jello_number_tiles:
+            ID2Data(ID2Type.location, [[iname.dynamite.value],
+                                       [iname.can_phase_object.value, iname.ice.value, iname.roll.value]]),
+        rname.s4_ae:
+            ID2Data(ID2Type.region, [[iname.dynamite.value, iname.weapon_projectile.value],
+                                     [iname.can_phase_object.value, iname.ice.value, iname.roll.value]]),
+    },
+    rname.s4_al: {
+        rname.s4_af:
+            ID2Data(ID2Type.region),
+        rname.s4_ak:
+            ID2Data(ID2Type.region, [[iname.melee.value],
+                                     [iname.ice.value],
+                                     [iname.can_phase_doors.value]]),
+    },
+    rname.s4_am: {
+        rname.s4_ag:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.s4_al:
+            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+        rname.s4_an:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_an: {
+        rname.s4_am:
+            ID2Data(ID2Type.region),
+        rname.forbidden_area_north:
+            ID2Data(ID2Type.region),
+    },
+    rname.s4_ao_left: {
+        rname.s4_j:
+            ID2Data(ID2Type.region),
+        rname.s4_an:
+            ID2Data(ID2Type.region, [[iname.ice.value],
+                                     [iname.can_phase_gap.value, iname.roll.value]]),
+        rname.s4_ao_right:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value],
+                                     [iname.can_phase_object.value]]),
+    },
+    rname.s4_ao_right: {
+        rname.s4_ao_left:
+            ID2Data(ID2Type.region, [[iname.force.value, iname.ice.value],
+                                     [iname.can_phase_object.value, iname.roll.value]]),
+        rname.s4_ap:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+    },
+    rname.s4_ap: {
+        rname.s4_ai:
+            ID2Data(ID2Type.region),
+        rname.s4_ao_right:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*7"]]),
+        rname.s4_aq:
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*10"]]),
+    },
+    rname.s4_aq: {
+        lname.s4_molten_conveyors:
+            ID2Data(ID2Type.location, [[iname.force.value, iname.dynamite.value],
+                                       [iname.can_phase_gap_difficult.value, iname.roll.value]]),
+        rname.s4_aq:
+            ID2Data(ID2Type.region, [[iname.weapon_no_dynamite.value, iname.s4_key.value + "*6"],
+                                     [iname.can_phase_doors.value, iname.s4_key.value + "*6"]]),
+    },
     # Dreamworld Dungeons
     # Wizardry Lab
     rname.df_b: {

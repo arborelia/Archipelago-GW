@@ -514,7 +514,8 @@ class RegionNames(str, Enum):
     s4_al = "Tomb of Simulacrum AL"
     s4_am = "Tomb of Simulacrum AM"
     s4_an = "Tomb of Simulacrum AN"
-    s4_ao = "Tomb of Simulacrum AO"
+    s4_ao_left = "Tomb of Simulacrum AO Left"
+    s4_ao_right = "Tomb of Simulacrum AO Right"
     s4_ap = "Tomb of Simulacrum AP"
     s4_aq = "Tomb of Simulacrum AQ"
 
