@@ -73,6 +73,7 @@ class IncludePortalWorlds(Toggle):
 class IncludeSecretDungeons(Toggle):
     """
     Randomizes any chests in the three shard dungeons and Tomb of Simulacrum.
+    Even if this is off, Tomb of Simulacrum will be included if Queen of Adventure is the goal
     """
     internal_name = "include_secret_dungeons"
     display_name = "Include Secret Dungeons"
@@ -81,6 +82,7 @@ class IncludeSecretDungeons(Toggle):
 class IncludeDreamDungeons(Toggle):
     """
     Randomizes any chests and cards in the five Dreamworld dungeons.
+    This will automatically be turned on if the goal is Queen of Dreams.
     """
     internal_name = "include_dream_dungeons"
     display_name = "Include Dream Dungeons"
@@ -133,6 +135,7 @@ class DreamDungeonsDoNotChangeItems(Toggle):
 class KeySettings(Choice):
     """
     How should dungeon keys be treated by the randomizer? Forbidden Keys are not affected by this setting.
+    Keys for dungeons not randomized will not be included.
     Default: Keys are individual items.
     Keyrings: All keys are removed and keyrings for each dungeon are placed in the pool instead,
     granting all the keys you need at once
@@ -154,6 +157,7 @@ class ShardSettings(Choice):
     Half: Sunken Labyrinth needs 4 Shards to enter, Machine Fortress needs 8, and Dark Hypostyle needs 12.
     Vanilla: Secret dungeons require their normal amount of shards to enter.
     Lockdown: Sunken Labyrinth needs 12 Shards to enter, Machine Fortress needs 24, and Dark Hypostyle needs 36.
+    If Include Secret Dungeons is off, shards will not be in the pool.
     """
     # TODO Eventually add settings to make these individually customizable and random
     internal_name = "shard_settings"
@@ -169,6 +173,7 @@ class ExtraShards(Range):
     """
     Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle,
     Secret Shards will give you a random heart instead.
+    If Include Secret Dungeons is off, shards will not be in the pool.
     """
     internal_name = "extra_shards"
     display_name = "Extra Shards"

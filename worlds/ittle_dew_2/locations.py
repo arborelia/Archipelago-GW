@@ -1,10 +1,10 @@
-from typing import Dict, NamedTuple, Set, Optional
+from typing import Dict, NamedTuple, Set, Optional, Union
 from .names_regions import RegionNames as rname
 
 
 class ID2LocationData(NamedTuple):
     region: str
-    location_id_offset: int
+    location_id_offset: Union[int, None]
     location_group: Optional[str] = None
 
 
@@ -297,7 +297,47 @@ location_table: Dict[str, ID2LocationData] = {
     
     # 2600+: Misc Locations
     "Ludo City - Chest": ID2LocationData(rname.ludo_city.value, 2600, "Super Secrets"),
-    "Bad Dream - Card": ID2LocationData(rname.bad_dream.value, 2602, "Super Secrets")
+    "Bad Dream - Card": ID2LocationData(rname.bad_dream.value, 2602, "Super Secrets"),
+}
+
+event_location_table: Dict[str, ID2LocationData] = {
+    "Flooded Basement K South Door": ID2LocationData(rname.d5_k_top.value, None),
+    "Flooded Basement Crossway Access": ID2LocationData(rname.d5_o_top.value, None),
+    "Grand Library K Left Door": ID2LocationData(rname.d8_k_left.value, None),
+    "Grand Library K Right Door": ID2LocationData(rname.d8_k_right.value, None),
+    "Sunken Labyrinth Q Blocks": ID2LocationData(rname.s1_q_right.value, None, "Secret Dungeons"),
+    "Wizardry Lab Southwest Generator Activated": ID2LocationData(rname.df_ae.value, None, "Dreamworld"),
+    "Wizardry Lab Southeast Generator Activated": ID2LocationData(rname.df_ag.value, None, "Dreamworld"),
+    "Wizardry Lab Northwest Generator Activated": ID2LocationData(rname.df_w.value, None, "Dreamworld"),
+    "Wizardry Lab Northeast Generator Activated": ID2LocationData(rname.df_aa.value, None, "Dreamworld"),
+    "Wizardry Lab Northeast Circuit Connected": ID2LocationData(rname.df_e.value, None, "Dreamworld"),
+    "Wizardry Lab Southwest Circuit Connected": ID2LocationData(rname.df_x.value, None, "Dreamworld"),
+    "Wizardry Lab Southeast Circuit Connected": ID2LocationData(rname.df_z.value, None, "Dreamworld"),
+    "Syncope Chamber Switching": ID2LocationData(rname.dd_am.value, None, "Dreamworld"),
+    "Syncope E Block Available": ID2LocationData(rname.dd_e.value, None, "Dreamworld"),
+    "Syncope Garden Block Moved": ID2LocationData(rname.dd_w.value, None, "Dreamworld"),
+    "Syncope West Clock Wound": ID2LocationData(rname.dd_y.value, None, "Dreamworld"),
+    "Syncope East Clock Wound": ID2LocationData(rname.dd_ab.value, None, "Dreamworld"),
+    "Syncope North Clock Wound": ID2LocationData(rname.dd_l.value, None, "Dreamworld"),
+    "Syncope Piano Code Found": ID2LocationData(rname.dd_w.value, None, "Dreamworld"),
+    "Antigram Left Switch Pressed": ID2LocationData(rname.dfc_h_left.value, None, "Dreamworld"),
+    "Antigram Right Switch Pressed": ID2LocationData(rname.dfc_h_right.value, None, "Dreamworld"),
+    "Bottomless Tower First Floor Green Fire Obtained": ID2LocationData(rname.di_o.value, None, "Dreamworld"),
+    "Bottomless Tower Second Floor Green Fire Obtained": ID2LocationData(rname.di_q.value, None, "Dreamworld"),
+    "Bottomless Tower Third Floor Green Fire Obtained": ID2LocationData(rname.di_aa.value, None, "Dreamworld"),
+    "Quietus Northwest Crystal": ID2LocationData(rname.da_a.value, None, "Dreamworld"),
+    "Quietus Northeast Crystal": ID2LocationData(rname.da_c.value, None, "Dreamworld"),
+    "Quietus Southwest Crystal": ID2LocationData(rname.da_w.value, None, "Dreamworld"),
+    "Quietus Southeast Crystal": ID2LocationData(rname.da_aa.value, None, "Dreamworld"),
+    "Quietus Central Crystal": ID2LocationData(rname.da_n.value, None, "Dreamworld"),
+    "Finished Wizardry Lab": ID2LocationData(rname.dd_ah.value, None, "Dreamworld"),
+    "Finished Syncope": ID2LocationData(rname.dd_ao.value, None, "Dreamworld"),
+    "Finished Antigram": ID2LocationData(rname.dfc_a.value, None, "Dreamworld"),
+    "Finished Bottomless Tower": ID2LocationData(rname.di_z.value, None, "Dreamworld"),
+    "The Vault West Switch": ID2LocationData(rname.the_vault_b_left.value, None, "Portal Worlds"),
+    "The Vault East Switch": ID2LocationData(rname.the_vault_b_right.value, None, "Portal Worlds"),
+    "Scrap Yard West Block": ID2LocationData(rname.scrap_yard_c_left.value, None, "Portal Worlds"),
+    "Scrap Yard East Block": ID2LocationData(rname.scrap_yard_c_right.value, None, "Portal Worlds"),
 }
 
 location_name_to_id: Dict[str, int] = {name: location_base_id + data.location_id_offset for name, data in location_table.items()}
@@ -308,3 +348,7 @@ for loc_name, loc_data in location_table.items():
     location_name_groups.setdefault(loc_group_name, set()).add(loc_name)
     if loc_data.location_group:
         location_name_groups.setdefault(loc_data.location_group, set()).add(loc_name)
+for event_name, event_data in event_location_table.items():
+    if event_data.location_group:
+        location_name_groups.setdefault(event_data.location_group, set()).add(event_name)
+

@@ -1,16 +1,5 @@
 from enum import Enum
-from typing import List
 
-cave_regions: List[str] = [
-    "Fluffy Fields Caves",
-    "Sweetwater Coast Caves",
-    "Fancy Ruins Caves",
-    "Star Woods Caves",
-    "Slippery Slope Caves",
-    "Pepperpain Caves",
-    "Frozen Court Caves",
-    "Lonely Road Caves"
-]
 
 class RegionNames(str, Enum):
     def __str__(self) -> str:

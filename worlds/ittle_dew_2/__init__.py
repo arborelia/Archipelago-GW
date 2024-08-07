@@ -71,6 +71,10 @@ class ID2World(World):
         dungeon_count = 8
         if self.options.include_secret_dungeons:
             dungeon_count += 3
+        else:
+            self.options.open_s4.value = options.OpenS4.option_false
+            self.options.shard_settings.value = options.ShardSettings.option_open
+            self.options.extra_shards.value = 0
         if self.options.include_dream_dungeons:
             dungeon_count += 4
         if self.options.dungeon_rewards_setting.value != options.DungeonRewardsSetting.option_anything and self.options.dungeon_rewards_count.value > dungeon_count:

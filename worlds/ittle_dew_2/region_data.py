@@ -517,8 +517,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.forbidden_area_north:
             ID2Data(ID2Type.region, [[iname.has_opened_s4.value],
-                                     [iname.can_phase_dynamite.value, iname.roll.value],
-                                     [iname.can_phase_object_difficult.value, iname.ice.value, iname.roll.value]]),
+                                     [iname.major_skips.value, iname.can_phase_dynamite.value, iname.roll.value],
+                                     [iname.major_skips.value, iname.can_phase_object_difficult.value, iname.ice.value, iname.roll.value]]),
         rname.lrc_i_right:
             ID2Data(ID2Type.region),
         rname.lrc_j:
@@ -3392,7 +3392,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.s4_molten_conveyors:
             ID2Data(ID2Type.location, [[iname.force.value, iname.dynamite.value],
                                        [iname.can_phase_gap_difficult.value, iname.roll.value]]),
-        rname.s4_aq:
+        rname.s4_ap:
             ID2Data(ID2Type.region, [[iname.weapon_no_dynamite.value, iname.s4_key.value + "*6"],
                                      [iname.can_phase_doors.value, iname.s4_key.value + "*6"]]),
     },
