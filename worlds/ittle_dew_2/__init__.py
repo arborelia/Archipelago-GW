@@ -3,7 +3,6 @@ from copy import deepcopy
 
 import Options
 from BaseClasses import Location, Item, Tutorial, ItemClassification
-from random import randint
 from Utils import visualize_regions
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
@@ -406,19 +405,19 @@ class ID2World(World):
         if piano_option != options.RandomizePianoPuzzle.option_off:
             new_text = ""
             if piano_option == options.RandomizePianoPuzzle.option_full_random:
-                word_length = randint(3, 7)
+                word_length = self.random.randint(3, 7)
                 for _ in range(word_length):
-                    rnd = randint(0, len(white_keys) - 1)
+                    rnd = self.random.randint(0, len(white_keys) - 1)
                     new_text += white_keys[rnd]
             else:
-                rnd = randint(0, len(words) - 1)
+                rnd = self.random.randint(0, len(words) - 1)
                 new_text = words[rnd]
             if piano_option != options.RandomizePianoPuzzle.option_words:
                 sharp_text = ""
                 for letter in new_text:
                     new_letter = letter
                     if letter in black_keys.keys():
-                        rnd = randint(0, 1)
+                        rnd = self.random.randint(0, 1)
                         if rnd == 0:
                             new_letter = black_keys[letter]
                     sharp_text += new_letter

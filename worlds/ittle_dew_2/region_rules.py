@@ -1,5 +1,4 @@
 from typing import List, Dict, TYPE_CHECKING, cast, Tuple
-from random import randint
 from BaseClasses import Region, Location, ItemClassification, LocationProgressType
 from worlds.generic.Rules import CollectionRule, forbid_item
 from .locations import location_name_groups
@@ -152,7 +151,7 @@ def determine_required_dungeons(world: "ID2World") -> List[str]:
         while len(selected_dungeons) < options.dungeon_rewards_count.value:
             if len(all_dungeons) == 0:
                 raise ValueError("Not enough dungeons to place rewards in!")
-            rnd = randint(0, len(all_dungeons) - 1)
+            rnd = world.random.randint(0, len(all_dungeons) - 1)
             dungeon = all_dungeons[rnd]
             selected_dungeons.append(dungeon)
             world.required_dungeons.append(dungeon.value.split(" - ", 1)[0])
