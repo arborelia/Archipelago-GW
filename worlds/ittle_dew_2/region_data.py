@@ -2852,7 +2852,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.s2_hyperdusa_conveyor:
             ID2Data(ID2Type.location),
         rname.s2_h:
-            ID2Data(ID2Type.region, [[iname.s2_key.value]]),
+            ID2Data(ID2Type.region, [[iname.s2_key.value + "*1"]]),
         rname.s2_p:
             ID2Data(ID2Type.region),
         rname.s2_q:
@@ -3199,7 +3199,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.s4_v: {
         rname.s4_p:
-            ID2Data(ID2Type.region, [[iname.s4_key.value]]),
+            ID2Data(ID2Type.region, [[iname.s4_key.value + "*1"]]),
         rname.s4_w:
             ID2Data(ID2Type.region, [[iname.ice.value]]),
     },
