@@ -66,6 +66,8 @@ class ID2World(World):
 
     def generate_early(self) -> None:
         self.piano_puzzle = self.generate_piano_puzzle()
+        if self.options.goal.value == options.Goal.option_queen_of_dreams:
+            self.options.include_dream_dungeons.value = options.IncludeDreamDungeons.option_true
 
         dungeon_count = 8
         if self.options.include_secret_dungeons:
