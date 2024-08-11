@@ -188,7 +188,11 @@ def create_regions_with_rules(world: "ID2World") -> None:
                         # print("Portal Worlds are off, excluding this location.")
                         continue
                 if not options.include_secret_dungeons:
-                    if destination_name in location_name_groups["Secret Dungeons"]:
+                    if options.goal.value == options.goal.option_queen_of_adventure:
+                        if destination_name in location_name_groups["Secret Dungeons"] and destination_name not in location_name_groups["Tomb of Simulacrum"]:
+                            print("Secret Dungeons are off, excluding this location.")
+                            continue
+                    elif destination_name in location_name_groups["Secret Dungeons"]:
                         print("Secret Dungeons are off, excluding this location.")
                         continue
                 if not options.include_dream_dungeons:
