@@ -8,8 +8,9 @@ class Goal(Choice):
     """
     Select the goal you need to reach to win.
     Raft Quest: Collect eight Raft Pieces and escape the island.
-    Queen of Adventure: Collect eight Raft Pieces, defeat Simulacrum, and escape the island.
+    Queen of Adventure: Collect eight Raft Pieces, defeat Simulacrum and get the Big Ol' Bag Of Loot, and escape the island.
     Queen of Dreams: Complete all five Dreamworld dungeons, which will let you escape the island, then do so.
+    In Queen of Dreams, only one Raft Piece is in the pool, Grand Library is forced open, and you cannot set Dungeon Rewards Setting.
     """
     internal_name = "goal"
     display_name = "Goal"
@@ -29,6 +30,7 @@ class DungeonRewardsSetting(Choice):
     If there are more dungeon rewards locations in the pool than available reward items, the rest will be priority locations.
     Tomb of Simulacrum can never have its reward set with this. If you want to require Tomb, use the Queen of Adventure goal.
     Quietus will also never be required.
+    Incompatible with Queen of Dreams Goal (this setting will be ignored if that goal is set)
     """
     internal_name = "dungeon_rewards_setting"
     display_name = "Dungeon Rewards Setting"
@@ -101,6 +103,7 @@ class IncludeSuperSecrets(Toggle):
 class OpenD8(Toggle):
     """
     Opens the entrance to Grand Library, removing the need to collect seven Raft Pieces.
+    This setting is forced on if you have the Queen of Adventure goal.
     """
     internal_name = "open_d8"
     display_name = "Open Grand Library"

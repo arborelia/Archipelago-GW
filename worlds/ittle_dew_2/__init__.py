@@ -68,6 +68,8 @@ class ID2World(World):
         self.piano_puzzle = self.generate_piano_puzzle()
         if self.options.goal.value == options.Goal.option_queen_of_dreams:
             self.options.include_dream_dungeons.value = options.IncludeDreamDungeons.option_true
+            self.options.dungeon_rewards_setting.value = options.DungeonRewardsSetting.option_anything
+            self.options.open_d8.value = options.OpenD8.option_true
 
         dungeon_count = 8
         if self.options.include_secret_dungeons:
@@ -145,6 +147,9 @@ class ID2World(World):
                 fkeys_to_create = 0
 
             items_to_create[iname.f_key.value] = fkeys_to_create
+
+        if self.options.goal.value == options.Goal.option_queen_of_dreams:
+            items_to_create[iname.raft.value] = 1
 
         # if randomize stick is off, give the player a free melee and remove one from the pool
         if not self.options.randomize_stick:
