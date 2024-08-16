@@ -103,7 +103,7 @@ class IncludeSuperSecrets(Toggle):
 class OpenD8(Toggle):
     """
     Opens the entrance to Grand Library, removing the need to collect seven Raft Pieces.
-    This setting is forced on if you have the Queen of Adventure goal.
+    This setting is forced on if you have the Queen of Dreams goal.
     """
     internal_name = "open_d8"
     display_name = "Open Grand Library"
