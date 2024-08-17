@@ -351,8 +351,8 @@ class ID2World(World):
         )
         slot_data["required_dungeons"] = self.required_dungeons
         slot_data["piano_puzzle"] = self.piano_puzzle
-        print("SLOT DATA:")
-        print(slot_data)
+        # print("SLOT DATA:")
+        # print(slot_data)
         return slot_data
 
     # Universal Tracker stuff

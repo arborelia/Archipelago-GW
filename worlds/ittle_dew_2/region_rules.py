@@ -54,7 +54,7 @@ def get_requirement_quantities(reqs: List[List[str]], world: "ID2World") -> List
     new_list: List[Dict[str, int]] = []
     for sublist in reqs:
         item_reqs: Dict[str, int] = {}
-        print("LOGICAL REQUIREMENTS:")
+        # print("LOGICAL REQUIREMENTS:")
         for item in sublist:
             if "*" in item:
                 if "Key" in item and "Forbidden" not in item:
@@ -65,9 +65,9 @@ def get_requirement_quantities(reqs: List[List[str]], world: "ID2World") -> List
                     item_reqs[components[0]] = int(components[1])
             else:
                 item_reqs[item] = 1
-                print(f"Adding a single {item}")
+                # print(f"Adding a single {item}")
 
-            print(f"DICTIONARY LENGTH: {len(item_reqs)}")
+            # print(f"DICTIONARY LENGTH: {len(item_reqs)}")
 
         new_list.append(item_reqs)
 
@@ -81,7 +81,7 @@ def convert_key_requirements(key_name: str, world: "ID2World") -> Tuple[str, int
     components = key_name.split("*")
     item = components[0]
     quantity = int(components[1])
-    print(f"Converting key requirements for {quantity} {item}s")
+    # print(f"Converting key requirements for {quantity} {item}s")
     if key_setting.value == KeySettings.option_keyrings:
         item += " Ring"
         quantity = 1
@@ -90,7 +90,7 @@ def convert_key_requirements(key_name: str, world: "ID2World") -> Tuple[str, int
         quantity = 1
 
     converted_item = item, quantity
-    print(converted_item)
+    # print(converted_item)
 
     return converted_item
 
@@ -111,8 +111,8 @@ def interpret_rule(reqs: List[List[str]], world: "ID2World") -> CollectionRule:
         reqs = convert_helper_reqs(helper_name, reqs)
 
     item_reqs = get_requirement_quantities(reqs, world)
-    print("REQUIREMENTS INTERPRETED: ")
-    print(item_reqs)
+    # print("REQUIREMENTS INTERPRETED: ")
+    # print(item_reqs)
     return lambda state: any(state.has_all_counts(sublist, world.player) for sublist in item_reqs)
 
 
@@ -178,11 +178,11 @@ def create_regions_with_rules(world: "ID2World") -> None:
     for origin_name, destinations in world.traversal_requirements.items():
         origin_name = cast(str, origin_name.value)
 
-        print("ADDING REGION: " + origin_name)
+        # print("ADDING REGION: " + origin_name)
         for destination_name, data in destinations.items():
             destination_name = cast(str, destination_name.value)
             if data.type == ID2Type.location:
-                print(f"ADDING LOCATION: {destination_name}")
+                # print(f"ADDING LOCATION: {destination_name}")
                 if not options.include_portal_worlds:
                     if destination_name in location_name_groups["Portal Worlds"]:
                         # print("Portal Worlds are off, excluding this location.")
@@ -190,14 +190,14 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 if not options.include_secret_dungeons:
                     if options.goal.value == options.goal.option_queen_of_adventure:
                         if destination_name in location_name_groups["Secret Dungeons"] and destination_name not in location_name_groups["Tomb of Simulacrum"]:
-                            print("Secret Dungeons are off, excluding this location.")
+                            # print("Secret Dungeons are off, excluding this location.")
                             continue
                     elif destination_name in location_name_groups["Secret Dungeons"]:
-                        print("Secret Dungeons are off, excluding this location.")
+                        # print("Secret Dungeons are off, excluding this location.")
                         continue
                 if not options.include_dream_dungeons:
                     if destination_name in location_name_groups["Dreamworld"]:
-                        print("Dream Dungeons are off, excluding this location.")
+                        # print("Dream Dungeons are off, excluding this location.")
                         continue
                 if not options.include_super_secrets:
                     if destination_name in location_name_groups["Super Secrets"]:
@@ -231,8 +231,7 @@ def create_regions_with_rules(world: "ID2World") -> None:
                 location.access_rule = interpret_rule(data.rules, world)
                 id2_regions[origin_name].locations.append(location)
             elif data.type == ID2Type.region:
-                print(f"ADDING REGION CONNECTION: {destination_name}")
-                # TODO add shard requirements for shard dungeons (maybe make that an item?)
+                # print(f"ADDING REGION CONNECTION: {destination_name}")
                 id2_regions[origin_name].connect(connecting_region=id2_regions[destination_name],
                                                  rule=interpret_rule(data.rules, world))
             # print("DATA RULES:")
