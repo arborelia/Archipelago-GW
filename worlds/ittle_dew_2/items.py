@@ -149,7 +149,9 @@ none_item_table: Dict[str, ID2ItemData] = {
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}
 
-filler_items: List[str] = [name for name, data in item_table.items() if data.classification in [ItemClassification.filler | ItemClassification.trap] and data.quantity_in_item_pool == 0]
+filler_items: List[str] = [name for name, data in item_table.items() if
+                           (data.classification in ItemClassification.filler or
+                            data.classification in ItemClassification.trap) and data.quantity_in_item_pool == 0]
 
 
 def get_item_group(item_name: str) -> str:
