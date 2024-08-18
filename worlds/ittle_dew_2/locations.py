@@ -1,10 +1,10 @@
-from typing import Dict, NamedTuple, Set, Optional
+from typing import Dict, NamedTuple, Set, Optional, Union
 from .names_regions import RegionNames as rname
 
 
 class ID2LocationData(NamedTuple):
     region: str
-    location_id_offset: int
+    location_id_offset: Union[int, None]
     location_group: Optional[str] = None
 
 
@@ -173,22 +173,110 @@ location_table: Dict[str, ID2LocationData] = {
     "Grand Library - Boss Reward Chest": ID2LocationData(rname.d8_rewards.value, 1511, "Dungeons"),
     "Grand Library - Extra Boss Reward Chest": ID2LocationData(rname.d8_rewards.value, 1512, "Dungeons"),
     # 1600: Sunken Labyrinth
-
+    "Sunken Labyrinth - Gold Titan Combat Key": ID2LocationData(rname.s1_e.value, 1600, "Secret Dungeons"),
+    "Sunken Labyrinth - Death Ogler Combat Key": ID2LocationData(rname.s1_c.value, 1601, "Secret Dungeons"),
+    "Sunken Labyrinth - Treasure Chest": ID2LocationData(rname.s1_j.value, 1602, "Secret Dungeons"),
+    "Sunken Labyrinth - Mimic Combat Key": ID2LocationData(rname.s1_o.value, 1603, "Secret Dungeons"),
+    "Sunken Labyrinth - Crayon Chest": ID2LocationData(rname.s1_u.value, 1604, "Secret Dungeons"),
+    "Sunken Labyrinth - Boss Reward Chest": ID2LocationData(rname.s1_g.value, 1605, "Secret Dungeons"),
     # 1700: Machine Fortress
-
+    "Machine Fortress - Hyperdusa conveyor Key": ID2LocationData(rname.s2_l.value, 1700, "Secret Dungeons"),
+    "Machine Fortress - Bee Chest": ID2LocationData(rname.s2_o.value, 1701, "Secret Dungeons"),
+    "Machine Fortress - Crayon Chest": ID2LocationData(rname.s2_m.value, 1702, "Secret Dungeons"),
+    "Machine Fortress - Number Tiles Key": ID2LocationData(rname.s2_h.value, 1703, "Secret Dungeons"),
+    "Machine Fortress - Cannon conveyors Key": ID2LocationData(rname.s2_f.value, 1704, "Secret Dungeons"),
+    "Machine Fortress - Light Bridge Key": ID2LocationData(rname.s2_e.value, 1705, "Secret Dungeons"),
+    "Machine Fortress - Steel Skullnip Combat Key": ID2LocationData(rname.s2_d.value, 1706, "Secret Dungeons"),
+    "Machine Fortress - Treasure Chest": ID2LocationData(rname.s2_b.value, 1707, "Secret Dungeons"),
+    "Machine Fortress - Boss Reward Chest": ID2LocationData(rname.s2_g.value, 1708, "Secret Dungeons"),
     # 1800: Dark Hypostyle
-
+    "Dark Hypostyle - Initial Key": ID2LocationData(rname.s3_a.value, 1800, "Secret Dungeons"),
+    "Dark Hypostyle - Crayon Chest": ID2LocationData(rname.s3_v_upper.value, 1801, "Secret Dungeons"),
+    "Dark Hypostyle - Blue Path Key": ID2LocationData(rname.s3_t.value, 1802, "Secret Dungeons"),
+    "Dark Hypostyle - Yellow Path Monochrome Key": ID2LocationData(rname.s3_p.value, 1803, "Secret Dungeons"),
+    "Dark Hypostyle - Treasure Chest": ID2LocationData(rname.s3_q.value, 1804, "Secret Dungeons"),
+    "Dark Hypostyle - Yellow Path Key": ID2LocationData(rname.s3_l.value, 1805, "Secret Dungeons"),
+    "Dark Hypostyle - Red Path Cannon Key": ID2LocationData(rname.s3_h.value, 1806, "Secret Dungeons"),
+    "Dark Hypostyle - Red Path Key": ID2LocationData(rname.s3_g.value, 1807, "Secret Dungeons"),
+    "Dark Hypostyle - Boss Reward Chest": ID2LocationData(rname.s3_d.value, 1808, "Secret Dungeons"),
     # 1900: Tomb of Simulacrum
-
+    "Tomb of Simulacrum - Mercury Jello Number Tiles Key": ID2LocationData(rname.s4_ak.value, 1900, "Secret Dungeons"),
+    "Tomb of Simulacrum - Self Locked Tile Key": ID2LocationData(rname.s4_af.value, 1901, "Secret Dungeons"),
+    "Tomb of Simulacrum - Eight Tile Key": ID2LocationData(rname.s4_ab.value, 1902, "Secret Dungeons"),
+    "Tomb of Simulacrum - Roundabout Crystal Key": ID2LocationData(rname.s4_u.value, 1903, "Secret Dungeons"),
+    "Tomb of Simulacrum - Corner Torch Key": ID2LocationData(rname.s4_q.value, 1904, "Secret Dungeons"),
+    "Tomb of Simulacrum - Crayon Chest": ID2LocationData(rname.s4_ac.value, 1905, "Secret Dungeons"),
+    "Tomb of Simulacrum - Death Ogler Combat Key": ID2LocationData(rname.s4_ai.value, 1906, "Secret Dungeons"),
+    "Tomb of Simulacrum - EFCS Door Key": ID2LocationData(rname.s4_s.value, 1907, "Secret Dungeons"),
+    "Tomb of Simulacrum - Large Chasm Key": ID2LocationData(rname.s4_y.value, 1908, "Secret Dungeons"),
+    "Tomb of Simulacrum - Spiked Orbitals Key": ID2LocationData(rname.s4_t.value, 1909, "Secret Dungeons"),
+    "Tomb of Simulacrum - Molten Conveyors Key": ID2LocationData(rname.s4_aq.value, 1910, "Secret Dungeons"),
+    "Tomb of Simulacrum - Treasure Chest": ID2LocationData(rname.s4_i.value, 1911, "Secret Dungeons"),
+    "Tomb of Simulacrum - Boss Reward Chest": ID2LocationData(rname.s4_g.value, 1912, "Secret Dungeons"),
     # 2000: Syncope
+    "Syncope - Shifting Chamber Key": ID2LocationData(rname.dd_sc.value, 2000, "Dreamworld"),
+    "Syncope - Switch Chamber Card": ID2LocationData(rname.dd_am.value, 2001, "Dreamworld"),
+    "Syncope - Foyer Card": ID2LocationData(rname.dd_z.value, 2002, "Dreamworld"),
+    "Syncope - Garden Key": ID2LocationData(rname.dd_n.value, 2003, "Dreamworld"),
+    "Syncope - Piano Card": ID2LocationData(rname.dd_k.value, 2004, "Dreamworld"),
+    "Syncope - Knights Hint Card": ID2LocationData(rname.dd_c.value, 2005, "Dreamworld"),
+    "Syncope - Shadow Walker Key": ID2LocationData(rname.dd_d_left.value, 2006, "Dreamworld"),
+    "Syncope - Force Turret Maze Card": ID2LocationData(rname.dd_v.value, 2007, "Dreamworld"),
+    "Syncope - Reward Card A": ID2LocationData(rname.dd_ao.value, 2008, "Dreamworld"),
+    "Syncope - Reward Card B": ID2LocationData(rname.dd_ao.value, 2009, "Dreamworld"),
+    "Syncope - Reward Card C": ID2LocationData(rname.dd_ao.value, 2010, "Dreamworld"),
 
     # 2100: Wizardry Lab
+    "Wizardry Lab - Entrance Card": ID2LocationData(rname.df_ad.value, 2100, "Dreamworld"),
+    "Wizardry Lab - West Energy Source Card": ID2LocationData(rname.df_w.value, 2101, "Dreamworld"),
+    "Wizardry Lab - Cannon Card": ID2LocationData(rname.df_c.value, 2102, "Dreamworld"),
+    "Wizardry Lab - East Mirrors Card": ID2LocationData(rname.df_m_bottom.value, 2103, "Dreamworld"),
+    "Wizardry Lab - East Energy Source Card": ID2LocationData(rname.df_aa.value, 2104, "Dreamworld"),
+    "Wizardry Lab - Reward Card A": ID2LocationData(rname.df_ah.value, 2105, "Dreamworld"),
+    "Wizardry Lab - Reward Card B": ID2LocationData(rname.df_ah.value, 2106, "Dreamworld"),
+    "Wizardry Lab - Reward Card C": ID2LocationData(rname.df_ah.value, 2107, "Dreamworld"),
 
     # 2200: Antigram
-
+    "Antigram - Free Key": ID2LocationData(rname.dfc_r.value, 2200, "Dreamworld"),
+    "Antigram - West Light Bridge Card": ID2LocationData(rname.dfc_p.value, 2201, "Dreamworld"),
+    "Antigram - East Light Bridge Card": ID2LocationData(rname.dfc_r.value, 2202, "Dreamworld"),
+    "Antigram - West Ice Card": ID2LocationData(rname.dfc_k.value, 2203, "Dreamworld"),
+    "Antigram - East Ice Card": ID2LocationData(rname.dfc_o.value, 2204, "Dreamworld"),
+    "Antigram - West Bombs Key": ID2LocationData(rname.dfc_b.value, 2205, "Dreamworld"),
+    "Antigram - East Bombs Key": ID2LocationData(rname.dfc_d.value, 2206, "Dreamworld"),
+    "Antigram - End East Bridge Card": ID2LocationData(rname.dfc_e.value, 2207, "Dreamworld"),
+    "Antigram - End West Bridge Key": ID2LocationData(rname.dfc_e.value, 2208, "Dreamworld"),
+    "Antigram - Reward Card A": ID2LocationData(rname.dfc_a.value, 2209, "Dreamworld"),
+    "Antigram - Reward Card B": ID2LocationData(rname.dfc_a.value, 2210, "Dreamworld"),
+    "Antigram - Reward Card C": ID2LocationData(rname.dfc_a.value, 2211, "Dreamworld"),
+    
     # 2300: Bottomless Tower
-
+    "Bottomless Tower - First Floor Card": ID2LocationData(rname.di_g.value, 2300, "Dreamworld"),
+    "Bottomless Tower - First Floor Key": ID2LocationData(rname.di_c.value, 2301, "Dreamworld"),
+    "Bottomless Tower - Second Floor Card": ID2LocationData(rname.di_d.value, 2302, "Dreamworld"),
+    "Bottomless Tower - Second Floor Key": ID2LocationData(rname.di_f.value, 2303, "Dreamworld"),
+    "Bottomless Tower - Blue Portal Card": ID2LocationData(rname.di_a.value, 2304, "Dreamworld"),
+    "Bottomless Tower - Third Floor Spike Gates Card": ID2LocationData(rname.di_x.value, 2305, "Dreamworld"),
+    "Bottomless Tower - Third Floor Key": ID2LocationData(rname.di_ab.value, 2306, "Dreamworld"),
+    "Bottomless Tower - Third Floor Ice Square Card": ID2LocationData(rname.di_y.value, 2307, "Dreamworld"),
+    "Bottomless Tower - Fourth Floor Key": ID2LocationData(rname.di_w.value, 2308, "Dreamworld"),
+    "Bottomless Tower - Reward Card A": ID2LocationData(rname.di_z.value, 2309, "Dreamworld"),
+    "Bottomless Tower - Reward Card B": ID2LocationData(rname.di_z.value, 2310, "Dreamworld"),
+    "Bottomless Tower - Reward Card C": ID2LocationData(rname.di_z.value, 2311, "Dreamworld"),
+    
     # 2400: Quietus
+    "Quietus - Center Card": ID2LocationData(rname.da_n.value, 2400, "Dreamworld"),
+    "Quietus - Alternating Floors Key": ID2LocationData(rname.da_f.value, 2401, "Dreamworld"),
+    "Quietus - Tangled Wires Key": ID2LocationData(rname.da_j.value, 2402, "Dreamworld"),
+    "Quietus - Push the Coil Key": ID2LocationData(rname.da_r.value, 2403, "Dreamworld"),
+    "Quietus - Giant Mess Key": ID2LocationData(rname.da_v.value, 2404, "Dreamworld"),
+    "Quietus - Northwest Vault Card": ID2LocationData(rname.da_g.value, 2405, "Dreamworld"),
+    "Quietus - Northeast Vault Card": ID2LocationData(rname.da_i.value, 2406, "Dreamworld"),
+    "Quietus - Southwest Vault Card": ID2LocationData(rname.da_s.value, 2407, "Dreamworld"),
+    "Quietus - Southeast Vault Card": ID2LocationData(rname.da_u.value, 2408, "Dreamworld"),
+    "Quietus - Reward Card A": ID2LocationData(rname.da_ab.value, 2409, "Dreamworld"),
+    "Quietus - Reward Card B": ID2LocationData(rname.da_ab.value, 2410, "Dreamworld"),
+    "Quietus - Reward Card C": ID2LocationData(rname.da_ab.value, 2411, "Dreamworld"),
 
     # 2500: Portal Worlds
     "Autumn Climb - Chest": ID2LocationData(rname.autumn_climb.value, 2500, "Portal Worlds"),
@@ -209,7 +297,48 @@ location_table: Dict[str, ID2LocationData] = {
     
     # 2600+: Misc Locations
     "Ludo City - Chest": ID2LocationData(rname.ludo_city.value, 2600, "Super Secrets"),
-    "Bad Dream - Card": ID2LocationData(rname.bad_dream.value, 2602, "Super Secrets")
+    "Bad Dream - Card": ID2LocationData(rname.bad_dream.value, 2602, "Super Secrets"),
+    "Promised Remedy - That Guy Outfit": ID2LocationData(rname.pr_b.value, 2603, "Super Secrets")
+}
+
+event_location_table: Dict[str, ID2LocationData] = {
+    "Flooded Basement K South Door": ID2LocationData(rname.d5_k_top.value, None),
+    "Flooded Basement Crossway Access": ID2LocationData(rname.d5_o_top.value, None),
+    "Grand Library K Left Door": ID2LocationData(rname.d8_k_left.value, None),
+    "Grand Library K Right Door": ID2LocationData(rname.d8_k_right.value, None),
+    "Sunken Labyrinth Q Blocks": ID2LocationData(rname.s1_q_right.value, None, "Secret Dungeons"),
+    "Wizardry Lab Southwest Generator Activated": ID2LocationData(rname.df_ae.value, None, "Dreamworld"),
+    "Wizardry Lab Southeast Generator Activated": ID2LocationData(rname.df_ag.value, None, "Dreamworld"),
+    "Wizardry Lab Northwest Generator Activated": ID2LocationData(rname.df_w.value, None, "Dreamworld"),
+    "Wizardry Lab Northeast Generator Activated": ID2LocationData(rname.df_aa.value, None, "Dreamworld"),
+    "Wizardry Lab Northeast Circuit Connected": ID2LocationData(rname.df_e.value, None, "Dreamworld"),
+    "Wizardry Lab Southwest Circuit Connected": ID2LocationData(rname.df_x.value, None, "Dreamworld"),
+    "Wizardry Lab Southeast Circuit Connected": ID2LocationData(rname.df_z.value, None, "Dreamworld"),
+    "Syncope Chamber Switching": ID2LocationData(rname.dd_am.value, None, "Dreamworld"),
+    "Syncope E Block Available": ID2LocationData(rname.dd_e.value, None, "Dreamworld"),
+    "Syncope Garden Block Moved": ID2LocationData(rname.dd_w.value, None, "Dreamworld"),
+    "Syncope West Clock Wound": ID2LocationData(rname.dd_y.value, None, "Dreamworld"),
+    "Syncope East Clock Wound": ID2LocationData(rname.dd_ab.value, None, "Dreamworld"),
+    "Syncope North Clock Wound": ID2LocationData(rname.dd_l.value, None, "Dreamworld"),
+    "Syncope Piano Code Found": ID2LocationData(rname.dd_w.value, None, "Dreamworld"),
+    "Antigram Left Switch Pressed": ID2LocationData(rname.dfc_h_left.value, None, "Dreamworld"),
+    "Antigram Right Switch Pressed": ID2LocationData(rname.dfc_h_right.value, None, "Dreamworld"),
+    "Bottomless Tower First Floor Green Fire Obtained": ID2LocationData(rname.di_o.value, None, "Dreamworld"),
+    "Bottomless Tower Second Floor Green Fire Obtained": ID2LocationData(rname.di_q.value, None, "Dreamworld"),
+    "Bottomless Tower Third Floor Green Fire Obtained": ID2LocationData(rname.di_aa.value, None, "Dreamworld"),
+    "Quietus Northwest Crystal": ID2LocationData(rname.da_a.value, None, "Dreamworld"),
+    "Quietus Northeast Crystal": ID2LocationData(rname.da_c.value, None, "Dreamworld"),
+    "Quietus Southwest Crystal": ID2LocationData(rname.da_w.value, None, "Dreamworld"),
+    "Quietus Southeast Crystal": ID2LocationData(rname.da_aa.value, None, "Dreamworld"),
+    "Quietus Central Crystal": ID2LocationData(rname.da_n.value, None, "Dreamworld"),
+    "Finished Wizardry Lab": ID2LocationData(rname.dd_ah.value, None, "Dreamworld"),
+    "Finished Syncope": ID2LocationData(rname.dd_ao.value, None, "Dreamworld"),
+    "Finished Antigram": ID2LocationData(rname.dfc_a.value, None, "Dreamworld"),
+    "Finished Bottomless Tower": ID2LocationData(rname.di_z.value, None, "Dreamworld"),
+    "The Vault West Switch": ID2LocationData(rname.the_vault_b_left.value, None, "Portal Worlds"),
+    "The Vault East Switch": ID2LocationData(rname.the_vault_b_right.value, None, "Portal Worlds"),
+    "Scrap Yard West Block": ID2LocationData(rname.scrap_yard_c_left.value, None, "Portal Worlds"),
+    "Scrap Yard East Block": ID2LocationData(rname.scrap_yard_c_right.value, None, "Portal Worlds"),
 }
 
 location_name_to_id: Dict[str, int] = {name: location_base_id + data.location_id_offset for name, data in location_table.items()}
@@ -220,3 +349,7 @@ for loc_name, loc_data in location_table.items():
     location_name_groups.setdefault(loc_group_name, set()).add(loc_name)
     if loc_data.location_group:
         location_name_groups.setdefault(loc_data.location_group, set()).add(loc_name)
+for event_name, event_data in event_location_table.items():
+    if event_data.location_group:
+        location_name_groups.setdefault(event_data.location_group, set()).add(event_name)
+
