@@ -8,8 +8,9 @@ class Goal(Choice):
     """
     Select the goal you need to reach to win.
     Raft Quest: Collect eight Raft Pieces and escape the island.
-    Queen of Adventure: Collect eight Raft Pieces, defeat Simulacrum, and escape the island.
-    Queen of Dreams: Complete Quietus and defeat the Dream Moth. This is a short goal.
+    Queen of Adventure: Collect eight Raft Pieces, defeat Simulacrum and get the Big Ol' Bag Of Loot, and escape the island.
+    Queen of Dreams: Complete all five Dreamworld dungeons, which will let you escape the island, then do so.
+    In Queen of Dreams, only one Raft Piece is in the pool, Grand Library is forced open, and you cannot set Dungeon Rewards Setting.
     """
     internal_name = "goal"
     display_name = "Goal"
@@ -26,9 +27,10 @@ class DungeonRewardsSetting(Choice):
     Anything: The reward can be anything
     Priority: The reward can have any item marked progression in the multiworld
     Rewards: The reward can be either a Raft Piece or a Forbidden Key (if Open Tomb of Simulacrum is off).
-    FORBIDDEN KEYS ARE CURRENTLY NOT IN THE POOL.
     If there are more dungeon rewards locations in the pool than available reward items, the rest will be priority locations.
     Tomb of Simulacrum can never have its reward set with this. If you want to require Tomb, use the Queen of Adventure goal.
+    Quietus will also never be required.
+    Incompatible with Queen of Dreams Goal (this setting will be ignored if that goal is set)
     """
     internal_name = "dungeon_rewards_setting"
     display_name = "Dungeon Rewards Setting"
@@ -47,7 +49,7 @@ class DungeonRewardsCount(Range):
     internal_name = "dungeon_rewards_count"
     displayname = "Dungeon Rewards Count"
     range_start = 0
-    range_end = 8
+    range_end = 15
     default = 4
 
 
@@ -73,7 +75,7 @@ class IncludePortalWorlds(Toggle):
 class IncludeSecretDungeons(Toggle):
     """
     Randomizes any chests in the three shard dungeons and Tomb of Simulacrum.
-    CURRENTLY NOT SUPPORTED.
+    Even if this is off, Tomb of Simulacrum will be included if Queen of Adventure is the goal
     """
     internal_name = "include_secret_dungeons"
     display_name = "Include Secret Dungeons"
@@ -82,7 +84,7 @@ class IncludeSecretDungeons(Toggle):
 class IncludeDreamDungeons(Toggle):
     """
     Randomizes any chests and cards in the five Dreamworld dungeons.
-    CURRENTLY NOT SUPPORTED.
+    This will automatically be turned on if the goal is Queen of Dreams.
     """
     internal_name = "include_dream_dungeons"
     display_name = "Include Dream Dungeons"
@@ -101,6 +103,7 @@ class IncludeSuperSecrets(Toggle):
 class OpenD8(Toggle):
     """
     Opens the entrance to Grand Library, removing the need to collect seven Raft Pieces.
+    This setting is forced on if you have the Queen of Dreams goal.
     """
     internal_name = "open_d8"
     display_name = "Open Grand Library"
@@ -109,7 +112,6 @@ class OpenD8(Toggle):
 class OpenS4(Toggle):
     """
     Opens the entrance to Tomb of Simulacrum and removes the Forbidden Keys from the pool.
-    CURRENTLY NOT SUPPORTED. FORBIDDEN KEYS ARE NOT IN THE POOL.
     """
     internal_name = "open_s4"
     display_name = "Open Tomb of Simulacrum"
@@ -117,18 +119,17 @@ class OpenS4(Toggle):
 
 class OpenDreamworld(Toggle):
     """
-    Opens the entrance to Dreamworld and the five dungeons within.
-    This removes the need for a Raft Piece to enter Dreamworld and items to enter dungeons.
-    CURRENTLY NOT SUPPORTED. Cards are still in the pool.
+    Opens the entrance the first four Dreamworld dungeons.
+    This does not remove the need for a Raft Piece,
+    but it does make it so you do not need items to enter the dungeons themselves.
     """
     internal_name = "open_dreamworld"
-    display_name = "Open Dreamworld"
+    display_name = "Open Dreamworld Dungeons"
 
 
 class DreamDungeonsDoNotChangeItems(Toggle):
     """
     Dreamworld dungeons no longer restrict your items, but will also not give you the items expected to beat them.
-    CURRENTLY NOT SUPPORTED.
     """
     internal_name = "dream_dungeons_do_not_change_items"
     display_name = "Dream Dungeons Do Not Change Items"
@@ -137,12 +138,13 @@ class DreamDungeonsDoNotChangeItems(Toggle):
 class KeySettings(Choice):
     """
     How should dungeon keys be treated by the randomizer? Forbidden Keys are not affected by this setting.
-    Default: Keys are individual items. You are logically expected to have every key for a dungeon to open a locked door
+    Keys for dungeons not randomized will not be included.
+    Default: Keys are individual items.
     Keyrings: All keys are removed and keyrings for each dungeon are placed in the pool instead,
     granting all the keys you need at once
     Keysey: All keys and locks are removed
     """
-    # Eventually add legacy key setting to make a unique key for each lock
+    # TODO Eventually add legacy key setting to make a unique key for each lock
     internal_name = "key_settings"
     display_name = "Key_Settings"
     option_default = 0
@@ -158,9 +160,9 @@ class ShardSettings(Choice):
     Half: Sunken Labyrinth needs 4 Shards to enter, Machine Fortress needs 8, and Dark Hypostyle needs 12.
     Vanilla: Secret dungeons require their normal amount of shards to enter.
     Lockdown: Sunken Labyrinth needs 12 Shards to enter, Machine Fortress needs 24, and Dark Hypostyle needs 36.
-    CURRENTLY NOT SUPPORTED. Shards are not in the pool.
+    If Include Secret Dungeons is off, shards will not be in the pool.
     """
-    # Eventually add settings to make these individually customizable and random
+    # TODO Eventually add settings to make these individually customizable and random
     internal_name = "shard_settings"
     display_name = "Secret Shard Requirements"
     option_open = 0
@@ -173,8 +175,8 @@ class ShardSettings(Choice):
 class ExtraShards(Range):
     """
     Adds extra Secret Shards to the pool. Once you have obtained enough to open Dark Hypostyle,
-    Secret Shards will give you Portal or Cave Scrolls instead.
-    CURRENTLY NOT SUPPORTED. Shards are not in the pool.
+    Secret Shards will give you a random heart instead.
+    If Include Secret Dungeons is off, shards will not be in the pool.
     """
     internal_name = "extra_shards"
     display_name = "Extra Shards"
@@ -221,41 +223,28 @@ class MajorDungeonSkips(Toggle):
     display_name = "Major Dungeon Skips"
 
 
-class PhasingItemless(Toggle):
+class PhasingSetting(Choice):
     """
     ID2 has a glitch called "Phasing" which allows you to clip over gaps and through objects.
-    There are different types of phases.
-    This allows the use of "itemless" phases in logic, primarily useful for crossing gaps.
+    There are different types of phases, and this setting allows them being required in logic.
+    Gap Phases: Allows phasing over pits and through loading zones (phasing through door transitions requires rolling).
+    Object Phases: Allows phasing through collision to objects, including Ice Ring blocks. Also allows Gap Phases.
+    Ice Dynamite Clips: Allows clipping through walls using Ice and Dynamite Clips. Also allows Gap and Object Phases.
     ALL PHASING EXPECTS A CONTROLLER.
     """
-    internal_name = "phasing_itemless"
-    display_name = "Allow Itemless Phases"
-
-
-class PhasingIce(Toggle):
-    """
-    This allows the use of Ice Block phases in logic, which can be used to clip through walls,
-    as long as you can place an ice block on the opposite side of the wall you want to clip through
-    (or one already exists).
-    ALL PHASING EXPECTS A CONTROLLER.
-    """
-    internal_name = "phasing_ice"
-    display_name = "Allow Ice Block Phases"
-
-
-class PhasingDynamite(Toggle):
-    """
-    This allows the use of Dynamite Ice Block phases in logic,
-    allowing you to clip through nearly any wall and obstacle.
-    ALL PHASING EXPECTS A CONTROLLER.
-    """
-    internal_name = "phasing_dynamite"
-    display_name = "Allow Dynamite+Ice Block Phases"
+    internal_name = "phasing_setting"
+    display_name = "Allow Phasing"
+    option_off = 0
+    option_gap_phases = 1
+    option_object_phases = 2
+    option_ice_dynamite_clips = 3
+    default = 0
 
 
 class PhasingEnemies(Toggle):
     """
     This allows the use of Enemy phases in logic, which can be used to clip through walls wherever there is an enemy.
+    Turning this setting on also enables Object Phasing.
     ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_enemy"
@@ -264,7 +253,8 @@ class PhasingEnemies(Toggle):
 
 class PhasingDifficult(Toggle):
     """
-    This allows very difficult and precise phases to be in logic, depending on your other phasing settings.
+    This allows difficult, precise, or annoying phases to be in logic, depending on your other phasing settings.
+    For example, you can now be expected to have to phase through room transitions without roll.
     ALL PHASING EXPECTS A CONTROLLER.
     """
     internal_name = "phasing_difficult"
@@ -296,7 +286,7 @@ class LockpicksInPool(Range):
     display_name = "Lockpicks In Pool"
     range_start = 0
     range_end = 24
-    default = 4
+    default = 12
 
 
 class CrayonsInPool(Range):
@@ -308,6 +298,24 @@ class CrayonsInPool(Range):
     range_start = 0
     range_end = 20
     default = 20
+
+
+class RandomizePianoPuzzle(Choice):
+    """
+    Randomizes the Syncope piano puzzle.
+    The solution to the puzzle can be found in the room with the three knights.
+    Off: The solution will be the vanilla "DEAD"
+    Words: The solution will be a real word, 3-7 characters long, consisting of only white keys.
+    Black Keys: Same as Words, but some white keys are randomly replaced by black keys.
+    Full Random: The solution is a completely random string, 3-7 characters long, including white and black keys.
+    """
+    internal_name = "randomize_piano_puzzle"
+    display_name = "Randomize Piano Puzzle"
+    option_off = 0
+    option_words = 1
+    option_black_keys = 2
+    option_full_random = 3
+    default = 0
 
 
 @dataclass
@@ -332,15 +340,14 @@ class ID2Options(PerGameCommonOptions):
     randomize_roll: RandomizeRoll
     roll_opens_chests: RollOpensChests
     major_dungeon_skips: MajorDungeonSkips
-    phasing_itemless: PhasingItemless
-    phasing_ice: PhasingIce
-    phasing_dynamite: PhasingDynamite
+    phasing_setting: PhasingSetting
     phasing_enemies: PhasingEnemies
     phasing_difficult: PhasingDifficult
     start_with_tracker: StartWithTracker
     start_with_all_warps: StartWithAllWarps
     lockpicks_in_pool: LockpicksInPool
     crayons_in_pool: CrayonsInPool
+    randomize_piano_puzzle: RandomizePianoPuzzle
 
 
 id2_options_groups = [
@@ -352,9 +359,7 @@ id2_options_groups = [
     ]),
     OptionGroup("Phasing Options", [
         MajorDungeonSkips,
-        PhasingItemless,
-        PhasingIce,
-        PhasingDynamite,
+        PhasingSetting,
         PhasingEnemies,
         PhasingDifficult
     ])
@@ -362,9 +367,7 @@ id2_options_groups = [
 
 id2_options_presets: Dict[str, Dict[str, Any]] = {
     "Pro": {
-        "phasing_itemless": True,
-        "phasing_ice": True,
-        "phasing_dynamite": True,
+        "phasing_setting": PhasingSetting.option_ice_dynamite_clips,
         "phasing_enemies": True
     },
     "Allsanity": {
@@ -378,9 +381,7 @@ id2_options_presets: Dict[str, Dict[str, Any]] = {
         "include_secret_dungeons": True,
         "include_dream_dungeons": True,
         "include_super_secrets": True,
-        "phasing_itemless": True,
-        "phasing_ice": True,
-        "phasing_dynamite": True,
+        "phasing_setting": PhasingSetting.option_ice_dynamite_clips,
         "phasing_enemies": True
     }
 }

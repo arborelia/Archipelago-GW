@@ -1,17 +1,18 @@
 from typing import Dict, List, Any, Union, TextIO
-from Options import OptionError
 from copy import deepcopy
-from BaseClasses import Region, Location, Item, Tutorial, CollectionState, ItemClassification, MultiWorld
+
+import Options
+from BaseClasses import Location, Item, Tutorial, ItemClassification
+from Utils import visualize_regions
 from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
-from .region_rules import create_regions_with_rules, key_count_requirements
+from .region_rules import create_regions_with_rules
 from .options import ID2Options, id2_options_groups, id2_options_presets, KeySettings
 from .names_regions import RegionNames as rname
 from .names_locations import LocationNames as lname
 from .names_items import ItemNames as iname
 from worlds.AutoWorld import WebWorld, World
-from Utils import visualize_regions
 
 
 class ID2Web(WebWorld):
@@ -51,6 +52,7 @@ class ID2World(World):
     web = ID2Web()
 
     required_dungeons: List[str] = []
+    piano_puzzle: str = "DEAD"
 
     options: ID2Options
     options_dataclass = ID2Options
@@ -63,17 +65,21 @@ class ID2World(World):
     traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]]
 
     def generate_early(self) -> None:
-        if not self.options.open_dreamworld:
-            self.options.open_dreamworld.value = options.OpenDreamworld.option_true
-
-        self.options.shard_settings.value = options.ShardSettings.option_open
-        self.options.open_s4.value = options.OpenS4.option_true
+        self.piano_puzzle = self.generate_piano_puzzle()
+        if self.options.goal.value == options.Goal.option_queen_of_dreams:
+            self.options.include_dream_dungeons.value = options.IncludeDreamDungeons.option_true
+            self.options.dungeon_rewards_setting.value = options.DungeonRewardsSetting.option_anything
+            self.options.open_d8.value = options.OpenD8.option_true
 
         dungeon_count = 8
         if self.options.include_secret_dungeons:
-            dungeon_count += 4
+            dungeon_count += 3
+        else:
+            self.options.open_s4.value = options.OpenS4.option_false
+            self.options.shard_settings.value = options.ShardSettings.option_open
+            self.options.extra_shards.value = 0
         if self.options.include_dream_dungeons:
-            dungeon_count += 5
+            dungeon_count += 4
         if self.options.dungeon_rewards_setting.value != options.DungeonRewardsSetting.option_anything and self.options.dungeon_rewards_count.value > dungeon_count:
             print(f"Not enough dungeons available to place dungeon rewards in, clamping down to {dungeon_count} instead")
             self.options.dungeon_rewards_count.value = dungeon_count
@@ -97,9 +103,7 @@ class ID2World(World):
                 self.options.randomize_stick.value = passthrough["randomize_stick"]
                 self.options.randomize_roll.value = passthrough["randomize_roll"]
                 self.options.roll_opens_chests.value = passthrough["roll_opens_chests"]
-                self.options.phasing_itemless.value = passthrough["phasing_itemless"]
-                self.options.phasing_ice.value = passthrough["phasing_ice"]
-                self.options.phasing_dynamite.value = passthrough["phasing_dynamite"]
+                self.options.phasing_setting.value = passthrough["phasing_setting"]
                 self.options.phasing_enemies.value = passthrough["phasing_enemies"]
                 self.options.phasing_difficult.value = passthrough["phasing_difficult"]
 
@@ -110,7 +114,7 @@ class ID2World(World):
 
     # create an item on request with the proper settings
     def create_item(self, name: str) -> ID2Item:
-        print("CREATING ITEM: " + name)
+        # print("CREATING ITEM: " + name)
         if name in item_table.keys():
             item_data = item_table[name]
             return ID2Item(name, item_data.classification, self.item_name_to_id[name], self.player)
@@ -128,14 +132,24 @@ class ID2World(World):
 
         items_to_create: Dict[str, int] = {item: data.quantity_in_item_pool for item, data in item_table.items()}
 
-        # rafts
+        # rafts and fkeys
         if self.options.dungeon_rewards_setting.value == self.options.dungeon_rewards_setting.option_rewards:
             rafts_to_create = 8 - self.options.dungeon_rewards_count.value
+            spill = 0
             if rafts_to_create < 0:
+                spill = -rafts_to_create
                 rafts_to_create = 0
 
             items_to_create[iname.raft.value] = rafts_to_create
-            # TODO also FKeys
+
+            fkeys_to_create = 4 - spill
+            if fkeys_to_create < 0:
+                fkeys_to_create = 0
+
+            items_to_create[iname.f_key.value] = fkeys_to_create
+
+        if self.options.goal.value == options.Goal.option_queen_of_dreams:
+            items_to_create[iname.raft.value] = 1
 
         # if randomize stick is off, give the player a free melee and remove one from the pool
         if not self.options.randomize_stick:
@@ -168,7 +182,17 @@ class ID2World(World):
             items_to_create[iname.d6_key.value] = 5
             items_to_create[iname.d7_key.value] = 5
             items_to_create[iname.d8_key.value] = 8
-            # TODO add the other keys
+            if self.options.include_secret_dungeons:
+                items_to_create[iname.s1_key.value] = 3
+                items_to_create[iname.s2_key.value] = 5
+                items_to_create[iname.s3_key.value] = 5
+            if self.options.include_secret_dungeons or self.options.goal == options.Goal.option_queen_of_adventure:
+                items_to_create[iname.s4_key.value] = 10
+            if self.options.include_dream_dungeons:
+                items_to_create[iname.dd_key.value] = 3
+                items_to_create[iname.dfc_key.value] = 4
+                items_to_create[iname.di_key.value] = 4
+                items_to_create[iname.da_key.value] = 4
 
         elif self.options.key_settings == KeySettings.option_keyrings:
             items_to_create[iname.d1_keyring.value] = 1
@@ -179,22 +203,33 @@ class ID2World(World):
             items_to_create[iname.d6_keyring.value] = 1
             items_to_create[iname.d7_keyring.value] = 1
             items_to_create[iname.d8_keyring.value] = 1
-            # items_to_create[iname.s1_keyring.value] = 1
-            # items_to_create[iname.s2_keyring.value] = 1
-            # items_to_create[iname.s3_keyring.value] = 1
-            # items_to_create[iname.s4_keyring.value] = 1
-            # items_to_create[iname.dd_keyring.value] = 1
-            # items_to_create[iname.dfc_keyring.value] = 1
-            # items_to_create[iname.di_keyring.value] = 1
-            # items_to_create[iname.da_keyring.value] = 1
+            if self.options.include_secret_dungeons:
+                items_to_create[iname.s1_keyring.value] = 1
+                items_to_create[iname.s2_keyring.value] = 1
+                items_to_create[iname.s3_keyring.value] = 1
+            if self.options.include_secret_dungeons or self.options.goal == options.Goal.option_queen_of_adventure:
+                items_to_create[iname.s4_keyring.value] = 1
+            if self.options.include_dream_dungeons:
+                items_to_create[iname.dd_keyring.value] = 1
+                items_to_create[iname.dfc_keyring.value] = 1
+                items_to_create[iname.di_keyring.value] = 1
+                items_to_create[iname.da_keyring.value] = 1
+
+        elif self.options.key_settings == KeySettings.option_keysey:
+            self.multiworld.push_precollected(self.create_item(iname.keysey.value))
 
         # remove Forbidden Keys from pool if S4 is open
         if self.options.open_s4:
             items_to_create[iname.f_key.value] = 0
 
-        # configure shard count (currently not supported)
-        items_to_create[iname.shard.value] = 0  # self.options.shard_settings.value * 12 \
-            # + self.options.extra_shards.value
+        # configure shard count
+        items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 + self.options.extra_shards.value
+
+        # cards
+        if not self.options.include_dream_dungeons:
+            for card in items_to_create.keys():
+                if card in item_name_groups["Cards"]:
+                    items_to_create[card] = 0
 
         # Super Secret stuff
         if self.options.include_super_secrets:
@@ -202,10 +237,15 @@ class ID2World(World):
             items_to_create[iname.outfit_berry.value] = 1
             items_to_create[iname.outfit_that_guy.value] = 1
             items_to_create[iname.card_fly.value] = 1
+        else:
+            items_to_create[iname.outfit_apa.value] = 0
+            items_to_create[iname.outfit_berry.value] = 0
+            items_to_create[iname.outfit_that_guy.value] = 0
+            items_to_create[iname.card_fly.value] = 0
 
         # major skips
         if self.options.major_dungeon_skips:
-            self.multiworld.push_precollected((self.create_item(iname.major_skips.value)))
+            self.multiworld.push_precollected(self.create_item(iname.major_skips.value))
 
         # open options
         if self.options.open_d8:
@@ -215,21 +255,30 @@ class ID2World(World):
         if self.options.open_dreamworld:
             self.multiworld.push_precollected(self.create_item(iname.open_dw.value))
 
+        # dreamworld
+        if self.options.dream_dungeons_do_not_change_items:
+            self.multiworld.push_precollected(self.create_item(iname.dw_fun.value))
+        else:
+            self.multiworld.push_precollected(self.create_item(iname.dw_vanilla.value))
+
         # phasing
-        if self.options.phasing_itemless:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing.value))
-
-        if self.options.phasing_ice:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_ice.value))
-
-        if self.options.phasing_dynamite:
-            self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite.value))
-
         if self.options.phasing_enemies:
+            if self.options.phasing_setting.value < options.PhasingSetting.option_object_phases:
+                self.options.phasing_setting.value = options.PhasingSetting.option_object_phases
             self.multiworld.push_precollected(self.create_item(iname.option_phasing_enemy.value))
 
         if self.options.phasing_difficult:
             self.multiworld.push_precollected(self.create_item(iname.option_phasing_difficult.value))
+
+        if self.options.phasing_setting.value >= options.PhasingSetting.option_gap_phases:
+            self.multiworld.push_precollected(self.create_item(iname.option_phasing.value))
+            if self.options.phasing_setting.value >= options.PhasingSetting.option_object_phases:
+                self.multiworld.push_precollected(self.create_item(iname.option_phasing_objects.value))
+                if self.options.phasing_setting.value >= options.PhasingSetting.option_ice_dynamite_clips:
+                    self.multiworld.push_precollected(self.create_item(iname.option_phasing_dynamite.value))
+
+        if self.options.phasing_setting == options.PhasingSetting.option_off and not self.options.phasing_enemies:
+            self.multiworld.push_precollected(self.create_item(iname.glitchless.value))
 
         # crayon count
         items_to_create[iname.crayon.value] = self.options.crayons_in_pool.value
@@ -265,6 +314,7 @@ class ID2World(World):
             spoiler_handle.write("\nRequired Dungeons:\n\n")
             for dungeon in self.required_dungeons:
                 spoiler_handle.write(f"  {dungeon}\n")
+        spoiler_handle.write(f"\nSyncope Piano Code: {self.piano_puzzle}\n")
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # Logic PUML graph stuff
@@ -291,9 +341,7 @@ class ID2World(World):
             "randomize_roll",
             "roll_opens_chests",
             "major_dungeon_skips",
-            "phasing_itemless",
-            "phasing_ice",
-            "phasing_dynamite",
+            "phasing_setting",
             "phasing_enemies",
             "phasing_difficult",
             "start_with_tracker",
@@ -302,8 +350,9 @@ class ID2World(World):
             "crayons_in_pool"
         )
         slot_data["required_dungeons"] = self.required_dungeons
-        print("SLOT DATA:")
-        print(slot_data)
+        slot_data["piano_puzzle"] = self.piano_puzzle
+        # print("SLOT DATA:")
+        # print(slot_data)
         return slot_data
 
     # Universal Tracker stuff
@@ -311,3 +360,75 @@ class ID2World(World):
     def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
         # returning slot_data so it regens, giving it back in multiworld.re_gen_passthrough
         return slot_data
+
+    def generate_piano_puzzle(self) -> str:
+        # To make parsing the hint easier on the mod side, we make white keys uppercase while black keys are lowercase
+        white_keys: List[str] = ["C", "D", "E", "F", "G", "A", "B"]
+        black_keys: Dict[str, str] = {
+            "C": "c",
+            "D": "d",
+            "F": "f",
+            "G": "g",
+            "A": "a"
+        }
+        words: List[str] = [
+            "ACE", "ADD", "AGE",
+            "ACED", "AGED",
+            "ADAGE",
+            "ACCEDE",
+            "ACCEDED",
+            "BAA", "BAD", "BAG", "BED", "BEE", "BEG",
+            "BABE", "BADE", "BEAD", "BEEF",
+            "BADGE",
+            "BADGED", "BAGGED", "BEADED", "BEDDED", "BEEFED", "BEGGED",
+            "CAB", "CAD",
+            "CAFE", "CAGE", "CEDE",
+            "CAGED", "CEDED",
+            "CABBED",
+            "CABBAGE",
+            "DAB", "DAD", "DAG",
+            "DACE", "DEAD", "DEAF", "DEED",
+            "DECAF",
+            "DABBED", "DECADE", "DEEDED", "DEFACE",
+            "DEFACED",
+            "EBB", "EGG",
+            "EDGE", "EGAD",
+            "EBBED", "EDGED",
+            "EFFACE",
+            "EFFACED",
+            "FAB", "FAD", "FED", "FEE",
+            "FACE", "FADE", "FEED",
+            "FACED", "FADED",
+            "FACADE",
+            "FEEDBAG",
+            "GAB", "GAG", "GAD",
+            "GAFF",
+            "GAFFE",
+            "GAFFED", "GAGGED"
+        ]
+        piano_text = "DEAD"
+
+        piano_option = self.options.randomize_piano_puzzle.value
+        if piano_option != options.RandomizePianoPuzzle.option_off:
+            new_text = ""
+            if piano_option == options.RandomizePianoPuzzle.option_full_random:
+                word_length = self.random.randint(3, 7)
+                for _ in range(word_length):
+                    rnd = self.random.randint(0, len(white_keys) - 1)
+                    new_text += white_keys[rnd]
+            else:
+                rnd = self.random.randint(0, len(words) - 1)
+                new_text = words[rnd]
+            if piano_option != options.RandomizePianoPuzzle.option_words:
+                sharp_text = ""
+                for letter in new_text:
+                    new_letter = letter
+                    if letter in black_keys.keys():
+                        rnd = self.random.randint(0, 1)
+                        if rnd == 0:
+                            new_letter = black_keys[letter]
+                    sharp_text += new_letter
+                new_text = sharp_text
+            piano_text = new_text
+
+        return piano_text
