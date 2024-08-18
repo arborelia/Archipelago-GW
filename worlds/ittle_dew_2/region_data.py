@@ -1604,7 +1604,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.d3_q:
             ID2Data(ID2Type.region),
         rname.d3_s:
-            ID2Data(ID2Type.region, [[iname.dynamite.value],
+            ID2Data(ID2Type.region, [[iname.dynamite.value, iname.weapon_no_dynamite.value],
                                      [iname.melee.value, iname.chain.value, iname.can_phase_gap_difficult.value,
                                       iname.roll.value]])
     },
