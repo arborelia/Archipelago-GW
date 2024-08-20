@@ -1760,6 +1760,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.d4_p:
             ID2Data(ID2Type.region, [[iname.force.value],
+                                     [iname.fire_sword.value],
+                                     [iname.ice.value],
                                      [iname.can_phase_object.value]]),
     },
     rname.d4_r: {
@@ -2673,7 +2675,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.s1_d:
             ID2Data(ID2Type.region, [[iname.s1_key.value + "*3"]]),
         rname.s1_j:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     rname.s1_i: {
         rname.s1_d:
@@ -2690,7 +2692,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.force.value]]),
     },
     rname.s1_k: {
-        rname.s1_m:
+        rname.s1_l:
             ID2Data(ID2Type.region),
         rname.s1_o:
             ID2Data(ID2Type.region),
