@@ -759,7 +759,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.frc_n: {
         rname.fancy_ruins:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.access_ruins.value]]),
         rname.frozen_court:
             ID2Data(ID2Type.region),
         rname.frc_s:
