@@ -11,13 +11,40 @@ class Goal(Choice):
     Queen of Adventure: Collect eight Raft Pieces, defeat Simulacrum and get the Big Ol' Bag Of Loot, and escape the island.
     Queen of Dreams: Complete all five Dreamworld dungeons, which will let you escape the island, then do so.
     In Queen of Dreams, only one Raft Piece is in the pool, Grand Library is forced open, and you cannot set Dungeon Rewards Setting.
+    Potion Hunt: Collect a specified number of potions, which will allow you to escape the island.
+    In Potion Hunt, only the number of Raft Pieces you need to get all randomized checks will be in the pool.
     """
     internal_name = "goal"
     display_name = "Goal"
     option_raft_quest = 0
     option_queen_of_adventure = 1
     option_queen_of_dreams = 2
+    option_potion_hunt = 3
     default = 0
+
+
+class RequiredPotionCount(Range):
+    """
+    (Potion Hunt goal only) How many potions are required to get off the island?
+    Recommended to use keysey/keyrings and reduced shard settings to have room in the pool.
+    """
+    internal_name = "required_potion_count"
+    display_name = "Required Number of Potions (Potion Hunt)"
+    range_start = 1
+    range_end = 20
+    default = 10
+
+
+class ExtraPotions(Range):
+    """
+    (Potion Hunt goal only) How many extra potions should be in the pool?
+    Recommended to use keysey/keyrings and reduced shard settings to have room in the pool.
+    """
+    internal_name = "extra_potions"
+    display_name = "Extra Potions (Potion Hunt)"
+    range_start = 0
+    range_end = 20
+    default = 5
 
 
 class DungeonRewardsSetting(Choice):
@@ -31,6 +58,8 @@ class DungeonRewardsSetting(Choice):
     Tomb of Simulacrum can never have its reward set with this. If you want to require Tomb, use the Queen of Adventure goal.
     Quietus will also never be required.
     Incompatible with Queen of Dreams Goal (this setting will be ignored if that goal is set)
+    If the goal is Potion Hunt and this is set to Rewards, dungeon rewards will be set to potions before they start being
+    filled with Raft Pieces and Forbidden Keys.
     """
     internal_name = "dungeon_rewards_setting"
     display_name = "Dungeon Rewards Setting"
@@ -100,6 +129,25 @@ class IncludeSuperSecrets(Toggle):
     display_name = "Include Super Secrets"
 
 
+class IncludeSecretSigns(Toggle):
+    """
+    The four incomplete signs and the eight metal signs in the eight main dungeons give you an item when they're read.
+    The number and letter signs are included if Super Secrets are on.
+    """
+    internal_name = "include_secret_signs"
+    display_name = "Include Secret Signs"
+
+
+class BlockRegionConnections(Toggle):
+    """
+    Adds 14 area connection items which are required to travel between areas. For example, you need the
+    "Connection - Fluffy Fields To Sweetwater Coast" to be able to enter Sweetwater Coast from Fluffy Fields.
+    Connections are two-way, so that also allows you to enter Fluffy Fields from Sweetwater Coast.
+    """
+    internal_name = "block_region_connections"
+    display_name = "Region Connection Blockades"
+
+
 class OpenD8(Toggle):
     """
     Opens the entrance to Grand Library, removing the need to collect seven Raft Pieces.
@@ -144,7 +192,6 @@ class KeySettings(Choice):
     granting all the keys you need at once
     Keysey: All keys and locks are removed
     """
-    # TODO Eventually add legacy key setting to make a unique key for each lock
     internal_name = "key_settings"
     display_name = "Key_Settings"
     option_default = 0
@@ -300,6 +347,43 @@ class CrayonsInPool(Range):
     default = 20
 
 
+class RemoveCards(Toggle):
+    """
+    Due to the limited pool size, you can turn this on to remove cards from the item pool if you're having errors
+    due to not having enough locations. This will only help if Include Dreamworld Dungeons is on as cards are not
+    items in the pool otherwise.
+    """
+    internal_name = "remove_cards"
+    display_name = "Remove Cards From Pool"
+
+
+class TrapPercentage(Range):
+    """
+    Percentage of filler items replaced with the following traps:
+    Bee Trap
+    Random Debuff Trap
+    Meteor Shower Trap
+    """
+    internal_name = "trap_percentage"
+    display_name = "Normal Trap Percentage"
+    range_start = 0
+    range_end = 100
+    default = 20
+
+
+class SuperTrapPercentage(Range):
+    """
+    Percentage of filler items replaced with the following particularly debilitating traps:
+    Bee Onslaught
+    Free Range Snowboarding Trap
+    """
+    internal_name = "super_trap_percentage"
+    display_name = "Debilitating Trap Percentage"
+    range_start = 0
+    range_end = 100
+    default = 0
+
+
 class RandomizePianoPuzzle(Choice):
     """
     Randomizes the Syncope piano puzzle.
@@ -322,6 +406,8 @@ class RandomizePianoPuzzle(Choice):
 class ID2Options(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     goal: Goal
+    required_potion_count: RequiredPotionCount
+    extra_potions: ExtraPotions
     dungeon_rewards_setting: DungeonRewardsSetting
     dungeon_rewards_count: DungeonRewardsCount
     progressive_items: ProgressiveItems
@@ -329,6 +415,8 @@ class ID2Options(PerGameCommonOptions):
     include_secret_dungeons: IncludeSecretDungeons
     include_dream_dungeons: IncludeDreamDungeons
     include_super_secrets: IncludeSuperSecrets
+    include_secret_signs: IncludeSecretSigns
+    block_region_connections: BlockRegionConnections
     open_d8: OpenD8
     open_s4: OpenS4
     open_dreamworld: OpenDreamworld
@@ -347,6 +435,9 @@ class ID2Options(PerGameCommonOptions):
     start_with_all_warps: StartWithAllWarps
     lockpicks_in_pool: LockpicksInPool
     crayons_in_pool: CrayonsInPool
+    remove_cards: RemoveCards
+    trap_percentage: TrapPercentage
+    super_trap_percentage: SuperTrapPercentage
     randomize_piano_puzzle: RandomizePianoPuzzle
 
 
@@ -355,7 +446,8 @@ id2_options_groups = [
         IncludePortalWorlds,
         IncludeSecretDungeons,
         IncludeDreamDungeons,
-        IncludeSuperSecrets
+        IncludeSuperSecrets,
+        IncludeSecretSigns
     ]),
     OptionGroup("Phasing Options", [
         MajorDungeonSkips,

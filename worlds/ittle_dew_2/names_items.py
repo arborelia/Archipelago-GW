@@ -19,6 +19,7 @@ class ItemNames(str, Enum):
     fake_efcs = "Impossible Gates Pass"
     shard = "Secret Shard"
     f_key = "Forbidden Key"
+    potion = "Potion"
 
     # Upgrades
     force_upgrade = "Force Wand Upgrade"
@@ -37,13 +38,17 @@ class ItemNames(str, Enum):
     scroll_portal = "Portal World Scroll"
     heart_yellow = "Yellow Heart"
     buff = "Random Buff"
+    lightning = "Lightning"
 
     # Traps
     debuff = "Random Debuff Trap"
     bee = "Bee Trap"
+    meteors = "Meteor Shower Trap"
+    bee_onslaught = "Bee Onslaught Trap"
+    snowboarding = "Free Range Snowboarding Trap"
+    matriarch = "Matriarch Trap"
 
     # Keys
-    # All locks assume you have all keys or the key ring
     d1_key = "Pillow Fort Key"
     d2_key = "Sand Castle Key"
     d3_key = "Art Exhibit Key"
@@ -134,6 +139,22 @@ class ItemNames(str, Enum):
     outfit_berry = "Jenny Berry Outfit"
     outfit_apa = "Apathetic Frog Outfit"
     outfit_that_guy = "That Guy Outfit"
+
+    # Connections
+    connect_ff_sc = "Connection - Fluffy Fields To Sweetwater Coast"
+    connect_ff_fr = "Connection - Fluffy Fields To Fancy Ruins"
+    connect_ff_sw = "Connection - Fluffy Fields To Star Woods"
+    connect_ff_ss = "Connection - Fluffy Fields To Slippery Slope"
+    connect_ff_pp = "Connection - Fluffy Fields To Pepperpain Prairie"
+    connect_sc_fr = "Connection - Sweetwater Coast To Fancy Ruins"
+    connect_sc_sw = "Connection - Sweetwater Coast To Star Woods"
+    connect_sc_ss = "Connection - Sweetwater Coast To Slippery Slope"
+    connect_fr_sw = "Connection - Fancy Ruins To Star Woods"
+    connect_fr_pp = "Connection - Fancy Ruins To Pepperpain Prairie"
+    connect_fr_fc = "Connection - Fancy Ruins To Frozen Court"
+    connect_sw_fc = "Connection - Star Woods To Frozen Court"
+    connect_ss_pp = "Connection - Slippery Slope To Pepperpain Prairie"
+    connect_ss_lr = "Connection - Slippery Slope To Lonely Road"
 
     # Tricks, abilities, and options
     can_open_chests = "Can Open Chests"

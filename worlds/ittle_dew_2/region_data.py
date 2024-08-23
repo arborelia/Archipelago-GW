@@ -30,15 +30,15 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # Overworld regions
     rname.fluffy_fields: {
         rname.pepperpain_prairie:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ff_pp.value]]),
         rname.sweetwater_coast:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ff_sc.value]]),
         rname.fancy_ruins:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ff_fr.value]]),
         rname.star_woods:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ff_sw.value]]),
         rname.slippery_slope:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ff_ss.value]]),
         rname.dreamworld_hub:
             ID2Data(ID2Type.region, [[iname.raft.value]]),
         rname.ffc_a:
@@ -101,9 +101,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
         rname.star_woods:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_sc_sw.value]]),
         rname.slippery_slope:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_sc_ss.value]]),
         rname.scc_a:
             ID2Data(ID2Type.region),
         rname.scc_b:
@@ -136,7 +136,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.scc_o:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.scc_p:
-            ID2Data(ID2Type.region),
+        # transitional cave to Fancy
+            ID2Data(ID2Type.region, [[iname.connect_sc_fr.value]]),
         rname.scc_q:
             ID2Data(ID2Type.region),
         rname.d2_g:
@@ -152,11 +153,11 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
         rname.star_woods:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_fr_sw.value]]),
         rname.pepperpain_prairie:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_fr_pp.value]]),
         rname.frozen_court:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_fr_fc.value]]),
         rname.frc_a:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.frc_b:
@@ -190,9 +191,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         # S must be reached from N
         rname.scc_p:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_sc_fr.value]]),
         rname.s2_p:
-            ID2Data(ID2Type.region, [[iname.has_opened_s2.value]]),  # TODO make event item
+            ID2Data(ID2Type.region, [[iname.has_opened_s2.value]]),
     },
     rname.fancy_hilltop: {
         rname.frc_q:
@@ -204,7 +205,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
         rname.sweetwater_coast:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_sc_sw.value]]),
         rname.swc_a:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.swc_b:
@@ -267,17 +268,17 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.swc_t:
         # You need to be able to kill the Octocles blocking the path
-            ID2Data(ID2Type.region, [[iname.basic_combat.value]]),
+            ID2Data(ID2Type.region, [[iname.basic_combat.value, iname.connect_sw_fc.value]]),
     },
     rname.slippery_slope: {
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
         rname.sweetwater_coast:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_sc_ss.value]]),
         rname.pepperpain_prairie:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ss_pp.value]]),
         rname.lonely_road_c_entrance:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ss_lr.value]]),
         rname.ssc_a:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.ssc_b:
@@ -307,7 +308,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         # shortcut from house on the hill to warp, technically has two entrances
             ID2Data(ID2Type.region),
         rname.ssc_n:
-            ID2Data(ID2Type.region),
+        # transitional cave to pepperpain
+            ID2Data(ID2Type.region, [[iname.connect_ss_pp.value]]),
         rname.ssc_o:
             ID2Data(ID2Type.region),
     },
@@ -315,9 +317,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
         rname.fancy_ruins:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_fr_pp.value]]),
         rname.slippery_slope:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ss_pp.value]]),
         rname.ppc_a:
             ID2Data(ID2Type.region, [[iname.weapon_no_force.value]]),
         rname.ppc_b:
@@ -347,7 +349,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.ppc_m:
             ID2Data(ID2Type.region),
         rname.ssc_n:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ss_pp.value]]),
     },
     rname.pepperpain_trail: {
         rname.ppc_c:
@@ -379,7 +381,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fluffy_fields:
             ID2Data(ID2Type.region),
         rname.fancy_ruins:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_fr_fc.value]]),
         rname.fcc_a:
             ID2Data(ID2Type.region, [[iname.melee.value]]),
         rname.fcc_b:
@@ -407,9 +409,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.fcc_m:
             ID2Data(ID2Type.region),
         rname.frc_n:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_fr_fc.value]]),
         rname.swc_t:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_sw_fc.value]]),
         rname.d7_y:
             ID2Data(ID2Type.region),
     },
@@ -454,7 +456,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.lonely_road_c_entrance: {
         rname.slippery_slope:
-            ID2Data(ID2Type.region),
+            ID2Data(ID2Type.region, [[iname.connect_ss_lr.value]]),
         rname.lrc_e_lower:
             ID2Data(ID2Type.region),
         rname.lrc_g:

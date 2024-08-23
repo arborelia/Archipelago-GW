@@ -3,8 +3,10 @@ from copy import deepcopy
 
 import Options
 from BaseClasses import Location, Item, Tutorial, ItemClassification
+from Options import OptionError
+from math import floor
 from Utils import visualize_regions
-from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items
+from .items import item_name_to_id, item_table, none_item_table, item_name_groups, filler_items, trap_items, super_trap_items
 from .locations import location_name_groups, location_name_to_id
 from .region_data import traversal_requirements as reqs, ID2Data, ID2Type
 from .region_rules import create_regions_with_rules
@@ -71,6 +73,12 @@ class ID2World(World):
             self.options.dungeon_rewards_setting.value = options.DungeonRewardsSetting.option_anything
             self.options.open_d8.value = options.OpenD8.option_true
 
+        if self.options.trap_percentage.value + self.options.super_trap_percentage.value > 100:
+            self.options.super_trap_percentage.value = 100 - self.options.trap_percentage.value
+
+        if not self.options.include_dream_dungeons:
+            self.options.remove_cards.value = options.RemoveCards.option_true
+
         dungeon_count = 8
         if self.options.include_secret_dungeons:
             dungeon_count += 3
@@ -89,10 +97,13 @@ class ID2World(World):
             if "Ittle Dew 2" in self.multiworld.re_gen_passthrough:
                 passthrough = self.multiworld.re_gen_passthrough["Ittle Dew 2"]
                 self.options.goal.value = passthrough["goal"]
+                self.options.required_potion_count = passthrough["required_potion_count"]
                 self.options.include_portal_worlds.value = passthrough["include_portal_worlds"]
                 self.options.include_secret_dungeons.value = passthrough["include_secret_dungeons"]
                 self.options.include_dream_dungeons.value = passthrough["include_dream_dungeons"]
                 self.options.include_super_secrets.value = passthrough["include_super_secrets"]
+                self.options.include_secret_signs.value = passthrough["include_secret_signs"]
+                self.options.block_region_connections.value = passthrough["block_region_connections"]
                 self.options.open_d8.value = passthrough["open_d8"]
                 self.options.open_s4.value = passthrough["open_s4"]
                 self.options.open_dreamworld = passthrough["open_dreamworld"]
@@ -132,10 +143,28 @@ class ID2World(World):
 
         items_to_create: Dict[str, int] = {item: data.quantity_in_item_pool for item, data in item_table.items()}
 
+        potions_to_create = 0
+        if self.options.goal.value == options.Goal.option_potion_hunt:
+            potions_to_create = self.options.required_potion_count.value + self.options.extra_potions.value
+
         # rafts and fkeys
         if self.options.dungeon_rewards_setting.value == self.options.dungeon_rewards_setting.option_rewards:
-            rafts_to_create = 8 - self.options.dungeon_rewards_count.value
             spill = 0
+            potions_to_create -= self.options.dungeon_rewards_setting.value
+            if potions_to_create < 0:
+                spill = -potions_to_create
+                potions_to_create = 0
+
+            items_to_create[iname.potion.value] = potions_to_create
+
+            if self.options.goal.value == options.Goal.option_potion_hunt:
+                rafts_to_create = 0
+                if self.options.include_dream_dungeons:
+                    rafts_to_create = 1 - spill
+                if not self.options.open_d8:
+                    rafts_to_create = 7 - spill
+            else:
+                rafts_to_create = 8 - spill
             if rafts_to_create < 0:
                 spill = -rafts_to_create
                 rafts_to_create = 0
@@ -226,10 +255,18 @@ class ID2World(World):
         items_to_create[iname.shard.value] = self.options.shard_settings.value * 12 + self.options.extra_shards.value
 
         # cards
-        if not self.options.include_dream_dungeons:
+        if self.options.remove_cards:
             for card in items_to_create.keys():
                 if card in item_name_groups["Cards"]:
                     items_to_create[card] = 0
+
+        # Connections items
+        for connection in items_to_create.keys():
+            if connection in item_name_groups["Connections"]:
+                if self.options.block_region_connections:
+                    items_to_create[connection] = 1
+                else:
+                    self.multiworld.push_precollected(self.create_item(connection))
 
         # Super Secret stuff
         if self.options.include_super_secrets:
@@ -301,13 +338,32 @@ class ID2World(World):
 
         # filler
         filler_count = len(self.multiworld.get_unfilled_locations(self.player)) - len(id2_items)
+        if filler_count < 0:
+            raise OptionError(f"Not enough space in the pool! Need space for {-filler_count} more items. {self.player_name}, "
+                              f"try reducing the number of items in your world. Try reducing the number of crayons and lockpicks, "
+                              f"using keyrings or keysey, the number of shards required, or turning on Remove Cards From Pool.\n"
+                              f"{self.player_name}, please fix your yaml.")
+        trap_count = floor((self.options.trap_percentage * 0.01) * filler_count)
+        super_trap_count = floor((self.options.super_trap_percentage * 0.01) * filler_count)
+        filler_count -= trap_count + super_trap_count
+
         for _ in range(filler_count):
             id2_items.append(self.create_item(self.get_filler_item_name()))
+        for _ in range(trap_count):
+            id2_items.append(self.create_item(self.get_trap_item_name()))
+        for _ in range(super_trap_count):
+            id2_items.append(self.create_item(self.get_super_trap_item_name()))
 
         self.multiworld.itempool += id2_items
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
+
+    def get_trap_item_name(self) -> str:
+        return self.random.choice(trap_items)
+
+    def get_super_trap_item_name(self) -> str:
+        return self.random.choice(super_trap_items)
 
     def write_spoiler_header(self, spoiler_handle: TextIO) -> None:
         if self.options.dungeon_rewards_setting.value != options.DungeonRewardsSetting.option_anything:
@@ -323,6 +379,8 @@ class ID2World(World):
         # visualize_regions(self.multiworld.get_region("Menu", self.player), "ittle_dew_2_test.puml", show_entrance_names=True, highlight_regions=state.reachable_regions[self.player])
         slot_data = self.options.as_dict(
             "goal",
+            "required_potion_count",
+            "extra_potions",
             "dungeon_rewards_setting",
             "dungeon_rewards_count",
             "progressive_items",
@@ -330,6 +388,8 @@ class ID2World(World):
             "include_secret_dungeons",
             "include_dream_dungeons",
             "include_super_secrets",
+            "include_secret_signs",
+            "block_region_connections",
             "open_d8",
             "open_s4",
             "open_dreamworld",
@@ -347,7 +407,9 @@ class ID2World(World):
             "start_with_tracker",
             "start_with_all_warps",
             "lockpicks_in_pool",
-            "crayons_in_pool"
+            "crayons_in_pool",
+            "trap_percentage",
+            "super_trap_percentage"
         )
         slot_data["required_dungeons"] = self.required_dungeons
         slot_data["piano_puzzle"] = self.piano_puzzle

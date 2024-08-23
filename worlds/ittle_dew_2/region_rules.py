@@ -166,12 +166,20 @@ def create_regions_with_rules(world: "ID2World") -> None:
     options = world.options
     id2_regions = create_id2_regions(world)
     required_dungeons: List[str] = []
+    potions_to_place = 0
     rafts_to_place = 0
     fkeys_to_place = 0
     if options.dungeon_rewards_setting.value != options.dungeon_rewards_setting.option_anything:
         required_dungeons = determine_required_dungeons(world)
         if options.dungeon_rewards_setting.value == options.dungeon_rewards_setting.option_rewards:
-            rafts_to_place = 8
+            if options.goal.value == options.goal.option_potion_hunt:
+                potions_to_place = options.required_potion_count.value + options.extra_potions.value
+                if options.include_dream_dungeons:
+                    rafts_to_place = 1
+                if not options.open_d8:
+                    rafts_to_place = 7
+            else:
+                rafts_to_place = 8
             if not options.open_s4:
                 fkeys_to_place = 4
 
@@ -211,7 +219,11 @@ def create_regions_with_rules(world: "ID2World") -> None:
                                            id2_regions[origin_name])
                     if destination_name in required_dungeons:
                         # print(f"SETTING {destination_name} AS A REQUIRED LOCATION")
-                        if rafts_to_place > 0:
+                        if potions_to_place > 0:
+                            location.place_locked_item(ID2Item(iname.potion.value, ItemClassification.progression,
+                                                               item_name_to_id[iname.potion.value], player))
+                            potions_to_place -= 1
+                        elif rafts_to_place > 0:
                             location.place_locked_item(ID2Item(iname.raft.value, ItemClassification.progression,
                                                                item_name_to_id[iname.raft.value], player))
                             rafts_to_place -= 1
@@ -391,8 +403,10 @@ def create_regions_with_rules(world: "ID2World") -> None:
         victory_event.place_locked_item(ID2Item(iname.victory, ItemClassification.progression, None, player))
         if options.goal.value == options.goal.option_raft_quest:
             victory_event.access_rule = lambda state: state.has(iname.raft.value, player, 8)
-        else:
+        elif options.goal.value == options.goal.option_queen_of_adventure:
             victory_event.access_rule = lambda state: state.has(iname.raft.value, player, 8) and state.has(iname.loot.value, player)
+        elif options.goal.value == options.goal.option_potion_hunt:
+            victory_event.access_rule = lambda state: state.has(iname.potion.value, player, options.required_potion_count.value)
         id2_regions[rname.fluffy_fields].locations.append(victory_event)
     else:
         victory_event = ID2Location(player, lname.victory_location, None, id2_regions[rname.da_ab])

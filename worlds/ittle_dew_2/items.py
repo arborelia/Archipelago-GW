@@ -34,13 +34,13 @@ item_table: Dict[str, ID2ItemData] = {
     iname.amulet.value: ID2ItemData(ItemClassification.useful, 3, 12, "Minor Items"),
     iname.tome.value: ID2ItemData(ItemClassification.useful, 3, 13, "Minor Items"),
     iname.shard.value: ID2ItemData(ItemClassification.progression | ItemClassification.useful, 36, 14, "Major Items"),
-    iname.f_key.value: ID2ItemData(ItemClassification.progression, 4, 15, "Major Items"),
+    iname.f_key.value: ID2ItemData(ItemClassification.progression | ItemClassification.useful, 4, 15, "Major Items"),
     iname.lockpick.value: ID2ItemData(ItemClassification.useful, 12, 16, "Minor Items"),
     iname.crayon.value: ID2ItemData(ItemClassification.useful, 20, 17, "Minor Items"),
     # iname.scroll_cave.value: ID2ItemData(ItemClassification.filler, 0, 18, "Bonus Items"),
     # iname.scroll_portal.value: ID2ItemData(ItemClassification.filler, 0, 19, "Bonus Items"),
     iname.heart_yellow.value: ID2ItemData(ItemClassification.filler, 0, 20, "Bonus Items"),
-    iname.raft.value: ID2ItemData(ItemClassification.progression, 8, 21, "Major Items"),
+    iname.raft.value: ID2ItemData(ItemClassification.progression | ItemClassification.useful, 8, 21, "Major Items"),
     iname.d1_key.value: ID2ItemData(ItemClassification.progression, 0, 22, "Keys"),
     iname.d1_keyring.value: ID2ItemData(ItemClassification.progression, 0, 23, "Key Rings"),
     iname.d2_key.value: ID2ItemData(ItemClassification.progression, 0, 24, "Keys"),
@@ -128,7 +128,27 @@ item_table: Dict[str, ID2ItemData] = {
     iname.card_fly.value: ID2ItemData(ItemClassification.filler, 1, 140, "Cards"),
     iname.buff.value: ID2ItemData(ItemClassification.filler, 0, 141, "Bonus Items"),
     iname.debuff.value: ID2ItemData(ItemClassification.trap, 0, 142, "Traps"),
-    iname.bee.value: ID2ItemData(ItemClassification.trap, 0, 143, "Traps")
+    iname.bee.value: ID2ItemData(ItemClassification.trap, 0, 143, "Traps"),
+    iname.lightning.value: ID2ItemData(ItemClassification.filler, 0, 144, "Bonus Items"),
+    iname.meteors.value: ID2ItemData(ItemClassification.trap, 0, 145, "Traps"),
+    iname.bee_onslaught.value: ID2ItemData(ItemClassification.trap, 0, 146, "Super Traps"),
+    iname.snowboarding.value: ID2ItemData(ItemClassification.trap, 0, 147, "Super Traps"),
+    iname.matriarch.value: ID2ItemData(ItemClassification.trap, 0, 148, "Super Traps"),
+    iname.connect_ff_sc.value: ID2ItemData(ItemClassification.progression, 0, 149, "Connections"),
+    iname.connect_ff_fr.value: ID2ItemData(ItemClassification.progression, 0, 150, "Connections"),
+    iname.connect_ff_sw.value: ID2ItemData(ItemClassification.progression, 0, 151, "Connections"),
+    iname.connect_ff_ss.value: ID2ItemData(ItemClassification.progression, 0, 152, "Connections"),
+    iname.connect_ff_pp.value: ID2ItemData(ItemClassification.progression, 0, 153, "Connections"),
+    iname.connect_sc_fr.value: ID2ItemData(ItemClassification.progression, 0, 154, "Connections"),
+    iname.connect_sc_sw.value: ID2ItemData(ItemClassification.progression, 0, 155, "Connections"),
+    iname.connect_sc_ss.value: ID2ItemData(ItemClassification.progression, 0, 156, "Connections"),
+    iname.connect_fr_sw.value: ID2ItemData(ItemClassification.progression, 0, 157, "Connections"),
+    iname.connect_fr_pp.value: ID2ItemData(ItemClassification.progression, 0, 158, "Connections"),
+    iname.connect_fr_fc.value: ID2ItemData(ItemClassification.progression, 0, 159, "Connections"),
+    iname.connect_sw_fc.value: ID2ItemData(ItemClassification.progression, 0, 160, "Connections"),
+    iname.connect_ss_pp.value: ID2ItemData(ItemClassification.progression, 0, 161, "Connections"),
+    iname.connect_ss_lr.value: ID2ItemData(ItemClassification.progression, 0, 162, "Connections"),
+    iname.potion.value: ID2ItemData(ItemClassification.progression_skip_balancing | ItemClassification.useful, 0, 163, "Major Items")
 }
 
 none_item_table: Dict[str, ID2ItemData] = {
@@ -149,9 +169,11 @@ none_item_table: Dict[str, ID2ItemData] = {
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}
 
-filler_items: List[str] = [name for name, data in item_table.items() if
-                           (data.classification in ItemClassification.filler or
-                            data.classification in ItemClassification.trap) and data.quantity_in_item_pool == 0]
+filler_items: List[str] = [name for name, data in item_table.items() if data.item_group == "Bonus Items"]
+
+trap_items: List[str] = [name for name, data in item_table.items() if data.item_group == "Traps"]
+
+super_trap_items: List[str] = [name for name, data in item_table.items() if data.item_group == "Super Traps"]
 
 
 def get_item_group(item_name: str) -> str:
