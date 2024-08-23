@@ -79,6 +79,9 @@ class ID2World(World):
         if not self.options.include_dream_dungeons:
             self.options.remove_cards.value = options.RemoveCards.option_true
 
+        if self.options.block_region_connections:
+            self.options.start_with_all_warps.value = options.StartWithAllWarps.option_false
+
         dungeon_count = 8
         if self.options.include_secret_dungeons:
             dungeon_count += 3

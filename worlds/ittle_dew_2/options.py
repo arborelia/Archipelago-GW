@@ -143,6 +143,7 @@ class BlockRegionConnections(Toggle):
     Adds 14 area connection items which are required to travel between areas. For example, you need the
     "Connection - Fluffy Fields To Sweetwater Coast" to be able to enter Sweetwater Coast from Fluffy Fields.
     Connections are two-way, so that also allows you to enter Fluffy Fields from Sweetwater Coast.
+    This is not compatible with and will disable Start With All Warps.
     """
     internal_name = "block_region_connections"
     display_name = "Region Connection Blockades"
@@ -319,7 +320,8 @@ class StartWithTracker(Toggle):
 
 class StartWithAllWarps(DefaultOnToggle):
     """
-    Start with all the warps in the Warp Garden unlocked for convenience
+    Start with all the warps in the Warp Garden unlocked for convenience.
+    This will be disabled if Region Connection Blockades is on.
     """
     internal_name = "start_with_all_warps"
     display_name = "Start With All Warps Unlocked"
