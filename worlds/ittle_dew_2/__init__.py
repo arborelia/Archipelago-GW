@@ -149,6 +149,7 @@ class ID2World(World):
         potions_to_create = 0
         if self.options.goal.value == options.Goal.option_potion_hunt:
             potions_to_create = self.options.required_potion_count.value + self.options.extra_potions.value
+            items_to_create[iname.potion.value] = potions_to_create
 
         # rafts and fkeys
         if self.options.dungeon_rewards_setting.value == self.options.dungeon_rewards_setting.option_rewards:
@@ -157,8 +158,6 @@ class ID2World(World):
             if potions_to_create < 0:
                 spill = -potions_to_create
                 potions_to_create = 0
-
-            items_to_create[iname.potion.value] = potions_to_create
 
             if self.options.goal.value == options.Goal.option_potion_hunt:
                 rafts_to_create = 0
@@ -181,6 +180,8 @@ class ID2World(World):
                 fkeys_to_create = 0
 
             items_to_create[iname.f_key.value] = fkeys_to_create
+
+        items_to_create[iname.potion.value] = potions_to_create
 
         if self.options.goal.value == options.Goal.option_queen_of_dreams:
             items_to_create[iname.raft.value] = 1
