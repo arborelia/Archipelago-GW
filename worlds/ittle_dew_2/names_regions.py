@@ -600,7 +600,8 @@ class RegionNames(str, Enum):
     somewhere = "Somewhere"
     # Debug room, normally inaccessible
     test_chamber = "Test Chamber"
-    ludo_city = "Ludo City"
+    ludo_city_a = "Ludo City A"
+    ludo_city_b = "Ludo City B"
     abyssal_plain = "Abyssal Plain"
     place_a = "Place From Younger Days A"
     place_b = "Place From Younger Days B"

@@ -131,7 +131,7 @@ class IncludeSuperSecrets(Toggle):
 
 class IncludeSecretSigns(Toggle):
     """
-    The four incomplete signs and the eight metal signs in the eight main dungeons give you an item when they're read.
+    The four incomplete signs and the Super Hint signs give you an item when they're read.
     The number and letter signs are included if Super Secrets are on.
     """
     internal_name = "include_secret_signs"

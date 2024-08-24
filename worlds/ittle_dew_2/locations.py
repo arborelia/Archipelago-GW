@@ -25,6 +25,8 @@ location_table: Dict[str, ID2LocationData] = {
     "Fluffy Fields Caves - Six Buns Combat Chest": ID2LocationData(rname.ffc_q.value, 9),
     "Fluffy Fields Caves - Artist Backroom Chest": ID2LocationData(rname.ffc_x2.value, 10),
     "Fluffy Fields Caves - Jenny Berry House Outfit": ID2LocationData(rname.ffc_u.value, 11, "Super Secrets"),
+    "Fluffy Fields Caves - Incomplete Sign": ID2LocationData(rname.ffc_h.value, 12, "Incomplete Signs"),
+    "Fluffy Fields Caves - Cipher Sign": ID2LocationData(rname.ffc_u2.value, 13, "Cipher Signs"),
     # 100: Sweetwater Coast
     "Sweetwater Coast Caves - White Gates Combat Chest": ID2LocationData(rname.scc_b.value, 100),
     "Sweetwater Coast Caves - Feral Gates Combat Chest": ID2LocationData(rname.scc_g.value, 101),
@@ -35,6 +37,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Sweetwater Coast Caves - Fake Chest Cave Chest": ID2LocationData(rname.scc_l.value, 106),
     "Sweetwater Coast Caves - Wooden Balls Spike Floor Chest": ID2LocationData(rname.scc_m.value, 107),
     "Sweetwater Coast Caves - Kung Fu Jenny Chest": ID2LocationData(rname.scc_n.value, 108),
+    "Sweetwater Coast Caves - Incomplete Sign": ID2LocationData(rname.ssc_d.value, 109, "Incomplete Signs"),
     # 200: Fancy Ruins
     "Fancy Ruins Caves - Two Torches Chest": ID2LocationData(rname.frc_a.value, 200),
     "Fancy Ruins Caves - Numbered Torches Chest": ID2LocationData(rname.frc_b.value, 201),
@@ -82,6 +85,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Pepperpain Caves - Buzzsaw Path Chest": ID2LocationData(rname.ppc_o.value, 508),
     "Pepperpain Caves - Number Tiles Chest": ID2LocationData(rname.ppc_p.value, 509),
     "Pepperpain Caves - Pacifist Brute Chest": ID2LocationData(rname.ppc_u.value, 510),
+    "Pepperpain Caves - Incomplete Sign": ID2LocationData(rname.ppc_e.value, 511, "Incomplete Signs"),
     # 600: Frozen Court
     "Frozen Court Caves - Bushfire Chest": ID2LocationData(rname.fcc_a.value, 600),
     "Frozen Court Caves - Cannon Spinner Chest": ID2LocationData(rname.fcc_b.value, 601),
@@ -93,6 +97,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Frozen Court Caves - Crystal Path Chest": ID2LocationData(rname.fcc_j.value, 607),
     "Frozen Court Caves - Teleporter Grate Chest": ID2LocationData(rname.fcc_k.value, 608),
     "Frozen Court Caves - Hint Hermit Chest": ID2LocationData(rname.fcc_l.value, 609),
+    "Frozen Court Caves - Cipher Sign": ID2LocationData(rname.fcc_p.value, 610, "Cipher Signs"),
     # 700: Lonely Road
     "Lonely Road Caves - Timed Platforms Chest": ID2LocationData(rname.lrc_b.value, 700),
     "Lonely Road Caves - Timed Number Tiles Chest": ID2LocationData(rname.lrc_c.value, 701),
@@ -103,6 +108,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Lonely Road Caves - Teleporter Cube Chest": ID2LocationData(rname.lrc_r.value, 706),
     "Lonely Road Caves - Dark Maze Chest": ID2LocationData(rname.lrc_s.value, 707),
     "Lonely Road Caves - Block Factory": ID2LocationData(rname.lrc_t.value, 708),
+    "Lonely Road Caves - Incomplete Sign": ID2LocationData(rname.lrc_i_right, 709),
     # 800: Pillow Fort
     "Pillow Fort - Treasure Chest": ID2LocationData(rname.d1_i.value, 800, "Dungeons"),
     "Pillow Fort - Shellbun Nest Key": ID2LocationData(rname.d1_j.value, 801, "Dungeons"),
@@ -294,11 +300,30 @@ location_table: Dict[str, ID2LocationData] = {
     "Lost City of Avlopp - Chest": ID2LocationData(rname.lost_city_c.value, 2512, "Portal Worlds"),
     "Northern End - Chest": ID2LocationData(rname.northern_end_f.value, 2513, "Portal Worlds"),
     "Moon Garden - Chest": ID2LocationData(rname.moon_garden_north.value, 2514, "Portal Worlds"),
+    "Maze of Steel - Hint Sign": ID2LocationData(rname.maze_of_steel_e.value, 2515, "Hint Signs"),
+    "Maze of Steel - Cipher Sign": ID2LocationData(rname.maze_of_steel_f.value, 2516, "Cipher Signs"),
     
     # 2600+: Misc Locations
-    "Ludo City - Chest": ID2LocationData(rname.ludo_city.value, 2600, "Super Secrets"),
+    "Ludo City - Chest": ID2LocationData(rname.ludo_city_a.value, 2600, "Super Secrets"),
     "Bad Dream - Card": ID2LocationData(rname.bad_dream.value, 2602, "Super Secrets"),
-    "Promised Remedy - That Guy Outfit": ID2LocationData(rname.pr_b.value, 2603, "Super Secrets")
+    "Promised Remedy - That Guy Outfit": ID2LocationData(rname.pr_b.value, 2603, "Super Secrets"),
+    "Nowhere - Left Hint Sign": ID2LocationData(rname.nowhere.value, 2604, "Hint Signs"),
+    "Nowhere - Right Hint Sign": ID2LocationData(rname.nowhere.value, 2605, "Cipher Signs"),
+    "Nowhere - Cipher Sign": ID2LocationData(rname.nowhere.value, 2606, "Cipher Signs"),
+    "Ludo City - Cipher Sign": ID2LocationData(rname.ludo_city_b.value, 2607, "Cipher Signs"),
+    "Abyssal Plane - Shard Hint Sign": ID2LocationData(rname.abyssal_plain.value, 2608, "Hint Signs"),
+    "Abyssal Plane - Roll Hint Sign": ID2LocationData(rname.abyssal_plain.value, 2609, "Hint Signs"),
+    "Abyssal Plane - Drop Table Hint Sign": ID2LocationData(rname.abyssal_plain.value, 2610, "Hint Signs"),
+    "Abyssal Plane - Boss Hint Sign": ID2LocationData(rname.abyssal_plain.value, 2611, "Hint Signs"),
+    "Place From Younger Days - Cipher Sign": ID2LocationData(rname.place_d.value, 2612, "Cipher Signs"),
+    "Promised Remedy - E Cipher Sign": ID2LocationData(rname.pr_e.value, 2613, "Cipher Signs"),
+    "Promised Remedy - F Cipher Sign": ID2LocationData(rname.pr_f.value, 2614, "Cipher Signs"),
+    "Promised Remedy - G Left Cipher Sign": ID2LocationData(rname.pr_g.value, 2615, "Cipher Signs"),
+    "Promised Remedy - G Middle Cipher Sign": ID2LocationData(rname.pr_g.value, 2616, "Cipher Signs"),
+    "Promised Remedy - G Right Cipher Sign": ID2LocationData(rname.pr_g.value, 2617, "Cipher Signs"),
+    "Promised Remedy - M Cipher Sign": ID2LocationData(rname.pr_m.value, 2618, "Cipher Signs"),
+    "Promised Remedy - N Cipher Sign": ID2LocationData(rname.pr_n.value, 2619, "Cipher Signs"),
+    "Promised Remedy - NAAQ BLX Sign": ID2LocationData(rname.pr_q.value, 2620, "Cipher Signs")
 }
 
 event_location_table: Dict[str, ID2LocationData] = {

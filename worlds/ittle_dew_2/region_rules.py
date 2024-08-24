@@ -211,6 +211,18 @@ def create_regions_with_rules(world: "ID2World") -> None:
                     if destination_name in location_name_groups["Super Secrets"]:
                         # print("Super Secrets are off, excluding this location.")
                         continue
+
+                # secret signs
+                if not options.include_secret_signs:
+                    if destination_name in location_name_groups["Incomplete Signs"]:
+                        continue
+                    if destination_name in location_name_groups["Hint Signs"]:
+                        continue
+                else:
+                    if not options.include_secret_signs:
+                        if destination_name in location_name_groups["Cipher Signs"]:
+                            continue
+
                 if data.grant_event:
                     location = ID2Location(player, destination_name, None, id2_regions[origin_name])
                     location.place_locked_item(ID2Item(data.grant_event, ItemClassification.progression, None, player))

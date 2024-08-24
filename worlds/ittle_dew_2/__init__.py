@@ -153,7 +153,7 @@ class ID2World(World):
         # rafts and fkeys
         if self.options.dungeon_rewards_setting.value == self.options.dungeon_rewards_setting.option_rewards:
             spill = 0
-            potions_to_create -= self.options.dungeon_rewards_setting.value
+            potions_to_create -= self.options.dungeon_rewards_count.value
             if potions_to_create < 0:
                 spill = -potions_to_create
                 potions_to_create = 0
@@ -171,6 +171,8 @@ class ID2World(World):
             if rafts_to_create < 0:
                 spill = -rafts_to_create
                 rafts_to_create = 0
+            else:
+                spill = 0
 
             items_to_create[iname.raft.value] = rafts_to_create
 

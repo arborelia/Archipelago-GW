@@ -567,6 +567,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.ffc_h: {
         # transitional cave from one side of Fluffy to the other
         # ...SPRUCE THAT IS...
+        lname.sign_incomplete_2:
+            ID2Data(ID2Type.location)
     },
     rname.ffc_i: {
         # lazy turnip cave
@@ -625,6 +627,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ffc_u2: {
         # Jenny Berry PR hint sign
+        lname.sign_ffc_cipher:
+            ID2Data(ID2Type.location)
     },
     rname.ffc_w: {
         # Laundry
@@ -655,6 +659,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.scc_d: {
         # transitional cave from e to main coast
+        # ...THE TREASURE CHEST
+        lname.sign_incomplete_4:
+            ID2Data(ID2Type.location, [[iname.weapon_any.value]])
     },
     rname.scc_e: {
         rname.the_vault_d:
@@ -971,6 +978,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.ppc_e: {
         # hint bee ...NEXT TO...
+        lname.sign_incomplete_3:
+            ID2Data(ID2Type.location)
     },
     rname.ppc_f: {
         lname.ppc_torch_disappearing_path:
@@ -1104,6 +1113,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region)
     },
     rname.fcc_p: {
+        lname.sign_fcc_cipher:
+            ID2Data(ID2Type.location),
         rname.frozen_court:
             ID2Data(ID2Type.region),
         rname.fcc_i:
@@ -1174,6 +1185,9 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.can_phase_gap_difficult.value]])
     },
     rname.lrc_i_right: {
+        # ENTER THE...
+        lname.sign_incomplete_1:
+            ID2Data(ID2Type.location),
         rname.forbidden_area_south:
             ID2Data(ID2Type.region),
         rname.lrc_i_left:
@@ -4803,12 +4817,16 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.maze_of_steel_e: {
+        lname.sign_mos_hint:
+            ID2Data(ID2Type.location),
         rname.maze_of_steel_a_left:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.maze_of_steel_f:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     rname.maze_of_steel_f: {
+        lname.sign_mos_cipher:
+            ID2Data(ID2Type.location),
         rname.maze_of_steel_e:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
@@ -4875,7 +4893,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.lost_city_c:
             ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.pr_q:
-            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),  # TODO remove vanilla requirements
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
     },
     rname.northern_end_a: {
         rname.northern_end_f:
@@ -4928,6 +4946,12 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.nowhere: {
+        lname.sign_nowhere_hint_left:
+            ID2Data(ID2Type.location),
+        lname.sign_nowhere_hint_right:
+            ID2Data(ID2Type.location),
+        lname.sign_nowhere_cipher:
+            ID2Data(ID2Type.location),
         rname.farthest_shore:
             ID2Data(ID2Type.region),
     },
@@ -4953,20 +4977,36 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
         rname.abandoned_house:
             ID2Data(ID2Type.region),
-        rname.ludo_city:
+        rname.ludo_city_a:
             ID2Data(ID2Type.region),
     },
     rname.test_chamber: {
         rname.ffc_a:
             ID2Data(ID2Type.region),
     },
-    rname.ludo_city: {
+    rname.ludo_city_a: {
         lname.ludo_city:
             ID2Data(ID2Type.location, [[iname.can_open_chests.value]]),
+        rname.ludo_city_b:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]]),
         rname.somewhere:
             ID2Data(ID2Type.region),
     },
+    rname.ludo_city_b: {
+        lname.sign_ludo_city_cipher:
+            ID2Data(ID2Type.location),
+        rname.ludo_city_a:
+            ID2Data(ID2Type.region, [[iname.weapon_any.value]])
+    },
     rname.abyssal_plain: {
+        lname.sign_abyss_shard_hint:
+            ID2Data(ID2Type.location),
+        lname.sign_abyss_roll_hint:
+            ID2Data(ID2Type.location),
+        lname.sign_abyss_drop_hint:
+            ID2Data(ID2Type.location),
+        lname.sign_abyss_boss_hint:
+            ID2Data(ID2Type.location),
         rname.moon_garden_north:
             ID2Data(ID2Type.region),
         rname.place_p:
@@ -4991,6 +5031,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.place_d: {
+        lname.sign_place_cipher:
+            ID2Data(ID2Type.location),
         rname.place_e:
             ID2Data(ID2Type.region),
     },
@@ -5119,16 +5161,26 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.pr_e: {
+        lname.sign_pr_e_cipher:
+            ID2Data(ID2Type.location),
         rname.pr_d:
             ID2Data(ID2Type.region),
         rname.pr_g:
             ID2Data(ID2Type.region),
     },
     rname.pr_f: {
+        lname.sign_pr_f_cipher:
+            ID2Data(ID2Type.location),
         rname.pr_j:
             ID2Data(ID2Type.region),
     },
     rname.pr_g: {
+        lname.sign_pr_g_left_cipher:
+            ID2Data(ID2Type.location),
+        lname.sign_pr_g_middle_cipher:
+            ID2Data(ID2Type.location),
+        lname.sign_pr_g_right_cipher:
+            ID2Data(ID2Type.location),
         rname.pr_e:
             ID2Data(ID2Type.region),
         rname.pr_h:
@@ -5191,10 +5243,14 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region),
     },
     rname.pr_m: {
+        lname.sign_pr_m_cipher:
+            ID2Data(ID2Type.location),
         rname.pr_s:
             ID2Data(ID2Type.region),
     },
     rname.pr_n: {
+        lname.sign_pr_n_cipher:
+            ID2Data(ID2Type.location),
         rname.pr_o:
             ID2Data(ID2Type.region),
     },
@@ -5213,6 +5269,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.efcs.value]]),
     },
     rname.pr_q: {
+        lname.sign_pr_tippsie_cipher:
+            ID2Data(ID2Type.location),
         rname.pr_k_bottom:
             ID2Data(ID2Type.region, [[iname.efcs.value]]),
         rname.pr_p:
