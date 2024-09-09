@@ -2634,7 +2634,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     },
     rname.s1_c: {
         lname.s1_death_ogler_combat:
-            ID2Data(ID2Type.location),
+            ID2Data(ID2Type.location, [[iname.weapon_any.value]]),
         rname.s1_d:
             ID2Data(ID2Type.region),
     },
@@ -3779,7 +3779,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         lname.dd_sc_switch:
             ID2Data(ID2Type.location, [[]], iname.dd_sc_switch.value),
         lname.dd_switch_chamber:
-            ID2Data(ID2Type.location),
+            ID2Data(ID2Type.location, [[iname.dd_key.value + "*3"]]),
         rname.dd_al:
             ID2Data(ID2Type.region),
         rname.dd_an:
@@ -3822,8 +3822,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.dd_an:
             ID2Data(ID2Type.region),
         rname.dd_at:
-            ID2Data(ID2Type.region, [[iname.dw_vanilla.value, iname.glitchless.value, iname.dd_key.value + "*1"],
-                                     [iname.dd_key.value + "*3"]]),
+            ID2Data(ID2Type.region, [[iname.dd_key.value + "*1"]]),
     },
     # Antigram
     rname.dfc_a: {
