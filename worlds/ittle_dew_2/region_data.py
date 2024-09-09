@@ -1241,8 +1241,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.dreamworld_dynamite:
             ID2Data(ID2Type.region, [[iname.dynamite.value],
                                      [iname.can_phase_object_difficult.value, iname.ice.value, iname.roll.value],
-                                     # A weapon is needed to get past the blockade
-                                     [iname.open_dw.value, iname.weapon_any.value]]),
+                                     [iname.open_dw.value]]),
         rname.dreamworld_ice:
             ID2Data(ID2Type.region, [[iname.ice.value],
                                      [iname.force.value, iname.can_phase_object.value, iname.roll.value],
