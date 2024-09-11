@@ -55,6 +55,7 @@ class ID2World(World):
 
     required_dungeons: List[str] = []
     piano_puzzle: str = "DEAD"
+    hint_seed = 0
 
     options: ID2Options
     options_dataclass = ID2Options
@@ -81,6 +82,8 @@ class ID2World(World):
 
         if self.options.block_region_connections:
             self.options.start_with_all_warps.value = options.StartWithAllWarps.option_false
+
+        self.hint_seed = self.random.randint(0, 2000000000)
 
         dungeon_count = 8
         if self.options.include_secret_dungeons:
@@ -362,6 +365,20 @@ class ID2World(World):
 
         self.multiworld.itempool += id2_items
 
+        # early weapon choice
+        if self.options.early_weapon_choice.value != options.EarlyWeaponChoice.option_off:
+            early_item_name = ""
+            if self.options.early_weapon_choice.value == options.EarlyWeaponChoice.option_melee:
+                early_item_name = iname.melee.value
+            elif self.options.early_weapon_choice.value == options.EarlyWeaponChoice.option_force_wand:
+                early_item_name = iname.force.value
+            elif self.options.early_weapon_choice.value == options.EarlyWeaponChoice.option_dynamite:
+                early_item_name = iname.dynamite.value
+            elif self.options.early_weapon_choice.value == options.EarlyWeaponChoice.option_ice_ring:
+                early_item_name = iname.ice.value
+            self.multiworld.local_early_items[self.player][early_item_name] = 1
+
+
     def get_filler_item_name(self) -> str:
         return self.random.choice(filler_items)
 
@@ -419,6 +436,7 @@ class ID2World(World):
         )
         slot_data["required_dungeons"] = self.required_dungeons
         slot_data["piano_puzzle"] = self.piano_puzzle
+        slot_data["hint_seed"] = self.hint_seed
         # print("SLOT DATA:")
         # print(slot_data)
         return slot_data

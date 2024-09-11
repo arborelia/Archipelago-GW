@@ -258,6 +258,34 @@ class RollOpensChests(Toggle):
     display_name = "Roll Opens Chests"
 
 
+class EarlyWeaponChoice(Choice):
+    """
+    Force a specific weapon to be in Sphere 1.
+    Since the randomizer will usually pick stick to be your earliest weapon if Randomize Stick is on, this setting
+    can be used to try to force something else.
+    Ice Ring is the easiest, Force Wand is the most limited, and Dynamite is the most difficult.
+    Note that this setting will generally be completely ineffective if you don't Randomize Stick.
+    Keeping the setting off lets Archipelago determine your earliest weapon, and may not put it in sphere 1.
+    """
+    internal_name = "early_weapon_choice"
+    display_name = "Early Weapon Choice"
+    option_off = 0
+    option_melee = 1
+    option_force_wand = 2
+    option_dynamite = 3
+    option_ice_ring = 4
+    default = 0
+
+
+class HintSetting(Toggle):
+    """
+    Replaces the text of various NPCs and the ten Note To Self signs with hints on barren or valuable regions, or
+    locations of certain items. Note To Self sign hints will be more valuable than NPC hints.
+    """
+    internal_name = "hint_setting"
+    display_name = "Hints"
+
+
 class MajorDungeonSkips(Toggle):
     """
     Allows the following tricks:
@@ -429,6 +457,8 @@ class ID2Options(PerGameCommonOptions):
     randomize_stick: RandomizeStick
     randomize_roll: RandomizeRoll
     roll_opens_chests: RollOpensChests
+    early_weapon_choice: EarlyWeaponChoice
+    hint_setting: HintSetting
     major_dungeon_skips: MajorDungeonSkips
     phasing_setting: PhasingSetting
     phasing_enemies: PhasingEnemies
