@@ -219,7 +219,7 @@ def create_regions_with_rules(world: "ID2World") -> None:
                     if destination_name in location_name_groups["Hint Signs"]:
                         continue
                 else:
-                    if not options.include_secret_signs:
+                    if not options.include_super_secrets:
                         if destination_name in location_name_groups["Cipher Signs"]:
                             continue
 

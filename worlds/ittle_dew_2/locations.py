@@ -108,7 +108,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Lonely Road Caves - Teleporter Cube Chest": ID2LocationData(rname.lrc_r.value, 706),
     "Lonely Road Caves - Dark Maze Chest": ID2LocationData(rname.lrc_s.value, 707),
     "Lonely Road Caves - Block Factory": ID2LocationData(rname.lrc_t.value, 708),
-    "Lonely Road Caves - Incomplete Sign": ID2LocationData(rname.lrc_i_right, 709),
+    "Lonely Road Caves - Incomplete Sign": ID2LocationData(rname.lrc_i_right, 709, "Cipher Signs"),
     # 800: Pillow Fort
     "Pillow Fort - Treasure Chest": ID2LocationData(rname.d1_i.value, 800, "Dungeons"),
     "Pillow Fort - Shellbun Nest Key": ID2LocationData(rname.d1_j.value, 801, "Dungeons"),
