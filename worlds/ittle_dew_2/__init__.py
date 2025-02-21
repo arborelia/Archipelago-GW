@@ -189,6 +189,9 @@ class ID2World(World):
         if self.options.goal.value == options.Goal.option_queen_of_dreams:
             items_to_create[iname.raft.value] = 1
 
+        if self.options.shard_settings.value == options.ShardSettings.option_open:
+            self.options.extra_shards.value = 0
+
         # if randomize stick is off, give the player a free melee and remove one from the pool
         if not self.options.randomize_stick:
             self.multiworld.push_precollected(self.create_item(iname.melee.value))
